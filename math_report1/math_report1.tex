@@ -1,0 +1,125 @@
+\documentclass[uplatex]{jsarticle}
+
+\usepackage{amssymb}
+
+\title{離散数学 演習課題レポート1}
+\author{細川 夏風}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+
+\section{問１}
+\renewcommand{\theenumi}{(\arabic{enumi})}
+\begin{enumerate}
+\vspace{12pt}
+
+\item 
+	\begin{enumerate}
+		\item 吉原秀くんのGPAは3.0以上である．
+		\item $\sqrt{2}$は無理数である．
+		\item 日本語は英語ではない．
+	\end{enumerate}
+
+\vspace{12pt}
+
+\item
+	\begin{enumerate}
+		\item ''アルジャーノンに花束を''という小説はとても面白い．
+		\item 藤井聡太7冠はとてもすごい．
+		\item ある学生はとても偉い．
+	\end{enumerate}
+\vspace{12pt}
+
+\item
+	\begin{enumerate}
+		\item ある実数xは0以上の整数である．
+		\item ある情報学群の学生Aはドミトリーに住んでいる．
+		\item ある国Bは経度135°の位置に存在している．
+	\end{enumerate}
+
+\end{enumerate}
+
+\section{問2}
+\renewcommand{\theenumi}{(\arabic{enumi})}
+\begin{enumerate}
+\vspace{12pt}
+
+\item
+	\begin{enumerate}
+		\item すべての情報学群の学生は情報代数の授業を履修している．
+		\item すべての車好きは頭文字Dを閲覧したことがある．
+		\item すべての飲食店は禁煙席が存在する．
+	\end{enumerate}
+
+\vspace{12pt}
+\item	
+	\begin{enumerate}
+		\item ある情報学群の学生は情報代数の授業を履修していない．
+		\item ある車好きは頭文字Dを閲覧したことがない．
+		\item ある飲食店は禁煙席が存在しない．
+	\end{enumerate}
+
+\vspace{12pt}
+\item
+	\begin{enumerate}
+		\item ある情報学群の学生は筋トレをしていない．
+		\item ある政治家は汚職をしている．
+		\item ある情報学群の先生はコーラを持参している．
+	\end{enumerate}
+
+\vspace{12pt}
+\item
+	\begin{enumerate}
+		\item すべての情報学群の学生は筋トレをしている．
+		\item すべての政治家は汚職をしていない．
+		\item すべての情報学群の先生はコーラを持参していない．
+	\end{enumerate}
+\end{enumerate}
+
+\section{問3}
+\begin{enumerate}
+\vspace{12pt}
+
+\item
+	\begin{enumerate}
+		\item すべての情報学群の学生が履修している科目が存在する．
+		\item どんなコンピュータにもインストールされているソフトウェアが存在する．
+		\item ある人間はすべての大学生に嫌われている．
+	\end{enumerate}
+\vspace{12pt}
+\item
+	\begin{enumerate}
+		\item すべての科目について、その科目を履修していない学生が存在する．
+		\item すべてのソフトウェアについて、そのソフトウェアがインストールされていないコンピュータが存在する．
+		\item すべての人間はある大学生に嫌われていない．
+	\end{enumerate}
+\item $x + y = y + x$を満たすような任意の自然数$x$とある自然数$y$が存在する．
+\end{enumerate}
+
+\section{問4}
+\begin{enumerate}
+\vspace{12pt}
+
+	\item $\exists x ( 2x = n ), x \in \mathbb{Z}_+$
+	\item 上記の命題について、$n = 28$のとき、論理式$\exists x ( 2x = 28 )$となる．$x = 14$のとき、$28 = 2 \times 14 = 2x $が成り立つためこの命題は真である．
+	\item $A \subset B \leftrightarrow \forall x (x \in A \rightarrow x \in B)$
+	\item 命題について集合$F$、$T$について、$F = \{x | \exists k(x = 4k)\}$．ただしこのとき、$k, x \in \mathbb{Z}$である．$T = \{ y | \exists l (x=2l)\}$．ただし、このとき、$l,y \in \mathbb{Z}$である．このとき、$a' \in F$がを満たすような$a'$を任意にとる．このとき$a'=4k$を満たすような整数$k'$をとれる．$l' =2k'$とおく、$a' = 4k' =2l'$が成り立つため、$a' \in T$となる以上より、$F \subset T$となる．
+	\item 
+			否定命題 $\exists x (x \in P \land x \not\in E )$    $(x \in \mathbb{Z}_+)$を示す．
+			$x = 2$のとき、$2 \in P$かつ$2 \not\in E$である．よって、$x \in P \land x \not\in E$を満たす$x$が存在するため、否定命題$\exists x ( x \in P \land x \not\in E )$は成り立つ．よって順命題は偽である．
+
+\end{enumerate}
+
+\section{問5}
+\begin{enumerate}
+	\item 命題:任意の整数$n$について、$n^2 + 1$は偶数である．
+		\begin{enumerate}
+			\item この命題を論理式で表すと$\forall n\exists k (n^2 + 1 = 2k)$と表すことができる．このとき$k,n \in \mathbb{Z}$．この否定命題$\exists n \forall k (n^2 + 1 \neq 2k)$について考える．$2k$について、任意の2の倍数となる$k'$とれる．このとき、$\exists n (n^2 + 1 \neq k')$は$n = 2$のとき、この否定命題が成り立つため、順命題は成り立たない．
+		\end{enumerate}
+\end{enumerate}
+
+\end{document}

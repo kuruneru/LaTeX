@@ -1,0 +1,416 @@
+\documentclass{jlreq}
+
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{enumerate}
+\usepackage{tikz}
+\usepackage{listings, xcolor}
+
+\lstset{
+  basicstyle = {\ttfamily}, % 基本的なフォントスタイル
+  frame = {tbrl}, % 枠線の枠線。t: top, b: bottom, r: right, l: left
+  breaklines = true, % 長い行の改行
+  numbers = left, % 行番号の表示。left, right, none
+  showspaces = false, % スペースの表示
+  showstringspaces = false, % 文字列中のスペースの表示
+  showtabs = false, %　タブの表示
+  keywordstyle = \color{blue}, % キーワードのスタイル。intやwhileなど
+  commentstyle = {\color[HTML]{1AB91A}}, % コメントのスタイル
+  identifierstyle = \color{black}, % 識別子のスタイル　関数名や変数名
+  stringstyle = \color{brown}, % 文字列のスタイル
+  captionpos = t % キャプションの位置 t: 上、b: 下
+}
+
+\title{Study01のレポート}
+\author{細川 夏風}
+\date{\today}
+
+\begin{document}
+
+ \maketitle
+
+  \section*{Study01\_1}
+  \begin{lstlisting}[caption=Study01\_1.javaのソースコード, label=code:in, language=java]
+    public class Study01_1 {
+      public static void main(String[] args) {
+
+        int count = 0;
+
+        for (int k = 1; k <= Integer.parseInt(args[0]); k++) {
+          //左側に三角形の分の空白を作る
+          for (int i = (Integer.parseInt(args[0]) * 2) - k; i >= 0; i--) {
+            System.out.print(" ");
+          }
+          //上の三角形の出力
+          for (int i = 0; i < k; i++) {
+            System.out.print("* ");
+          }
+          //右の三角形の分の空白
+          for (int i = (Integer.parseInt(args[0]) * 2); i != 0 ; i--) {
+            System.out.print(" ");
+          }
+          System.out.println();
+        }
+
+        //先程の三角形を作る操作においてアスタリスクと空白を逆に使っていく
+        for (int k = 1; k <= (Integer.parseInt(args[0])); k++) {
+          //下の三角形の左側の空白
+          for (int i = (Integer.parseInt(args[0])) - k; i >= 0; i--) {
+            System.out.print(" ");
+          }
+          //下の三角形の左側
+          for (int i = 0; i < k; i++) {
+            System.out.print("* ");
+          }
+          //下側の三角形の真ん中の空白，このとき("  ")は("* ")のせいで2つ分多く空白を出力してしまう．だから最後は表示しないという処理を行う．
+          for (int i = (Integer.parseInt(args[0])) - k; i > 0; i--) {
+            System.out.print("  "); 
+          }
+          //下側の三角形の右側
+          for (int i = 0; i < k; i++) {
+            System.out.print("* ");
+          }
+          System.out.println();
+        }
+      }
+    }
+  \end{lstlisting}
+  \subsection*{工夫した点}
+  工夫した点は以下の3つが挙げられる．
+  \begin{enumerate}[(1.) ]
+    \item 一つ一つの機能を簡略化し，わかりやすいコードのすることに努めた．
+    \item 下の三角形はできるだけ上の三角形で使った機能を用いて，前後でやり方が異なることがないように努めた．
+    \item 下の三角形を作る際，ソースコード中に空白が増え，三角形がずれるという事態の処置をしているということを記入した．これにより，ソースコード自体のわかりやすさと簡略化が実現したと考えている．
+  \end{enumerate}
+  この3つの工夫によって，このソースコードを保守・管理する立場の人がソースコードの解読のみで苦労するという事態をできるだけ減少させることができたのではないだろうか．また，TAさんもしくは先生たちのソースコードを点検時の苦痛をできるだけ減らせたのではないだろうか．
+
+  \section*{Study01\_02}
+  \begin{lstlisting}[caption=Study01\_2.javaのソースコード, label=code:in, language=java]
+    import java.util.Scanner;
+
+    public class Study01_2 {
+      public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int count = 0; int k = 0;
+
+        while (true) {
+          System.out.print("検索したい文字列を入力してください(終了時は入力無しでEnter): ");
+          String[] input = scan.nextLine().split("");
+          /* 何も入力されていなかった場合の処理 */
+          if (input[0].equals("")) {
+            System.out.println("処理を終了します");
+            break;
+          }
+          
+          /* kの初期化が必要 */
+          k = 0;            
+          /* 要素数に達するまで繰り返す */
+          while ((args.length - 1) >= k) {
+            /* そのコマンドライン引数の文字列を配列に格納 */
+            String[] str = args[k].split("");
+            count = 0;
+            /* 標準入力の最初の文字が一致したらループに入れる */
+            for (int l = 0; l < str.length; l++) {
+              if (str[l].equals(input[0])) {
+                count++;
+                /* 標準入力分2つの配列をずらし，合っている分だけcountに数を足す． */
+                for (int i = 1; i < input.length; i++) {
+                  if (input[i].equals(str[l + i])) {
+                    count++;
+                  } else {
+                    break;
+                  }
+                }
+              }
+            }
+            /* すべて合っていたら，その時のコマンドライン引数の文字列を表示させる． */
+            if (count == input.length) {
+              System.out.println(args[k]);
+            }
+            k++;
+          }
+        }
+      }
+    }
+  \end{lstlisting}
+  \subsection*{工夫した点}
+
+  工夫した点は2つ挙げられる．
+  \begin{enumerate}[(1.) ]
+    \item ネストは深く，面倒くさい部分も多いが，機能自体は比較的シンプルにした．そのため，個別で機能を分けて見ていくと極端に難しいソースコードではなく，比較的易しいものになったと考えている．
+    \item 初期化の処理などのコメントもしっかり記し，何をしているかわからないコードが存在することをできるだけ避けた．
+  \end{enumerate}
+  プログラミングにおいてはいくらかの時間が経過してから作業を再開するケースが多い．そのため，しっかり何をしているプログラムなのかを記し，未来の自分が困惑し，1からプログラムを書き直すという自体になることを危惧しながらプログラミングをする必要がある．そのような事態を避けるためにコメントを記していく必要がある．
+
+  \newpage
+  \section*{Study01\_3}
+  \begin{lstlisting}[caption=Study01\_3.javaのソースコード, label=code:in, language=java]
+    import java.util.Scanner;
+
+    public class Study01_3 {
+      public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+
+        while (true) {
+          System.out.print("1以上1000以下の自然数もしくは exit を入力してください: ");
+
+          String input = scan.nextLine(); int mul = 0;
+
+          if (input.equals("exit")) {
+            System.out.println("処理を終了します");
+            return;
+          }
+
+          int num = Integer.parseInt(input); int loop = num;
+
+          if (1 > num || 1000 < num) {
+            System.out.println("無効な入力です．1以上1000以下の値を入力してください");
+            continue;
+          }
+
+          System.out.print(num + " = " );
+
+          /* 1のときは1を返す処理を行う */
+          if (num == 1) {
+            System.out.println(num);
+          } else {
+            /* 何回割れるかの計算 */
+            for (int i = 2; i < loop / 2; i++) {
+              while (num % i == 0) {
+                num /= i;
+                mul++; /* 割り切れる回数分だけこの変数を足していく */
+              }
+              /* もう次の素数がないときは次の積を表示する必要がないためprint()から"*"を省く */
+              if (num == 1) {
+                /* 乗数が0のときは何も表示したくないのでループに戻る */
+                if (mul == 0) {
+                  continue;
+                } else if (mul == 1) {
+                  System.out.print(i);
+                } else {
+                  System.out.print(i + "^" + mul);
+                }
+              } else {
+              /* 乗数が0のときは何も表示したくないのでループに戻る */
+                if (mul == 0) {
+                  continue;
+                } else if (mul == 1) {
+                  System.out.print(i + " * ");
+                } else {
+                  System.out.print(i + "^" + mul + " * ");
+                }
+              }
+                /* 乗数の初期化 */
+                mul = 0;
+            }
+            System.out.println();
+          }
+        }
+      }
+    }
+  \end{lstlisting}
+
+  \subsection*{工夫した点}
+  工夫した点は2つ挙げられる．
+  \begin{enumerate}[(1.)  ]
+    \item 一つはわかりやすさだ．条件分岐やループが入れ子になってしまっているという問題はあるものの，方法的には非常に易しいものを用いて計算している．これによりコメントをつければ保守がかなり楽に済んだ．他のわかりやすい点としては用いた変数の変数名を見るだけで用途をわかるようにしたことだ．
+    \item もう一つは流用のしやすさだ．通常の素因数と最後の素因数とで，ある程度同じ処理を行っている．これによりコードを書くためにアルゴリズムを考える時間が大幅に減少した．
+  \end{enumerate}
+  プログラムはある程度，冗長なものになってしまっているのが反省点である．もう少し効率的なアルゴリズムもしくはきれいにコードを書くことができただろう．ただ，今回は多くの人が保守になっても困らないようなソースコードを心がけて書いたが，それは叶ったと思っている．効率的なプログラムと万人が読みやすいソースコードはトレードオフになりやすい．しかし，今回は読みやすさと効率性をある程度担保できたと考えている．
+
+  \section*{Study01\_4}
+  \begin{lstlisting}[caption=Study01\_4.javaのソースコード, label=code:in, language=java]
+    import java.util.Scanner;
+
+    public class Study01_4 {
+      public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+
+        /* ひと月の日付の配列 */
+        int[] day_array = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
+        while (true) {
+          System.out.print("調べたい日付を入力してください（ 4 月 3 日 => 4 3）: ");
+
+          int month = scan.nextInt(); int day = scan.nextInt(); int sum = 0;
+          
+          /* 終了処理 */
+          if (month == 0 && day == 0) {
+            System.out.println("処理を終了します");
+            return;
+          }
+
+          /* 不正な組の場合の処理 */
+          if (month < 1 || month > 12) {
+            System.out.println("調べたい日付が不正な組です");
+            continue;
+          } else if (day > day_array[month - 1]) {
+            System.out.println("調べたい日付が不正な組です");
+            continue;
+          } else /* 不正でない処理の場合 */{
+            /* その月の一つ前の月まで日にちを足し合わせる */
+            for (int i = 0; i < month - 1; i++) {
+              sum += day_array[i];
+            }
+            /* その月の今の日付を足す */
+            sum += day;
+            /* １月１日の曜日の判定からそれぞれの曜日に補正値を入れていく */
+            switch (args[0]) {
+              case "sun" -> {
+                sum += 6;
+              }
+              case "mon" -> {
+              }
+              case "tue" -> {
+                sum++;
+              }
+              case "wed" -> {
+                sum += 2;
+              }
+              case "thu" -> {
+                sum += 3;
+              }
+              case "fri" -> {
+                sum += 4;
+              }
+              case "sat" -> {
+                sum += 5;
+              }
+            }
+
+              /* 入力された日付の曜日判定 */
+            switch (sum % 7) {
+              case 0 -> {
+                System.out.println(month + " 月 " + day + " 日は日曜日です");
+              }
+              case 1 -> {
+                System.out.println(month + " 月 " + day + " 日は月曜日です");
+              }
+              case 2 -> {
+                System.out.println(month + " 月 " + day + " 日は火曜日です");
+              }
+              case 3 -> {
+                System.out.println(month + " 月 " + day + " 日は水曜日です");
+              }
+              case 4 -> {
+                System.out.println(month + " 月 " + day + " 日は木曜日です");
+              }
+              case 5 -> {
+                System.out.println(month + " 月 " + day + " 日は金曜日です");
+              }
+              case 6 -> {
+                System.out.println(month + " 月 " + day + " 日は土曜日です");
+              }
+            }
+          }
+        }
+      }
+    }
+  \end{lstlisting}
+  \subsection*{工夫した点}
+  工夫した点は3つ挙げられる．
+  \begin{enumerate}[(1.)  ]
+    \item 1つはswitch文で冗長なコードになることを避けたこと．これにより見た目がスッキリし，それぞれのケースも見ただけで理解しやすくなった．
+    \item もう一つはその日までの日程の総和を取るというシンプルかつswitch文と相性のいい方法をとったこと．この方法は余りのケースによって曜日が変化するというswitch文を用いやすいケースととても相性がいい．計算量が減るだけでなくコードもシンプルになるのでかなり有用な方法だ．
+    \item 最後は不正な組の処理と曜日計算のアルゴリズムをとてもわかりやすい場合分けの方法をとったこと．不正な組み合わせの処理を作って，その場合でないときに本来の曜日計算のアルゴリズムに入るという方法をとった．
+  \end{enumerate}
+  不正な入力の場合の処理と本来のアルゴリズムの場合分けがこれまでは若干，面倒くさい処理になっている．これによって，不正処理が間違っていた場合は場合分けの精査が少し面倒くさくなっている．しかし，今回はわかりやすい場合分けのため，この部分の間違いに気づくことが容易であった．
+
+  \section*{Study01\_5}
+  \begin{lstlisting}[caption=Study01\_5.javaのソースコード, label=code:in, language=java]
+    import java.lang.Math;
+
+    public class Study01_5 {
+      public static void main(String[] args) {
+        if (args.length < 2) {
+          System.out.println("エラー00 : 適切な引数が入力されていません");
+          return;
+        } else if (args[0].equals("") || args[1].equals("")) {
+          System.out.println("エラー01 : 引数が入力されていません");
+          return;
+        } else if (args[0].equals(args[1])) {
+          System.out.println("エラー02 : 適切な数字が入力されていません");
+          return;
+        } else if (Integer.parseInt(args[0]) < 1 || Integer.parseInt(args[0]) > 1000 ) {
+          System.out.println("エラー02 : 適切な数字が入力されていません");
+          return;
+        } else if (Integer.parseInt(args[1]) < 1 || Integer.parseInt(args[1]) > 1000 ) {
+          System.out.println("エラー02 : 適切な数字が入力されていません");
+          return;
+        }
+
+        if (Integer.parseInt(args[0]) < Integer.parseInt(args[1])) {
+            System.out.println(String.format("================ " + args[0] + " から " + args[1] + " までの素数=================="));
+            for (int i = Integer.parseInt(args[0]); i <= Integer.parseInt(args[1]); i++) {
+              if (sieve(i) == true) {
+                System.out.print(String.format("%3d", i) + " ");
+              }
+            }
+            System.out.println("\n===========================================================");
+
+        } else {
+          System.out.println(String.format("================ " + args[0] + " から " + args[1] + " までの素数=================="));
+          for (int i = Integer.parseInt(args[0]); i >= Integer.parseInt(args[1]); i--) {
+            if (sieve(i) == true) {
+              System.out.print(String.format("%3d", i) + " ");
+            }
+          }
+          System.out.println("\n===========================================================");
+      }
+      
+    }
+
+    /* エラストテネスの篩を用いいる．無論，証明もレポートに記述する */
+    public static boolean sieve(int n) {
+      if (n < 2 || n % 2 == 0) {
+        return false;
+      }
+
+      if (n == 2) {
+        return true;
+      }
+
+      for (int i = 3; i < Math.sqrt(n); i += 2) {
+        if (n % i == 0) {
+            return false;
+        }
+      }
+      return true;  
+    }
+  }
+
+  \end{lstlisting}
+
+  \newpage
+
+  \subsection*{工夫した点}
+  工夫した点は2つある．
+  \begin{enumerate}[(1.) ]
+    \item 一つはできるだけ変数を減らしたことだ．これにより，効率的ソースコードとなっている．ループに使う変数も基本的にループ内のみしか使用しないため，for文の中に記述している．それだけでなく，コマンドライン引数は特定の変数に代入せず，整数値変換の方法を用いている．
+    \item もう一つはエラストテネスの篩というアルゴリズムを用いたことだ．このアルゴリズムにより$O(N)$の計算量が$O$($\sqrt{N}$)回の計算量に収まっている．また，それ以外の計算量を減らす工夫も用いいている．それらは以下の証明に記す．
+  \end{enumerate}
+
+  \subsubsection*{エラストテネスの篩}
+  このアルゴリズムは合成数$N$は，$m \le \sqrt{N}$を満たす素因数$m$をもつという性質を利用する．
+
+  \begin{proof}
+    少なくとも2つの素数の積で構成されている数を合成数といい，合成数を$N$とおく．
+
+    2つの素数を$p$，$q$とおく．$N \ge p \times q$である．このとき，$\sqrt{N} < p$  $\land$  $\sqrt{N}$と仮定すると，$N < p \times q$となり，前文の式に反する．したがって，$\sqrt{N} \ge p$ $\lor$ $\sqrt{N} \ge q$となる．このとき，$\sqrt{N}$は合成数であることから$N > \sqrt{N}$，$p^2 > p$，$q^2 > q$の2つの関係式より，$N > \sqrt{p}$ $\lor$ $N > \sqrt{q}$となる．以上より，$N$は$\sqrt{N}$以下に少なくとも1つは素数が存在していることがわかる．よって，$\sqrt{N}$まで素数を調べれば十分である．
+  \end{proof}
+
+  その他にも2つ計算量を減らす工夫を行っている．
+  \begin{enumerate}[・ ]
+    \item 2の倍数の判定: これにより，計算量を$\frac{1}{2}$にすることが可能である．
+    \item for (int i = 3; i < Math.sqrt(n); i += 2) にすること: 4や6などの偶数は2の倍数であるので調べる必要はない．そのため，3から2ずつ足すことによって偶数を避けている．
+  \end{enumerate}
+
+  \begin{thebibliography}{99}
+    \bibitem "スッキリわかるJava入門，中山清喬，国元大悟，2023年11月1日
+    \bibitem "https://qiita.com/shigeki20020722/items/c39e78ae52bcaf4bfaa1，
+    
+    Qiita記事，@shigeki20020722(Shigeki Kusaka)投稿，最終更新日 2023年04月24日投稿日 2023年04月05日
+  \end{thebibliography}
+
+  参考文献として適切なものではないが，参考にしたためWebサイトの記事を記す．
+
+\end{document}

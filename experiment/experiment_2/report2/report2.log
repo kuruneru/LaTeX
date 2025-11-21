@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.14.0 (TeX Live 2022/dev/Debian)  (format=lualatex 2025.5.7)  8 NOV 2025 21:18
+This is LuaHBTeX, Version 1.14.0 (TeX Live 2022/dev/Debian)  (format=lualatex 2025.6.9)  20 NOV 2025 01:28
  restricted system commands enabled.
 **report2.tex
 (./report2.tex
@@ -1056,22 +1056,21 @@ LaTeX Font Info:    Font shape `JY3/gt/b/n' in size <14> not available
 (Font)              Font shape `JY3/gt/m/n' tried instead on input line 32.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
 (Font)              scaled to size 14.0pt on input line 32.
- [1
+(load cache: extra_lmmono10-regular.luc) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 12.0pt on input line 45.
+(Font)              scaled to size 12.0pt on input line 44.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 12.0pt on input line 45.
+(Font)              scaled to size 12.0pt on input line 44.
 LaTeX Font Info:    Font shape `JT3/gt/b/n' in size <12> not available
-(Font)              Font shape `JT3/gt/m/n' tried instead on input line 45.
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 44.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 12.0pt on input line 45.
+(Font)              scaled to size 12.0pt on input line 44.
 LaTeX Font Info:    Font shape `JY3/gt/b/n' in size <12> not available
-(Font)              Font shape `JY3/gt/m/n' tried instead on input line 45.
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 44.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 12.0pt on input line 45.
-(load cache: extra_lmmono10-regular.luc)
+(Font)              scaled to size 12.0pt on input line 44.
 Removing  `ltj.process_input_buffer' from `process_input_buffer'.
 Inserting `ltj.listings_unicode' at position 1 in `process_input_buffer'.
 Inserting `ltj.process_input_buffer' at position 2 in `process_input_buffer'. [
@@ -1084,25 +1083,25 @@ Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
 Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
 Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
 Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
-Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
-Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
-Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
-Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
-Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
-Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
-Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
-Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
-Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
-Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
-Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
-Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
-Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
-Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
-Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
-Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
-Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
-Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
 ] [3
+Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
+Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
+Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
+Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
+Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
+Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
+Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
+Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
+Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
+Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
+Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
+Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
+Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
+Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
+Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
+Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
+Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
+Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
 Missing character: There is no  (U+0007) in font [lmmono10-regular]:!
 Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
 Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
@@ -1151,12 +1150,6 @@ Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
 Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
 Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
 Missing character: There is no  (U+0007) in font [lmmono10-regular]:!
-Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
-Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
-Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
-Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
-Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
-Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
 Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
 Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
 Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
@@ -1218,25 +1211,31 @@ Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
 Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
 Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
 Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
-Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
-Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
-Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
-Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
-Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
-Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
-Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
-Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
-Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
-Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
-Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
-Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
-Missing character: There is no  (U+0007) in font [lmmono10-regular]:!
-Missing character: There is no  (U+0007) in font [lmmono10-regular]:!
-Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
-Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
-Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
-Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
 ] [5
+Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
+Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
+Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
+Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
+Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
+Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
+Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
+Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
+Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
+Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
+Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
+Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
+Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
+Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
+Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
+Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
+Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
+Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
+Missing character: There is no  (U+0007) in font [lmmono10-regular]:!
+Missing character: There is no  (U+0007) in font [lmmono10-regular]:!
+Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
+Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
+Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
+Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
 Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
 Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
 Missing character: There is no  (U+0008) in font [lmmono10-regular]:!
@@ -1327,39 +1326,39 @@ Inserting `ltj.process_input_buffer' at position 2 in `process_input_buffer'. [
 Removing  `ltj.listings_unicode' from `process_input_buffer'.(load cache: extra_
 lmsans9-regular.luc)
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 716.
+(Font)              scaled to size 8.99994pt on input line 715.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 716.
+(Font)              scaled to size 8.99994pt on input line 715.
 LaTeX Font Info:    Font shape `JT3/gt/b/n' in size <8.99994> not available
-(Font)              Font shape `JT3/gt/m/n' tried instead on input line 716.
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 715.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 716.
+(Font)              scaled to size 8.99994pt on input line 715.
 LaTeX Font Info:    Font shape `JY3/gt/b/n' in size <8.99994> not available
-(Font)              Font shape `JY3/gt/m/n' tried instead on input line 716.
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 715.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 716.
+(Font)              scaled to size 8.99994pt on input line 715.
 
 [22] [23] (./report2.aux))
 
 Here is how much of LuaTeX's memory you used:
  19835 strings out of 477805
- 1458265,794899 words of node,token memory allocated
- 16219 words of node memory still in use:
-   11 hlist, 2 vlist, 6 rule, 2 glue, 4 kern, 2 glyph, 1526 attribute, 2490 glue
+ 1458210,794899 words of node,token memory allocated
+ 16269 words of node memory still in use:
+   11 hlist, 2 vlist, 6 rule, 2 glue, 4 kern, 2 glyph, 1526 attribute, 2500 glue
 _spec, 87 attribute_list, 2 write, 63 user_defined nodes
-   avail lists: 1:41,2:349908,3:706,4:25823,5:17283,6:72,7:19073,8:1,9:35825,10:
-44,11:1143
+   avail lists: 1:45,2:362184,3:663,4:25842,5:17177,6:72,7:18792,8:1,9:35800,10:
+41,11:1135
  39686 multiletter control sequences out of 65536+600000
  56 fonts using 48876399 bytes
  110i,9n,100p,1732b,786s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texmf/fonts/opentype/public/lm/lmmono10-regular.otf></usr/share/texm
-f/fonts/opentype/public/lm/lmroman9-regular.otf></usr/share/texmf/fonts/opentype
+</usr/share/texmf/fonts/opentype/public/lm/lmroman9-regular.otf></usr/share/texm
+f/fonts/opentype/public/lm/lmmono10-regular.otf></usr/share/texmf/fonts/opentype
 /public/lm/lmroman10-regular.otf></usr/share/texlive/texmf-dist/fonts/opentype/p
 ublic/haranoaji/HaranoAjiGothic-Medium.otf></usr/share/texmf/fonts/opentype/publ
 ic/lm/lmsans10-bold.otf></usr/share/texmf/fonts/opentype/public/lm/lmroman12-reg
 ular.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/haranoaji/HaranoAj
 iMincho-Regular.otf>
-Output written on report2.pdf (23 pages, 164445 bytes).
+Output written on report2.pdf (23 pages, 170622 bytes).
 
 PDF statistics: 129 PDF objects out of 1000 (max. 8388607)
  82 compressed objects within 1 object stream

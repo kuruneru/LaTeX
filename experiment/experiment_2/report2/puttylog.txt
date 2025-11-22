@@ -1,0 +1,243 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2025.11.04 13:51:53 =~=~=~=~=~=~=~=~=~=~=~=
+
+Switch>
+Switch>en
+Switch#show runnin  g ta   -config
+Building configuration...
+
+Current configuration : 2901 bytes
+!
+version 12.2
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname Switch
+!
+boot-start-marker
+boot-end-marker
+!
+!
+no aaa new-model
+system mtu routing 1500
+ip subnet-zero
+!
+!
+!
+!
+crypto pki trustpoint TP-self-signed-1808002944
+ --More--         
+Switch#[B  configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#hostname switch  1
+switch1(config)#username exp password -   0 root00
+switch1(config)#enable password 0 root00
+switch1(config)#service passow  word-encryption
+switch1(config)#no ip domain-- k lii  ookup
+switch1(config)#line con 0
+switch1(config-line)#logging sys nchronous
+switch1(config-line)#exit
+switch1(config)#vlan      vn lan 11
+switch1(config-vlan)#name group  1
+switch1(config-vlan)#exit
+switch1(config)#int range fa0 9/  1~0/160/16 0/916-160/9-16 
+switch1(config-if-range)#wsi   swith  tchport mde  ode access blan    vlan 11
+                                                ^
+% Invalid input detected at '^' marker.
+
+switch1(config-if-range)#exitr
+                             ^
+% Invalid input detected at '^' marker.
+
+switch1(config-if-range)#exitr 
+switch1(config)#no spanning  -tree vlan 11
+switch1(config)#exit  
+switch1#show bla
+*Mar  1 00:13:50.153: %SYS-5-CONFIG_I: Configured from console by console
+switch1#show bla   vlan
+
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Fa0/1, Fa0/2, Fa0/3, Fa0/4
+                                                Fa0/5, Fa0/6, Fa0/7, Fa0/8
+                                                Fa0/9, Fa0/10, Fa0/11, Fa0/12
+                                                Fa0/13, Fa0/14, Fa0/15, Fa0/16
+                                                Fa0/17, Fa0/18, Fa0/19, Fa0/20
+                                                Fa0/21, Fa0/22, Fa0/23, Fa0/24
+11   group1                           active    
+31   G21                              active    
+32   G22                              active    
+1002 fddi-default                     act/unsup 
+1003 token-ring-default               act/unsup 
+1004 fddinet-default                  act/unsup 
+1005 trnet-default                    act/unsup 
+
+VLAN Type  SAID       MTU   Parent RingNo BridgeNo Stp  BrdgMode Trans1 Trans2
+---- ----- ---------- ----- ------ ------ -------- ---- -------- ------ ------
+1    enet  100001     1500  -      -      -        -    -        0      0   
+11   enet  100011     1500  -      -      -        -    -        0      0   
+31   enet  100031     1500  -      -      -        -    -        0      0   
+32   enet  100032     1500  -      -      -        -    -        0      0   
+ --More--         
+switch1#[B  configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+switch1(config)#int range Fa0/9-16
+switch1(config-if-range)#swo itchport mode access
+switch1(config-if-range)#switchport access vlan 11
+switch1(config-if-range)#eii  xit
+switch1(config)#x exit
+switch1#
+*Mar  1 00:15:30.942: %SYS-5-CONFIG_I: Configured from console by console
+switch1#sho  w b vlan
+
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Fa0/1, Fa0/2, Fa0/3, Fa0/4
+                                                Fa0/5, Fa0/6, Fa0/7, Fa0/8
+                                                Fa0/17, Fa0/18, Fa0/19, Fa0/20
+                                                Fa0/21, Fa0/22, Fa0/23, Fa0/24
+11   group1                           active    Fa0/9, Fa0/10, Fa0/11, Fa0/12
+                                                Fa0/13, Fa0/14, Fa0/15, Fa0/16
+31   G21                              active    
+32   G22                              active    
+1002 fddi-default                     act/unsup 
+1003 token-ring-default               act/unsup 
+1004 fddinet-default                  act/unsup 
+1005 trnet-default                    act/unsup 
+
+VLAN Type  SAID       MTU   Parent RingNo BridgeNo Stp  BrdgMode Trans1 Trans2
+---- ----- ---------- ----- ------ ------ -------- ---- -------- ------ ------
+1    enet  100001     1500  -      -      -        -    -        0      0   
+11   enet  100011     1500  -      -      -        -    -        0      0   
+31   enet  100031     1500  -      -      -        -    -        0      0   
+32   enet  100032     1500  -      -      -        -    -        0      0   
+1002 fddi  101002     1500  -      -      -        -    -        0      0   
+ --More--         
+switch1#[B  vl  configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+switch1(config)#ho  vlan 12
+switch1(config-vlan)#name gor  roup2
+switch1(config-vlan)#exit
+switch1(config)#int range Fa0/17-24
+switch1(config-if-range)#switchport access      modee    access
+switch1(config-if-range)#switchport ca  access vlan 12
+switch1(config-if-range)#exit
+switch1(config)#s no spaning     ningt ^ -tree vlan 12
+switch1(config)#exit
+switch1#show 
+*Mar  1 00:17:33.290: %SYS-5-CONFIG_I: Configured from console by console
+switch1#show vlan
+
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Fa0/1, Fa0/2, Fa0/3, Fa0/4
+                                                Fa0/5, Fa0/6, Fa0/7, Fa0/8
+11   group1                           active    Fa0/9, Fa0/10, Fa0/11, Fa0/12
+                                                Fa0/13, Fa0/14, Fa0/15, Fa0/16
+12   group2                           active    Fa0/17, Fa0/18, Fa0/19, Fa0/20
+                                                Fa0/21, Fa0/22, Fa0/23, Fa0/24
+31   G21                              active    
+32   G22                              active    
+1002 fddi-default                     act/unsup 
+1003 token-ring-default               act/unsup 
+1004 fddinet-default                  act/unsup 
+1005 trnet-default                    act/unsup 
+
+VLAN Type  SAID       MTU   Parent RingNo BridgeNo Stp  BrdgMode Trans1 Trans2
+---- ----- ---------- ----- ------ ------ -------- ---- -------- ------ ------
+1    enet  100001     1500  -      -      -        -    -        0      0   
+11   enet  100011     1500  -      -      -        -    -        0      0   
+12   enet  100012     1500  -      -      -        -    -        0      0   
+31   enet  100031     1500  -      -      -        -    -        0      0   
+32   enet  100032     1500  -      -      -        -    -        0      0   
+ --More-- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+switch1 con0 is now available
+
+
+
+
+
+Press RETURN to get started.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*Mar  1 00:28:05.262: %LINK-3-UPDOWN: Interface FastEthernet0/9, changed state to up
+*Mar  1 00:28:06.269: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/9, changed state to up
+*Mar  1 00:29:04.075: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/17, changed state to up
+*Mar  1 00:29:06.046: %LINK-3-UPDOWN: Interface FastEthernet0/17, changed state to up
+*Mar  1 00:33:16.698: %LINK-3-UPDOWN: Interface FastEthernet0/16, changed state to up
+*Mar  1 00:33:17.704: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/16, changed state to up
+*Mar  1 00:33:44.439: %LINK-3-UPDOWN: Interface FastEthernet0/24, changed state to up
+*Mar  1 00:33:45.446: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/24, changed state to up
+*Mar  1 00:34:09.697: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/17, changed state to down
+*Mar  1 00:34:10.704: %LINK-3-UPDOWN: Interface FastEthernet0/17, changed state to down
+*Mar  1 00:34:12.625: %LINK-3-UPDOWN: Interface FastEthernet0/11, changed state to up
+*Mar  1 00:34:13.631: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/11, changed state to up
+*Mar  1 00:35:06.421: %LINK-3-UPDOWN: Interface FastEthernet0/23, changed state to up
+*Mar  1 00:35:07.427: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/23, changed state to up
+*Mar  1 00:35:12.712: %LINK-3-UPDOWN: Interface FastEthernet0/8, changed state to up
+*Mar  1 00:35:13.719: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/8, changed state to up
+*Mar  1 00:35:43.440: %LINK-3-UPDOWN: Interface FastEthernet0/21, changed state to up
+*Mar  1 00:35:44.446: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/21, changed state to up
+*Mar  1 00:42:16.488: %LINK-3-UPDOWN: Interface FastEthernet0/3, changed state to up
+*Mar  1 00:42:17.495: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/3, changed state to up
+*Mar  1 01:01:33.680: %LINK-3-UPDOWN: Interface FastEthernet0/1, changed state to up
+*Mar  1 01:01:34.686: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to up
+*Mar  1 01:12:27.211: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/23, changed state to down
+*Mar  1 01:12:28.218: %LINK-3-UPDOWN: Interface FastEthernet0/23, changed state to down
+*Mar  1 01:13:24.522: %LINK-3-UPDOWN: Interface FastEthernet0/23, changed state to up
+*Mar  1 01:13:25.529: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/23, changed state to up
+*Mar  1 01:17:44.661: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/23, changed state to down
+*Mar  1 01:17:45.659: %LINK-3-UPDOWN: Interface FastEthernet0/23, changed state to down
+*Mar  1 01:19:54.777: %LINK-3-UPDOWN: Interface FastEthernet0/23, changed state to up
+*Mar  1 01:19:55.783: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/23, changed state to up
+*Mar  1 01:22:10.043: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/23, changed state to down
+*Mar  1 01:22:11.041: %LINK-3-UPDOWN: Interface FastEthernet0/23, changed state to down
+*Mar  1 01:22:46.575: %LINK-3-UPDOWN: Interface FastEthernet0/23, changed state to up
+*Mar  1 01:22:47.582: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/23, changed state to up

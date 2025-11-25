@@ -9,7 +9,6 @@
   basicstyle = {\ttfamily}, % 基本的なフォントスタイル 
   frame = {tbrl}, % 枠線の枠線。t: top, b: bottom, r: right, l: left
   breaklines = true, % 長い行の改行
-  numbers = left, % 行番号の表示。left, right, none
   showspaces = false, % スペースの表示
   showstringspaces = false, % 文字列中のスペースの表示
   showtabs = false, %　タブの表示
@@ -29,7 +28,7 @@
       \maketitle
 
       \section{目的}
-      近年，クラウド化の影響のによってネットワークの重要性がより大きくなった．しかし，``\verb|Amazon Web Service|''(以下:``\verb|AWS|'')や``\verb|Azure|''，``\verb|Google Cloud Platform|''などによってネットワーク内部に触れる機会は大きく減少している．それが引き起こす問題として，この実験直前に起こった``\verb|AWS|''のシステム障害を起因とする大規模なシステム障害である．これは市場が``\verb|AWS|''の寡占状態にあったことも問題の一つであるが，ネットワーク内部に触れるエンジニアの割合が市場の規模に適していないからであると私は考えている．そのため，今回のような有事の際にネットワークを構築可能になるためにデファクトスタンダードである``\verb|Cisco|''社製のスイッチやルータを用いて\verb|LAN|環境の構築やルータのルーティングテーブルの設定を行うことができる様になる必要がある．また，昨今過激化しているサイバー攻撃に対する防衛意識を高めるためにもその玄関口とも言えるネットワークの基礎を学習が重要である．現環境を支えているインフラストラクチャーを知ることがこれからの自身の学びに繋がるのである．
+      近年，クラウド化の影響のによってネットワークの重要性がより大きくなった．しかし，``\verb|Amazon Web Service|''(以下:``\verb|AWS|'')や``\verb|Azure|''，``\verb|Google Cloud Platform|''などによってネットワーク内部に触れる機会は大きく減少している．それが引き起こす問題として，この実験直前に起こった``\verb|AWS|''のシステム障害を起因とする大規模なシステム障害である．これは市場が``\verb|AWS|''の寡占状態にあったことも問題の一つであるが，ネットワーク内部に触れるエンジニアの割合が市場の規模に適していないからであると私は考えている．そのため，今回のような有事の際にネットワークを構築可能になるためにデファクトスタンダードである``\verb|Cisco|''社製のスイッチやルータを用いて\verb|LAN|環境の構築やルータのルーティングテーブルの設定を行うことができる様になる必要がある．また，昨今過激化しているサイバー攻撃に対する防衛意識を高めるためにもその玄関口とも言えるネットワークの基礎を学ぶことが重要である．現環境を支えているインフラストラクチャーを知ることがこれからの自身の学びに繋がるのである．
       \section{内容}
       今回構築したネットワークは主にレイヤ3(以下:\verb|L3|)までの階層で動作する．いくつかの段階からこのネットワークは構築されている．ネットワークの構成図を以下に示す．
       \begin{enumerate}[(1). ]
@@ -51,11 +50,12 @@
       \section{作業記録}
       \subsection{スイッチのVLAN構築}
       \begin{lstlisting}
-
-      Switch>
       Switch>en
-      Switch#show running-config ;このコマンドで現在のスイッチの設定を確認している．
+      \end{lstlisting}
 
+      このコマンドで現在のスイッチの設定を確認している．
+      \begin{lstlisting}
+      Switch#show running-config 
       Current configuration : 2901 bytes
       ! version 12.2
       no service pad
@@ -63,21 +63,36 @@
       service timestamps log datetime msec
       no service password-encryption
       ! hostname Switch !
-      
-      Switch#configure terminal ;確認だけでなく，設定を変更できるようにしている．
+      \end{lstlisting}
+
+      確認だけでなく，設定を変更できるようにしている．
+      \begin{lstlisting}
+      Switch#configure terminal 
       Enter configuration commands, one per line.  End with CNTL/Z.
       Switch(config)#hostname switch1
-      switch1(config)#username exp password -0 root00 ;パスワードの設定
-      switch1(config)#enable password 0 root00 
-      switch1(config)#service password-encryption ;パスワードの暗号化
-      switch1(config)#no ip domain--lookup ;DNSルックアップの無効化(入力された文字列をドメインと認識し，それについてDNSが検索するのを防ぐ役割)[3]
+      \end{lstlisting}
+      パスワードの設定
+      \begin{lstlisting}
+      switch1(config)#username exp password -0 root00
+      \end{lstlisting}
+      パスワードの暗号化
+      \begin{lstlisting}
+      switch1(config)#enable password 0 root00
+      switch1(config)#service password-encryption
+      \end{lstlisting}
+      DNSルックアップの無効化(入力された文字列をドメインと認識し，それについてDNSが検索するのを防ぐ役割)\cite{computer_network}
+      \begin{lstlisting}
+      switch1(config)#no ip domain--lookup
       switch1(config)#line con 0
       switch1(config-line)#logging synchronous
       switch1(config-line)#exit
       switch1(config)#vlan 11
       switch1(config-vlan)#name group1
       switch1(config-vlan)#exit
-      switch1(config)#int range fa0/9-16 ;この部分は間違えて"Fa"とコマンドを打つはずだったが"fa"と入力しているため，その後のコマンドでLANをうまく分割できていない．
+      \end{lstlisting}
+      この部分は間違えて``Fa''とコマンドを打つはずだったが``fa''と入力しているため，その後のコマンドでLANをうまく分割できていない．
+      \begin{lstlisting}
+      switch1(config)#int range fa0/9-16 
       switch1(config-if-range)#swithport mode access vlan 11
 
       switch1(config-if-range)#exit
@@ -194,17 +209,25 @@
     Enter configuration commands, one per line.  End with CNTL/Z.
     router1(config)#interface fastEthernet 0
     router1(config-if)#ip address
-    router1(config-if)#ip address 172.31.10.1 255.255.255.0 ;ルータのポートに対してIPアドレス(デフォルトゲートウェイに当たる)を割り振る．
+    \end{lstlisting}
+    ルータのポートに対してIPアドレス(デフォルトゲートウェイに当たる)を割り振る．
+    \begin{lstlisting}
+    router1(config-if)#ip address 172.31.10.1 255.255.255.0
     router1(config-if)#no shutdown
     router1(config-if)#
     *Jan  1 00:17:28.631: %LINK-3-UPDOWN: Interface FastEthernet0, changed state to up
     router1(config-if)#exit
     router1(config)#int fa1
-    router1(config-if)#ip address 172.31.11.1 255.255.255.0 ;前述と同様
+    \end{lstlisting}
+    前述と同様
+    \begin{lstlisting}    
+    router1(config-if)#ip address 172.31.11.1 255.255.255.0
     router1(config-if)#no shutdown
     router1(config-if)#exit
     *Jan  1 00:18:26.515: %LINK-3-UPDOWN: Interface FastEthernet1, changed state to up
-    ;ここからはSVIの機能を用いて，スイッチポートとの仮想的なポートにデフォルトゲートウェイを割り振っている．
+    \end{lstlisting}
+    ここからはSVIの機能を用いて，スイッチポートとの仮想的なポートにデフォルトゲートウェイを割り振っている．
+    \begin{lstlisting}
     router1(config)#int fa2
     router1(config-if)#switchport access vlan 1
     router1(config-if)#no shutdown
@@ -214,7 +237,10 @@
 
     router1(config-if)#ip address 192.168.1.11 255.255.255.0
     router1(config-if)#no shutdown
-    router1(config-if)#ip route 0.0.0.0 0.0.0.0 192.168.1.1 ;デフォルトルートの設定(静的に設定したルーティングテーブルのどれにも当てはまらない場合に用いられる)
+    \end{lstlisting}
+    デフォルトルートの設定(静的に設定したルーティングテーブルのどれにも当てはまらない場合に用いられる)
+    \begin{lstlisting}
+    router1(config-if)#ip route 0.0.0.0 0.0.0.0 192.168.1.1
     router1(config)#int vlan1
     router1(config)#exit
     router1#show ip route
@@ -229,7 +255,9 @@
     ;以下上部は省略
     Gateway of last resort is not set
     router1#conf t
-    ;ルーティングテーブルの作成(間違っている)
+    \end{lstlisting}
+    ルーティングテーブルの作成(間違っている)
+    \begin{lstlisting}
     router1(config)#ip route 192.168.1.0 255.255.255.0 192.168.1.12
     router1(config)#ip route 192.168.1.0 255.255.255.0 192.168.1.13
     router1(config)#ip route 192.168.1.0 255.255.255.0 192.168.1.14
@@ -301,8 +329,15 @@
     C    192.168.1.0/24 is directly connected, Vlan1
     S*   0.0.0.0/0 [1/0] via 192.168.1.1
     router1#config
+    \end{lstlisting}
+    この2行は間違えたテーブルの部分を削除している．
+    \begin{lstlisting}
     router1(config)#no ip route 172.31.13.0 255.255.255.0 192.168.1.13
-    router1(config)#no ip route 172.31.12.0 255.255.255.0 192.168.1.13 ;この2行は間違えたテーブルの部分を削除している．
+    router1(config)#no ip route 172.31.12.0 255.255.255.0 192.168.1.13 
+    \end{lstlisting}
+
+
+    \begin{lstlisting}
     router1(config)#exit
     router1#
     *Jan  1 00:52:58.851: %SYS-5-CONFIG_I: Configured from console by consoleshow
@@ -400,7 +435,8 @@
   \newpage
 
   \section{考察}
-  今回は静的にルーティングテーブルを作成したが，一般にそのような方法が取られているケースは少ない．それぞれのデバイスとルータで通信を行い経路情報を交換し，ルーティングテーブルを作成するダイナミックルーティングという方法が取られている．これは静的ルータィングと違ってデバイスに多少がかかるが，基本的に複雑化しやすいルーティングの管理を簡単にするためだ．そのルーティングについて現在は``\verb|Border Gateway Protocol|(以下:\verb|BGP|)''という手法が用いられている．これには``\verb|Autonomous System|(以下:\verb|AS|)''と呼ばれる\verb|ISP:Internet Service Provider|や地域ネットワークを組織をひとまとまりにしたものが用いられている\cite{mastaring_TCP/IP}．これにはセキュリティに関する重大な問題があり，``\verb|BGP|''には\verb|IP|アドレスと\verb|AS|の整合性を確かめる方法を持っていない．そのため，あるIPアドレスに対して攻撃者の所属しているASを指定すれば，場合により世界中のルータがこれまでの対応関係を無視してルーティングを行う．これにより，ハイジャックされたサイトの\verb|URL|もしくは\verb|IP|を入力すると，攻撃者のサーバまで届いてしまう．これに対して``\verb|Resource Public-Key Infrastructure|(\verb|RPKI|)''という技術が用いられている．これは\verb|IP|アドレスと\verb|AS|の登録に電子署名を用いる方法である．これにより不正な登録によるハイジャックは成功しなくなってきている\cite{RPKI}．しかし，この技術も完璧ではない．正当な\verb|AS|までのパスの途中に攻撃者を書き足すことでこれを回避できる．それに対するさらなる対策として文献\cite{RPKI}内で\verb|Autonomous System Provider Authorization|(\verb|ASPA|)が紹介されている．これは送られてくる\verb|AS|についてのホワイトリストを作り，そのホワイトリスト内にない\verb|AS|から送られてくると，不正な通信であると検知するシステムである．これはまだ実用段階にないため，その効果については議論できない．
+  今回は静
+  的にルーティングテーブルを作成したが，一般にそのような方法が取られているケースは少ない．それぞれのデバイスとルータで通信を行い経路情報を交換し，ルーティングテーブルを作成するダイナミックルーティングという方法が取られている．これは静的ルータィングと違ってデバイスに多少がかかるが，基本的に複雑化しやすいルーティングの管理を簡単にするためだ．そのルーティングについて現在は``\verb|Border Gateway Protocol|(以下:\verb|BGP|)''という手法が用いられている．これには``\verb|Autonomous System|(以下:\verb|AS|)''と呼ばれる\verb|ISP:Internet Service Provider|や地域ネットワークを組織をひとまとまりにしたものが用いられている\cite{mastaring_TCP/IP}．これにはセキュリティに関する重大な問題があり，``\verb|BGP|''には\verb|IP|アドレスと\verb|AS|の整合性を確かめる方法を持っていない．そのため，あるIPアドレスに対して攻撃者の所属しているASを指定すれば，場合により世界中のルータがこれまでの対応関係を無視してルーティングを行う．これにより，ハイジャックされたサイトの\verb|URL|もしくは\verb|IP|を入力すると，攻撃者のサーバまで届いてしまう．これに対して``\verb|Resource Public-Key Infrastructure|(\verb|RPKI|)''という技術が用いられている．これは\verb|IP|アドレスと\verb|AS|の登録に電子署名を用いる方法である．これにより不正な登録によるハイジャックは成功しなくなってきている\cite{RPKI}．しかし，この技術も完璧ではない．正当な\verb|AS|までのパスの途中に攻撃者を書き足すことでこれを回避できる．それに対するさらなる対策として文献\cite{RPKI}内で\verb|Autonomous System Provider Authorization|(\verb|ASPA|)が紹介されている．これは送られてくる\verb|AS|についてのホワイトリストを作り，そのホワイトリスト内にない\verb|AS|から送られてくると，不正な通信であると検知するシステムである．これはまだ実用段階にないため，その効果については議論できない．
 \begin{thebibliography}{99}
   \bibitem{Cisco_LAN_switch_text} CiscoLANスイッチの教科書 著者:シスコシステムズ合同会社，基盤技術グループ 発行所:株式会社インプレス 発行年:2017年5月1日
   \bibitem{why_network} ネットワークはなぜつながるのか 著者:利根勤 発行所:日経BP社 発行年:2003年1月17日

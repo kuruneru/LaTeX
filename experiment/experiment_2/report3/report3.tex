@@ -1,0 +1,231 @@
+\documentclass{jlreq}
+
+\usepackage{amsmath, amssymb}
+\usepackage{enumerate}
+\usepackage{tikz}
+\usepackage{listings, xcolor}
+\usepackage{booktabs}
+\usepackage{caption}
+
+\lstset{
+  basicstyle = {\ttfamily}, % 基本的なフォントスタイル 
+  frame = {tbrl}, % 枠線の枠線。t: top, b: bottom, r: right, l: left
+  breaklines = true, % 長い行の改行
+  numbers = left, % 行番号の表示。left, right, none
+  showspaces = false, % スペースの表示
+  showstringspaces = false, % 文字列中のスペースの表示
+  showtabs = false, %　タブの表示
+  keywordstyle = \color{blue}, % キーワードのスタイル。intやwhileなど
+  commentstyle = {\color[HTML]{1AB91A}}, % コメントのスタイル
+  identifierstyle = \color{black}, % 識別子のスタイル　関数名や変数名
+  stringstyle = \color{brown}, % 文字列のスタイル
+  captionpos = t % キャプションの位置 t: 上、b: 下
+}
+
+\title{情報学群実験第3回レポート}
+\author{細川 夏風}
+\date{\today}
+
+\begin{document}
+
+  \maketitle
+
+  \section{目的}
+  本実験の目的は以下である．
+  \begin{enumerate}[1). ]
+    \item コンパイラを使わずにアセンブリ言語・機械語によってソートアルゴリズムを直接記述することが可能であることを示す．
+    \item 擬似コードや高級言語での実装と比べて大きく異なる点があるかについて記述する．コードの複雑さやコード量がどの程度変化するかも示す．
+    \item アセンブリ言語に置いて実行時間がアルゴリズムの時間計算量に従うことを示す．
+    \item 高級言語での実装と比べて計算時間に差があることを示す．
+    \item アセンブリ言語でのソートアルゴリズムを直接記述することにの利点があることを明らかにする．
+  \end{enumerate}
+
+  \section{前提}
+  以下のアルゴリズムを示すうえで，いくつかの前提知識が存在し，それらを以下に示す\cite{Clang_algorithm}．
+  \begin{enumerate}[a). ]
+    \item アセンブリ言語とは，機械語に近い低水準言語であり，CPUが解釈可能な命令といくつかのニーモニックが一対一に対応している言語である．
+    \item 再帰とは，それ自身が自分を含んでいたり，定義の中に自分自身を用いているような関数やその事象のことをいう．
+    \item ソートとは，データの集合を主要のある項目の値の大小関係によって並べ替える作業のことである．
+    \item 計算量とは，アルゴリズムの性能を客観的に評価する指標である．実行に要する時間を評価するための時間計算量と，実行に要する記憶領域を評価するための領域計算量がある．
+  \end{enumerate}
+
+  \newpage
+
+  \section{方法}
+  \subsection{目的1を示す方法}
+  まず，コンパイラを用いずにアセンブリ言語によってソートアルゴリズムが直接記述可能であることを今課題のために作成したプログラムコード(付録[\ref{lst:quicksort_asm}])から示す．ここではクイックソートを実装した．前提として，これには再帰プログラムを用いており，クイックソートの漸化式\eqref{eq:recurrence}よりソートを行っている．
+
+  \begin{equation} \label{eq:recurrence}
+    \begin{split}
+      C_1 &= 0 \\
+      C_n &= n + 1 + \frac{2}{n} \sum_{k=0}^{n-1} C_k \quad (n \geq 2)
+    \end{split}
+  \end{equation}
+
+  \subsection{目的2を示す方法}
+  次に，擬似コードや高級言語での実装と比べて大きく異なる点について以下のC言語のプログラムとの違いから示す．上記のアセンブリ言語と比べて，C言語でのクイックソートの実装は付録[\ref{lst:quicksort_c}]のようになる(\cite{Clang_algorithm}一部改良)．高級言語をアセンブリ言語に変換するという作業を行っていないため，参考文献\cite{Clang_algorithm}のコードを一部改良したものを付録[\ref{lst:quicksort_c}]に示す．
+
+    \subsection{目的3を示す方法}
+    次に，アセンブリ言語において実行時間がアルゴリズムの時間計算量に従うことを示ために付録[\ref{lst:backmark_py}]のプログラムを用いる．クイックソートの平均計算時間は$O(n \log n)$であり，最悪計算時間は$O(n^2)$である．
+    
+    \subsection{目的4を示す方法}
+    次に，高級言語での実装と比べて計算時間に差があることを示すために．大量のデータによって発生する実行時間の差を計測するプログラムを付録[\ref{lst:gen_data_py}]に示す．
+
+    \subsection{目的5を示す方法}
+    これらのアルゴリズム，プログラムを作成するにあたりそこに発生した苦労や時間，そこから得たアセンブリ言語の安全性などから考える．
+
+    \newpage
+
+    \section{結果}
+    \subsection{目的1に対する結果}
+    付録[\ref{lst:quicksort_asm}]のプログラムコードから，コンパイラを用いずにアセンブリ言語によってソートアルゴリズムが直接記述可能であることを示す．
+
+    アルゴリズムは以下の通りである．
+    \begin{enumerate}[(1). ]
+      \item 配列の先頭要素を基準値(pivot)とする．(行20)
+      \item 配列の先頭(基準値の次の要素)から順に要素を見ていき，基準値より大きい要素を見つけたらその位置を記憶する．(行25 .loop1)
+      \item その後，配列の末尾から順に要素を見ていき，基準値より小さい要素を見つけたらその位置を記憶する．(行41 .loop2)
+      \item 基準値より大きい要素と基準値より小さい要素を交換する．これを，基準値より大きい要素と基準値より小さい要素に分かれるまで続ける(探索がすれ違うまで続ける)．(行61)
+      \item 基準値を大きい要素群と小さい要素群との境界に移動させる．(行73)
+      \item 再帰に入る前に配列の端と基準値をスタックに保存(行81)
+      \item 基準値の左側と右側の配列に対して，再帰的に適用する．(行89，行100)
+      \item 再帰から戻った後，スタックから配列の端と基準値を復元する．(行92)
+    \end{enumerate}
+
+    \subsection{目的2に対する結果}
+    付録[\ref{lst:quicksort_c}]と付録[\ref{lst:quicksort_asm}]の2つのプログラムコードにおいて大きな違いとなる点がある．それは，アセンブリ言語では再帰の際のスタックへのPUSHとPOPを明示しているが．C言語ではそれがないという点だ．C言語では関数呼び出し時に自動的にスタック操作が行われるため，プログラマが明示的に記述する必要がない．一方で，アセンブリ言語ではプログラマがスタック操作を明示的に記述する必要があるため，コード量が増加し，コードの複雑さも増す．また，アセンブリ言語では，値の比較はレジスタというCPU内の記憶領域を用いて行われる．これにより，変数等をメモリ内に避難させなければ``eax''，``ebx''，``ecx''，``edx''，``esi'', ``edi''の計6つ，もしくはレジスタ内のアドレスの指す値による計算しか行えない．それに比べてC言語ではメモリが許す限りの変数を扱うことができる．
+
+    \subsection{目的3に対する結果}
+    以下の表\ref{tab:sort_benchmark}及び図\ref{fig:sort_graph}は各ソートに対して，データ量を変化させながら実行時間を計測した結果である．
+
+    \begin{figure}[p] % [p] は「独立したページ」を作る指定。[htbp]でも可。
+      \centering
+
+      % --- ここから表 ---
+      % \captionof{table}{...} を使うことで、figure環境内でも表番号(Table X)をつけられます
+      \captionof{table}{データ数 $N$ における各ソートアルゴリズムの実行時間計測結果（単位：秒）}
+      \label{tab:sort_benchmark}
+      
+      \begin{tabular}{rcc} \toprule
+        データ数 $N$ & Quick Sort & Bubble Sort \\ \midrule
+        5,000   & 0.000 & 0.007 \\
+        10,000  & 0.001 & 0.065 \\
+        15,000  & 0.001 & 0.213 \\
+        20,000  & 0.002 & 0.477 \\
+        25,000  & 0.003 & 0.828 \\
+        30,000  & 0.003 & 1.243 \\
+        35,000  & 0.003 & 1.778 \\
+        40,000  & 0.003 & 2.350 \\
+        45,000  & 0.004 & 3.049 \\
+        50,000  & 0.004 & 3.805 \\ \midrule
+        100,000 & 0.008 & --- \\
+        500,000 & 0.038 & --- \\
+        1,000,000 & 0.095 & --- \\
+        2,000,000 & 0.193 & --- \\
+        5,000,000 & 0.493 & --- \\ \bottomrule
+      \end{tabular}
+      
+      \vspace{0.5em}
+      \small{※ $N \ge 100,000$ のBubble Sortは実行時間が著しく長くなるため計測を省略した（---で表記）。}
+      
+      % --- 表と図の間隔 ---
+      \vspace{1cm} 
+
+      % --- ここから図 ---
+      \includegraphics[width=0.9\linewidth]{graph_output.pdf}
+      \caption{データ数 $N$ に対する実行時間の推移（上：Bubble Sortとの比較，下：Quick Sortのスケーラビリティ）}
+      \label{fig:sort_graph}
+
+    \end{figure}
+
+    \newpage
+
+    \subsection{目的4に対する結果}
+    \label{sec:result_d}
+    以下に表\ref{tab:time_comparison}にC言語とアセンブリ言語のクイックソートの実行時間の10回分の平均の比較を示す．また，表\ref{tab:opt_time_comparison}は最適化(-O2)オプションを用いている\cite{Linux_programming}．また，最適化(-O3)オプションは最適化(-O2)オプションより高速であるが，バグの問題があるため，(-O2)を用いる．データ数は$1,000,000$とした．
+    \begin{table}[htbp]
+      \centering
+      \caption{クイックソートにおけるC言語とアセンブリ言語の実行時間比較（データ数 $N=1,000,000$，最適化なし）}
+      \label{tab:time_comparison}
+      \begin{tabular}{lccc} \toprule
+        実装言語 & \textbf{User (秒)} & System (秒) & Real (秒) \\ \midrule
+        C言語 (Quick Sort) & 0.219 & 0.010 & 0.263 \\
+        アセンブリ言語 (Quick Sort) & \textbf{0.149} & 0.010 & 0.148 \\ \bottomrule
+      \end{tabular}
+      
+      \vspace{0.5em}
+      \small{※ Userはユーザープロセスが消費したCPU時間，Systemはカーネルプロセスが消費したCPU時間，Realは実行に要した実時間を示す．}
+    \end{table}
+
+    \begin{table}[htbp]
+      \centering
+      \caption{最適化オプション(-O2)適用後のC言語とアセンブリ言語の実行時間比較（データ数 $N=1,000,000$）}
+      \label{tab:opt_time_comparison}
+      \begin{tabular}{lccc} \toprule
+        実装言語 & \textbf{User (秒)} & System (秒) & Real (秒) \\ \midrule
+        C言語 (Quick Sort, -O2) & 0.151 & 0.000 & 0.192 \\
+        アセンブリ言語 (Quick Sort) & \textbf{0.143} & 0.019 & 0.168 \\ \bottomrule
+      \end{tabular}
+      
+      \vspace{0.5em}
+      \small{※ \textbf{User}時間の比較において、C言語の実装がアセンブリ言語（最適化あり）に近い性能を示した。}
+    \end{table}
+
+    \subsection{目的5に対する結果}
+    これらの結果を用いて，アセンブリ言語でのソートアルゴリズムの有用性について考える．\ref{sec:result_d}節の結果から，アセンブリ言語で実装したクイックソートとC言語で実装したクイックソートには明確に実行時間の差が生じている．よって，アセンブリ言語でソートアルゴリズムを記述することの利点は，実行時間の短縮にあるといえる．また，ビッグデータが注目されている昨今において，データ量が膨大になることが予想されるため，アセンブリ言語での実装は有用であると考えられる．表\ref{tab:opt_time_comparison}から最適化オプションを用いたC言語とアセンブリ言語には大きな差がないことがわかる．よって，最適化オプションを用いることでC言語でもアセンブリ言語に近い実行時間を再現できることがわかった．
+
+    \newpage
+
+    \section{考察}
+    本実験では，アセンブリ言語を用いてソートアルゴリズムを実装した．その結果，アセンブリ言語特有のスタック操作やレジスタなどの制約が存在することが明らかになった．他にも，アセンブリ言語でもクイックソートなどの高度なソートアルゴリズムや再帰を実装することが可能であることがわかった．また，実行時間の計測結果から，アセンブリ言語での実装はC言語での実装よりも高速であることが示された．特に最適化オプションを用いた場合でも，アセンブリ言語が僅かに優れた性能を示した．これらの結果から，アセンブリ言語でソートアルゴリズムを記述することには，実行時間の短縮という利点があると言える．アルゴリズムに対してアセンブリ言語でもデータ量が増加するとそれに伴い実行時間が増加することが確認できた．また，その増加はアルゴリズムの時間計算量に従うことも確認できた．アセンブリ言語はソートアルゴリズムに対して有用であることは確認できたが，その実装は困難極まりなく，プログラマに対する負担がとても大きいと感じる．よって，アセンブリ言語での実装は，極端に実行時間の短縮が重要な場合や使用領域に大きな制限がある場合のみに限られるべきであると考える．また，実験結果から最適化を行えばC言語でもアセンブリ言語に近い実行時間を再現できた．これにより，最適化オプションによるバグの影響が少なく，実行時間と保守性を考える場合はC言語での実装が望ましいと考える．
+
+\begin{thebibliography}{99}
+  \bibitem{Clang_algorithm}
+    柴田望洋，
+    ``新版 C言語によるアルゴリズムとデータ構造''，
+    ソフトバンククリエイティブ,株式会社，
+    2006年10月10日．
+
+  \bibitem{Assembly_language}
+    日向 俊二，
+    ``独習アセンブラ''，
+    株式会社 翔泳社，
+    2018年 3月18日．
+
+  \bibitem{Linux_programming}
+    青木峰郎，
+    ``ふつうのLinuxシステムプログラミング''，
+    ソフトバンク クリエイティブ株式会社，
+    2006年10月30日．
+\end{thebibliography}
+
+\newpage
+\appendix % ここから付録
+
+\section{実験に使用したプログラムソースコード}
+
+% 1. C言語の実装
+\subsection{クイックソート（C言語）: quicksort.c}
+以下，プログラムの一部は参考文献:\cite{Clang_algorithm}を参照している．
+\lstinputlisting[language=C, caption=quicksort.c]{quicksort.c}
+\label{lst:quicksort_c}
+
+% 2. アセンブリ言語の実装
+\subsection{クイックソート（アセンブリ言語）: sort.s}
+以下，プログラムの一部は参考文献:\cite{Assembly_language}を参照している．
+\lstinputlisting[language={[x86masm]Assembler}, caption=sort.s]{quick.s}
+\label{lst:quicksort_asm}
+
+\section{実験・計測環境構築スクリプト}
+
+% 3. 計測自動化スクリプト
+\subsection{自動計測ベンチマークスクリプト: backmark.py}
+\lstinputlisting[language=Python, caption=backmark.py]{backmark.py}
+\label{lst:backmark_py}
+
+% 4. データ生成スクリプト
+\subsection{テストデータ生成スクリプト: gen\_data.py}
+\lstinputlisting[language=Python, caption=gen\_data.py]{gen_data.py}
+\label{lst:gen_data_py}
+
+\end{document}

@@ -1,0 +1,96 @@
+\documentclass{jlreq}
+
+\usepackage{amsmath, amssymb}
+\usepackage{enumerate}
+\usepackage{tikz}
+\usepackage{listings, xcolor}
+
+\lstset{
+  basicstyle = {\ttfamily}, % 基本的なフォントスタイル 
+  frame = {tbrl}, % 枠線の枠線。t: top, b: bottom, r: right, l: left
+  breaklines = true, % 長い行の改行
+  numbers = left, % 行番号の表示。left, right, none
+  showspaces = false, % スペースの表示
+  showstringspaces = false, % 文字列中のスペースの表示
+  showtabs = false, %　タブの表示
+  keywordstyle = \color{blue}, % キーワードのスタイル。intやwhileなど
+  commentstyle = {\color[HTML]{1AB91A}}, % コメントのスタイル
+  identifierstyle = \color{black}, % 識別子のスタイル　関数名や変数名
+  stringstyle = \color{brown}, % 文字列のスタイル
+  captionpos = t % キャプションの位置 t: 上、b: 下
+}
+
+\title{情報ネットワーク応用 専門科目演習 OSコマンドインジェクション}
+\author{細川 夏風}
+\date{\today}
+
+\begin{document}
+
+  \maketitle
+  \section{目的}
+  近年，計算機の発展は目覚ましい．それに起因してオペレーティング・システム(以下:\verb|OS|)等の低レイヤのサービスがより拡充された．それがいくつかの問題を引き起こしている．その中で最も大きな問題がセキュリティに関する問題である．\verb|OS|を構成しているコードの中に難解なアルゴリズムが散見される．これにより，問題の重要度に関係なく少なからずセキュリティホールが発生してしまう．中でも最も易く，危険度が高いのが``\verb|OS|コマンドインジェクション''である．それに対する，理解を深め，それから防御するということを理解するため攻撃演習を行う．
+
+  \section{内容}
+  \subsection{構成}
+  今回の環境は``\verb|CYNEX|''から提供されたものであり，大まかに以下のように作られている．
+  \begin{itemize}
+    \item 受講者用サーバ: \verb|windows|(おそらく$10$)
+    \item 受講者用コンテンツサーバ: \verb|Linux|(\verb|Ubuntu|，\verb|ver|不明)
+    \item サーバ構築のために\verb|Docker|を用いて，解析環境を立ち上げる
+  \end{itemize}
+  
+  \subsection{環境}
+  今回の\verb|Docker|のコンテナ内の環境を以下に示す(コンテナ名等は念の為，ここに記さない)．
+  \begin{itemize}
+    \item \verb|app.py|によってWebページから情報を取得し，それに対応した値を返す
+    \item ローカル\verb|DNS|サーバ(ローカル\verb|IP|であるがここには記さない)
+  \end{itemize}
+
+  \subsection{手順}
+  \begin{enumerate}[1). ]
+    \item 受講者サーバへ\verb|Apache Guacamole|から接続
+    \item 受講者用サーバから受講者用コンテンツサーバに\verb|ssh|からログインする
+    \item スーパーユーザになる
+    \item 作業ディレクトリから\verb|Docker|を起動し，コンテナ内に入る
+    \item コンテナ内に存在している\verb|app.py|のソースコードと\verb|/var/log/nginx/|に存在している\verb|access.log|のファイルから解析，ログの確認を行う
+    \item ブラウザから\verb|URL|を入力し，サーバにアクセスしてから攻撃する
+    \item 攻撃はサイトのテキストボックスに「\verb|; cat /etc/passw|」と入力する
+    \item \verb|app.py|を書き換えて，APIサーバを再起動後，結果を確認する
+  \end{enumerate}
+
+  \section{結果}
+  以上の手順を行うと，テキストボックスの下にあるボックスに「\verb|dig; cat /etc/passwd|」の結果が出力される(結果はここに記さない)．上記ファイルには以下の情報が格納されており，以下のような規則で記されている．
+  \begin{itemize}
+    \item 第$1$フィールド: ユーザ名
+    \item 第$2$フィールド: パスワード
+    \item 第$3$フィールド: ユーザID
+    \item 第$4$フィールド: グループID
+    \item 第$5$フィールド: コメント欄
+    \item 第$6$フィールド: ホームディレクトリ
+    \item 第$7$フィールド: ログインシェル
+  \end{itemize}
+
+  これの防御策として以下のようなものがある
+  \begin{itemize}
+    \item 今回は\verb|app.py|に\verb|Shell|を利用してコマンドを実行するようになっていたが，その部分を\verb|Shell|を用いずとも実行できるように書き換える
+    \item エスケープ処理を行う
+  \end{itemize}
+
+  \verb|Python|のWebアプリ制作によく用いられるあるモジュールでは\verb|OS|コマンドを実行する際，\verb|Shell|を経由せずに\verb|Python|が直接そのプログラムを実行するというモードが搭載されている．これにより，\verb|Shell|が可能なことでも\verb|Python|には不可能なことが存在する．今回の「\verb|cat /etc/passed|」が不可能なのも一つの例だ．
+
+  次にエスケープ処理であるが，これは\verb|Python|であれば，単純に記述可能である．\verb|Python|内に存在する\verb|in|というコマンドを用いれば，\verb|in|の前述の文字列が後述の文字列の中に含まれているかの結果を\verb|boolean|で返す．これに\verb|or|，\verb|and|等を用いれば更に条件を絞ることも可能である．
+
+  \vspace{12mm}
+
+  \begin{figure}
+    \begin{lstlisting}[numbers=none, language=Python]
+      if ";" in cmd or "'" in cmd or "\" in cmd:
+        何かしらの処理
+    \end{lstlisting}
+    \caption{エスケープ処理のプログラムの例}
+  \end{figure}
+
+  \section{考察}
+  今回，\verb|OS|コマンドインジェクションの攻撃演習を行った．以前，Webアプリケーションを作成した際にもこれと\verb|SQL|インジェクションに留意して開発を行った．このようなインジェクション攻撃は直接的なアルゴリズムを用いて開発を行うと，必ず攻撃の隙を生んでしまう．この攻撃は歴史が長く，仮に攻撃が成功した時の被害がとても大きい攻撃手段であるために多くのプログラミング言語やサービスで処置がされている．様々な対策が取られているために，この攻撃を許すようなサービスを実装してしまった場合，そのサービスの信頼が地に落ちることになってしまう．よってこのような攻撃には常に気を張って対処すべきであり，開発者であれば知らないでは済まされないようなセキュリティ的事案なのである．そして，私が次に作るサービスは前回のサービスより低レイヤのサービスなどを多く用いる．自戒をもって，本稿の結びとする．
+
+\end{document}

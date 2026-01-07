@@ -1,0 +1,54 @@
+\documentclass{jlreq}
+
+\usepackage{amsmath, amssymb}
+\usepackage{enumerate}
+\usepackage{tikz}
+\usepackage{listings, xcolor}
+
+\lstset{
+  basicstyle = {\ttfamily}, % 基本的なフォントスタイル 
+  frame = {tbrl}, % 枠線の枠線。t: top, b: bottom, r: right, l: left
+  breaklines = true, % 長い行の改行
+  numbers = left, % 行番号の表示。left, right, none
+  showspaces = false, % スペースの表示
+  showstringspaces = false, % 文字列中のスペースの表示
+  showtabs = false, %　タブの表示
+  keywordstyle = \color{blue}, % キーワードのスタイル。intやwhileなど
+  commentstyle = {\color[HTML]{1AB91A}}, % コメントのスタイル
+  identifierstyle = \color{black}, % 識別子のスタイル　関数名や変数名
+  stringstyle = \color{brown}, % 文字列のスタイル
+  captionpos = t % キャプションの位置 t: 上、b: 下
+}
+
+\title{実験に対するデータ解析とその手法}
+\author{情報学群2年 1280391\\ 細川 夏風}
+\date{\today}
+
+\begin{document}
+
+  \maketitle
+
+
+  \section{目的}
+  近年，\verb|AI|の発展やビックデータを活用できるほどの計算機の性能が成熟したことからデータを分析することの重要性が大きくなっている．将来，私たちが研究室に配属された際に様々な人を被験者とした実験を行うことになるだろう．その際にその実験データからデータ分析を行えるようになっていなければならない．今回はそのための練習として以下のことを行った．
+
+  \section{内容}
+  \subsection{使用技術}
+  実験には以下の目的で以下のソフトウェアを用いた．
+  \begin{enumerate}[(1). ]
+    \item \verb|Pyschopy|: 実験環境の作成
+    \item \verb|MATLAB|: 画像処理とデータ分析
+    \item \verb|Excel|, \verb|Goole|スプレッドシート: データ分析とデータの格納
+    \item \verb|Python|, \verb|R|: データ分析のためのプログラミング言語
+  \end{enumerate}
+    それぞれのチE�Eタ刁E��の手法ごとにまとめる�E�E
+    それぞれのデータ分析の手法ごとにまとめる．
+
+  \section{結果}
+
+  \section{考察}
+
+\begin{thebibliography}{99}
+  
+\end{thebibliography}
+\end{document}

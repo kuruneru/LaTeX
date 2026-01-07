@@ -1,0 +1,57 @@
+\documentclass{jlreq}
+
+\usepackage{amsmath, amssymb}
+\usepackage{enumerate}
+\usepackage{tikz}
+\usepackage{listings, xcolor}
+
+\lstset{
+  basicstyle = {\ttfamily}, % 基本的なフォントスタイル 
+  frame = {tbrl}, % 枠線の枠線。t: top, b: bottom, r: right, l: left
+  breaklines = true, % 長い行の改行
+  numbers = left, % 行番号の表示。left, right, none
+  showspaces = false, % スペースの表示
+  showstringspaces = false, % 文字列中のスペースの表示
+  showtabs = false, %　タブの表示
+  keywordstyle = \color{blue}, % キーワードのスタイル。intやwhileなど
+  commentstyle = {\color[HTML]{1AB91A}}, % コメントのスタイル
+  identifierstyle = \color{black}, % 識別子のスタイル　関数名や変数名
+  stringstyle = \color{brown}, % 文字列のスタイル
+  captionpos = t % キャプションの位置 t: 上、b: 下
+}
+
+\title{実験に対するデータ解析とその手法}
+\author{情報学群2年 1280391\\ 細川 夏風}
+\date{\today}
+
+\begin{document}
+
+  \maketitle
+
+
+  \section{目的}
+  近年，情報化社会により多くの情報が脳に届けられる．これによる認知負荷やあるサービスの理解の易さなどに多くの差が見られる．これらに対するサービスの質を向上させるための脳の認知の差異を
+
+  \section{内容}
+  \subsection{使用技術}
+  実験には以下の目的で以下のソフトウェアを用いた．
+  \begin{enumerate}[(1). ]
+    \item \verb|Pyschopy|: 実験環境の作成
+    \item \verb|MATLAB|: 画像処理とデータ分析
+    \item \verb|Excel|, \verb|Goole|スプレッドシート: データ分析とデータの格納
+    \item \verb|Python|, \verb|R|: データ分析のためのプログラミング言語
+  \end{enumerate}
+    それぞれのデータ分析の手法ごとにまとめる．
+    \subsection{第一回 ストループ効果}
+    ストループ効果とは，単語の意味と色が一致しない場合，色を答えるのに時間がかかる現象をいう．この際，誤答の試行についてはデータ分析には含めない．誤答についても分析に加えてしまうと，提示された単語の意味や色に関係なく素早く入力し意図的にこの現象を否定することが可能になっているからである．\leftarrow 参考文献
+
+    
+
+  \section{結果}
+
+  \section{考察}
+
+\begin{thebibliography}{99}
+  
+\end{thebibliography}
+\end{document}

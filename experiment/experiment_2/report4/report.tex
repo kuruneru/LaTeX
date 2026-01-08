@@ -4,6 +4,8 @@
 \usepackage{enumerate}
 \usepackage{tikz}
 \usepackage{listings, xcolor}
+\usepackage{booktabs} % 綺麗な横線を引くため
+\usepackage{float}    % 表の配置を固定するため
 
 \lstset{
   basicstyle = {\ttfamily}, % 基本的なフォントスタイル 
@@ -33,25 +35,196 @@
   近年，情報化社会により多くの情報が脳に届けられる．これによる認知負荷やあるサービスの理解の易さなどに多くの差が見られる．これらに対するサービスの質を向上させるための脳の認知の差異を
 
   \section{内容}
-  \subsection{使用技術}
+  \subsection*{使用技術}
   実験には以下の目的で以下のソフトウェアを用いた．
   \begin{enumerate}[(1). ]
     \item \verb|Pyschopy|: 実験環境の作成
     \item \verb|MATLAB|: 画像処理とデータ分析
     \item \verb|Excel|, \verb|Goole|スプレッドシート: データ分析とデータの格納
     \item \verb|Python|, \verb|R|: データ分析のためのプログラミング言語
+    \item \verb|ImageJ|: 写真について様々な色覚の状態から確認できるソフトウェア
   \end{enumerate}
     それぞれのデータ分析の手法ごとにまとめる．
-    \subsection{第一回 ストループ効果}
+    \subsection*{第$1$回 ストループ効果}
     ストループ効果とは，単語の意味と色が一致しない場合，色を答えるのに時間がかかる現象をいう．この際，誤答の試行についてはデータ分析には含めない．誤答についても分析に加えてしまうと，提示された単語の意味や色に関係なく素早く入力し意図的にこの現象を否定することが可能になっているからである．\leftarrow 参考文献
 
-    
+    \subsection*{第$2$回 統計的仮説検定}
+    統計的仮説検定とは，仮説を立て母集団から取り出した標本から，その真偽を判定することをいう．考えられる全体を仮説の対象として考え，まず成り立たないと思われる仮説を帰無仮説として立て，その残りを対立仮説とする．そして，帰無仮説が棄却されたら採択される仮説が対立仮説である\cite{step}．
 
+    \subsection*{第$3$回 主観評価実験}
+    主観評価実験とはそれぞれのユーザの主観評価をいくつかの方法で測定する方法である．今回私たちが用いたのは，リッカート尺度という方法である．段階的な選択肢で，回答してもらう方法である．今回私たちは$5$段階で評価を行っている．
+
+    \subsection*{第$4$回 ノンパラメトリック検定}
+    ノンパラメトリック検定とは，母集団の分布の形が特定の仮定をおかないことをいう．逆に母集団の形が特定の形，正規分布であることを仮定することをパラメトリック検定という．ノンパラメトリック検定は外れ値の影響が少なく，比較的頑健であるとされている．
+
+    \subsection*{第$5$回 カラーユニバーサルデザイン}
+    カラーユニバーサルデザインとは，色覚の多様背に配慮し，すべての人に利用しやすい色のデザインを提供するデザイン方法のことをいう．
+    
   \section{結果}
+  \subsection*{第$1$回}
+  \begin{figure}[hbp]
+    \centering
+    \includegraphics[width=0.6\linewidth]{ストループ効果.pdf}
+    \caption{反応時間のグラフ}
+    \label{fig:res_result}
+  \end{figure}
+
+  \begin{table}[htp]
+    \centering
+    \caption{ストループ課題の平均反応時間}
+    \begin{tabular}{|l|r|} % l=左寄せ, r=右寄せ。| は縦線。
+      \hline
+      condition & 平均 / rt \\ \hline \hline
+      congruent & 743.6315789 \\ \hline
+      incongruent & 954.25 \\ \hline
+    \end{tabular}
+  \end{table}
+
+  結果は以上の様になった．これはあくまで自分自身のみの結果であるが．結果は，単語の意味と色が一致しているときの方が不一致の場合に比べて，色を答えるのにかかる時間が短いことがわかった．
+
+  \subsection*{第$2$回}
+  行ったデータ分析の結果を以下に示す．この時，データ量は$18$人となっている．また，データ分析は\verb|Excel|で行っている．この検定は反応時間の平均に差があるかどうかを検定である．
+  
+  \begin{figure}[hbp]
+    \centering
+    \includegraphics[width=0.6\linewidth]{t値.pdf}
+    \caption{データ分析の結果}
+    \label{fig:res_result}
+  \end{figure}
+
+  
+  \begin{table}[htbp]
+    \centering
+    \caption{基本統計量（一致・不一致・差）}
+    \begin{tabular}{|l|r|r|r|}
+      \hline
+      & \multicolumn{1}{c|}{一致} & \multicolumn{1}{c|}{不一致} & \multicolumn{1}{c|}{差} \\ \hline
+      平均値 & 641.1666667 & 719.6666667 & 79.05555556 \\ \hline
+      (不偏)分散 & 12008.26471 & 33827.17647 & 10925.82026 \\ \hline
+      標準偏差 & 109.5822281 & 183.9216585 & 104.5266486 \\ \hline
+      標準誤差 & 25.82877885 & 43.35075065 & 24.63716734 \\ \hline
+    \end{tabular}
+  \end{table}
+
+  \begin{table}[htbp]
+    \centering
+    \caption{対応のある$t$検定の結果}
+    \begin{tabular}{|l|r|}
+      \hline
+      $t$ 値 & 3.209 \\ \hline
+      \multicolumn{2}{c}{} \\ \hline
+      & 有意確率 ($p$) \\ \hline
+      TDIST (両側) & 0.0051 \\ \hline
+      T.TEST & 0.0054 \\ \hline
+    \end{tabular}
+  \end{table}
+
+  \newpage
+
+  \subsection*{第$3$回}
+  私たちは，\verb|Web|ページのユーザが行う主観評価の項目を``UIの可読性が高い''という評価に決定した．
+
+  また，参考した\verb|Web|ページにはいくつか問題が存在したように感じる．それを以下に列挙する．
+  \subsubsection*{サイトA}
+  \begin{enumerate}[(1). ]
+    \item 検索欄が少し，複雑であり初めて利用したユーザが使いづらい可能性がある．
+    \item 最初のメインページでは，選択できる項目が少し少ない．
+  \end{enumerate}
+
+  \subsubsection*{サイトB}
+  \begin{enumerate}[(1). ]
+    \item 宿泊地を詳細にしか検索できず，大雑把に決めたい人にとって不便．
+    \item $2$人，$2$部屋で予約すると，$1$人$1$部屋の料金しか表示されない．
+  \end{enumerate}
+  
+  \subsubsection*{サイトC}
+  \begin{enumerate}[(1). ]
+    \item \verb|Web|ページの表示が遅い．
+    \item 最初のページに表示される情報量が少ない．
+  \end{enumerate}
+
+  \subsubsection*{サイトD}
+  \begin{enumerate}[(1). ]
+    \item 最初のメインページに表示される情報量が多すぎる．
+    \item 最初のメインページに表示される風景の情報が写真のみ．
+  \end{enumerate}
+
+  \subsection*{第$4$回}
+  この主観評価について，\verb|Wilcoxon|の符号順位検索で検定する．
+
+  以下の$3$つについて有意的な差みられたかどうか検定する．
+  \begin{enumerate}[1. ]
+    \item このサイトの見た目はスッキリしていて見やすい。
+    \item このサイトは統一感がある．
+    \item UIの可読性が高い．
+  \end{enumerate}
+  \begin{table}[htbp]
+    \centering
+    \caption{データ分析結果の有意確率 ($p$)}
+    \begin{tabular}{|l|c|l|c|}
+      \hline
+      課題1 & $p$ & & $p$ \\ \hline
+      設問1(ab) & 0.000393 & 設問1(cd) & 0.052 \\ \hline
+      設問2(ab) & 0.03799 & 設問2(cd) & 0.004017 \\ \hline
+      設問3(ab) & 0.03988 & 設問3(cd) & 0.1595 \\ \hline
+    \end{tabular}
+  \end{table}
+
+  また，``このサイトを今後も利用したい''という$2$件法の項目についての$\chi ^ 2$検定の結果を以下に示す．
+
+  \begin{table}[H]
+    \centering
+    \caption{サイトAとサイトBにおける回答の$\chi ^2 $検定}
+    \begin{tabular}{lrrr}
+      \toprule
+      サイト & はい & いいえ & 合計 \\
+      \midrule
+      サイトA & 60 (58.5) & 31 (32.5) & 91 \\
+      サイトB & 57 (58.5) & 34 (32.5) & 91 \\
+      \midrule
+      合計 & 117 & 65 & 182 \\
+      \bottomrule
+      \multicolumn{4}{l}{\small ※（ ）内は期待値。$\chi^2(1) = 0.215, p = .643$}
+    \end{tabular}
+  \end{table}
+
+  \begin{table}[H]
+    \centering
+    \caption{サイトC・Dにおける回答の$\chi ^ 2$ 検定}
+    \begin{tabular}{lrrr}
+      \toprule
+      サイト & はい & いいえ & 合計 \\
+      \midrule
+      サイトC & 63 (64.5) & 28 (26.5) & 91 \\
+      サイトD & 66 (64.5) & 25 (26.5) & 91 \\
+      \midrule
+      合計 & 129 & 53 & 182 \\
+      \bottomrule
+      \multicolumn{4}{l}{\small ※（ ）内は期待値。$\chi^2 = 0.240, df = 1, p = .625$}
+    \end{tabular}
+  \end{table}
+
+  \subsection{第$5$回}
+  ユニバーサルデザインについては以下のようなグラフになるように修正した．
+  \begin{figure}[hbp]
+    \centering
+    \includegraphics[width=0.6\linewidth]{cirlcle.png}
+    \caption{折れ線グラフ}
+    \label{fig:line}
+  \end{figure}
+
+  \begin{figure}[hbp]
+    \centering
+    \includegraphics[width=0.6\linewidth]{line.png}
+    \caption{円グラフ}
+    \label{fig:circle}
+  \end{figure}
+
 
   \section{考察}
 
 \begin{thebibliography}{99}
   
+  \bibitem{step} 統計学へのステップ，長畑 秀和，共立出版株式会社，2000年11月25日
 \end{thebibliography}
 \end{document}

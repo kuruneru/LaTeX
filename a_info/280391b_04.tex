@@ -1,0 +1,36 @@
+\documentclass[dvipdfmx]{jlreq}
+
+	\usepackage{enumerate}
+	\usepackage{amsmath}
+	\usepackage{amssymb}
+	\usepackage{amsfonts}
+
+	\title{情報科学応用 第4回課題}
+	\author{細川 夏風}
+	\date{\today}
+
+\begin{document}
+
+	\maketitle
+
+	\section{問題A}
+		$m, n, k \in \mathbb{Z}$	
+		\begin{enumerate}[(1)]
+			\item $2 > 0 \land \exists k(-2020 = 2k)$
+			\item $\forall m \exists k(0 = mk)$
+			\item $\forall m (m > 0 \land \exists k(0 = mk))$
+			\item $\exists n ((0 > 0) \land \exists k(n = 0k))$
+			\item $\forall m \exists k(-1 = mk)$
+		\end{enumerate}
+
+	\section{問題B}
+		\begin{enumerate}[(1)]
+			\item この命題に対して、論理式$2 > 0 \land \exists k(-2020 = 2k)$を$2 > 0 \land$の部分と$\exists k(-2020 = 2k)$に分けて考える．$2 > 0$に付いて2は0より大きいので真．$\exists k(-2020 = 2k)$について、$k = -1010$のとき成り立つため真である．よってこの命題は真である．
+			\item この命題の論理式$\forall m \exists k(0 = mk)$から考える．任意の整数となるような$m'$をとったとき、$k = 0$をとると$m' \times 0$は$0$になるためこの命題は真である．
+			\item この命題の論理式$\exists m(m \leq 0 \lor \forall k(0 \neq mk))$から考える．このとき、$m = 0$であればこの命題は成り立つ．よって否定命題が真であるため順命題は偽である．
+			\item この命題の論理式$\exists n ((0 > 0) \land \exists k(n = 0k))$から考える．この命題は論理式の前部分の$(0 > 0)$の部分で成り立っていないため、偽である．
+			\item この命題の論理式$\forall m \exists k(-1 = mk)$の否定命題$\exists m \forall k (-1 \neq mk)$について考える．任意の整数$k'$をとる．このとき、$m = 0$とすると、$mk' \neq 0$となるため否定命題が成り立つため、順命題は偽である．
+		\end{enumerate}
+
+\end{document}
+

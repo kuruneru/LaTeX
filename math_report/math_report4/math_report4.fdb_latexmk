@@ -1,0 +1,20 @@
+# Fdb version 3
+["pdflatex"] 1730378672 "/home/kuruneru/LaTeX/math_report4/math_report4.tex" "math_report4.pdf" "math_report4" 1730378672
+  "/etc/texmf/web2c/texmf.cnf" 1728057051 475 c0e671620eb5563b2130f56340a5fde8 ""
+  "/home/kuruneru/LaTeX/math_report4/math_report4.tex" 1730378671 6252 29dc3231e1261572824311b71ddfa771 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty" 1601931149 46845 3b58f70c6e861a13d927bff09d35ecbc ""
+  "/usr/share/texlive/texmf-dist/tex/latex/everyhook/everyhook.sty" 1417130005 5531 6783cc7ca14ebcec881a109a07e02d11 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/jlreq/jlreq-helpers.sty" 1636058480 21198 c709427a8761252a023a744a778d7c93 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/jlreq/jlreq.cls" 1636058480 282259 fabb6dc3f8b8b91195b34f374a062517 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def" 1642022539 29921 f0f4f870357ebfb8fe58ed9ed4ee9b92 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3.sty" 1642805374 6107 429b3b241150e53f86ce666eb492861e ""
+  "/usr/share/texlive/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty" 1642022539 4674 ac560df2ef76ab2c406a4948a48f79f8 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/svn-prov/svn-prov.sty" 1272330018 6852 44ea8d7e58290cde708a34ebf3953571 ""
+  "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
+  "/usr/share/texmf/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1729595302 2798458 460da51d384699d7cec838671718ae84 ""
+  "math_report4.aux" 1730378672 32 3985256e7290058c681f74d7a3565a19 ""
+  "math_report4.tex" 1730378671 6252 29dc3231e1261572824311b71ddfa771 ""
+  (generated)
+  "math_report4.log"
+  "math_report4.pdf"

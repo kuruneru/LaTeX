@@ -1,0 +1,298 @@
+\documentclass{jlreq}
+
+\usepackage{amsmath, amssymb}
+\usepackage{enumerate}
+\usepackage{tikz}
+\usepackage{listings, xcolor}
+\usepackage{graphicx}
+\usepackage{subcaption} % これが subfigure 環境を使うために必要です
+
+\lstset{
+  basicstyle = {\ttfamily}, % 基本的なフォントスタイル 
+  frame = {tbrl}, % 枠線の枠線．t: top, b: bottom, r: right, l: left
+  breaklines = true, % 長い行の改行
+  numbers = left, % 行番号の表示．left, right, none
+  showspaces = false, % スペースの表示
+  showstringspaces = false, % 文字列中のスペースの表示
+  showtabs = false, %　タブの表示
+  keywordstyle = \color{blue}, % キーワードのスタイル．intやwhileなど
+  commentstyle = {\color[HTML]{1AB91A}}, % コメントのスタイル
+  identifierstyle = \color{black}, % 識別子のスタイル　関数名や変数名
+  stringstyle = \color{brown}, % 文字列のスタイル
+  captionpos = t % キャプションの位置 t: 上，b: 下
+}
+
+\title{fMRIにおける個人解析と集団解析について}
+\author{細川 夏風}
+\date{\today}
+
+\begin{document}
+
+  \maketitle
+  \section{背景}
+  今実習では，$5$人の利き手が右手の健常な成人を対象とした，``指上げ運動模倣課題''の実験データを用いて\verb|fMRI(functional Magnetic Resonace Imaging|: 機能的磁気共鳴画像法画像)の解析を行った．この時，$1$人称視点($1$\verb|PP|)と$3$人称視点($3$\verb|PP|)での模倣時における脳活動の差異を検討を目的として解析を行う．
+  
+  \section{方法}
+  今実験に用いた環境をいかに示す．
+  \subsection*{環境}
+  \begin{enumerate}[(1). ]
+    \item \verb|Windows 10|
+    \item \verb|MATLAB|
+    \item \verb|SPM|$12$(\verb|Statistical Parametric Mapping|): 脳画像解析のソフトウェア
+  \end{enumerate}
+
+  \subsection*{手順及び結果}
+  結果の殆どが図であるため，併せて示す．
+  \subsubsection*{前処理}
+  \begin{enumerate}[1. ]
+    \item \verb|Realignment|(再配列): 頭部の運動による画像感の位置ずれの補正のために，全画像の位置合わせを行う．
+    \begin{enumerate}[・ ]
+      \item Realign(Estimate)から，Realign \& Unwarpを選択．
+      \item Batch Editorが立ち上がる．
+      \item Bata<-XをダブルクリックもしくはSpecifyしData の内容を以下のように登録する．
+      \item Bmages<-Xは各被験者のEPIフォルダにあるすべて の.niiファイル（NifTiファイル）を指定する（合計 204ファイル）．
+      \item Bunボタンを押し実行する．    
+    \end{enumerate}
+    以下の図から身体運動によって位置ずれがどの程度起こったかがわかる．
+    \begin{figure}[http]
+      \includegraphics[width=8cm]{experiment2-5/前処理/Realignment/Realignment1.png}
+      \includegraphics[width=10cm]{experiment2-5/前処理/Realignment/Realignment1graph.png}
+      \caption{Realignment時のデータ}
+    \end{figure}
+    \newpage
+    \item Coregistration(供登録): 機能画像と解剖画像の構造情報の対応付けを行った．
+    \begin{enumerate}[・ ]
+      \item Coregister (Estimate)を選択する．
+      \item Batch Editorの設定は以下．
+      \item Reference Image <-XはEPIフォルダのmeansub1\_001.nii,1を指定（被験者1の場合）．
+    \end{enumerate}
+    以下の図から脳と身体がそれぞれ対応ずいたことがわかる．
+    \begin{figure}[http]
+      \centering
+      \includegraphics[width=10cm]{experiment2-5/前処理/Coregistration/Coregistration1.png}
+      \caption{Coregistration時のデータ}
+    \end{figure}
+    \item Segmenttation(分割化): 解剖画像を灰白質，白質脳脊髄液に分割し標準化のためのパラメータの算出を行った．
+    \begin{enumerate}[・ ]
+      \item Segmentを選択し，以下のBatch Editor設定をする．
+      \item VolumesはT1フォルダ内のsub1\_T1.nii．
+      \item Save Bias CorrectedはSave Bias Correctedに変更．
+      \item Affine RegularisationはEast Asian brainsにする．
+      \item 次のステップのNormalisationのためにDeformation FieldsをForwardに変更設定する．
+      \item 実行する
+      \item 実行すると，（sub1の場合）T1フォルダに
+      \item c1sub1\_T1.nii…c5sub1\_T1.niiの５ファイルとmsub1\_T1.nii sub1\_T1\_seg8.mat Y\_sub1\_T1.niiが生成される．
+    \end{enumerate}
+    以下の画像に灰白質のみが映っていることから分割ができたことがわかる．
+    \begin{figure}[http]
+      \centering
+      \includegraphics[width=10cm]{experiment2-5/前処理/Segmentation/Segmentation1.png}
+      \caption{Segmentation時のデータ}
+    \end{figure}
+    \item Normalisation(標準化): 個体差のある形状を，MNI(Montreal Neurological Institute)標準脳に変換する．
+    \begin{enumerate}[・ ]
+      \item Normalise (Estimate)からNormalise (Write)を選択する．
+      \item Data<-Xから，Deformation FieldはT1フォルダのy\_sub1\_T1.niiを選択する．
+      \item Image to Write<-XはEPIフォルダの先頭にuが付いた機能画像（Realign\&Unwarp処理をした画像）を選択する．Filterに\^{} uと入力し，usubから始まる204ファイルを選択する（ボックス内で右クリックをするとSelect\_Allが見えるのでこれをクリックすると簡単に選択できる）．
+      \item 実行する
+    \end{enumerate}
+    \begin{figure}[http]
+      \centering
+      \includegraphics[width=10cm]{experiment2-5/前処理/Normalisation/Normalisation1.png}
+      \caption{Normalisation時のデータ}
+    \end{figure}
+    \newpage
+    \item Smoothing(平滑化):フィルタを適用し，画像を平滑にし扱いやすい形に変換した．
+    \begin{enumerate}[・ ]
+      \item Smoothを選択する．
+      \item Images to smooth<-Xにはnormalisation処理後の機能画像（先頭にwがついている）を指定する（EPIフォルダに移動し，Filterに\^{}wと入力して204ファイルをSelect Allする）．
+      \item 実行するとファイルの先頭にsが付いたファイルが生成される．
+    \end{enumerate}
+    以下の画像からこれまでの画像と比べて平滑的な画像になっていることがわかる．
+    \begin{figure}[http]
+      \centering
+      \includegraphics[width=10cm]{experiment2-5/前処理/Smooting/swusub1.png}
+      \caption{Smoothing時のデータ}
+    \end{figure}
+  \end{enumerate}
+  \newpage
+  \subsubsection*{個人解析}
+  個人解析の一連の流れをいかに示す．
+  \begin{enumerate}[(1) ]
+    \item デザインマトリックスを作成し，機能画像データを組み込む．
+    \item GLM(一般線形モデル)の個々の回帰子の偏回帰係数を計算する．
+    \item 比較したい条件間のコントラストを作成し，統計検定を実施する．
+  \end{enumerate}
+  \begin{enumerate}[・ ]
+    \item Specify 1st-levelを選択する．
+    \item Directory<-XでWorkフォルダを選択する（解析結果はこのフォルダに保存される）．
+    \item Timing Parametersの設定をする．Units for design<-XはScans, Interscan interval<-Xは2.5．
+    \item Data \& Design<-X（ダブルクリック）は，Subject/Sessionの中のScans<-XはEPIフォルダの前
+    \item 理済みファイル（swu….nii, 204ファイル），New: Conditionsを4回クリックする（1PP\_right条件，1PP\_left条件，3PP\_right条件，3PP\_left条件のため）．多くクリックするなどした場合は，lete: Condition(*)をクリックして削除．
+    \item 1PP\_right条件については，Name<-Xは1PP\_right，Onsets<-Xはスキャン数を入れる（9）．
+    \item （注）複数のタスクブロックからなる場合は，それぞれのタスクブロックのonsetを半角スペース入れて複数入力する．
+    \item Duration<-Xは1ブロックのスキャン数（40）を入力する．
+    \item Onsets, Durationにより，その条件のタイミングが規定される．
+    \item Estimateを選択する．
+    \item WorkフォルダのSPM.matを選択する．
+    \item 実行する．
+    \item Resultsを選択する．
+    \item workフォルダのSPM.matを選択する．
+    \item Contrast managerが立ち上がる(左)．
+    \item デザインマトリックスは左から1PP\_right,1PP\_left, 3PP\_right, 3PP\_left条件を示している．
+    \item Define new contrastをクリック．今回は，「3PP条件において1PP条件よりも有意に高い活動を示す脳領域を推定する」帰無仮説は3PP=1PP, 対立仮説は3PP>1PP．
+    \item Nameに3PP vs. 1PP，typeはt-contrast．
+    \item Contrastの数字は-1 -1 1 1とする．これが視点の主効果（3PP vs. 1PP）を示している．
+    \item Submit, OKを押して，001{T}: 3PP vs. 1PPがあることを確認．Done．
+  \end{enumerate}
+  今実験では，1PP\_right，1PP\_left，3PP\_right，3PP\_leftの$4$条件で行っている．また，その結果はあまりに多いため，以下の付録に掲載している．
+  \newpage
+  \subsubsection*{集団解析}
+  集団解析の一連の流れを以下に示す．
+  \begin{enumerate}[(1) ]
+    \item デザインマトリックスの作成
+    \item 推定
+    \item 結果の表示
+  \end{enumerate}
+  \begin{enumerate}[・ ]
+    \item Specify 2nd-level
+    \item Directory<-Xは事前に作成しておいたParametric
+    \item Group Analysisを選択する（結果はこのフォルダに保存される）．
+    \item Batch Editorは以下：One-sample t-test, Scans <- Xはcon\_0001.niiを5人分選択する．
+    \item Estimateを選択する．
+  \end{enumerate}
+  今実験データは以下の付録に掲載する．
+  \section{考察}
+  今実験では$1$\verb|PP|と$3$\verb|PP|における脳活動の差異を検討した．解析の結果$3$\verb|PP|条件において右下頭頂小葉や上側頭溝に有意な活動が見られた．
+
+  この結果から，$3$\verb|PP|での模倣はトレースでは無く，相手の動作を脳の中で作り上げる作業が行われることが示唆される．$1$\verb|PP|では見た動作を模倣するだけでよいが，$3$\verb|PP|では相手の動作を脳内で作り上げるというプロセスが必要となる．そのため，模倣に比べて脳の広い範囲が協力的に活動していることが今実験よりわかった．
+
+  具体的には，相手の動きを分析する領域である\verb|STS|や自身と他者の位置関係を整理する領域である頭頂葉が連携して働いた結果，集団解析において有意な活動として示されたと考えられる．
+
+  \vspace{0.5cm}
+  また，本実験では\verb|fMRI|の基礎的な原理と解析法を学んだが，今後は以下のような技術発展により，脳科学研究が発展すると考えられる．
+
+  今実験で用いた\verb|GLM|は特定の活動を統計的に判断可能であるが，どのような情報が処理されているかという脳の根幹的情報を判断することはできない．今後は機械学習やディープラーニングなどの多変量パターン解析を用いることにより脳そのものを調べることが可能になると考えられる．これにより，対象が何を見ているのかやどのような意図を持っているのかを読み取ることが可能になると考えられる．
+
+  また，\verb|fMRI|には大きな問題がある．それは時間分解能の低さである．その問題を解決するためにリアルタイムで活動を判断することができるリアルタイム\verb|fMRI|が脳科学の発展に寄与することになると考える．これにより，対象の脳活動をモニターしながら，それを自身で制御するという動作がより精密化すると考えられる．
+  \begin{thebibliography}{99}
+    \bibitem{} hello
+  \end{thebibliography}
+  \appendix
+  \appendix
+  \section{付録:解析結果詳細}
+  本付録では，全被験者，集団解析の統計モデルおよびコントラスト解析の結果を掲載する．
+
+  % -----------------------------------------------------------------
+  % 1. デザイン行列 (Design Matrices) 一覧
+  % -----------------------------------------------------------------
+
+  \begin{figure}[htbp]
+    \centering
+    % Sub1
+    \begin{subfigure}{0.32\textwidth}
+      \includegraphics[width=\textwidth]{\detokenize{experiment2-5/個人解析/fMRI_model_specification1.png}}
+      \caption{被験者1}
+    \end{subfigure}
+    \hfill
+    % Sub2
+    \begin{subfigure}{0.32\textwidth}
+      \includegraphics[width=\textwidth]{\detokenize{experiment2-5/個人解析/fMRI_model_specification2.png}}
+      \caption{被験者2}
+    \end{subfigure}
+    \hfill
+    % Sub3
+    \begin{subfigure}{0.32\textwidth}
+      \includegraphics[width=\textwidth]{\detokenize{experiment2-5/個人解析/fMRI_model_specification3.png}}
+    \end{subfigure}
+    
+    \vspace{0.5cm}
+
+    % Sub4
+    \begin{subfigure}{0.32\textwidth}
+      \includegraphics[width=\textwidth]{\detokenize{experiment2-5/個人解析/fMRI_model_specification4.png}}
+      \caption{被験者4}
+    \end{subfigure}
+    \hspace{0.5cm}
+    % Sub5
+    \begin{subfigure}{0.32\textwidth}
+      \includegraphics[width=\textwidth]{\detokenize{experiment2-5/個人解析/fMRI_model_specification5.png}}
+      \caption{被験者5}
+    \end{subfigure}
+    
+    \caption{全被験者のデザイン行列．各レギュレッタは1PP/3PPの左右条件および定数項を表す．}
+    \label{fig:appendix_designs}
+  \end{figure}
+
+  \newpage % 改ページしてコントラスト結果へ
+
+  % -----------------------------------------------------------------
+  % 2. コントラスト結果 (Contrast Results) 一覧
+  % -----------------------------------------------------------------
+
+  % 被験者1
+  \begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{\detokenize{experiment2-5/個人解析/Contrast1.png}}
+    \caption{被験者1：コントラスト解析結果（3PP vs 1PP）}
+  \end{figure}
+
+  % 被験者2 (2枚に渡るため個別に配置)
+  \begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{\detokenize{experiment2-5/個人解析/Contrast2-1.png}}
+    \caption{被験者2：コントラスト解析結果（1/2）}
+  \end{figure}
+
+  \begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{\detokenize{experiment2-5/個人解析/Contrast2-2.png}}
+    \caption{被験者2：コントラスト解析結果（2/2）}
+  \end{figure}
+
+  % 被験者3
+  \begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{\detokenize{experiment2-5/個人解析/Contrast3.png}}
+    \caption{被験者3：コントラスト解析結果}
+  \end{figure}
+
+  % 被験者4
+  \begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{\detokenize{experiment2-5/個人解析/Contrast4.png}}
+    \caption{被験者4：コントラスト解析結果}
+  \end{figure}
+
+  % 被験者5
+  \begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{\detokenize{experiment2-5/個人解析/Contrast5.png}}
+    \caption{被験者5：コントラスト解析結果}
+  \end{figure}
+
+  \begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{\detokenize{experiment2-5/集団解析/Design_matrix.png}}
+    \caption{集団解析のデザイン行列．5名の被験者データを入力としたOne sample t-testモデルである．}
+    \label{fig:group_design}
+  \end{figure}
+
+  \begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{\detokenize{experiment2-5/集団解析/result10-1.png}}
+    \caption{集団解析結果（3PP vs 1PP）：統計マップおよびテーブル(1/2)．}
+  \end{figure}
+
+  \begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{\detokenize{experiment2-5/集団解析/result10-2.png}}
+    \caption{集団解析結果（3PP vs 1PP）：統計マップおよびテーブル(2/2)．}
+  \end{figure}
+
+  \begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{\detokenize{experiment2-5/集団解析/result41.png}}
+    \caption{集団解析結果：クラスタレベルの閾値補正（k = 41 voxels）を適用した結果である．}
+  \end{figure}
+\end{document}

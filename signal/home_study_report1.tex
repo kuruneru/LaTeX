@@ -1,0 +1,193 @@
+\documentclass{jlreq}
+
+\usepackage{amsmath, amssymb}
+\usepackage{enumerate}
+\usepackage{tikz}
+\usepackage{listings, xcolor}
+\usepackage{paracol}
+
+\lstset{
+  basicstyle = {\ttfamily}, % 基本的なフォントスタイル 
+  frame = {tbrl}, % 枠線の枠線。t: top, b: bottom, r: right, l: left
+  breaklines = true, % 長い行の改行
+  numbers = left, % 行番号の表示。left, right, none
+  showspaces = false, % スペースの表示
+  showstringspaces = false, % 文字列中のスペースの表示
+  showtabs = false, %　タブの表示
+  keywordstyle = \color{blue}, % キーワードのスタイル。intやwhileなど
+  commentstyle = {\color[HTML]{1AB91A}}, % コメントのスタイル
+  identifierstyle = \color{black}, % 識別子のスタイル　関数名や変数名
+  stringstyle = \color{brown}, % 文字列のスタイル
+  captionpos = t % キャプションの位置 t: 上、b: 下
+}
+
+\title{信号理論基礎 課題レポート1}
+\author{細川 夏風}
+\date{\today}
+
+\begin{document}
+
+  \maketitle
+
+  授業より，$a_m = \frac{1}{\int_{0}^{4}(f_m)^2dt}\int_{0}^{4}ff_{m}dt$，
+  $ f_1 = 
+    \begin{bmatrix}
+      1 \\ 1 \\ 1 \\ 1
+    \end{bmatrix}
+  $，
+  $ f_2 = 
+    \begin{bmatrix}
+      1 \\ 1 \\ -1 \\ -1
+    \end{bmatrix}
+  $，
+  $ f_3 = 
+    \begin{bmatrix}
+      1 \\ -1 \\ -1 \\ 1
+    \end{bmatrix}
+  $，
+  $ f_4 = 
+    \begin{bmatrix}
+      1 \\ -1 \\ 1 \\ -1
+    \end{bmatrix}
+  $，を用いる．
+
+    \begin{enumerate}[(1). ]
+      \item 
+        $ f = 
+          \begin{bmatrix}
+            5 \\ 1 \\ -5 \\ 3
+          \end{bmatrix}
+        $
+        のときの$a_1$\~{}$a_4$を求めよ．
+      
+        \vspace{18pt}
+
+        \begin{paracol}{2}
+          \begin{flushleft}
+            $
+            \begin{aligned}
+              a_1 &= \frac{1}{4}\int_{0}^{4}ff_1dt \\
+              &= \frac{1}{4} \langle f, f_1 \rangle \\
+              &= \frac{1}{4}\left\{ 5 \cdot 1 + 1 \cdot 1 + (-5) \cdot 1 + 3 \cdot 1 \right\} \\
+              &= \frac{1}{4} \cdot 4 \\
+              &= 1
+            \end{aligned}
+            $
+
+            よって$a_1 = 1$．
+
+            \vspace{18pt}
+
+          $
+          \begin{aligned}
+            a_2 &= \frac{1}{4}\int_{0}^{4}ff_2dt \\
+            &= \frac{1}{4} \langle f, f_2 \rangle \\
+            &= \frac{1}{4}\left\{ 5 \cdot 1 + 1 \cdot 1 + (-5) \cdot (-1) + 3 \cdot (-1) \right\} \\
+            &= \frac{1}{4} \cdot 8 \\
+            &= 2
+          \end{aligned}
+          $よって$a_2 = 2$．  
+        \end{flushleft}
+
+        \vspace{18pt}
+
+        \switchcolumn
+
+        \begin{flushleft}
+          $
+          \begin{aligned}
+            a_3 &= \frac{1}{4}\int_{0}^{4}ff_3dt \\
+            &= \frac{1}{4} \langle f, f_3 \rangle \\
+            &= \frac{1}{4}\left\{ 5 \cdot 1 + 1 \cdot (-1) + (-5) \cdot (-1) + 3 \cdot 1 \right\} \\
+            &= \frac{1}{4} \cdot 12 \\
+            &= 3
+          \end{aligned}
+          $
+          よって$a_3 = 3$．
+
+          \vspace{18pt}
+
+          $
+          \begin{aligned}
+            a_4 &= \frac{1}{4}\int_{0}^{4}ff_4dt \\
+            &= \frac{1}{4} \langle f, f_4 \rangle \\
+            &= \frac{1}{4}\left\{ 5 \cdot 1 + 1 \cdot (-1) + (-5) \cdot 1 + 3 \cdot (-1) \right\} \\
+            &= \frac{1}{4} \cdot (-4)\\
+            &= -1
+          \end{aligned}
+          $
+          よって$a_4 = -1$．
+      \end{flushleft}
+    \end{paracol}
+
+    \newpage
+
+    \item
+    $ f = 
+      \begin{bmatrix}
+        4 \\ 0 \\ 0 \\ 0
+      \end{bmatrix}
+    $
+    のときの$a_1$\~{}$a_4$を求めよ．
+    \begin{paracol}{2}
+      \begin{flushleft}
+        $
+        \begin{aligned}
+          a_1 &= \frac{1}{4}\int_{0}^{4}ff_1dt \\
+          &= \frac{1}{4} \langle f, f_1 \rangle \\
+          &= \frac{1}{4}\left\{ 4 \cdot 1 + 0 \cdot 1 + 0 \cdot 1 + 0 \cdot 1 \right\} \\
+          &= \frac{1}{4} \cdot 4 \\
+          &= 1
+        \end{aligned}
+        $
+
+        よって$a_1 = 1$．
+
+        \vspace{18pt}
+
+        $
+        \begin{aligned}
+          a_2 &= \frac{1}{4}\int_{0}^{4}ff_2dt \\
+          &= \frac{1}{4} \langle f, f_2 \rangle \\
+          &= \frac{1}{4}\left\{ 4 \cdot 1 + 0 \cdot 1 + 0 \cdot (-1) + 0 \cdot (-1) \right\} \\
+          &= \frac{1}{4} \cdot 4 \\
+          &= 1
+        \end{aligned}
+        $よって$a_2 = 1$．  
+      \end{flushleft}
+
+      \vspace{18pt}
+
+      \switchcolumn
+
+      \begin{flushleft}
+        $
+        \begin{aligned}
+          a_3 &= \frac{1}{4}\int_{0}^{4}ff_3dt \\
+          &= \frac{1}{4} \langle f, f_3 \rangle \\
+          &= \frac{1}{4}\left\{ 4 \cdot 1 + 0 \cdot (-1) + 0 \cdot (-1) + 0 \cdot 1 \right\} \\
+          &= \frac{1}{4} \cdot 4 \\
+          &= 1
+        \end{aligned}
+        $
+        よって$a_3 = 1$．
+
+        \vspace{18pt}
+
+        $
+        \begin{aligned}
+          a_4 &= \frac{1}{4}\int_{0}^{4}ff_4dt \\
+          &= \frac{1}{4} \langle f, f_4 \rangle \\
+          &= \frac{1}{4}\left\{ 4 \cdot 1 + 0 \cdot (-1) + 0 \cdot 1 + 0 \cdot (-1) \right\} \\
+          &= \frac{1}{4} \cdot 4\\
+          &= 1
+        \end{aligned}
+        $
+        よって$a_4 = 1$．
+      \end{flushleft}
+    \end{paracol}    
+  \end{enumerate}
+\begin{thebibliography}{99}
+  \bibitem n無し
+\end{thebibliography}
+\end{document}

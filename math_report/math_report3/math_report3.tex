@@ -1,0 +1,101 @@
+\documentclass[uplatex]{jsarticle}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\title{離散数学 演習課題レポート3}
+\author{細川 夏風}
+\date{\today}
+\begin{document}
+
+\maketitle
+
+\section{問1}
+\renewcommand{\theenumi}{(\arabic{enumi})}
+\begin{enumerate}
+	\item 
+		この命題について、$n = 1 , n = 2$のとき$-1 \in \mathbb{Z}, 1 \in \mathbb{Z}$であるため、この場合にいおいてはこの命題は真である。以下の命題について、$( F( n + 1 )) ^ 2 - F( n + 2 )F(n) = (-1)^n $について、この命題における命題関数を$P(n)$としたとき、$P(n) \rightarrow P^+(n)$であることを証明するればよい．$P(k)$となるような$k$を任意にとったとき、$(F(k + 1)^2 ) - F(k + 2)F(k) = (-1)^k$となる．帰納法より$P^+(k)$について、$F((k + 1) + 2 ) ^2 - F((k + 1) + 2)F(k + 1) = (-1)^{k+1}.$この式について、$F(k + 3) = F(k + 2)+F(k + 1)$を利用すると、
+		\begin{equation}
+			\begin{split}
+				F(k+2)^2 - F(k-3)F(k+1) &= F(k+2)^2 - (F(k+1) + F(k+2))F(k+1) \\
+				&=F(k+2)^2 - F(k+1)^2 - F(k+2)F(k+1)\\
+				&=(F(k+1)^2 - F(k+2)F(k)) \\
+				&= -((-1)^k)\\
+				&=F(k+2)^2 - F(k+3)F(k+1) = (-1)^{k+1} \\
+			\end{split}
+		\end{equation}
+		という等式が導ける．よって、この命題は真である。
+	\item 
+		\begin{enumerate}
+			\item $\exists k ( 3^n-1 = 2k)$このとき、$k \in \mathbb{Z}$という命題について帰納法を用いて証明せよ．
+			\item $n = 1$のとき、$3^1 - 1 = 2$である．そのため、$n = 1$は2の倍数である$k \in \mathbb{Z}$となるような$k$を任意にとったとき、$3^k - 1$が2の倍数であると仮定したとき、$\exists l(3^k - 1 = 2l)$となる整数$l$をとる．$k + 1$について考える，
+				\begin{equation}
+					\begin{split}
+						3^{k+1} - 1  &= 3 \times 3^{k} - 1\\
+						&= 3(2l + 1) - 1\\
+						&= 6l + 2\\
+						&= 2(3l + 1)\\
+					\end{split}
+				\end{equation}
+			$3l + 1$は整数であるから、$3^{k+1} - 1$は2の倍数である．よって、すべての自然数nに対して、$3^n -1$は2の倍数である．
+		\end{enumerate}
+		
+	\end{enumerate}
+
+\section{問2}
+\begin{enumerate}
+	\item 
+		\begin{enumerate}
+			\item 全単射であるには全射であるかつ単射であるため、以下の論理式で表せる．$\forall y \exists x ( f(x) = y)$ のとき、$y' \in \mathbb{Z}_+$を任意に取る．$\exists x (f(x) = y') $のとき、$y'$について場合分けを行う．$y' = 2k'$満たす正の整数$k'$を取れる．$x' = k'$とおくこのとき$f(x') = k(f) =  2k'= y'$$y'$が奇数のとき、$y' 2k' + 1 $を満たすような0 以上の整数$k'$を取れる．$f(x') = -2x' + 1 = 2k' + 1$という式になる．このとき$x' = -k'$という式に変形可能であるため、このとき$f(x') = f(-k') = y'$という式が成り立つ．以上より、fは全射である．
+			\begin{enumerate}
+				\item $f(x'_1) = f(x'_2)$を満たすっ整数$x'_1 = x'_2$を任意にとる．
+					\begin{enumerate}
+						\item $x'_1 > 0$かつ$x'_2>0$のとき、$f(x'_1) = 2x'_1$ かつ$f(x'_2) = 2x'_2$で$f(x'_2)$より、$2x'_1=2x'_2$であるから$x'_1 = x'_2$．
+						\item このとき$x'_1 > 0 $かつ$x'_2 \le 0$のとき$f(x'_1) = 2x_1'$、$f(x'_2) = -2x'_2 + 1$このとき、$f(x'_1)$は偶数で$f(x'_2)$は奇数であり、$f(x'_1) = f(x'_2)$と矛盾する．
+						\item このとき$x'_1 \le 0 $かつ$x'_2 > 0$のとき$f(x'_1) = -2x'_1 + 1$、$f(x'_2) = 2x'_2$このとき、$f(x'_1)$は奇数で$f(x'_2)$は偶数であり、$f(x'_1) = f(x'_2)$と矛盾する．
+						\item $x'_1 \le 0$かつ$x'_2\le0$のとき、$f(x'_1) = -2x'_1 + 1$ かつ$f(x'_2) = -2x'_2 + 1$で$f(x'_1) = f(x'_2)$より、$-2x'_1 + 1 = -2x'_2 + 1$であるから$x'_1 = x'_2$．
+					\end{enumerate}
+				以上より単射である．
+			\end{enumerate}
+			よって全単射である．
+		\end{enumerate}
+	\item 否定命題、$\exists A \exists B(A \subset B \land \bar{A} \subset B)$を証明する．$B = U$とすると、$A$が$\emptyset$のとき、$A \subset B$かつ$\bar{A} \subset B$となる．よって、$\exists A \exists B ( A \subset B \land \bar{A} \subset B)$が成り立つ．
+	\item
+		\begin{enumerate}
+			\item $x \in \mathbb{R}$について、$P(x)=x^2 -3x + 2 = 0$となる実数xは存在するという命題について証明しなさい．
+			\item $x' \in \mathbb{R}$となる$x'$をとる命題の式について変形すると$(x-1)(x-2)=0$であるため、$x' = 1$のときに0の積となりこの命題が成り立つ．また、$x=2$のときにも0の積であるため、命題が成り立つことがわかる．命題を満たす$x'$の値が存在するため、命題は真である．
+		\end{enumerate}
+	\item 
+		\begin{enumerate}
+			\item 任意の実数$x$と任意の実数$y$について$Q( x, y):x > y \rightarrow x^2 > y^2$という命題が成り立つかについて証明しなさい．
+			\item この命題について偽であると仮定した場合、否定命題は$x' \in \mathbb{R}$と$y' \in \mathbb{R}$となる$x'$と$y'$とる$\exists x' \exists y' ( x' > y' \wedge (x')^2 \le (y')^2)$となる．$x' = 2$、$y' = -2$について否定命題を満たすため、この順命題である$Q( x, y):x > y \rightarrow x^2 > y^2$は偽である．
+		\end{enumerate}
+\end{enumerate}
+
+\section{問3}
+\begin{enumerate}
+	\item 証明:問題文の定義 2よりと集合Bについて、論理式は
+		\[
+			(\forall z (z \in B \rightarrow z \le 24)) \wedge (\forall t ( \forall z ( z \in B \rightarrow z \le t ) \rightarrow 24 \le t)).\text{ただし、}z, t \in \mathbb{R}
+		\]
+		この式について
+		\[
+			\forall z (z \not\in B \rightarrow z > 24)
+		\]
+		という論理式の部分に注目して考える．このとき、$z$の値については$z > 24$になる．そのため$z \le 24$常に成り立つことがわかる．
+		\[
+			\forall t ( \forall z ( z \in B \rightarrow z \le t) \rightarrow 24 \le t)
+		\]
+		という論理式の部分に注目したとき、$t \in \mathbb{R}$となるような$t'$を取る．
+		\[
+			\forall z ( z \in B \rightarrow z \le t') \rightarrow 24 \le t')
+		\]
+		この命題について背理法を用いる．
+		\[
+			\exists z ( z \not\in B \land 24 > t')
+		\]
+		このとき、$a \le 24$これについて不等式について、$a \le 24, a \ge t' , 24 > t'$という不等式が成り立つ．この不等式は成り立たないより、この命題は偽である．背理法からは$\forall z ( z \in B \rightarrow z \le t') \rightarrow 24 \le t')$という命題は真である．よってこれらの命題より24は上限である．
+
+
+\end{enumerate}
+
+\end{document}

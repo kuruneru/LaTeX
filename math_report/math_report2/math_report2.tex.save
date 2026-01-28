@@ -1,0 +1,128 @@
+\documentclass[uplatex]{jsarticle}
+
+\title{離散数学 演習課題レポート2}
+\author{細川 夏風}
+\date{\today}
+
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\begin{document}
+
+\maketitle
+
+\section{問1}
+
+\renewcommand{\theenumi}{(\arabic{enumi})}
+\begin{enumerate}
+\vspace{12pt}
+	\item
+		\begin{enumerate}
+			\item 図1は写像ではない:このとき$f:c \mapsto 3$と定める．
+			\item 図2は写像である
+			\item 図3は$h:b \mapsto 1$定める．
+		\end{enumerate}
+	
+	\item 
+		以下の写像について、写像であるものとそうでないものを答えなさい．また、写像でないものについては、どのように修正すれば写像の定義に沿ったものになるか答えなさい．
+		\begin{enumerate}
+
+			\item
+			\begin{enumerate}
+				\item 
+					$A=\{a,b,c,d\}$,$B=\{2,4,6,8,10\}$について$f=\{(a,2),(b,4),(d,6),(d,8)\}$,$f:A \mapsto B$
+				\item
+					$C=\{a,b\}$,$D=\{1,5,7\}$について$f=\{(a,1)\}$,$g:C \mapsto D$
+				\item
+					$E=\{a,b,c,d\}$,$F=\{100\}$について$f=\{(a,100),(b,100),(c,100),(d,100)\}$,$h:E \mapsto F$
+			\end{enumerate}
+		\end{enumerate}
+\end{enumerate}
+
+\section{問2}
+
+\begin{enumerate}
+\vspace{12pt}
+	\item 
+		\begin{enumerate}
+			\item あるジュースについて、そのジュースに対応する銘柄が存在する．
+			\item ある寮について、その寮の部屋に住んでいる住人が存在する．
+		\end{enumerate}
+	\item
+		\begin{enumerate}
+			\item (1)について定義域はジュースで値域は銘柄である．
+			\item (2)について定義域は寮の住人であり、値域は寮の部屋である．
+		\end{enumerate}
+		
+	\item $\forall( x_1 \neq x_2)  \in X \mapsto f(x_1) \neq f(x_2)$
+	\item 
+		\begin{enumerate}
+			\item 学生を定義域、学籍番号を値域としたときの学生と学籍番号の関係の写像．
+			\item ある任意の集合についてその集合からその集合についての写像．
+		\end{enumerate}
+	\item
+		\begin{enumerate}
+			\item 高知工科大学の情報学群の学生の中で数学1を履修している生徒について、その授業を担当するような先生との関係を表す写像が存在する．
+			\item ある高知県に住んでいる人について住民のから高知県の市区町村に対応する関係の写像が存在する．
+		\end{enumerate}
+
+	\item $\forall b \exists a ( f(a) = b)$
+
+	\item
+		\begin{enumerate}
+			\item 人間について生物学的に男もしくは女に対応する写像が存在する．
+			\item すべての生物について生物の種類に割り振ることのできる写像が存在する．
+		\end{enumerate}
+	\item 
+		\begin{enumerate}
+			\item $f(x)=2x=y$について$x \in \mathbb{N}$、$y \in \mathbb{R}$における函数の関係の写像．
+			\item 日本の都道府県について、すべての都道府県に対応する県庁所在地の写像が存在する．
+		\end{enumerate}
+
+\end{enumerate}
+
+\section{問3}
+		\begin{enumerate}
+			\item
+			\[
+                                \chi_A(x) = \left\{
+                                \begin{array}{ll}
+                                       1 & \text{if } x < 0  \\
+                                       0  & \text{otherwise}
+                                \end{array}
+                                \right.
+            \]
+			
+			集合$U \in \mathbb{Z}$、集合$A \in \mathbb{Z_-}$とする．
+		
+			\item
+				$\{-1, 3, 100\} \in U$としたとき返り値は$\{1, 0, 0\} \in \chi_A(x)$という値を得る．
+		\end{enumerate}
+
+\section{問4}
+	\begin{enumerate}
+		\item 全射の定義より、$\forall b \exists a( r(a) = b)$について$b \in \mathbb{Z_+}$となるような$b'$をとる．このとき、$\exists a (r(a) = b')$となる．$a = 3$の値をとると$ 3 \mod 3 = 0$より、$b'= 1 \in \mathbb{Z_+}$であり、前述の命題を満たす．よってこの命題は真である．
+		\item (1)より$x$が1と3のとき、$x^2 = 1^2 = \frac{3}{x} = \frac{3}{3} = 1$が同じ値をとるためこの写像は単射ではない．
+	\end{enumerate}
+
+\section{問5}
+	\begin{enumerate}
+		\item  $f:X \mapsto Y$と$g:Y \mapsto Z$について$X=\{a,b,c,d\}$, $Y=\{1,2,3\}$, $Z=\{z,x,y\}$のとき、写像$f=\{(a,3),(b,1),(c,3),(d,2)\}$, 写像$g=\{(1,x),(2,z),(3,y)\}$とする．$g \circ f$という合成写像は$g \circ f = \{(a,y),(b,z),(c,y),(d,y)\}$となる．
+	\end{enumerate}
+
+\section{問6}
+	\begin{enumerate}
+		\item
+			\begin{enumerate}
+				\item $\forall a_1 ,\forall a_2 ( g \circ f(a_1) = g \circ f(a_2) \rightarrow a_1 = a_2) \rightarrow \forall b_1 \forall b_2(f(b_1) = f(b_2) \rightarrow b_1 = b_2)$ただし、$a_1, a_2,b_1, b_2 \in X$
+				\item $ g \circ f$が単射であると仮定する．$f(b_1) = f(b - 2)$を満たす$X$の要素$b_1, b_2$を任意にとる．$f(b_1) = f(b_2)$と$g(f(a_1)) = g(f(a_2)) \rightarrow a_1 = a_2$から、$g(f(b_1)) = g(f(b_2)) \rightarrow b_1 = b_2$が成り立つ．以下より、$g \circ f$は単射である．
+			\end{enumerate}
+		\item 
+			\begin{enumerate}
+				\item $\forall c_2, \exists a_1(c_1 = g \circ f(a_1)) \rightarrow \forall c_1 \exists b_1 (c_1 = g(b_1))$ただし、a_1 \in X, b_1 \in Y , c_1 , c_2 \in \mathbb{Z}$である．
+				\item $g \circ f $が全射であると仮定する、このとき$c 
+			\end{enumerate}
+	\end{enumerate}
+\end{document}

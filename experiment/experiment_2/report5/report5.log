@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2026.1.1)  29 JAN 2026 05:36
+This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2026.1.1)  30 JAN 2026 04:28
  restricted system commands enabled.
 **report5.tex
 (./report5.tex
@@ -1246,156 +1246,269 @@ input line 114.
 LaTeX Warning: The counter will not be printed.
              The label is: ・\space  on input line 126.
 
-[7]
+[7] [8]
 
 LaTeX Warning: The counter will not be printed.
-             The label is: ・\space  on input line 157.
+             The label is: ・\space  on input line 163.
 
-[8]
-<experiment2-5/個人解析/fMRI_model_specification1.png, id=47, 510.708pt x 7
+
+LaTeX Warning: The counter will not be printed.
+             The label is: ・\space  on input line 176.
+
+[9]
+
+LaTeX Warning: The counter will not be printed.
+             The label is: ・\space  on input line 195.
+
+[10](load cache: extra_lmroman10-italic.luc)
+LaTeX Font Info:    Font shape `JT3/mc/m/it' in size <10> not available
+(Font)              Font shape `JT3/mc/m/n' tried instead on input line 235.
+LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
+(Font)              scaled to size 10.0pt on input line 235.
+LaTeX Font Info:    Font shape `JY3/mc/m/it' in size <10> not available
+(Font)              Font shape `JY3/mc/m/n' tried instead on input line 235.
+LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
+(Font)              scaled to size 10.0pt on input line 235.
+<experiment2-5/個人解析/fMRI_model_specification1.png, id=54, 510.708pt x 7
 35.2268pt>
 File: experiment2-5/個人解析/fMRI_model_specification1.png Graphic file (ty
 pe png)
 <use experiment2-5/個人解析/fMRI_model_specification1.png>
 Package luatex.def Info: experiment2-5/個人解析/fMRI_model_specification1.p
-ng  used on input line 194.
+ng  used on input line 263.
 (luatex.def)             Requested size: 140.80325pt x 202.69844pt.
-<experiment2-5/個人解析/fMRI_model_specification2.png, id=48, 510.708pt x 7
+<experiment2-5/個人解析/fMRI_model_specification2.png, id=55, 510.708pt x 7
 35.2268pt>
 File: experiment2-5/個人解析/fMRI_model_specification2.png Graphic file (ty
 pe png)
 <use experiment2-5/個人解析/fMRI_model_specification2.png>
 Package luatex.def Info: experiment2-5/個人解析/fMRI_model_specification2.p
-ng  used on input line 200.
+ng  used on input line 269.
 (luatex.def)             Requested size: 140.80325pt x 202.69844pt.
-<experiment2-5/個人解析/fMRI_model_specification3.png, id=49, 510.708pt x 7
+<experiment2-5/個人解析/fMRI_model_specification3.png, id=56, 510.708pt x 7
 35.2268pt>
 File: experiment2-5/個人解析/fMRI_model_specification3.png Graphic file (ty
 pe png)
 <use experiment2-5/個人解析/fMRI_model_specification3.png>
 Package luatex.def Info: experiment2-5/個人解析/fMRI_model_specification3.p
-ng  used on input line 206.
+ng  used on input line 275.
 (luatex.def)             Requested size: 140.80325pt x 202.69844pt.
-<experiment2-5/個人解析/fMRI_model_specification4.png, id=50, 510.708pt x 7
+<experiment2-5/個人解析/fMRI_model_specification4.png, id=57, 510.708pt x 7
 35.2268pt>
 File: experiment2-5/個人解析/fMRI_model_specification4.png Graphic file (ty
 pe png)
 <use experiment2-5/個人解析/fMRI_model_specification4.png>
 Package luatex.def Info: experiment2-5/個人解析/fMRI_model_specification4.p
-ng  used on input line 213.
+ng  used on input line 282.
 (luatex.def)             Requested size: 140.80325pt x 202.69844pt.
-<experiment2-5/個人解析/fMRI_model_specification5.png, id=51, 510.708pt x 7
+<experiment2-5/個人解析/fMRI_model_specification5.png, id=58, 510.708pt x 7
 35.2268pt>
 File: experiment2-5/個人解析/fMRI_model_specification5.png Graphic file (ty
 pe png)
 <use experiment2-5/個人解析/fMRI_model_specification5.png>
 Package luatex.def Info: experiment2-5/個人解析/fMRI_model_specification5.p
-ng  used on input line 219.
+ng  used on input line 288.
 (luatex.def)             Requested size: 140.80325pt x 202.69844pt.
- [9] [10<./experiment2-5/個人解析/fMRI_model_specification1.png><./experimen
-t2-5/個人解析/fMRI_model_specification2.png><./experiment2-5/個人解析/fM
-RI_model_specification3.png><./experiment2-5/個人解析/fMRI_model_specificati
-on4.png><./experiment2-5/個人解析/fMRI_model_specification5.png>]
-<experiment2-5/個人解析/Contrast1.png, id=58, 1042.64531pt x 1510.89468pt>
+ [11] [12<./experiment2-5/個人解析/fMRI_model_specification1.png><./experime
+nt2-5/個人解析/fMRI_model_specification2.png><./experiment2-5/個人解析/f
+MRI_model_specification3.png><./experiment2-5/個人解析/fMRI_model_specificat
+ion4.png><./experiment2-5/個人解析/fMRI_model_specification5.png>]
+<experiment2-5/個人解析/Contrast1.png, id=67, 1042.64531pt x 1510.89468pt>
 File: experiment2-5/個人解析/Contrast1.png Graphic file (type png)
 <use experiment2-5/個人解析/Contrast1.png>
 Package luatex.def Info: experiment2-5/個人解析/Contrast1.png  used on inpu
-t line 236.
+t line 305.
 (luatex.def)             Requested size: 395.9974pt x 573.84625pt.
-<experiment2-5/個人解析/Contrast2-1.png, id=59, 698.61pt x 1004.75375pt>
+<experiment2-5/個人解析/Contrast2-1.png, id=68, 698.61pt x 1004.75375pt>
 File: experiment2-5/個人解析/Contrast2-1.png Graphic file (type png)
 <use experiment2-5/個人解析/Contrast2-1.png>
 Package luatex.def Info: experiment2-5/個人解析/Contrast2-1.png  used on in
-put line 243.
+put line 312.
 (luatex.def)             Requested size: 395.9974pt x 569.54202pt.
-<experiment2-5/個人解析/Contrast2-2.png, id=60, 1045.65656pt x 1511.6475pt>
+<experiment2-5/個人解析/Contrast2-2.png, id=69, 1045.65656pt x 1511.6475pt>
 
 File: experiment2-5/個人解析/Contrast2-2.png Graphic file (type png)
 <use experiment2-5/個人解析/Contrast2-2.png>
 Package luatex.def Info: experiment2-5/個人解析/Contrast2-2.png  used on in
-put line 249.
+put line 318.
 (luatex.def)             Requested size: 395.9974pt x 572.47144pt.
-<experiment2-5/個人解析/Contrast3.png, id=61, 1044.15094pt x 1506.3778pt>
+<experiment2-5/個人解析/Contrast3.png, id=70, 1044.15094pt x 1506.3778pt>
 File: experiment2-5/個人解析/Contrast3.png Graphic file (type png)
 <use experiment2-5/個人解析/Contrast3.png>
 Package luatex.def Info: experiment2-5/個人解析/Contrast3.png  used on inpu
-t line 256.
+t line 325.
 (luatex.def)             Requested size: 395.9974pt x 571.30324pt.
-<experiment2-5/個人解析/Contrast4.png, id=62, 1044.15094pt x 1510.14188pt>
+<experiment2-5/個人解析/Contrast4.png, id=71, 1044.15094pt x 1510.14188pt>
 File: experiment2-5/個人解析/Contrast4.png Graphic file (type png)
 <use experiment2-5/個人解析/Contrast4.png>
 Package luatex.def Info: experiment2-5/個人解析/Contrast4.png  used on inpu
-t line 263.
+t line 332.
 (luatex.def)             Requested size: 395.9974pt x 572.73079pt.
-<experiment2-5/個人解析/Contrast5.png, id=63, 1044.90375pt x 1492.8272pt>
+<experiment2-5/個人解析/Contrast5.png, id=72, 1044.90375pt x 1492.8272pt>
 File: experiment2-5/個人解析/Contrast5.png Graphic file (type png)
 <use experiment2-5/個人解析/Contrast5.png>
 Package luatex.def Info: experiment2-5/個人解析/Contrast5.png  used on inpu
-t line 270.
+t line 339.
 (luatex.def)             Requested size: 395.9974pt x 565.75406pt.
-<experiment2-5/集団解析/Design_matrix.png, id=64, 510.708pt x 735.2268pt>
+<experiment2-5/集団解析/Design_matrix.png, id=73, 510.708pt x 735.2268pt>
 File: experiment2-5/集団解析/Design_matrix.png Graphic file (type png)
 <use experiment2-5/集団解析/Design_matrix.png>
 Package luatex.def Info: experiment2-5/集団解析/Design_matrix.png  used on 
-input line 276.
+input line 345.
 (luatex.def)             Requested size: 307.99872pt x 443.41687pt.
-<experiment2-5/集団解析/result10-1.png, id=65, 1043.39813pt x 1506.3778pt>
+<experiment2-5/集団解析/result10-1.png, id=74, 1043.39813pt x 1506.3778pt>
 File: experiment2-5/集団解析/result10-1.png Graphic file (type png)
 <use experiment2-5/集団解析/result10-1.png>
 Package luatex.def Info: experiment2-5/集団解析/result10-1.png  used on inp
-ut line 283.
+ut line 352.
 (luatex.def)             Requested size: 395.9974pt x 571.71698pt.
-<experiment2-5/集団解析/result10-2.png, id=66, 1044.15094pt x 1507.88344pt>
+<experiment2-5/集団解析/result10-2.png, id=75, 1044.15094pt x 1507.88344pt>
 
 File: experiment2-5/集団解析/result10-2.png Graphic file (type png)
 <use experiment2-5/集団解析/result10-2.png>
 Package luatex.def Info: experiment2-5/集団解析/result10-2.png  used on inp
-ut line 289.
+ut line 358.
 (luatex.def)             Requested size: 395.9974pt x 571.87425pt.
-<experiment2-5/集団解析/result41.png, id=67, 1044.90375pt x 1504.8722pt>
+<experiment2-5/集団解析/result41.png, id=76, 1044.90375pt x 1504.8722pt>
 File: experiment2-5/集団解析/result41.png Graphic file (type png)
 <use experiment2-5/集団解析/result41.png>
 Package luatex.def Info: experiment2-5/集団解析/result41.png  used on input
- line 295.
+ line 364.
 (luatex.def)             Requested size: 395.9974pt x 570.3189pt.
+<experiment2-5/CONN/スクリーンショット 2026-01-28 184908.png, id=77, 6
+80.5425pt x 644.4075pt>
+File: experiment2-5/CONN/スクリーンショット 2026-01-28 184908.png Grap
+hic file (type png)
+<use experiment2-5/CONN/スクリーンショット 2026-01-28 184908.png>
+Package luatex.def Info: experiment2-5/CONN/スクリーンショット 2026-01
+-28 184908.png  used on input line 374.
+(luatex.def)             Requested size: 211.19817pt x 199.98058pt.
+<experiment2-5/CONN/スクリーンショット 2026-01-28 191847.png, id=78, 1
+227.83719pt x 1002.74625pt>
+File: experiment2-5/CONN/スクリーンショット 2026-01-28 191847.png Grap
+hic file (type png)
+<use experiment2-5/CONN/スクリーンショット 2026-01-28 191847.png>
+Package luatex.def Info: experiment2-5/CONN/スクリーンショット 2026-01
+-28 191847.png  used on input line 379.
+(luatex.def)             Requested size: 211.19817pt x 172.469pt.
+<experiment2-5/CONN/スクリーンショット 2026-01-28 200636.png, id=79, 2
+155.30219pt x 1448.41125pt>
+File: experiment2-5/CONN/スクリーンショット 2026-01-28 200636.png Grap
+hic file (type png)
+<use experiment2-5/CONN/スクリーンショット 2026-01-28 200636.png>
+Package luatex.def Info: experiment2-5/CONN/スクリーンショット 2026-01
+-28 200636.png  used on input line 389.
+(luatex.def)             Requested size: 211.19817pt x 141.91019pt.
+<experiment2-5/CONN/スクリーンショット 2026-01-28 200724.png, id=80, 1
+726.95187pt x 894.34125pt>
+File: experiment2-5/CONN/スクリーンショット 2026-01-28 200724.png Grap
+hic file (type png)
+<use experiment2-5/CONN/スクリーンショット 2026-01-28 200724.png>
+Package luatex.def Info: experiment2-5/CONN/スクリーンショット 2026-01
+-28 200724.png  used on input line 394.
+(luatex.def)             Requested size: 211.19817pt x 109.3633pt.
+<experiment2-5/CONN/スクリーンショット 2026-01-28 200904.png, id=81, 2
+157.56062pt x 1456.69218pt>
+File: experiment2-5/CONN/スクリーンショット 2026-01-28 200904.png Grap
+hic file (type png)
+<use experiment2-5/CONN/スクリーンショット 2026-01-28 200904.png>
+Package luatex.def Info: experiment2-5/CONN/スクリーンショット 2026-01
+-28 200904.png  used on input line 399.
+(luatex.def)             Requested size: 211.19817pt x 142.58815pt.
+<experiment2-5/CONN/スクリーンショット 2026-01-28 200925.png, id=82, 1
+727.70468pt x 1062.21844pt>
+File: experiment2-5/CONN/スクリーンショット 2026-01-28 200925.png Grap
+hic file (type png)
+<use experiment2-5/CONN/スクリーンショット 2026-01-28 200925.png>
+Package luatex.def Info: experiment2-5/CONN/スクリーンショット 2026-01
+-28 200925.png  used on input line 404.
+(luatex.def)             Requested size: 211.19817pt x 129.8433pt.
+[13] [14<./experiment2-5/個人解析/Contrast1.png>] [15<./experiment2-5/個
+人解析/Contrast2-1.png>] [16<./experiment2-5/個人解析/Contrast2-2.png>]
+[17<./experiment2-5/個人解析/Contrast3.png>] [18<./experiment2-5/個人解
+析/Contrast4.png>] [19<./experiment2-5/個人解析/Contrast5.png>] [20<./exper
+iment2-5/集団解析/Design_matrix.png>] [21<./experiment2-5/集団解析/resul
+t10-1.png>] [22<./experiment2-5/集団解析/result10-2.png>] [23<./experiment2-
+5/集団解析/result41.png>] [24<./experiment2-5/CONN/スクリーンショ
+ット 2026-01-28 184908.png><./experiment2-5/CONN/スクリーンショット 2
+026-01-28 191847.png><./experiment2-5/CONN/スクリーンショット 2026-01-2
+8 200636.png><./experiment2-5/CONN/スクリーンショット 2026-01-28 200724
+.png><./experiment2-5/CONN/スクリーンショット 2026-01-28 200904.png><./
+experiment2-5/CONN/スクリーンショット 2026-01-28 200925.png>]
+<experiment2-5/CONN/スクリーンショット 2026-01-28 201121.png, id=135, 
+1726.19907pt x 1070.49937pt>
+File: experiment2-5/CONN/スクリーンショット 2026-01-28 201121.png Grap
+hic file (type png)
+<use experiment2-5/CONN/スクリーンショット 2026-01-28 201121.png>
+Package luatex.def Info: experiment2-5/CONN/スクリーンショット 2026-01
+-28 201121.png  used on input line 416.
+(luatex.def)             Requested size: 211.19817pt x 130.9699pt.
+<experiment2-5/CONN/スクリーンショット 2026-01-28 201145.png, id=136, 
+1725.44624pt x 1044.15094pt>
+File: experiment2-5/CONN/スクリーンショット 2026-01-28 201145.png Grap
+hic file (type png)
+<use experiment2-5/CONN/スクリーンショット 2026-01-28 201145.png>
+Package luatex.def Info: experiment2-5/CONN/スクリーンショット 2026-01
+-28 201145.png  used on input line 421.
+(luatex.def)             Requested size: 211.19817pt x 127.7941pt.
+<experiment2-5/CONN/スクリーンショット 2026-01-28 201731.png, id=137, 
+743.02594pt x 662.475pt>
+File: experiment2-5/CONN/スクリーンショット 2026-01-28 201731.png Grap
+hic file (type png)
+<use experiment2-5/CONN/スクリーンショット 2026-01-28 201731.png>
+Package luatex.def Info: experiment2-5/CONN/スクリーンショット 2026-01
+-28 201731.png  used on input line 434.
+(luatex.def)             Requested size: 395.9974pt x 353.07114pt.
+<experiment2-5/CONN/スクリーンショット 2026-01-28 201924.png, id=138, 
+2306.6175pt x 769.37437pt>
+File: experiment2-5/CONN/スクリーンショット 2026-01-28 201924.png Grap
+hic file (type png)
+<use experiment2-5/CONN/スクリーンショット 2026-01-28 201924.png>
+Package luatex.def Info: experiment2-5/CONN/スクリーンショット 2026-01
+-28 201924.png  used on input line 439.
+(luatex.def)             Requested size: 211.19817pt x 70.43814pt.
+<experiment2-5/CONN/スクリーンショット 2026-01-28 202005.png, id=139, 
+1493.58pt x 685.05937pt>
+File: experiment2-5/CONN/スクリーンショット 2026-01-28 202005.png Grap
+hic file (type png)
+<use experiment2-5/CONN/スクリーンショット 2026-01-28 202005.png>
+Package luatex.def Info: experiment2-5/CONN/スクリーンショット 2026-01
+-28 202005.png  used on input line 444.
+(luatex.def)             Requested size: 211.19817pt x 96.86934pt.
 
-[11<./experiment2-5/個人解析/Contrast1.png>] [12<./experiment2-5/個人解
-析/Contrast2-1.png>] [13<./experiment2-5/個人解析/Contrast2-2.png>]
-[14<./experiment2-5/個人解析/Contrast3.png>] [15<./experiment2-5/個人解
-析/Contrast4.png>] [16<./experiment2-5/個人解析/Contrast5.png>] [17<./exper
-iment2-5/集団解析/Design_matrix.png>] [18<./experiment2-5/集団解析/resul
-t10-1.png>] [19<./experiment2-5/集団解析/result10-2.png>] [20<./experiment2-
-5/集団解析/result41.png>] (./report5.aux)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-)
+[25<./experiment2-5/CONN/スクリーンショット 2026-01-28 201121.png><./ex
+periment2-5/CONN/スクリーンショット 2026-01-28 201145.png>] [26<./exper
+iment2-5/CONN/スクリーンショット 2026-01-28 201731.png><./experiment2-5
+/CONN/スクリーンショット 2026-01-28 201924.png><./experiment2-5/CONN/
+スクリーンショット 2026-01-28 202005.png>] (./report5.aux))
 
 Here is how much of LuaTeX's memory you used:
- 21521 strings out of 478285
- 156562,1977958 words of node,token memory allocated
+ 21661 strings out of 478285
+ 195705,1977958 words of node,token memory allocated
  1207 words of node memory still in use:
    11 hlist, 2 vlist, 6 rule, 2 glue, 4 kern, 2 glyph, 269 attribute, 50 glue_sp
 ec, 36 attribute_list, 2 write, 14 user_defined nodes
-   avail lists: 1:13,2:42999,3:779,4:330,5:295,6:59,7:4542,8:5,9:1735,10:37,11:8
-8
- 40721 multiletter control sequences out of 65536+600000
- 73 fonts using 57437895 bytes
+   avail lists: 1:36,2:50834,3:872,4:400,5:333,6:67,7:5262,8:4,9:1823,10:45,11:1
+12
+ 40795 multiletter control sequences out of 65536+600000
+ 74 fonts using 57569903 bytes
  110i,8n,128p,1732b,733s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman9-regular.otf></u
-sr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmmono10-regular.otf></usr/
-share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf>{/usr/sh
-are/texlive/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}</usr/share/texlive/texmf-di
-st/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></usr/share/texliv
-e/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.otf></usr/share/texlive/texm
-f-dist/fonts/opentype/public/lm/lmroman12-regular.otf></usr/share/texlive/texmf-
-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></usr/share/tex
-live/texmf-dist/fonts/opentype/public/lm/lmroman17-regular.otf></usr/share/texli
-ve/texmf-dist/fonts/type1/public/lm/lmr10.pfb>
-Output written on report5.pdf (20 pages, 5987189 bytes).
+</usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman10-italic.otf>{/u
+sr/share/texlive/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}</usr/share/texlive/tex
+mf-dist/fonts/opentype/public/lm/lmroman9-regular.otf></usr/share/texlive/texmf-
+dist/fonts/opentype/public/lm/lmmono10-regular.otf></usr/share/texlive/texmf-dis
+t/fonts/opentype/public/lm/lmroman10-regular.otf></usr/share/texlive/texmf-dist/
+fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></usr/share/texlive/t
+exmf-dist/fonts/opentype/public/lm/lmsans10-bold.otf></usr/share/texlive/texmf-d
+ist/fonts/opentype/public/lm/lmroman12-regular.otf></usr/share/texlive/texmf-dis
+t/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></usr/share/texliv
+e/texmf-dist/fonts/opentype/public/lm/lmroman17-regular.otf></usr/share/texlive/
+texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/lm/lmr7.pfb>
+Output written on report5.pdf (26 pages, 8597163 bytes).
 
-PDF statistics: 163 PDF objects out of 1000 (max. 8388607)
- 83 compressed objects within 1 object stream
+PDF statistics: 216 PDF objects out of 1000 (max. 8388607)
+ 103 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 131072)
  16 words of extra memory for PDF output out of 10000 (max. 100000000)
 

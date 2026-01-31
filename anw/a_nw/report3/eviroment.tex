@@ -1,0 +1,85 @@
+\documentclass[tikz, border=10pt]{standalone}
+\usepackage{luatexja} % 日本語対応
+\usetikzlibrary{shapes, positioning, arrows.meta, calc}
+
+% カラー定義（画像の色味に寄せています）
+\definecolor{winTitle}{HTML}{1D5B5A}
+\definecolor{winBody}{HTML}{E0F2F1}
+\definecolor{linTitle}{HTML}{B67C00}
+\definecolor{linBody}{HTML}{FFF3E0}
+\definecolor{iotTitle}{HTML}{4F5B66}
+\definecolor{iotBody}{HTML}{E0E0E0}
+\definecolor{connBox}{HTML}{377D6F}
+
+\begin{document}
+\begin{tikzpicture}[
+    node distance=1cm,
+    font=\sffamily\small,
+    % スタイル定義
+    boxBase/.style={rectangle, draw=none, inner sep=0pt, minimum width=3.5cm},
+    title/.style={boxBase, minimum height=0.6cm, font=\sffamily\bfseries\color{white}, align=center},
+    body/.style={boxBase, minimum height=2.8cm, align=center},
+    conn/.style={rectangle, fill=connBox, text=white, font=\sffamily\bfseries, inner sep=8pt, align=center, minimum width=2.8cm}
+]
+
+% 1. メインタイトル
+\node[anchor=north west, font=\sffamily\large\bfseries, color=winTitle] at (-3, 7.5) {演習環境};
+
+% 2. Windows環境 (下)
+\node[title, fill=winTitle] (win_t) at (0,0) {Windows環境};
+\node[body, fill=winBody, below=0pt of win_t] (win_b) {
+    \begin{tikzpicture}[scale=0.5, baseline] % ラップトップアイコン
+        \draw[thick] (0,0.2) rectangle (1.2,1.0);
+        \draw[thick] (-0.2,0.2) -- (1.4,0.2) -- (1.2,0) -- (0,0) -- cycle;
+    \end{tikzpicture}\\[0.5em]
+    受講者用\\サーバ
+};
+
+% 3. SSH接続 (中間)
+\node[conn, above=1.2cm of win_t, minimum height=1.4cm] (ssh) {SSH接続};
+
+% 4. Linux環境 (上)
+\node[title, fill=linTitle, above=1.2cm of ssh] (lin_t) {Linux環境};
+\node[body, fill=linBody, below=0pt of lin_t] (lin_b) {
+    \begin{tikzpicture}[scale=0.4, baseline] % サーバアイコン
+        \draw[thick, fill=gray!20] (0,0) rectangle (1.2,1.8);
+        \foreach \y in {0.4,0.9,1.4} {
+            \draw (0.3,\y) -- (0.9,\y); 
+            \fill (0.15,\y) circle (1.5pt);
+        }
+    \end{tikzpicture}\\[0.5em]
+    コンテンツサーバ\\攻撃者端末
+};
+
+% 5. ツール経由接続 (右横)
+\node[conn, right=0.5cm of lin_b, minimum height=1.4cm] (tool) {ツール\\経由で\\接続};
+
+% 6. IoT機器用NW (右端)
+\node[title, fill=iotTitle, right=0.8cm of tool, xshift=1cm] (iot_t) {IoT機器用NW};
+\node[body, fill=iotBody, below=0pt of iot_t, minimum width=5cm, minimum height=4.5cm] (iot_b) {
+    \begin{tikzpicture}[scale=0.7] % IoTデバイス群
+        % PCモニター
+        \draw[thick, fill=white] (0,0.5) rectangle (1.6,1.5);
+        \draw[thick] (0.6,0.5) -- (0.6,0.3) (1.0,0.5) -- (1.0,0.3) (0.4,0.3) -- (1.2,0.3);
+        % コントローラー
+        \draw[thick, fill=white] (1.3, -0.2) rounded corners (3pt) rectangle (2.8, 0.4);
+        \draw (1.6, 0.1) circle (2pt) (2.5, 0.1) circle (2pt);
+        % スマホ
+        \draw[thick, fill=white] (3.2, -0.3) rounded corners (2pt) rectangle (3.7, 0.8);
+        \draw (3.45, 0.7) circle (1pt);
+    \end{tikzpicture}\\[1em]
+    IoT機器
+};
+
+% 7. 矢印の描画
+\draw[-{Stealth[scale=1.5]}, thick, winTitle] (win_b.north) -- (ssh.south);
+\draw[-{Stealth[scale=1.5]}, thick, winTitle] (ssh.north) -- (lin_b.south);
+\draw[-{Stealth[scale=1.5]}, thick, winTitle] (lin_b.east) -- (tool.west);
+\draw[-{Stealth[scale=1.5]}, thick, winTitle] (tool.east) -- (iot_b.west);
+
+% 左からの入力矢印
+\node[left=1.5cm of win_b, conn, minimum width=1.5cm, inner sep=5pt] (ext) {the\\mole\\続};
+\draw[-{Stealth[scale=1.5]}, thick, winTitle] (ext.east) -- (win_b.west);
+
+\end{tikzpicture}
+\end{document}

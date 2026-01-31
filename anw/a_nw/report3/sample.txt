@@ -1,0 +1,2 @@
+hello{sample}
+hello{sample hello}

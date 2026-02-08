@@ -4,6 +4,7 @@
 \usepackage{enumerate}
 \usepackage{tikz}
 \usepackage{listings, xcolor}
+\usetikzlibrary{positioning, fit, calc, backgrounds, shapes.geometric, arrows.meta}
 
 \lstset{
   basicstyle = {\ttfamily},
@@ -27,10 +28,135 @@
 \begin{document}
 
 \maketitle
+\section{背景}
+この世の多くのサービスに\verb|C|言語が使用されている．その理由は非常に高い拡張性と高速性である．しかし，\verb|C|言語には多くの問題がある．それがメモリに関するものである．\verb|C|言語は境界値の検査をしない．すなわち，確保された領域に対してそれを超える操作をした際にそのメモリのを超えた先にアクセスできてしまう．これはバッファオーバーフローを引き起こす大きな問題であり，それに対処するために標準入力や標準出力に対して制限をつけたものが使用されるケースが一般的だ．しかし，それが行われていないケースも存在する．それらがどのような被害を引き起こすかについて今実習から議論を行う．
+
+\section{方法}
+今回は演習$1, 2, 3$に付いて記している．しかし，演習$3$は演習$1$とほとんど同じであるため，記述を省くこととする．
+\section*{環境}
+\begin{tikzpicture}[
+    node distance=2cm and 2cm,
+    % スタイル定義
+    env_title/.style={font=\bfseries\large, text=teal, align=center, anchor=south west},
+    env_title_blue/.style={font=\bfseries\large, text=blue!60!black, align=center, anchor=south west},
+    header_box/.style={fill=#1, text=white, font=\small\bfseries, minimum height=0.8cm, align=center, anchor=north},
+    content_box/.style={fill=#1, minimum width=4.5cm, minimum height=3.5cm, inner sep=0pt},
+    arrow_label/.style={fill=teal, text=white, font=\footnotesize\bfseries, align=left, rounded corners=2pt, inner sep=4pt},
+    myarrow/.style={->, >=Latex, ultra thick, color=teal}
+]
+
+    % ==========================================
+    % 1. アイコン定義
+    % ==========================================
+    \tikzset{
+        laptop/.pic={
+            \fill[fill=gray!20, draw=gray!80, thick] (-0.8,0) rectangle (0.8, 1.0);
+            \fill[white] (-0.7,0.1) rectangle (0.7, 0.9);
+            \fill[fill=gray!50, draw=gray!80, thick] (-1.0,-0.2) -- (1.0,-0.2) -- (0.8,0) -- (-0.8,0) -- cycle;
+        }
+    }
+    \tikzset{
+        server/.pic={
+            \fill[fill=gray!80, draw=black] (-0.6,-0.8) rectangle (0.6, 0.8);
+            \foreach \y in {0.4, 0, -0.4} {
+                \fill[fill=black!80] (-0.5, \y-0.15) rectangle (0.5, \y+0.15);
+                \fill[green!50] (0.35, \y) circle (0.05);
+                \fill[green!50] (0.20, \y) circle (0.05);
+            }
+        }
+    }
+
+    % ==========================================
+    % 2. 配置 (受講者・解析・攻撃環境)
+    % ==========================================
+    
+    % 受講者環境 (左上)
+    \node[content_box=cyan!10] (student_box) at (0,0) {};
+    \node[header_box=teal, minimum width=4.5cm] at (student_box.north) {Windows環境};
+    \path (student_box.center) pic {laptop};
+    \node[below=0.8cm of student_box.center, align=center, font=\small] {受講者用\\サーバ};
+    \node[env_title] at (student_box.north west) [yshift=0.2cm] {受講者環境};
+
+    % 解析環境 (右上)
+    \node[content_box=cyan!10, right=5cm of student_box] (analysis_box) {};
+    \node[header_box=teal, minimum width=4.5cm] at (analysis_box.north) {Linux環境};
+    \path (analysis_box.center) pic {server};
+    \node[below=0.8cm of analysis_box.center, align=center, font=\small] {受講者用\\コンテンツ\\サーバ(防御)};
+    \node[env_title] at (analysis_box.north west) [yshift=0.2cm] {解析環境};
+
+    % 攻撃環境 (左下)
+    \node[content_box=blue!10, below=3.5cm of student_box] (attack_box) {};
+    \node[header_box=blue!60!black, minimum width=4.5cm] at (attack_box.north) {Linux環境};
+    \path (attack_box.center) pic {server};
+    \node[below=0.8cm of attack_box.center, align=center, font=\small] {講師用\\コンテンツサー\\バ};
+    \node[env_title_blue] at (attack_box.north west) [yshift=0.2cm] {攻撃環境};
 
 
+    % ==========================================
+    % 3. 矢印の修正 (間隔を広げる)
+    % ==========================================
+
+    % --- 矢印2: SSH ---
+    % 上にずらす量を 0.5 から 1.0 に変更
+    \coordinate (student_top_right) at ($(student_box.east)+(0, 1.0)$);
+    \coordinate (analysis_top_left) at ($(analysis_box.west)+(0, 1.0)$);
+    
+    \draw[myarrow] (student_top_right) -- (analysis_top_left) 
+        node[midway, arrow_label] {②SSHで接続し、\\Dockerの起動、\\ソースコードの確認};
+
+    % --- 矢印3: TCPポート ---
+    % 下にずらす量を -0.5 から -1.0 に変更 (これで被らなくなります)
+    \coordinate (student_bottom_right) at ($(student_box.east)+(0, -1.0)$);
+    \coordinate (analysis_bottom_left) at ($(analysis_box.west)+(0, -1.0)$);
+
+    \draw[myarrow] (student_bottom_right) -- (analysis_bottom_left)
+        node[midway, arrow_label] {③TCPポートにアク\\セスして攻撃が実\\行できるかを試行};
+
+    % --- 矢印4: 攻撃 ---
+    \draw[myarrow] (student_box.south) -- (attack_box.north)
+        node[midway, fill=teal, text=white, font=\bfseries] {④攻撃};
+
+\end{tikzpicture}
+\newpage
+\section*{手順}
+\subsection{演習1}
+\begin{enumerate}[(1). ]
+  \item \verb|Docker|を起動しコンテナ内に入ると
+  \begin{lstlisting}
+    cat hello.c
+  \end{lstlisting}
+  を行い，ソースコードの解析を行う．
+  \item この時，\verb|C|言語の\verb|gets()|が用いられていることとどこからも参照されていない\verb|shell|というターミナルのコマンドを実行できる関数が用意されていることがわかる．
+  \item 次に実行ファイルに逆アセンブルを行う．これによってどの関数やどのプログラムがメモリ上のどこで動作するかがわかる．
+  \begin{lstlisting}
+    objdump -d hello
+  \end{lstlisting}
+  \item \verb|Pwntools|という脆弱性をつく\verb|Python|のオープンソースライブラリを用いて，攻撃を行う．
+  \item またこの時，\verb|remote|というpythonモジュールを用いる．これによって一時的に対象の\verb|IP|アドレスの特定のポートに対して接続を行える．
+  \item \verb|Python|によって送信する特定のデータを作成する．この時，先ほど解析した結果から\verb|return|が呼び出されている場所に飛ばす．理由は\verb|return|命令とは単にスタックポインタの先頭のアドレスにジャンプするだけの\verb|jmp|命令と大差ないからだ．
+  \item これから\verb|gets()|と\verb|return|命令には$72$\verb|bytes|分の差がある．よってこれを適当な値で埋める．今回は\verb|A|を$72$個で埋めている．
+  \item その後に\verb|shell|関数のアドレスを入力すればいいのだが，この部分で$1$つ問題がある．\verb|x64|には制約があり，それは関数呼び出しの際は$16$の倍数に調整しなければならないという点だ．そのため，再度\verb|return|を呼び，$8$\verb|bytes|分追加してから\verb|shell|関数の呼び出しを行う．
+  \item 最後に対策であるが，これは単純である．\verb|fget()|を用いて入力に制限をかける．今回は変数\verb|username|分という制限を設けた．
+\end{enumerate}
+\subsection{演習2}
+\begin{enumerate}[(1). ]
+  \item \verb|Docker|を起動してコンテナ内に入ると
+  \begin{lstlisting}
+    cat shellcode.c
+  \end{lstlisting}
+  を行い．ソースコードの解析を行う．
+  \item この時，ソースコード内に\verb|(*(void (*)())buf)();|というプログラムがあることを確認できる．
+\end{enumerate}
+
+\section{考察}
+バッファオーバーフローは非常によく用いられる攻撃手法である．理由は攻撃者の行える事の多さにある．多くの場合で自身の任意のプログラムを実行可能である．これによってより複雑な攻撃も可能になるのだ．過去の事例では\verb|SQL Slammer|がある．これは\verb|Microsoft|の\verb|SQL|サーバーのバッファオーバーフロー脆弱性を利用したものであり，これはたった$376$\verb|bytes|ととても小さい容量で\verb|UDP|パケットに収まるほどであったと言われている．感染開始からわずか$10$分で脆弱性のある世界中のサーバの約$90\%$に感染した\cite{SQL Slammer}．
+
+境界チェックをしていなければそのほとんどはいくつかの適当な値で埋められたデータとともに自身が動かしたいプログラム，それに加えてそのプログラムのアドレスさえあればバッファオーバーフローが可能である．最初の適当な値で埋められたデータは\verb|return|や\verb|jmp|などメモリ上のどこかへ飛ばす処理までの穴埋めに用いられる．次のプログラムは単に実行したいプログラムそのものである．最後のそのプロうグラムへのアドレスはそのプログラムを書くだけでは意味がない．その関数やプログラムまでの道のりが必要である．よってそれは\verb|return|や\verb|jmp|などの特定のアドレスへ移動可能な処理であり，それにプログラムのアドレスを入れることによってその自身の任意のプログラムを実行可能にすることができる．
+
+この対策としては，単純に境界チェックを行う関数を用いる．もしくは\verb|C|言語を辞めるという手がある．他のガベージコレクションを持つ言語を利用すればこのような問題は無い．しかし，その分プログラムは遅くなる．しかし，メモリ安全性に関わる問題は非常に多く，大人数を導入したとしても完全な解決になっている訳では無い．事実\verb|Linux|開発にも\verb|Rust|が順次導入されている\cite{Linux}．\verb|C|言語は完璧な開発者には最適な言語であるが，そのような開発者は現状態ではまだ現れていない．やはり，開発者も間違いを犯すという設計思想のもと開発された言語を使用するほうがよりサービス自体に問題が少ないように感じる．そのため，私は\verb|C|言語は言うまでもなく素晴らしい言語であるが，同時に開発者のミスが多大なる被害を巻き起こす．少しずつ他の言語へと移行していくべきであると考える．
 \begin{thebibliography}{99}
-  \bibitem{}
+  \bibitem{SQL Slammer} https://www.caida.org/catalog/papers/2003\_sapphire/
+  \bibitem{Linux} https://www.zdnet.com/article/linus-torvalds-rust-will-go-into-linux-6-1/
 \end{thebibliography}
 
 \end{document}

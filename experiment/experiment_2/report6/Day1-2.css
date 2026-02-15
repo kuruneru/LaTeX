@@ -1,0 +1,14 @@
+/* 出張（オレンジ） - IDで指定 */
+#trip {
+    background-color: orange;
+}
+
+/* 土曜（水色） */
+.sat {
+    background-color: lightblue;
+}
+
+/* 日曜（ピンク） */
+.sun {
+    background-color: pink;
+}

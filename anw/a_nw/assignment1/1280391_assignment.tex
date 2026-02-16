@@ -1,0 +1,132 @@
+\documentclass{jlreq}
+
+\usepackage{amsmath, amssymb}
+\usepackage{enumerate}
+\usepackage{tikz}
+\usepackage{listings, xcolor}
+
+\lstset{
+  basicstyle = {\ttfamily}, % 基本的なフォントスタイル 
+  frame = {tbrl}, % 枠線の枠線。t: top, b: bottom, r: right, l: left
+  breaklines = true, % 長い行の改行
+  numbers = left, % 行番号の表示。left, right, none
+  showspaces = false, % スペースの表示
+  showstringspaces = false, % 文字列中のスペースの表示
+  showtabs = false, %　タブの表示
+  keywordstyle = \color{blue}, % キーワードのスタイル。intやwhileなど
+  commentstyle = {\color[HTML]{1AB91A}}, % コメントのスタイル
+  identifierstyle = \color{black}, % 識別子のスタイル　関数名や変数名
+  stringstyle = \color{brown}, % 文字列のスタイル
+  captionpos = t % キャプションの位置 t: 上、b: 下
+}
+
+\title{情報ネットワーク応用 課題1 レポート}
+\author{1280391 情報学群2年 \\細川 夏風}
+\date{\today}
+
+\begin{document}
+
+  \maketitle
+  \section{実行例}
+  本プログラムの実行例をいかに示す．
+  \begin{lstlisting}
+    % cat test.txt 
+    abcdefg
+    % ./a.out test.txt 
+    count:0 index:0  | 00 00 00 00 00 |
+    count:5 index:1  | 61 62 63 64 65 |
+    c:61
+    count:5 index:2  | 61 62 63 64 65 |
+    c:62
+    count:5 index:3  | 61 62 63 64 65 |
+    c:63
+    count:5 index:4  | 61 62 63 64 65 |
+    c:64
+    count:5 index:5  | 61 62 63 64 65 |
+    c:65
+    count:3 index:1  | 66 67 0a 64 65 |
+    c:66
+    count:3 index:2  | 66 67 0a 64 65 |
+    c:67
+    count:3 index:3  | 66 67 0a 64 65 |
+    c:0a
+    count:0 index:0  | 66 67 0a 64 65 |
+  \end{lstlisting}
+  
+  \section{プログラムの説明}
+  本プログラムの主要部分の説明をいかに示す．
+  \subsection{構造体の定義}
+  \begin{lstlisting}
+    // ファイル構造体FILEに相当する構造体
+    // 本物のライブラリーで用意されている FILE を使ってはいけない。
+    struct my_file {
+      int fd;			/* ファイルディスクリプター(何個ファイルをオープンしたか，更にそれらを識別するためのもの) */
+      int count;			/* ファイルから読んだ文字数 */
+      int index;			/* 次に使う位置 */
+      char buffer[MyBufferSize];	/* バッファー */
+    };
+  \end{lstlisting}
+  以上のように構造体を定義している．構造体\verb|my_file|はファイルディスクリプターと呼ばれる．\verb|open|したファイルを区別するための変数とファイルから読んだ文字数，次の位置の記憶のために使われる\verb|index|，読み込んだ文字を格納する配列\verb|buffer|を持つ．この時，\verb|MyBufferSize|はすでに定義されている定数である．
+  \subsection{オープンファイルを表す構造体}
+  \begin{lstlisting}
+    struct my_file *my_fopen (char *filename) {
+      int fd;
+      fd = open (filename, O_RDONLY);
+      if (fd != -1) { // openの失敗は-1
+        struct my_file *fp;
+        fp = (struct my_file *) malloc (sizeof (struct my_file));
+        // 構造体内の変数の初期化
+        fp->fd = fd;
+        fp->count = 0;
+        fp->index = 0;
+        return fp;
+      } else {
+        return NULL;		/* オープンできなかった場合 */
+      }
+    }
+  \end{lstlisting}
+  オープンしたファイルから，前述の構造体の初期化を行う．\verb|fp|はその開いたファイルの情報を持つ構造体のポインターを表す．\verb|fd|はそのファイル自体のファイルディスクリプターとなっている．初期化のため構造体変数に対して初期値の$0$を代入している．
+  \subsection{ファイルのクローズ処理}
+  \begin{lstlisting}
+    int my_fclose (struct my_file *fp) {
+      int r;
+      // OSに対してクローズ処理を要求
+      // ファイル構造体用のメモリー領域を解放
+      // システムコールを実行(rにclose()の値を入れることによって成功の成否を判断する材料にする)
+      r = close(fp->fd);
+      // メモリーの解放 (free(fp)するだけで値にNULLを入れなくてもヒープ領域に戻ってくれる)
+      free(fp);
+      return r;
+    }
+  \end{lstlisting}
+  ディスクリプタからオープンしているファイルを選んで閉じる．その後，確保されていたメモリ領域を解放する．freeを実行するだけで構造体変数に\verb|NULL|を代入したくても自動的にヒープ領域に戻る．また，\verb|r|に\verb|close(fp->fd);|を代入することによって\verb|close()|の結果をrに格納できる．
+  \subsection{fgetc関数の再現}
+  \begin{lstlisting}
+    int my_fgetc(struct my_file *fp) {
+      int c, size;
+      // バッファーが空ならOSから read する
+      // バッファーから1文字取って返す
+      if (fp->index == fp->count) {
+        size = read(fp->fd, fp->buffer, MyBufferSize);
+        if (size <= 0) {
+          return EOF;
+        }
+        fp->count = size;
+        fp->index = 0;
+      }
+      c = (unsigned char)fp->buffer[fp->index++];
+      return c;
+    }
+  \end{lstlisting}
+   \verb|read()|によって，指定したファイルディスクリプターから定数指定分の値を読み込む．読み込むファイルがなくなった場合，ファイルの終端である\verb|EOF|を返す．次に\verb|count|には読み込んだサイズを入れ，\verb|index|を初期化する．最後にバッファーの一文字を返す．
+
+   \section{考察}
+   どのようにしてファイルを読む際に次に読むべき場所を把握しているかを理解していなかったため，少し調べてみた．これにはファイルオフセットが使われている．これはしおりのような働きがあり，ファイルを読んだ際次の読み込む場所に目印をつけておく．これにより次に読むべき場所を把握してる．
+
+   \section{感想}
+   私は以前，興味がありシステムコールの関数自体を\verb|AI|の協力のもと作成したことがある．内部の殆どがアセンブリ言語で作成されており，意味不明な定数を指定するなどしてパケットを作成した．これにより現在の\verb|C|言語がいかに楽にコーディング可能かを思い知った．しかし，\verb|C|言語の境界値を判断しないという仕様は多くの開発者を苦しめている．これの解決のために他の多くの言語が代替に名乗りを上げている状態だが\verb|C|言語で書かれたプロダクトはすでに多くのプログラムコードが高く積まれている．そのため，それを他の言語で置き換えるのにも多大なるコストを要する．だた，この\verb|C|言語の仕様が長年開発者を保守という時間に勾留した呪いのようなものなのも確かなのである．私は早くこの事態が解決することを一刻も早く望んでいる．
+
+\begin{thebibliography}{99}
+  \bibitem aファイルオフセットのための参考文献，ここではファイルオフセットではなくファイルポインタで説明している．https://qiita.com/Jim\_Jin/items/c252cd2c8a0ba570620d
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,94 @@
+\documentclass[unicode,11pt,aspectratio=169]{beamer}
+
+% 2. 日本語設定 (LuaTeX-ja)
+\usepackage{luatexja}
+\usepackage{luatexja-preset} % フォントはお好みで変更してください
+
+% 3. テーマ設定 (Madridはシンプルで使いやすい)
+\usetheme{Madrid}
+\usecolortheme{seahorse} % 配色を少し柔らかく
+
+% 4. 便利なパッケージ
+\usepackage{bookmark} % 索引・しおり用
+\usepackage{graphicx} % 画像用
+\usepackage{listings} % コード表示用
+\usepackage{xcolor}   % 色用
+
+% 5. コードブロックの設定 (プログラミング用)
+\lstset{
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{red},
+    frame=single,
+    breaklines=true
+}
+
+% --- 表紙の情報 ---
+\title{TCP/IP輪講 第一回}
+\subtitle{サブタイトルをここに記述}
+\author{細川夏風}
+\institute{高知工科大学 情報学群}
+\date{\today}
+
+\begin{document}
+
+% タイトルスライド
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% 目次スライド
+\begin{frame}{目次}
+    \tableofcontents
+\end{frame}
+
+\section{はじめに}
+
+% 通常のスライド
+\begin{frame}{スライドの構成}
+    \begin{itemize}
+        \item 箇条書きの1番目
+        \item 箇条書きの2番目
+        \begin{itemize}
+            \item ネストした項目
+        \end{itemize}
+        \item 数式の記述も可能です：$E = mc^2$
+    \end{itemize}
+\end{frame}
+
+\section{技術的な内容}
+
+% 2段組みのスライド
+\begin{frame}{2段組みの例}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            左側のコンテンツ
+            \begin{itemize}
+                \item 説明文など
+                \item テキスト情報
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            %
+            右側のコンテンツ
+            \begin{block}{重要なポイント}
+                ここに強調したい内容を書きます。
+            \end{block}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% コードスライド (fragileが必要)
+\begin{frame}[fragile]{コードの例}
+\begin{lstlisting}[language=C]
+#include <stdio.h>
+int main() {
+    printf("Hello, Beamer!\n");
+    return 0;
+}
+\end{lstlisting}
+\end{frame}
+
+\end{document}
+

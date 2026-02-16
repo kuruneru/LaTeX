@@ -1,0 +1,201 @@
+\documentclass[paper=a4, fontsize=10pt]{jlreq}
+
+\usepackage{amsmath, amssymb}
+\usepackage{enumerate}
+\usepackage{tikz}
+\usepackage{listings, xcolor}
+
+\lstset{
+  basicstyle = {\ttfamily},
+  frame = {tbrl},
+  breaklines = true,
+  numbers = left,
+  showspaces = false,
+  showstringspaces = false,
+  showtabs = false,
+  keywordstyle = \color{blue},
+  commentstyle = {\color[HTML]{1AB91A}},
+  identifierstyle = \color{black},
+  stringstyle = \color{brown},
+  captionpos = t
+}
+
+\title{情報ネットワーク応用 演習B}
+\author{学籍番号 1280391 \\ 細川 夏風}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\section{背景}
+このレポートは先日の演習\verb|A|レポートの続きであるため，背景，内容ともに必要である部分のみを記述する．
+
+\section{内容}
+\subsection{使用ツール}
+\subsubsection*{curl}
+\verb|Usage: curl [options...] <url>|\\
+\verb|curl| とは、URL 構文を使用してデータを転送するためのコマンドラインツールである。\verb|HTTP|, \verb|HTTPS|, \verb|FTP|, \verb|SCP| など多数のプロトコルをサポートしている [1]。
+
+% オプションセクション
+
+\begin{itemize}
+    % -d
+    \item \verb|-d, --data <data>|
+    \begin{itemize}
+        \item \verb|HTTP POST data|
+        \begin{itemize}
+            \item \verb|HTTP| サーバーへ \verb|POST| リクエストでデータを送信する
+            \item コンテンツタイプはデフォルトで \verb|application/x-www-form-urlencoded| となる
+        \end{itemize}
+        \item \verb|<data>|
+        \begin{itemize}
+            \item 送信するデータを文字列で指定する
+            \item \verb|@filename| のように \verb|@| を先頭につけることで、ファイルの内容を読み込んで送信できる
+        \end{itemize}
+    \end{itemize}
+
+    % -f
+    \item \verb|-f, --fail|
+    \begin{itemize}
+        \item \verb|Fail fast with no output on HTTP errors|
+        \begin{itemize}
+            \item サーバーエラー時 (400番台や500番台のレスポンス) に、エラーページの内容を出力せず、即座に失敗として終了する
+            \item スクリプト等で終了コード (\verb|exit code 22|) によるエラー判定を行いたい場合に用いる
+        \end{itemize}
+    \end{itemize}
+
+    % -h
+    \item \verb|-h, --help <subject>|
+    \begin{itemize}
+        \item \verb|Get help for commands|
+        \begin{itemize}
+            \item コマンドの使い方やオプションの一覧を表示する
+        \end{itemize}
+        \item \verb|<subject>|
+        \begin{itemize}
+            \item \verb|all| を指定すると全てのオプションを表示し、カテゴリ名 (例: \verb|http|) を指定するとそのカテゴリのオプションのみを表示する
+        \end{itemize}
+    \end{itemize}
+
+    % -o
+    \item \verb|-o, --output <file>|
+    \begin{itemize}
+        \item \verb|Write to file instead of stdout|
+        \begin{itemize}
+            \item 取得したデータを標準出力 (画面) ではなくファイルに書き出す
+        \end{itemize}
+        \item \verb|<file>|
+        \begin{itemize}
+            \item 保存先のファイル名を指定する
+        \end{itemize}
+    \end{itemize}
+
+    % -O
+    \item \verb|-O, --remote-name|
+    \begin{itemize}
+        \item \verb|Write output to file named as remote file|
+        \begin{itemize}
+            \item リモートのURLに含まれるファイル名部分をそのままローカルの保存ファイル名として使用する
+            \item 例: \verb|curl -O http://example.com/foo.html| を実行すると \verb|foo.html| というファイル名で保存される
+        \end{itemize}
+    \end{itemize}
+
+    % -i
+    \item \verb|-i, --show-headers|
+    \begin{itemize}
+        \item \verb|Show response headers in output|
+        \begin{itemize}
+            \item レスポンスボディ (データ本体) だけでなく、\verb|HTTP| レスポンスヘッダーも含めて出力する
+        \end{itemize}
+    \end{itemize}
+
+    % -s
+    \item \verb|-s, --silent|
+    \begin{itemize}
+        \item \verb|Silent mode|
+        \begin{itemize}
+            \item 進捗状況 (プログレスメーター) やエラーメッセージを表示しないようにする
+        \end{itemize}
+    \end{itemize}
+
+    % -T
+    \item \verb|-T, --upload-file <file>|
+    \begin{itemize}
+        \item \verb|Transfer local FILE to destination|
+        \begin{itemize}
+            \item ローカルのファイルを指定したURLへアップロードする (通常は \verb|PUT| メソッドが使用される)
+        \end{itemize}
+        \item \verb|<file>|
+        \begin{itemize}
+            \item アップロードするローカルファイルのパスを指定する
+        \end{itemize}
+    \end{itemize}
+
+    % -u
+    \item \verb|-u, --user <user:password>|
+    \begin{itemize}
+        \item \verb|Server user and password|
+        \begin{itemize}
+            \item \verb|Basic| 認証や \verb|Digest| 認証などで使用するユーザー名とパスワードを指定する
+        \end{itemize}
+        \item \verb|<user:password>|
+        \begin{itemize}
+            \item \verb|user:password| の形式で指定する。パスワードを省略した場合はプロンプトで入力を求められる
+        \end{itemize}
+    \end{itemize}
+
+    % -A
+    \item \verb|-A, --user-agent <name>|
+    \begin{itemize}
+        \item \verb|Send User-Agent <name> to server|
+        \begin{itemize}
+            \item サーバーに送信する \verb|User-Agent| ヘッダーの値を偽装または指定する
+        \end{itemize}
+        \item \verb|<name>|
+        \begin{itemize}
+            \item ブラウザ名やボット名などの文字列を指定する
+        \end{itemize}
+    \end{itemize}
+
+    % -v
+    \item \verb|-v, --verbose|
+    \begin{itemize}
+        \item \verb|Make the operation more talkative|
+        \begin{itemize}
+            \item 詳細表示モード。リクエストとレスポンスのヘッダー情報、\verb|TLS| ハンドシェイクの様子などを表示し、デバッグに用いる
+            \item \verb|>| は送信データ、\verb|<| は受信データを表す
+        \end{itemize}
+    \end{itemize}
+
+    % -V
+    \item \verb|-V, --version|
+    \begin{itemize}
+        \item \verb|Show version number and quit|
+        \begin{itemize}
+            \item インストールされている \verb|curl| のバージョンと、サポートしているプロトコルやライブラリの一覧を表示して終了する
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+\subsection{方法}
+今実習のこの\verb|IoT|デバイスには深刻な脆弱性が存在する．このように，深刻な脆弱性には\verb|CVE|という記号とともに番号がつけられ管理されている．その\verb|CVE|と用いられた\verb|IoT|デバイスを照らし合わせたとき，\verb|CVE-|$2019$\verb|-|$12289$という記号であることがわかる．このデバイスはとある\verb|sh|ファイルによって起動ごとに\verb|IoT|デバイスを起動していることがわかる．この\verb|sh|ファイルの内容に\verb|telnet|を起動するようなコマンドを追記することによって外部から非常に簡単にこの\verb|IoT|デバイスに接続可能になる．
+\begin{lstlisting}
+  echo -e "<CMD>" >> /system/init/ipcam.sh
+\end{lstlisting}
+このようなプログラムであれば\verb|bash|コマンドの任意のプログラムが実現可能である．
+
+この機能を利用した\verb|Python|を前に作成し，それを利用し攻撃用ファームウェアである\verb|fw.bin|というファイルを作成する．
+\begin{lstlisting}
+# curl -X POST -F “file1=@fw.bin;filename=fw.bin”“http://< IotデバイスのIP >:45678/upgrade\_firmware.cgi?loginuse&loginpas”
+\end{lstlisting}
+というコマンドによって，特定のファイルを指定した\verb|Web|サイトに送信する．今回送信した\verb|Web|サイトはその\verb|IoT|デバイス専用のアップデートファイルの置き場である．
+
+しかし，これによって管理画面の認証を突破できる訳では無い．そのようなとき，検索エンジンでこの\verb|IoT|デバイスについて調べるとなんと情報が掲載されているケースがある．それを使用すれば簡単にこのデバイスを乗っ取ることができる．
+
+\section{考察}
+今回の攻撃のようにまだセキュリティパッチが当たっていないデバイスが狙われるケースは非常に多い．理由は単純である．攻撃のマニュアルは前の攻撃者たちがいくらでも発掘しているからである．そのため，攻撃者の苦労はほとんど存在しない．このような攻撃の対策は非常に単純であり，セキュリティパッチを当てることである．これがなされていないケースは非常に多い．また，セキュリティパッチが当てられないのであれば使用しない．これを徹底するしか無いのだ．今回は\verb|IoT|デバイスであったが，それによって他の多くのデバイスが犠牲になる可能性を秘めていることは今実習で理解できた．また，そこからそれに接続されているルータ等のネットワークデバイスに接続を許すのだ．これによって発生する問題は非常に単純であり．情報の多くを奪取される可能性が非常に高いことである．しかし，ここに更に大きな問題が隠れており，それがさらなる上位ネットワークの存在である．本社サーバ等が存在した場合それがそのネットワークへの侵入が可能になる可能性がある．そうなってしまえばそのサービス自体が停止しかねない．また，その会社の業務自体が機能停止に追い込まれる可能性がある．このようにたったひとつのデバイスから全体の機能停止の可能性までデバイスの脆弱性がもたらす被害は計り知れない．アップデートの重要性の理解が更に深まることを理想に本稿の終文とする．
+\begin{thebibliography}{99}
+  \bibitem{curl}\verb|https://curl.se/docs/manpage.html|
+\end{thebibliography}
+
+\end{document}

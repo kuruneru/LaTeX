@@ -1,0 +1,8 @@
+\frametitle{コードの例}
+\begin{lstlisting}[language=C]
+#include <stdio.h>
+int main() {
+    printf("Hello, Beamer!\n");
+    return 0;
+}
+\end{lstlisting}

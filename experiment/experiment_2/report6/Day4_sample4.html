@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WebGL入門</title>
+    <script type="text/javascript" src="./gl-matrix-min.js"></script>
+    <script src="./Day4_sample4.js"></script> <!-- main.jsを読み込む -->
+
+    <!-- ここから追記 -->
+    <!-- create vertex shader -->
+    <script id="vertexShader" type="x-shader/x-vertex">
+      attribute vec3 position;
+      uniform mat4 uMVMatrix;
+      uniform mat4 uPrMatrix;
+      void main(void){
+        gl_Position = uPrMatrix * uMVMatrix * vec4(position, 1.0);
+        //gl_Position = vec4(position, 1.0);
+      }
+    </script>
+    <!-- create fragment shader -->
+    <script id="fragmentShader" type="x-shader/x-fragment">
+      precision mediump float;
+      void main(void){
+        gl_FragColor = vec4(0.0, 0.0, 1.0, 1.0);
+      }
+    </script>
+    <!-- ここまで追記 -->
+  </head>
+
+  <body>
+    <!-- bodyタグの中にCanvasを配置する -->
+    <canvas id="canvas" width=256 height=256></canvas>
+  </body>
+</html>

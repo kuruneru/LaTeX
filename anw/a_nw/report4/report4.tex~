@@ -1,0 +1,35 @@
+\documentclass[paper=a4, fontsize=10pt]{jlreq}
+
+\usepackage{amsmath, amssymb}
+\usepackage{enumerate}
+\usepackage{tikz}
+\usepackage{listings, xcolor}
+
+\lstset{
+  basicstyle = {\ttfamily},
+  frame = {tbrl},
+  breaklines = true,
+  numbers = left,
+  showspaces = false,
+  showstringspaces = false,
+  showtabs = false,
+  keywordstyle = \color{blue},
+  commentstyle = {\color[HTML]{1AB91A}},
+  identifierstyle = \color{black},
+  stringstyle = \color{brown},
+  captionpos = t
+}
+
+\title{}
+\author{学籍番号 1280391 \\ 細川 夏風}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{thebibliography}{99}
+  \bibitem{}
+\end{thebibliography}
+
+\end{document}

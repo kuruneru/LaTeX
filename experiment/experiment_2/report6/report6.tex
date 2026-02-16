@@ -1,0 +1,109 @@
+\documentclass[paper=a4, fontsize=10pt]{jlreq}
+
+\usepackage{amsmath, amssymb}
+\usepackage{enumerate}
+\usepackage{tikz}
+\usepackage{listings, xcolor}
+
+\lstset{
+  basicstyle = {\ttfamily},
+  frame = {tbrl},
+  breaklines = true,
+  numbers = left,
+  showspaces = false,
+  showstringspaces = false,
+  showtabs = false,
+  keywordstyle = \color{blue},
+  commentstyle = {\color[HTML]{1AB91A}},
+  identifierstyle = \color{black},
+  stringstyle = \color{brown},
+  captionpos = t
+}
+
+\title{情報学群実験第2 レポート}
+\author{学籍番号 1280391 \\ 細川 夏風}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\section{背景}
+近年，\verb|VR|などの発展によってバーチャル空間が身近なものとなっている．それ加えて，\verb|Web|が最も身近に自身とインターネットなどのバーチャル空間を取り繋いでいると言える．そのため，バーチャル空間についてと\verb|Web|についての両者について学びを得ることができる\verb|HTML(Hyper Text Markup Langage)|，\verb|CSS(Cascading Style Sheets)|，\verb|Javascript|がサイバー空間の理解と発展に寄与すると考えられる．これらを目的に本実験を行った．
+
+\section{方法}
+
+課題についてはすべて以下付録に記載している．
+
+\section*{環境}
+\verb|HTML|，\verb|CSS|，\verb|Javascript|はブラウザ上で動作するマークアップ言語やスタイルシート言語，スクリプト言語であるためそれぞれに環境が設定されているというケースはあまり多くない．大きな変化として\verb|HTML5|等は存在するがそのような形式のみが基本的な形式となっているため，特定の環境を表記する必要性は少ない．
+
+\section*{第$1$回}
+\subsection*{HTML}
+\verb|HTML|はタグを用いて文章の構造を記述する言語である．\verb|<何かしらのタグ>|で始まり，何かしらの文章や形式を記述し，\verb|</何かしらのタグ>|で閉じるという形式で多くは記述される．
+
+\subsection*{CSS}
+\verb|CSS|は文章の見栄えや体裁を整える言語である．\verb|HTML|によって記述された何かしらのタグについて表記するケースがほとんどである．また，\verb|HTML|のタグ内に記述された\verb|class|について記述することも可能である．.\verb|HTML|のタグまたは\verb|class|{ 体裁 }のような記述で用いられる．
+
+\vspace{0.5cm}
+
+また，\verb|HTML|は表のようなテーブル構造を作成することができる．それぞれの行と列に対してヘッダー等を設定することができる．課題の表を作る\verb|HTML|ファイルは以下付録に記載している．
+
+\section*{第$2$回}
+\subsection*{Javascript}
+\verb|Javascript|は\verb|Web|で用いられるスクリプト言語の一種である．\verb|Web|上で動きをつけるなどの動作を伴った処理に用いられることが多い．また，スクリプト言語であるため少し複雑性を持っている処理についても記述することが可能となっている．\verb|HTML|のタグに加えられた\verb|id|などを取得することによって単一に処理を追記することも可能．
+
+\verb|HTML|は\verb|DOM(Document Object Model)|と呼ばれるデータ構造を用いて記述されている．これは木構造に近い概念を持っている．いずれかのオブジェクトの下に何かしらのオブジェクトを持つことができる．また，それらについてそれがどのような形式のオブジェクトであるかも記述することができる．この構造を活用し，それに追記や削除，作成などをすることで\verb|Web|ページを自由にカスタマイズすることができる
+
+また，\verb|Javascript|は動的型付けを採用しており型にリソースを割く必要がないことやクリック，リロードどの個々のイベントについての動作を記述することができる．
+
+課題では，本来はそれぞれ個々に\verb|id|を準備してそれぞれ追加の処理を行うことによって可能であるが，この方法はあまりにも冗長である．よって一度のすべての\verb|td|タグを取得し，それぞれに追加の処理を行うことによって実現している．
+
+\vspace{0.5cm}
+
+\verb|HTML|の\verb|id|と\verb|class|の違いは，\verb|id|は単一のものでなければならないが\verb|class|は単一でなくても良い．
+
+\section*{第$3$回}
+\subsection*{WebGL}
+\verb|WebGL|とはブラウザ上で動作するグラフィックを描画する仕組みのことである．\verb|HTML|内に\verb|Canvas|を配置することにより，その中にグラフィックを記述することができる．\verb|WebGL|では三角形ポリゴンのみを用いる事ができる．この三角形を組み合わせることによってあらゆる形状を表現できる．
+
+今課題については，四角形と三角形，円を描くというものだ．基本的に三角形のみしか描けない\verb|WebGL|について四角形は三角形を$2$つ逆に並べることによって実現可能である．また，円についてはその三角形を回転させることによって実現している．\verb|time|による\verb|for|文の部分がその処理を担っている．
+
+\section*{第$4$回}
+\subsection*{アニメーション}
+\verb|WebGL|の図形はそれぞれ，配置の際に座標を指定している．その座標について値を変えることによって図形を移動させることなどができる．この際，その移動が平行移動なのか回転移動なのかなどによって処理が少し異なる．アニメーションについては図形の配置座標についてのみで無くカメラ座標を移動させることによって実現することができる．今課題については図形を回転させるという方法をとっている．
+
+\section*{第$5$回}
+\subsection*{図形のスタック}
+\verb|WebGL|にはスタックの概念が存在し，これにより図形を複製が簡易なものになる．今課題については初期の行列についてスタックに保存し，図形の位置を変え，スタックからポップした初期行列から先ほどとは逆方向に移動させる．
+
+\section{考察}
+本実験では，\verb|Web|とバーチャル空間について学ぶために\verb|HTML|，\verb|CSS|，\verb|Javascript|，\verb|WebGL|を扱った．まず\verb|DOM|操作についてだが，課題ではテーブルのセルに文字を追加する処理を行った．本来なら個々に\verb|ID|を振って処理することも可能だが，それはあまりにも冗長である．そのため，一度すべての\verb|td|タグを取得し，まとめて処理する方法をとった．\verb|DOM|の木構造のような概念を理解すれば，\verb|Javascript|から\verb|Web|ページを自由にカスタマイズすることができると言える．次に\verb|WebGL|について．\verb|WebGL|では三角形ポリゴンのみを用いる事ができるという制約があるが，四角形は三角形を$2$つ逆に並べることによって実現可能である．円についてもその三角形を回転させることによって実現している．単純な図形の組み合わせであらゆる形状を表現できるという点は興味深い．アニメーションに関しては，今課題については図形を回転させるという方法で実現した．座標の値を変えることで図形は移動する．また，行列のスタックを使うと図形を複製が簡易なものになるというのも重要な点だ．\verb|Web|は最も身近に自身とインターネットなどのバーチャル空間を取り繋いでいる存在である．今回の実験を通して，普段見ている\verb|Web|ページやグラフィックがどのように作られているのか，その裏側の仕組みについて少し理解が深まったと考えられる．
+\begin{thebibliography}{99}
+  \bibitem{}
+\end{thebibliography}
+
+\newpage
+\appendix
+\section{ソースコード}
+
+% Day 1-2
+\subsection*{Day1-2}
+\lstinputlisting[caption=Day1-2.html]{Day1-2.html}
+\lstinputlisting[caption=Day1-2.css]{Day1-2.css}
+\lstinputlisting[caption=Day1-2.js]{Day1-2.js}
+% Day 3
+\subsection*{Day3}
+\lstinputlisting[caption=Day3\_start.html]{Day3\_start.html}
+\lstinputlisting[caption=Day3\_start.js]{Day3\_start.js}
+
+% Day 4
+\subsection*{Day4}
+\lstinputlisting[caption=Day4\_sample4.html]{Day4\_sample4.html}
+\lstinputlisting[caption=Day4\_sample4.js]{Day4\_sample4.js}
+
+% Day 5
+\subsection*{Day5}
+\lstinputlisting[caption=Day5\_sample1.html]{Day5\_sample1.html}
+\lstinputlisting[caption=Day5\_sample1.js]{Day5\_sample1.js}
+\end{document}
+

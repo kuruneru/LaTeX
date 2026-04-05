@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2026.1.1)  18 JAN 2026 18:31
+This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2026.1.1)  5 APR 2026 22:59
  restricted system commands enabled.
 **tcpip.tex
 (./tcpip.tex
@@ -1216,36 +1216,36 @@ File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
 )) (./tcpip.aux)
 \openout1 = tcpip.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 34.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 35.
 LaTeX Font Info:    Trying loading font information for TS1+cmr on input line 3
-4.
+5.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for JY3/mc/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for JT3/mc/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for JY3/mc/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for JT3/mc/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: luatex
@@ -1303,49 +1303,49 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 34.
+Package hyperref Info: Link coloring OFF on input line 35.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 34.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 35.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 34.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 35.
 \symnumbers=\mathgroup7
 \sympureletters=\mathgroup8
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmr/m/n on input line 34.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 34.
+(Font)                  OT1/cmss/m/n --> TU/lmr/m/n on input line 35.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 35.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/lmss/b/n on input line 34.
+(Font)                  OT1/cmr/bx/n --> TU/lmss/b/n on input line 35.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/lmss/b/n on input line 34.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 34.
+(Font)                  OT1/cmr/bx/n --> TU/lmss/b/n on input line 35.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 35.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 34.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 35.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/m/n on input line 34.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 34.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/m/n on input line 35.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 35.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> TU/lmss/m/it on input line 34.
+(Font)                  OT1/cmr/m/it --> TU/lmss/m/it on input line 35.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> TU/lmss/m/it on input line 34.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 34.
+(Font)                  OT1/cmr/bx/it --> TU/lmss/m/it on input line 35.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 35.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 34.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 35.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 34.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 35.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  TU/lmss/m/n --> TU/lmss/b/n on input line 34.
+(Font)                  TU/lmss/m/n --> TU/lmss/b/n on input line 35.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  TU/lmss/m/it --> TU/lmss/b/it on input line 34.
+(Font)                  TU/lmss/m/it --> TU/lmss/b/it on input line 35.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/b/n --> TU/lmr/b/n on input line 34.
+(Font)                  OT1/cmss/b/n --> TU/lmr/b/n on input line 35.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  TU/lmss/b/n --> TU/lmss/b/n on input line 34.
+(Font)                  TU/lmss/b/n --> TU/lmss/b/n on input line 35.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  TU/lmss/m/n --> TU/lmss/b/n on input line 34.
+(Font)                  TU/lmss/m/n --> TU/lmss/b/n on input line 35.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  TU/lmss/m/it --> TU/lmss/b/it on input line 34.
+(Font)                  TU/lmss/m/it --> TU/lmss/b/it on input line 35.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  TU/lmtt/m/n --> TU/lmtt/b/n on input line 34.
+(Font)                  TU/lmtt/m/n --> TU/lmtt/b/n on input line 35.
 
 (/usr/share/texlive/texmf-dist/tex/latex/translator/translator-basic-dictionary
 -English.dict
@@ -1377,141 +1377,209 @@ Package fontspec Info: Adjusting the maths setup (use [no-math] to avoid
 
 \symlegacymaths=\mathgroup9
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 34.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 34.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 34.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 34.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 34.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 34.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 34.
-LaTeX Font Info:    Redeclaring math accent \check on input line 34.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 34.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 34.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 34.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 34.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 34.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 34.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 34.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 34.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 34.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 34.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 34.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 34.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 34.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 34.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 34.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 34.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 35.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 35.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 35.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 35.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 35.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 35.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 35.
+LaTeX Font Info:    Redeclaring math accent \check on input line 35.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 35.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 35.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 35.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 35.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 35.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 35.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 35.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 35.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 35.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 35.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 35.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 35.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 35.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 35.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 35.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 35.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 34.
+(Font)              `operators' in the math version `normal' on input line 35.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmr/m/n on input line 34.
+(Font)                  OT1/cmss/m/n --> TU/lmr/m/n on input line 35.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 34.
+(Font)              `operators' in the math version `bold' on input line 35.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmss/b/n --> TU/lmr/m/n on input line 34.
+(Font)                  OT1/cmss/b/n --> TU/lmr/m/n on input line 35.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 34.
-LaTeX Font Info:    Redeclaring math alphabet \mathrm on input line 34.
+(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 35.
+LaTeX Font Info:    Redeclaring math alphabet \mathrm on input line 35.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  TU/lmss/m/it --> TU/lmr/m/it on input line 34.
+(Font)                  TU/lmss/m/it --> TU/lmr/m/it on input line 35.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  TU/lmss/b/n --> TU/lmr/b/n on input line 34.
+(Font)                  TU/lmss/b/n --> TU/lmr/b/n on input line 35.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  TU/lmss/m/n --> TU/lmss/m/n on input line 34.
+(Font)                  TU/lmss/m/n --> TU/lmss/m/n on input line 35.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  TU/lmtt/m/n --> TU/lmtt/m/n on input line 34.
+(Font)                  TU/lmtt/m/n --> TU/lmtt/m/n on input line 35.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  TU/lmr/m/n --> TU/lmr/b/n on input line 34.
+(Font)                  TU/lmr/m/n --> TU/lmr/b/n on input line 35.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  TU/lmss/b/it --> TU/lmr/b/it on input line 34.
+(Font)                  TU/lmss/b/it --> TU/lmr/b/it on input line 35.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  TU/lmss/b/n --> TU/lmss/b/n on input line 34.
+(Font)                  TU/lmss/b/n --> TU/lmss/b/n on input line 35.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  TU/lmtt/b/n --> TU/lmtt/b/n on input line 34.
+(Font)                  TU/lmtt/b/n --> TU/lmtt/b/n on input line 35.
 \c@lstlisting=\count373
  (./tcpip.nav)(load cache: extra_lmsans8-regular.luc)
 LaTeX Font Info:    Font shape `JT3/HaranoAjiMincho-Regular.otf(0)/m/n' will be
 
-(Font)              scaled to size 5.77332pt on input line 34.
+(Font)              scaled to size 5.77332pt on input line 35.
 LaTeX Font Info:    Font shape `JY3/HaranoAjiMincho-Regular.otf(0)/m/n' will be
 
-(Font)              scaled to size 5.77332pt on input line 34.
+(Font)              scaled to size 5.77332pt on input line 35.
 (load cache: extra_lmsans12-regular.luc)
 LaTeX Font Info:    Font shape `JT3/HaranoAjiMincho-Regular.otf(0)/m/n' will be
 
-(Font)              scaled to size 13.85594pt on input line 39.
+(Font)              scaled to size 13.85594pt on input line 40.
 LaTeX Font Info:    Font shape `JY3/HaranoAjiMincho-Regular.otf(0)/m/n' will be
 
-(Font)              scaled to size 13.85594pt on input line 39.
+(Font)              scaled to size 13.85594pt on input line 40.
 LaTeX Font Info:    Font shape `JT3/HaranoAjiMincho-Regular.otf(0)/m/n' will be
 
-(Font)              scaled to size 7.69775pt on input line 39.
+(Font)              scaled to size 7.69775pt on input line 40.
 LaTeX Font Info:    Font shape `JY3/HaranoAjiMincho-Regular.otf(0)/m/n' will be
 
-(Font)              scaled to size 7.69775pt on input line 39.
+(Font)              scaled to size 7.69775pt on input line 40.
 LaTeX Font Info:    Font shape `JT3/HaranoAjiMincho-Regular.otf(0)/m/n' will be
 
-(Font)              scaled to size 3.84888pt on input line 39.
+(Font)              scaled to size 3.84888pt on input line 40.
 LaTeX Font Info:    Font shape `JY3/HaranoAjiMincho-Regular.otf(0)/m/n' will be
 
-(Font)              scaled to size 3.84888pt on input line 39.
+(Font)              scaled to size 3.84888pt on input line 40.
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./tcpip.toc) [2
-
-]
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./tcpip.toc
 LaTeX Font Info:    Font shape `JT3/HaranoAjiMincho-Regular.otf(0)/m/n' will be
 
-(Font)              scaled to size 9.6222pt on input line 58.
+(Font)              scaled to size 9.6222pt on input line 4.
 LaTeX Font Info:    Font shape `JY3/HaranoAjiMincho-Regular.otf(0)/m/n' will be
 
-(Font)              scaled to size 9.6222pt on input line 58.
-(load cache: extra_lmroman8-regular.luc)(load cache: extra_lmroman6-regular.luc)
-LaTeX Font Info:    Trying loading font information for U+msa on input line 58.
+(Font)              scaled to size 9.6222pt on input line 4.
+) [2
+
+](load cache: extra_lmmono10-regular.luc)
+warning  (file home.drawio.pdf) (pdf inclusion): PDF inclusion: found PDF versio
+n '1.7', but at most version '1.5' allowed
+<home.drawio.pdf, id=100, 349.305pt x 262.0992pt>
+File: home.drawio.pdf Graphic file (type pdf)
+<use home.drawio.pdf>
+Package luatex.def Info: home.drawio.pdf  used on input line 68.
+(luatex.def)             Requested size: 216.67204pt x 162.57979pt.
+[3
+
+<./home.drawio.pdf>] [4
+
+](load cache: extra_lmroman8-regular.luc)(load cache: extra_lmroman6-regular.luc
+)
+LaTeX Font Info:    Trying loading font information for U+msa on input line 79.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying loading font information for U+msb on input line 58.
+LaTeX Font Info:    Trying loading font information for U+msb on input line 79.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <10.95> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 58.
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 79.
 (load cache: extra_lmsans10-oblique.luc)
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <8> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 58.
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 79.
 (load cache: extra_lmsans8-oblique.luc)
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <6> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 58.
- [3
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 79.
+ [5
 
-]
+](load cache: extra_lmsans9-regular.luc)
 LaTeX Font Info:    Font shape `JT3/HaranoAjiMincho-Regular.otf(0)/m/n' will be
 
-(Font)              scaled to size 11.54663pt on input line 80.
+(Font)              scaled to size 8.65997pt on input line 112.
 LaTeX Font Info:    Font shape `JY3/HaranoAjiMincho-Regular.otf(0)/m/n' will be
 
-(Font)              scaled to size 11.54663pt on input line 80.
- [4
+(Font)              scaled to size 8.65997pt on input line 112.
+(load cache: extra_lmroman9-regular.luc)(load cache: extra_lmroman5-regular.luc)
+LaTeX Font Info:    Font shape `JY3/HaranoAjiMincho-Regular.otf(0)/m/n' will be
+
+(Font)              scaled to size 4.8111pt on input line 112.
+LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <9> not available
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 112.
+(load cache: extra_lmsans9-oblique.luc)
+LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <5> not available
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 112.
+LaTeX Font Info:    Font shape `JT3/HaranoAjiMincho-Regular.otf(0)/b/n' will be
+
+(Font)              scaled to size 8.65997pt on input line 112.
+LaTeX Font Info:    Font shape `JY3/HaranoAjiMincho-Regular.otf(0)/b/n' will be
+
+(Font)              scaled to size 8.65997pt on input line 112.
+ [6
+
+] [7
+
+] [8
 
 ]
-\openout4 = tcpip.vrb
- (./tcpip.vrb (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2023/02/27 1.9 listings language file
-)
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
-)(load cache: extra_lmmono10-regular.luc)
-Removing  `ltj.process_input_buffer' from `process_input_buffer'.
-Inserting `ltj.listings_unicode' in `process_input_buffer'.
-Inserting `ltj.process_input_buffer' in `process_input_buffer'.
-Removing  `ltj.listings_unicode' from `process_input_buffer'.) [5
+[9
+
+] [10
+
+] [11
 
 ]
+warning  (file conection.drawio.pdf) (pdf inclusion): PDF inclusion: found PDF v
+ersion '1.7', but at most version '1.5' allowed
+<conection.drawio.pdf, id=366, 355.3275pt x 653.5617pt>
+File: conection.drawio.pdf Graphic file (type pdf)
+<use conection.drawio.pdf>
+Package luatex.def Info: conection.drawio.pdf  used on input line 162.
+(luatex.def)             Requested size: 130.00455pt x 239.12146pt.
+
+Overfull \vbox (53.93562pt too high) detected at line 162
+ []
+
+[12
+
+<./conection.drawio.pdf>]
+warning  (file data_send.drawio.pdf) (pdf inclusion): PDF inclusion: found PDF v
+ersion '1.7', but at most version '1.5' allowed
+<data_send.drawio.pdf, id=418, 304.2567pt x 509.98529pt>
+File: data_send.drawio.pdf Graphic file (type pdf)
+<use data_send.drawio.pdf>
+Package luatex.def Info: data_send.drawio.pdf  used on input line 180.
+(luatex.def)             Requested size: 160.33519pt x 268.75012pt.
+
+Overfull \vbox (34.07153pt too high) detected at line 180
+ []
+
+[13
+
+<./data_send.drawio.pdf>]
+warning  (file seachence.drawio.pdf) (pdf inclusion): PDF inclusion: found PDF v
+ersion '1.7', but at most version '1.5' allowed
+<seachence.drawio.pdf, id=468, 448.5558pt x 636.45776pt>
+File: seachence.drawio.pdf Graphic file (type pdf)
+<use seachence.drawio.pdf>
+Package luatex.def Info: seachence.drawio.pdf  used on input line 193.
+(luatex.def)             Requested size: 182.00371pt x 258.24956pt.
+
+Overfull \vbox (23.57097pt too high) detected at line 193
+ []
+
+[14
+
+<./seachence.drawio.pdf>]
 \tf@nav=\write6
 
 \openout6 = tcpip.nav
@@ -1521,34 +1589,33 @@ Removing  `ltj.listings_unicode' from `process_input_buffer'.) [5
 \tf@snm=\write8
 
 \openout8 = tcpip.snm
-
-(./tcpip.aux))
+ (./tcpip.aux))
 
 Here is how much of LuaTeX's memory you used:
- 29661 strings out of 478285
+ 29590 strings out of 478285
  125244,1977958 words of node,token memory allocated
- 41464 words of node memory still in use:
-   741 hlist, 9 vlist, 333 rule, 29 disc, 9 local_par, 390 glue, 527 kern, 23 pe
-nalty, 69 glyph, 9790 attribute, 61 glue_spec, 1152 attribute_list, 4 write, 748
- user_defined, 42 pdf_colorstack nodes
-   avail lists: 1:17,2:6904,3:528,4:1935,5:1148,6:53,7:1284,8:5,9:2476,10:14,11:
-60
- 48334 multiletter control sequences out of 65536+600000
- 69 fonts using 68572615 bytes
- 128i,15n,115p,1804b,1066s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmmono10-regular.otf></u
-sr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmsans10-oblique.otf></usr/
-share/texlive/texmf-dist/fonts/opentype/public/lm/lmsans8-regular.otf></usr/shar
-e/texlive/texmf-dist/fonts/opentype/public/lm/lmsans10-regular.otf></usr/share/t
-exlive/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></
-usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmsans12-regular.otf></usr
-/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on tcpip.pdf (5 pages, 73178 bytes).
+ 22999 words of node memory still in use:
+   50 hlist, 8 vlist, 172 rule, 5 local_par, 8 math, 234 glue, 7 kern, 38 penalt
+y, 192 glyph, 7783 attribute, 61 glue_spec, 743 attribute_list, 4 write, 45 user
+_defined, 24 pdf_literal, 4 pdf_colorstack, 1 pdf_setmatrix, 1 pdf_save, 1 pdf_r
+estore nodes
+   avail lists: 1:20,2:9185,3:441,4:771,5:154,6:78,7:1597,8:11,9:887,10:43,11:6
+ 48253 multiletter control sequences out of 65536+600000
+ 88 fonts using 77617591 bytes
+ 128i,15n,115p,1804b,833s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmsans9-regular.otf></us
+r/share/texlive/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Mediu
+m.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmmono10-regular.o
+tf></usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmsans8-regular.otf><
+/usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmsans10-regular.otf></us
+r/share/texlive/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regul
+ar.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmsans12-regular.
+otf></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on tcpip.pdf (14 pages, 472332 bytes).
 
-PDF statistics: 252 PDF objects out of 1000 (max. 8388607)
- 199 compressed objects within 2 object streams
- 13 named destinations out of 1000 (max. 131072)
- 192 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 590 PDF objects out of 1000 (max. 8388607)
+ 499 compressed objects within 5 object streams
+ 34 named destinations out of 1000 (max. 131072)
+ 136 words of extra memory for PDF output out of 10000 (max. 100000000)
 

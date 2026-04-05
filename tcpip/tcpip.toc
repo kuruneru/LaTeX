@@ -1,2 +1,5 @@
-\beamer@sectionintoc {1}{はじめに}{3}{0}{1}
-\beamer@sectionintoc {2}{技術的な内容}{4}{0}{2}
+\beamer@sectionintoc {1}{トランスポート層}{3}{0}{1}
+\beamer@sectionintoc {2}{ポート番号}{4}{0}{2}
+\beamer@sectionintoc {3}{TCPとUDP}{8}{0}{3}
+\beamer@subsectionintoc {3}{1}{UDP}{9}{0}{3}
+\beamer@subsectionintoc {3}{2}{TCP}{12}{0}{3}

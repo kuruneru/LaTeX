@@ -16,17 +16,18 @@
 
 % 5. コードブロックの設定 (プログラミング用)
 \lstset{
-    basicstyle=\ttfamily\small,
-    keywordstyle=\color{blue},
-    commentstyle=\color{gray},
-    stringstyle=\color{red},
-    frame=single,
-    breaklines=true
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue},
+  commentstyle=\color{gray},
+  stringstyle=\color{red},
+  frame=single,
+  breaklines=true
 }
 
+\setbeamerfont{subsection in toc}{size=\small}
+
 % --- 表紙の情報 ---
-\title{TCP/IP輪講 第一回}
-\subtitle{サブタイトルをここに記述}
+\title{TCP/IP輪講 第6回}
 \author{細川夏風}
 \institute{高知工科大学 情報学群}
 \date{\today}
@@ -35,60 +36,160 @@
 
 % タイトルスライド
 \begin{frame}
-    \titlepage
+  \titlepage
 \end{frame}
 
 % 目次スライド
 \begin{frame}{目次}
-    \tableofcontents
+  \tableofcontents
 \end{frame}
 
-\section{はじめに}
+\section{トランスポート層}
 
 % 通常のスライド
-\begin{frame}{スライドの構成}
-    \begin{itemize}
-        \item 箇条書きの1番目
-        \item 箇条書きの2番目
-        \begin{itemize}
-            \item ネストした項目
-        \end{itemize}
-        \item 数式の記述も可能です：$E = mc^2$
-    \end{itemize}
+\begin{frame}{トランスポート層}
+  \begin{columns}[T]
+    % 左側のカラム（文字）: スライド幅の半分(0.5)を割り当て
+    \begin{column}{0.5\textwidth}
+      \texttt{TCP}と\texttt{UDP}という2つのプロトコルはトランスポート層というレイヤーで定義されている．
+      
+      \texttt{IP}によってこの2つのうちのどちらのプロトコルを使用するかが指定されている．
+      
+      トランスポート層ではポート番号により，上位層のアプリケーション層の処理を行うプログラムを識別する．
+    \end{column}
+    
+    % 右側のカラム（画像）: 残りの半分(0.5)を割り当て
+    \begin{column}{0.5\textwidth}
+      \centering
+      % カラムの幅いっぱいに画像を表示（\textwidth はここでは右カラムの幅になります）
+      \includegraphics[width=\textwidth]{home.drawio.pdf}
+    \end{column}
+  \end{columns}
 \end{frame}
 
-\section{技術的な内容}
+\section{ポート番号}
+\begin{frame}{ポート番号}
+  トランスポートプロトコルにも他のプロトコルのように識別するための仕組みがある．それがポート番号だ．ひとつのコンピュータ内で通信を行っているプログラムを識別するためのものだ．
 
-% 2段組みのスライド
-\begin{frame}{2段組みの例}
-    \begin{columns}
-        \begin{column}{0.5\textwidth}
-            左側のコンテンツ
-            \begin{itemize}
-                \item 説明文など
-                \item テキスト情報
-            \end{itemize}
-        \end{column}
-        \begin{column}{0.5\textwidth}
-            %
-            右側のコンテンツ
-            \begin{block}{重要なポイント}
-                ここに強調したい内容を書きます。
-            \end{block}
-        \end{column}
-    \end{columns}
+  送信元もどのポート番号を用いて通信を行うかを決定し，送信先のある\texttt{IP}アドレスのあるポート番号への通信を行っている．
 \end{frame}
 
-% コードスライド (fragileが必要)
-\begin{frame}[fragile]{コードの例}
-\begin{lstlisting}[language=C]
-#include <stdio.h>
-int main() {
-    printf("Hello, Beamer!\n");
-    return 0;
-}
-\end{lstlisting}
+\begin{frame}
+  実際に通信を行う場合，通信を開始する以前にポート番号を決めておく必要がある．その決定方法は$2$つある．
 \end{frame}
 
+\begin{frame}
+  \begin{columns}[T]
+    \begin{column}{0.4\textwidth}
+      \begin{itemize}
+        \item 標準で決められているポート番号
+      \end{itemize}
+     \end{column}
+    \begin{column}{0.55\textwidth}
+      % 表がスライドに収まるように文字サイズを調整
+      \footnotesize 
+      \begin{table}
+        \begin{tabular}{l l p{3.5cm}} % 概要列は折り返し用に幅を指定
+            \hline
+            \textbf{ポート} & \textbf{プロトコル} & \textbf{概要} \\
+            \hline
+            20 & FTP (Data) & データ転送用 \\
+            21 & FTP (Control)& 制御・コマンド用 \\
+            22 & SSH & 暗号化遠隔ログイン \\
+            23 & Telnet & 遠隔ログイン \\
+            25 & SMTP & メールの送信 \\
+            53 & DNS & 名前解決 \\
+            80 & HTTP & Webサイトの閲覧 \\
+            110 & POP3 & メール受信（DL方式） \\
+            123 & NTP & 時刻同期 \\
+            143 & IMAP & メール受信（サーバ管理） \\
+            443 & HTTPS & 暗号化Webサイト閲覧 \\
+            \hline
+        \end{tabular}
+      \end{table}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \begin{itemize}
+    \item 動的に割り当てる方法
+  \end{itemize}
+
+    クライアント側はポート番号を必ずしも決定する必要はない．この時，クライアントのアプリケーションは自分のポート番号を決めず，オペレーティングシステム(\texttt{OS})に任せることができる．\texttt{OS}はポート番号が何かのアプリケーションと重複しないようにポート番号を割り当てる．この時，動的に割り当てられるポート番号は$49152 \sim 65535$までの整数が利用される．
+\end{frame}
+\section{TCPとUDP}
+
+\begin{frame}{TCPとUDP}
+  \texttt{TCP/IP}でトランスポート層の役割を果たす代表的なプロトコルが\texttt{TCP}と\texttt{UDP}だ．
+\end{frame}
+
+\subsection{UDP}
+
+\begin{frame}{UDP}
+  信頼性の無いコネクションレス型のプロトコルである．コネクションレスとは通信の可否を行わずに通信を行う方法である．
+
+  また，データグラム型という方法を採用している．これはデータを特定の大きさに分割して送信する方法である．
+\end{frame}
+\begin{frame}
+  \texttt{UDP}は輻輳を回避するような機能もパケットの順序を適切に並び直すような機能もパケットが喪失してしまったときの再送機能も持ち合わせていない．それらを考慮してユーザがアプリケーションプログラムを作成する必要がある．それゆえに\texttt{UDP(User Datagram Protocol)}という．
+\end{frame}
+\begin{frame}
+  \texttt{UDP}は次のような用途によく用いられる．
+  \begin{itemize}
+    \item 総パケット数が少ない通信(\texttt{DNS}，\texttt{SNMP}など)
+    \item 動画やマルチメディア通信(即時性が必要な通信)
+    \item \texttt{LAN}などの特定のネットワークに限定したアプリケーション通信
+    \item 同報性が必要な通信(ブロードキャスト，マルチキャスト)
+  \end{itemize}
+\end{frame}
+
+\subsection{TCP}
+
+\begin{frame}{TCP}
+  \begin{columns}[T]
+    \begin{column}{0.5\textwidth}
+      \texttt{TCP}とは，信頼性のあるコネクション型のプロトコルである．先に通信の可否を確認することによって通信の信頼性を向上させる方法をいう．通信を開始するときは\texttt{SYN}(接続要求)，通信を終了するときは\texttt{FIN}(切断要求)を送信する．
+
+      また，ストリーム型という方法を採用しており，送信したメッセージは区切り目の無いデータ構造として受信者に届けられる．データの区切りを気にしない．
+    \end{column}
+    \begin{column}{0.3\textwidth}
+      \includegraphics[width=\textwidth]{conection.drawio.pdf}
+    \end{column}
+  \end{columns}
+  \footnotetext{[1] JPNIC, 「TCP詳説」, 1999.}
+  \footnotetext{[2] MDN Web Docs, 「TCP - MDN Web Docs 用語集」.}
+\end{frame}
+
+\begin{frame}
+  \begin{columns}[T]
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+        \item 確認応答(\texttt{ACK})
+
+          \texttt{TCP}では送信データが受信者に到達した時，受信者が送信者に対して応答として\texttt{ACK}を返す．
+        \item 否定確認応答(\texttt{NACK})
+
+          \texttt{ACK}とは異なり受信者にデータが到達しなかったときに送信者に返される応答を\texttt{NACK}という．
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.37\textwidth}
+      \includegraphics[width=\textwidth]{data_send.drawio.pdf}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \begin{columns}[T]
+    \begin{column}{0.5\textwidth}
+      これらの確認応答処理や再送制御，重複制御などはシーケンス番号を使って行われる．シーケンス番号とは，送信するデータ$1$オクテッドごとにつけられる連続した番号のこと．これは確認応答で次に送るべきデータのシーケンス番号が返送される．
+
+      仮に最初の通信で$1000$オクテッドまで送った場合について考える．その時\texttt{ACK}の場合は返送されるシーケンス番号は$1001$となる．\texttt{NACK}の場合は$1$が返送される．
+    \end{column}
+    \begin{column}{0.42\textwidth}
+      \includegraphics[width=\textwidth]{seachence.drawio.pdf}
+    \end{column}
+  \end{columns}
+\end{frame}
 \end{document}
 

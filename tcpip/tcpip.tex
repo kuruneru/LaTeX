@@ -8,6 +8,17 @@
 \usetheme{Madrid}
 \usecolortheme{seahorse} % 配色を少し柔らかく
 
+\AtBeginSection[]{
+  \begin{frame}
+    \sectionpage
+  \end{frame}
+}
+\AtBeginSubsection[]{
+  \begin{frame}
+    \subsectionpage
+  \end{frame}
+}
+
 % 4. 便利なパッケージ
 \usepackage{bookmark} % 索引・しおり用
 \usepackage{graphicx} % 画像用
@@ -48,7 +59,7 @@
 
 % 通常のスライド
 \begin{frame}{トランスポート層}
-  \begin{columns}[T]
+  \begin{columns}[c]
     % 左側のカラム（文字）: スライド幅の半分(0.5)を割り当て
     \begin{column}{0.5\textwidth}
       \texttt{TCP}と\texttt{UDP}という2つのプロトコルはトランスポート層というレイヤーで定義されている．
@@ -74,54 +85,48 @@
   送信元もどのポート番号を用いて通信を行うかを決定し，送信先のある\texttt{IP}アドレスのあるポート番号への通信を行っている．
 \end{frame}
 
-\begin{frame}
+\begin{frame}{ポート番号の割り当て}
   実際に通信を行う場合，通信を開始する以前にポート番号を決めておく必要がある．その決定方法は$2$つある．
 \end{frame}
 
-\begin{frame}
-  \begin{columns}[T]
-    \begin{column}{0.4\textwidth}
-      \begin{itemize}
-        \item 標準で決められているポート番号
-      \end{itemize}
-     \end{column}
-    \begin{column}{0.55\textwidth}
-      % 表がスライドに収まるように文字サイズを調整
-      \footnotesize 
-      \begin{table}
-        \begin{tabular}{l l p{3.5cm}} % 概要列は折り返し用に幅を指定
-            \hline
-            \textbf{ポート} & \textbf{プロトコル} & \textbf{概要} \\
-            \hline
-            20 & FTP (Data) & データ転送用 \\
-            21 & FTP (Control)& 制御・コマンド用 \\
-            22 & SSH & 暗号化遠隔ログイン \\
-            23 & Telnet & 遠隔ログイン \\
-            25 & SMTP & メールの送信 \\
-            53 & DNS & 名前解決 \\
-            80 & HTTP & Webサイトの閲覧 \\
-            110 & POP3 & メール受信（DL方式） \\
-            123 & NTP & 時刻同期 \\
-            143 & IMAP & メール受信（サーバ管理） \\
-            443 & HTTPS & 暗号化Webサイト閲覧 \\
-            \hline
-        \end{tabular}
-      \end{table}
-    \end{column}
-  \end{columns}
+\begin{frame}{割り当てられているポート}
+  % 表がスライドに収まるように文字サイズを調整
+  \footnotesize 
+  \begin{table}
+    \begin{tabular}{l l p{3.5cm}} % 概要列は折り返し用に幅を指定
+        \hline
+        \textbf{ポート} & \textbf{プロトコル} & \textbf{概要} \\
+        \hline
+        20 & FTP (Data) & データ転送用 \\
+        21 & FTP (Control)& 制御・コマンド用 \\
+        22 & SSH & 暗号化遠隔ログイン \\
+        23 & Telnet & 遠隔ログイン \\
+        25 & SMTP & メールの送信 \\
+        53 & DNS & 名前解決 \\
+        80 & HTTP & Webサイトの閲覧 \\
+        110 & POP3 & メール受信（DL方式） \\
+        123 & NTP & 時刻同期 \\
+        143 & IMAP & メール受信（サーバ管理） \\
+        443 & HTTPS & 暗号化Webサイト閲覧 \\
+        \hline
+    \end{tabular}
+  \end{table}
 \end{frame}
 
-\begin{frame}
-  \begin{itemize}
-    \item 動的に割り当てる方法
-  \end{itemize}
-
-    クライアント側はポート番号を必ずしも決定する必要はない．この時，クライアントのアプリケーションは自分のポート番号を決めず，オペレーティングシステム(\texttt{OS})に任せることができる．\texttt{OS}はポート番号が何かのアプリケーションと重複しないようにポート番号を割り当てる．この時，動的に割り当てられるポート番号は$49152 \sim 65535$までの整数が利用される．
+\begin{frame}{動的また静的に割り当てる方法}
+  クライアント側はポート番号を必ずしも決定する必要はない．ポート番号はユーザが自身で設定することができる．この時，設定可能なポート番号は$1024 \sim 49151$である．クライアントのアプリケーションは自分のポート番号を決めず，オペレーティングシステム(\texttt{OS})に任せることができる．\texttt{OS}はポート番号が何かのアプリケーションと重複しないようにポート番号を割り当てる．この時，動的に割り当てられるポート番号は$49152 \sim 65535$までの整数が利用される．
 \end{frame}
 \section{TCPとUDP}
 
 \begin{frame}{TCPとUDP}
-  \texttt{TCP/IP}でトランスポート層の役割を果たす代表的なプロトコルが\texttt{TCP}と\texttt{UDP}だ．
+  \texttt{TCP/IP}でトランスポート層の役割を果たす代表的なプロトコルが``\texttt{TCP}''と``\texttt{UDP}''だ．
+\end{frame}
+
+\begin{frame}{TCPとUDPの違い}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{TCP_UDP.jpg}
+  \end{figure}
 \end{frame}
 
 \subsection{UDP}
@@ -131,10 +136,12 @@
 
   また，データグラム型という方法を採用している．これはデータを特定の大きさに分割して送信する方法である．
 \end{frame}
-\begin{frame}
+
+\begin{frame}{UDPの持つ機能}
   \texttt{UDP}は輻輳を回避するような機能もパケットの順序を適切に並び直すような機能もパケットが喪失してしまったときの再送機能も持ち合わせていない．それらを考慮してユーザがアプリケーションプログラムを作成する必要がある．それゆえに\texttt{UDP(User Datagram Protocol)}という．
 \end{frame}
-\begin{frame}
+
+\begin{frame}{UDPの用途}
   \texttt{UDP}は次のような用途によく用いられる．
   \begin{itemize}
     \item 総パケット数が少ない通信(\texttt{DNS}，\texttt{SNMP}など)
@@ -144,10 +151,14 @@
   \end{itemize}
 \end{frame}
 
+\begin{frame}{UDPのヘッダフォーマット}
+  \includegraphics[width=\textwidth]{UDP.drawio.pdf}
+\end{frame}
+
 \subsection{TCP}
 
 \begin{frame}{TCP}
-  \begin{columns}[T]
+  \begin{columns}[c]
     \begin{column}{0.5\textwidth}
       \texttt{TCP}とは，信頼性のあるコネクション型のプロトコルである．先に通信の可否を確認することによって通信の信頼性を向上させる方法をいう．通信を開始するときは\texttt{SYN}(接続要求)，通信を終了するときは\texttt{FIN}(切断要求)を送信する．
 
@@ -165,35 +176,159 @@
     \end{column}
   \end{columns}
 \end{frame}
-\begin{frame}
-  \begin{columns}[T]
+
+\begin{frame}{応答}
+  \begin{columns}[c]
     \begin{column}{0.5\textwidth}
       \begin{itemize}
-        \item 確認応答(\texttt{ACK})
+        \item 確認(\texttt{ACK})
 
-          \texttt{TCP}では送信データが受信者に到達した時，受信者が送信者に対して応答として\texttt{ACK}を返す．
-        \item 否定確認応答(\texttt{NACK})
+          \texttt{TCP}では送信データが受信者に到達した時，受信者が送信者に対してとして\texttt{ACK}を返す．
+        \item 否定確認(\texttt{NACK})
 
-          \texttt{ACK}とは異なり受信者にデータが到達しなかったときに送信者に返される応答を\texttt{NACK}という．
+          \texttt{ACK}とは異なり受信者にデータが到達しなかったときに送信者に返されるを\texttt{NACK}という(実際の設計には\texttt{NAKC}なるものは存在していない)．
       \end{itemize}
     \end{column}
-    \begin{column}{0.37\textwidth}
+    \begin{column}{0.28\textwidth}
       \includegraphics[width=\textwidth]{data_send.drawio.pdf}
     \end{column}
   \end{columns}
 \end{frame}
 
-\begin{frame}
-  \begin{columns}[T]
-    \begin{column}{0.5\textwidth}
-      これらの確認応答処理や再送制御，重複制御などはシーケンス番号を使って行われる．シーケンス番号とは，送信するデータ$1$オクテッドごとにつけられる連続した番号のこと．これは確認応答で次に送るべきデータのシーケンス番号が返送される．
+\begin{frame}{シーケンス番号}
+  \begin{columns}[c]
+    \begin{column}{0.55\textwidth}
+      これらの確認処理や再送制御，重複制御などは``シーケンス番号''を使って行われる．シーケンス番号とは，送信するデータ$1$オクテッドごとにつけられる連続した番号のこと．これは確認応答で次に送るべきデータのシーケンス番号が返送される．
 
       仮に最初の通信で$1000$オクテッドまで送った場合について考える．その時\texttt{ACK}の場合は返送されるシーケンス番号は$1001$となる．\texttt{NACK}の場合は$1$が返送される．
     \end{column}
-    \begin{column}{0.42\textwidth}
+    \begin{column}{0.4\textwidth}
       \includegraphics[width=\textwidth]{seachence.drawio.pdf}
     \end{column}
   \end{columns}
+\end{frame}
+
+\begin{frame}{ウィンドウ制御}
+  \begin{columns}[c]
+    \begin{column}{0.6\textwidth}
+      \texttt{TCP}には``ウィンドウ制御''という技術が存在する．これは通信の速度向上を目的として実装された．簡単にすると，確認を待たずにいくつかのパケットを送信する方法のこと．これがなければ，送信のたびに確認応答を待つため，非常に通信にかかる時間が長くなる．このように，確認応答を待たずに送信できるパケットのサイズのことを``ウィンドウサイズ''という．
+
+      この仕組みは大きなバッファを用意し，確認がされた送信データもしくはまだ送信されていないウィンドウ内にないデータ以外はバッファに格納しておく必要がある．
+    \end{column}
+    \begin{column}{0.33\textwidth}
+      \includegraphics[width=\textwidth]{window.drawio.pdf}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \includegraphics[width=\textwidth]{window_moving.drawio.pdf}
+\end{frame}
+
+\begin{frame}{ウィンドウ制御の再送制御}
+  ウィンドウ制御では再送制御はどのように行われるだろう．パケットが送信中に喪失する2つのパターンについて考える．
+\end{frame}
+
+\begin{frame}{ACKが喪失した場合}
+  \begin{columns}[c]
+    \begin{column}{0.5\textwidth}
+      \texttt{ACK}が喪失した場合は，送信データ自体は受信者側に届いているためあえて処理を行う必要はない．
+    \end{column}
+    \begin{column}{0.4\textwidth}
+      \includegraphics[width=\textwidth]{resend_ACK.drawio.pdf}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{送信パケットが届いていない場合}
+  \begin{columns}[c]
+    \begin{column}{0.5\textwidth}
+      送信したパケット自体が届いていない場合はその次に送ったパケットに対する応答のシーケンス番号が変化しない．番号が続いて送信されていない場合は，シーケンス番号を変えないのだ．
+    \end{column}
+    \begin{column}{0.3\textwidth}
+      \includegraphics[width=\textwidth]{resend_sender.drawio.pdf}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{フロー制御}
+  ウィンドウ制御だけでは送信者が手前勝手に送るだけの仕組みだ．それでは受信者側が処理に時間が取られている場合や負荷が高い状態のときにデータを受信しきれない可能性がある．
+
+  そのようなことが無いように受信者側が受信能力に合わせて受信可能ウィンドウサイズを通知する方法がある．それが``フロー制御''(流量制御)である．\texttt{TCP}のヘッダにはウィンドウサイズを通知するためのフィールドが存在している．そのフィールドに受信可能なバッファのサイズを入れて送るのだ．
+\end{frame}
+
+\begin{frame}{輻輳制御(1)}
+  しかし，多くのクライアントが1つのネットワークを利用しているケースも少なくない．そのため，輻輳(通信が集中し，ネットワークが混雑している状況)が起こることも少なくない．それを制御する仕組みが存在する．それが名の通り``輻輳制御''である．まず送信量を調整するための輻輳ウィンドウを定義する．まず，その輻輳ウィンドウの大きさを$1$セグメントに設定してパケットを送信する．確認応答がされるたびに$1$セグメントずつ輻輳ウィンドウを大きくしていく．この時，輻輳ウィンドウと受信者からの受け入れ可能サイズを表すウィンドウサイズと比較して，より小さい方が選定される．仮に，タイムアウトした場合は輻輳ウィンドウを$1$にして再度，通信を行う．
+\end{frame}
+
+\begin{frame}{輻輳制御(2)}
+  しかし，パケットが往復するたびに輻輳ウィンドウは$1, 2, 4, \dots$というように指数函数的に増加していく．これでは急激にパケットが増加してネットワークが輻輳状態になる可能性がある．それを防止するために，``スロースタート閾値''というものが使用される．輻輳ウィンドウサイズがスロースタート閾値を超えると確認応答のたびに以下の大きさだけ輻輳ウィンドウを増加させる．
+  \begin{gather*}
+    \frac{B}{W} \times {B} \\
+    B := 1\text{セグメントのオクテット数} \quad W := \text{輻輳ウィンドウ(Byte)}
+  \end{gather*}
+\end{frame}
+
+\begin{frame}{TCPのヘッダフォーマット(1)}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.77\textwidth]{TCP.drawio.pdf}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{TCPのヘッダフォーマット(2)}
+  \begin{itemize}
+    \item データオフセット: \texttt{TCP}の運んでいうデータがこのヘッダのどこからなのかを記している．
+    \item 予約: 将来の拡張のための空き場．
+    \item コントロールフラグ: 後述で詳細を示すが，\texttt{SYN}や\texttt{FIN}などの制御フラグ．
+    \item チェックサム: 故障やバグによってデータが破壊されていないかの検証に使われる．
+    \item 緊急ポインタ: 緊急データのポインタとその長さを持つ．緊急データの扱いはアプリケーションに依る．コントロールフラグの\texttt{URG}が有効であるときに用いられる．
+    \item オプション: 後述で詳細を示すが，\texttt{TCP}の通信の性能向上のために使われる．
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{TCPのヘッダフォーマット(3): コントールフラグ}
+  \begin{table}[h]
+    \centering
+    \caption{\texttt{TCP}コントロールフラグとその役割}
+    \small % スライドの幅に合わせて適宜調整
+    \begin{tabular}{|l|l|l|}
+        \hline
+        \textbf{略称} & \textbf{正式名称} & \textbf{役割・機能} \\ \hline
+        \texttt{CWR} & \texttt{Congestion Window Reduced} & 輻輳ウィンドウを削減したことを通知 \\ \hline
+        \texttt{ECE} & \texttt{ECN-Echo} & ネットワークの混雑（輻輳）を通知 \\ \hline
+        \texttt{URG} & \texttt{Urgent} & 緊急ポインタフィールドが有効 \\ \hline
+        \texttt{ACK} & \texttt{Acknowledgment} & 確認応答番号フィールドが有効 \\ \hline
+        \texttt{PSH} & \texttt{Push} & データを即座にアプリへ引き渡す要求 \\ \hline
+        \texttt{RST} & \texttt{Reset} & 接続を強制的にリセット（切断） \\ \hline
+        \texttt{SYN} & \texttt{Synchronize} & 接続開始の要求（同期） \\ \hline
+        \texttt{FIN} & \texttt{Finish} & 送信完了（接続の正常終了） \\ \hline
+    \end{tabular}
+  \end{table}
+\end{frame}
+
+\begin{frame}{TCPのヘッダフォーマット(4): オプション}
+  \begin{table}[h]
+    \centering
+    \caption{\texttt{TCP}オプションの主要項目}
+    \footnotesize % オプションは数が多いので少し小さめが安全です
+    \begin{tabular}{|c|l|l|}
+        \hline
+        \textbf{種別} & \textbf{名称} & \textbf{役割・機能} \\ \hline
+        \texttt{0} & \texttt{End of Option List} & オプションリストの終了を示す \\ \hline
+        \texttt{1} & \texttt{No-Operation (NOP)} & パディング（境界調整）に使用 \\ \hline
+        \texttt{2} & \texttt{Maximum Segment Size (MSS)} & 受信可能な最大セグメントサイズを通知 \\ \hline
+        \texttt{3} & \texttt{Window Scale} & ウィンドウサイズを拡張するための倍率指定 \\ \hline
+        \texttt{4} & \texttt{SACK Permitted} & \texttt{SACK}（選択的確認応答）の利用許可 \\ \hline
+        \texttt{8} & \texttt{Timestamps} & \texttt{RTT}（往復時間）計測や順序逆転の防止 \\ \hline
+    \end{tabular}
+  \end{table}
+\end{frame}
+
+\begin{frame}{あとがき}
+  \texttt{UDP}は比較的簡単に作ることができます．最近ちょっと気になって調べて作ってみたことがあります．その時参考にしたサイトをが以下です．
+
+  \texttt{https://daeudaeu.com/c-udp/}
 \end{frame}
 \end{document}
 

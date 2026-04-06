@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2026.1.1)  5 APR 2026 22:59
+This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2026.1.1)  5 APR 2026 23:25
  restricted system commands enabled.
 **tcpip.tex
 (./tcpip.tex
@@ -1543,10 +1543,10 @@ ersion '1.7', but at most version '1.5' allowed
 <conection.drawio.pdf, id=366, 355.3275pt x 653.5617pt>
 File: conection.drawio.pdf Graphic file (type pdf)
 <use conection.drawio.pdf>
-Package luatex.def Info: conection.drawio.pdf  used on input line 162.
+Package luatex.def Info: conection.drawio.pdf  used on input line 167.
 (luatex.def)             Requested size: 130.00455pt x 239.12146pt.
 
-Overfull \vbox (53.93562pt too high) detected at line 162
+Overfull \vbox (34.86502pt too high) detected at line 167
  []
 
 [12
@@ -1554,13 +1554,13 @@ Overfull \vbox (53.93562pt too high) detected at line 162
 <./conection.drawio.pdf>]
 warning  (file data_send.drawio.pdf) (pdf inclusion): PDF inclusion: found PDF v
 ersion '1.7', but at most version '1.5' allowed
-<data_send.drawio.pdf, id=418, 304.2567pt x 509.98529pt>
+<data_send.drawio.pdf, id=419, 304.2567pt x 509.98529pt>
 File: data_send.drawio.pdf Graphic file (type pdf)
 <use data_send.drawio.pdf>
-Package luatex.def Info: data_send.drawio.pdf  used on input line 180.
+Package luatex.def Info: data_send.drawio.pdf  used on input line 184.
 (luatex.def)             Requested size: 160.33519pt x 268.75012pt.
 
-Overfull \vbox (34.07153pt too high) detected at line 180
+Overfull \vbox (34.07153pt too high) detected at line 184
  []
 
 [13
@@ -1568,13 +1568,13 @@ Overfull \vbox (34.07153pt too high) detected at line 180
 <./data_send.drawio.pdf>]
 warning  (file seachence.drawio.pdf) (pdf inclusion): PDF inclusion: found PDF v
 ersion '1.7', but at most version '1.5' allowed
-<seachence.drawio.pdf, id=468, 448.5558pt x 636.45776pt>
+<seachence.drawio.pdf, id=469, 448.5558pt x 636.45776pt>
 File: seachence.drawio.pdf Graphic file (type pdf)
 <use seachence.drawio.pdf>
-Package luatex.def Info: seachence.drawio.pdf  used on input line 193.
+Package luatex.def Info: seachence.drawio.pdf  used on input line 197.
 (luatex.def)             Requested size: 182.00371pt x 258.24956pt.
 
-Overfull \vbox (23.57097pt too high) detected at line 193
+Overfull \vbox (23.57097pt too high) detected at line 197
  []
 
 [14
@@ -1592,15 +1592,15 @@ Overfull \vbox (23.57097pt too high) detected at line 193
  (./tcpip.aux))
 
 Here is how much of LuaTeX's memory you used:
- 29590 strings out of 478285
+ 29579 strings out of 478285
  125244,1977958 words of node,token memory allocated
  22999 words of node memory still in use:
    50 hlist, 8 vlist, 172 rule, 5 local_par, 8 math, 234 glue, 7 kern, 38 penalt
 y, 192 glyph, 7783 attribute, 61 glue_spec, 743 attribute_list, 4 write, 45 user
 _defined, 24 pdf_literal, 4 pdf_colorstack, 1 pdf_setmatrix, 1 pdf_save, 1 pdf_r
 estore nodes
-   avail lists: 1:20,2:9185,3:441,4:771,5:154,6:78,7:1597,8:11,9:887,10:43,11:6
- 48253 multiletter control sequences out of 65536+600000
+   avail lists: 1:20,2:8869,3:441,4:771,5:154,6:78,7:1597,8:11,9:873,10:43,11:6
+ 48242 multiletter control sequences out of 65536+600000
  88 fonts using 77617591 bytes
  128i,15n,115p,1804b,833s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmsans9-regular.otf></us
@@ -1611,11 +1611,12 @@ tf></usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmsans8-regular.otf><
 r/share/texlive/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regul
 ar.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmsans12-regular.
 otf></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on tcpip.pdf (14 pages, 472332 bytes).
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on tcpip.pdf (14 pages, 480301 bytes).
 
-PDF statistics: 590 PDF objects out of 1000 (max. 8388607)
- 499 compressed objects within 5 object streams
+PDF statistics: 595 PDF objects out of 1000 (max. 8388607)
+ 502 compressed objects within 6 object streams
  34 named destinations out of 1000 (max. 131072)
  136 words of extra memory for PDF output out of 10000 (max. 100000000)
 

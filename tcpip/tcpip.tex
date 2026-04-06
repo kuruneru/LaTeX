@@ -151,16 +151,20 @@
     \begin{column}{0.5\textwidth}
       \texttt{TCP}とは，信頼性のあるコネクション型のプロトコルである．先に通信の可否を確認することによって通信の信頼性を向上させる方法をいう．通信を開始するときは\texttt{SYN}(接続要求)，通信を終了するときは\texttt{FIN}(切断要求)を送信する．
 
-      また，ストリーム型という方法を採用しており，送信したメッセージは区切り目の無いデータ構造として受信者に届けられる．データの区切りを気にしない．
+      また，ストリーム型という方法を採用しており，送信したメッセージは区切り目の無いデータ構造として受信者に届けられる．データの区切りを気にしない$_{[1][2]}$．
+      \vspace{1em} % 少し隙間を空ける
+      \hrule height 0.2pt % 薄い区切り線を引いてカッコよく
+      \vspace{0.5em}
+      {\scriptsize
+      [1] JPNIC, 「TCP詳説」, 1999. \\
+      {[2]} MDN Web Docs, 「TCP - MDN Web Docs 用語集」.
+      }
     \end{column}
     \begin{column}{0.3\textwidth}
       \includegraphics[width=\textwidth]{conection.drawio.pdf}
     \end{column}
   \end{columns}
-  \footnotetext{[1] JPNIC, 「TCP詳説」, 1999.}
-  \footnotetext{[2] MDN Web Docs, 「TCP - MDN Web Docs 用語集」.}
 \end{frame}
-
 \begin{frame}
   \begin{columns}[T]
     \begin{column}{0.5\textwidth}

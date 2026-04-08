@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2026.1.1)  7 APR 2026 02:08
+This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2026.4.8)  8 APR 2026 17:02
  restricted system commands enabled.
 **tcpip.tex
 (./tcpip.tex
@@ -1735,7 +1735,7 @@ sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-d
 ist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on tcpip.pdf (34 pages, 1143312 bytes).
+Output written on tcpip.pdf (34 pages, 1143380 bytes).
 
 PDF statistics: 1375 PDF objects out of 1440 (max. 8388607)
  1164 compressed objects within 12 object streams

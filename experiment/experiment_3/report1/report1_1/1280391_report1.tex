@@ -20,7 +20,7 @@
   captionpos = t
 }
 
-\title{}
+\title{情報学群実験第3 NetworkSimulator}
 \author{学籍番号 1280391 \\ 細川 夏風}
 \date{\today}
 
@@ -28,8 +28,445 @@
 
 \maketitle
 
-\begin{thebibliography}{99}
-  \bibitem{}
-\end{thebibliography}
+\section{課題内容}
+\subsection{awk}
+\begin{itemize}
+  \item コマンド
+    \begin{lstlisting}
+        $ awk '$2 == "Sendai"' weather.dat
+    \end{lstlisting}
+
+  \item 出力結果
+    \begin{lstlisting}
+      5       Sendai  15.6    64 
+    \end{lstlisting}
+
+  \item コマンド
+    \begin{lstlisting}
+      $awk '$4 == 61' weather.dat
+    \end{lstlisting}
+
+  \item 出力結果
+    \begin{lstlisting}
+      12      Tokyo   18.8    61
+      18      Nagoya  18.5    61
+      19      Gifu    18.6    61
+      32      Hiroshima       18.0    61
+    \end{lstlisting}
+
+  \item コマンド
+    \begin{lstlisting}
+      $awk '$3 <= 16' weather.dat
+    \end{lstlisting}
+
+  \item 出力結果
+    \begin{lstlisting}
+      1       Sapporo 9.1     84
+      2       Aomori  12.1    76
+      3       Akita   13.6    71
+      4       Morioka 12.7    69
+      5       Sendai  15.6    64
+      6       Yamagata        14.2    69
+      9       Utsunomiya      16.0    76
+      15      Nagano  13.5    74
+      21      Niigata 16.0    63
+      22      Toyama  15.4    80
+      23      Kanazawa        15.5    68
+      24      Fukui   15.9    72
+      33      Matsue  15.6    77
+      34      Tottori 15.7    78
+    \end{lstlisting}
+
+  \item コマンド
+    \begin{lstlisting}
+      $awk '$3 > 20 && $4 < 80' weather.dat
+    \end{lstlisting}
+
+  \item 出力結果
+    \begin{lstlisting}
+      45      Miyazaki        20.1    78
+      47      Naha    24.3    79
+    \end{lstlisting}
+\end{itemize}
+
+\subsection{wc}
+\begin{itemize}
+  \item コマンド
+    \begin{lstlisting}
+      $ wc weather.dat
+    \end{lstlisting}
+
+  \item 出力結果
+    \begin{lstlisting}
+      48  188 1004 weather.dat
+    \end{lstlisting}
+
+  \item コマンド
+    \begin{lstlisting}
+      $ wc -l weather.dat
+    \end{lstlisting}
+
+  \item 出力結果
+    \begin{lstlisting}
+      48 weather.dat
+    \end{lstlisting}
+  \end{itemize}
+
+\subsection{パイプ・リダイレクト}
+\begin{itemize}
+  \item コマンド
+    \begin{lstlisting}
+      $ awk '$3 < 16' weather.dat >> file
+    \end{lstlisting}
+
+  \item 出力結果
+    \begin{lstlisting}
+      $ cat file
+
+      1       Sapporo 9.1     84
+      2       Aomori  12.1    76
+      3       Akita   13.6    71
+      4       Morioka 12.7    69
+      5       Sendai  15.6    64
+      6       Yamagata        14.2    69
+      15      Nagano  13.5    74
+      22      Toyama  15.4    80
+      23      Kanazawa        15.5    68
+      24      Fukui   15.9    72
+      33      Matsue  15.6    77
+      34      Tottori 15.7    78
+    \end{lstlisting}
+
+  \item コマンド
+    \begin{lstlisting}
+      $ wc -l file
+    \end{lstlisting}
+
+  \item 出力結果
+    \begin{lstlisting}
+      13  48 252 file
+    \end{lstlisting}
+
+  \item コマンド
+    \begin{lstlisting}
+      $ awk '$3 > 16' weather.dat | wc -l
+    \end{lstlisting}
+
+  \item 出力結果
+    \begin{lstlisting}
+      13
+    \end{lstlisting}
+\end{itemize}
+
+\subsection{Network Simulator}
+\begin{itemize}
+  \item コマンド
+    \begin{lstlisting}
+      $ awk '$12 == 200' out.tr
+    \end{lstlisting}
+
+  \item 出力結果 
+    \begin{lstlisting}
+      + 1.64875 0 2 cbr 210 ------- 0 0.0 3.0 173 200
+      - 1.64875 0 2 cbr 210 ------- 0 0.0 3.0 173 200
+      r 1.65431 0 2 cbr 210 ------- 0 0.0 3.0 173 200
+      + 1.65431 2 3 cbr 210 ------- 0 0.0 3.0 173 200
+      - 1.672033 2 3 cbr 210 ------- 0 0.0 3.0 173 200
+      r 1.683153 2 3 cbr 210 ------- 0 0.0 3.0 173 200
+    \end{lstlisting}
+
+  \item コマンド
+    \begin{lstlisting}
+      $ awk '$12 == 234' out.tr
+    \end{lstlisting}
+
+  \item 出力結果 
+    \begin{lstlisting}
+      + 1.6975 0 2 cbr 210 ------- 0 0.0 3.0 186 234
+      - 1.6975 0 2 cbr 210 ------- 0 0.0 3.0 186 234
+      r 1.70306 0 2 cbr 210 ------- 0 0.0 3.0 186 234
+      + 1.70306 2 3 cbr 210 ------- 0 0.0 3.0 186 234
+      d 1.70306 2 3 cbr 210 ------- 0 0.0 3.0 186 234
+    \end{lstlisting}
+
+  \item コマンド
+    \begin{lstlisting}
+      $ awk '($5 == "tcp" || $5 == "ack") && $11 == 100' out.tc
+    \end{lstlisting}
+
+  \item 出力結果 
+    \begin{lstlisting}
+      + 2.489317 1 2 tcp 1040 ------- 1 1.0 3.1 100 631
+      - 2.49209 1 2 tcp 1040 ------- 1 1.0 3.1 100 631
+      r 2.499863 1 2 tcp 1040 ------- 1 1.0 3.1 100 631
+      + 2.499863 2 3 tcp 1040 ------- 1 1.0 3.1 100 631
+      - 2.503757 2 3 tcp 1040 ------- 1 1.0 3.1 100 631
+      r 2.519303 2 3 tcp 1040 ------- 1 1.0 3.1 100 631
+      + 2.519303 3 2 ack 40 ------- 1 3.1 1.0 100 643
+      - 2.519303 3 2 ack 40 ------- 1 3.1 1.0 100 643
+      r 2.529517 3 2 ack 40 ------- 1 3.1 1.0 100 643
+      + 2.529517 2 1 ack 40 ------- 1 3.1 1.0 100 643
+      - 2.529517 2 1 ack 40 ------- 1 3.1 1.0 100 643
+      r 2.534623 2 1 ack 40 ------- 1 3.1 1.0 100 643
+    \end{lstlisting}
+
+  \item コマンド
+    \begin{lstlisting}
+      $ awk '$1 == "+" && $3 == 0 && $4 == 2 && $5 == "cbr"' out.tr
+    \end{lstlisting}
+
+  \item 出力結果
+
+    極端に長いため，付録\ref{code:file1}に掲載．
+
+  \item コマンド
+    \begin{lstlisting}
+      $ awk '$1 == "+" && $3 == 1 && $4 == 2 && $5 == "tcp"' out.tr
+    \end{lstlisting}
+
+  \item 出力結果 
+
+    極端に長いため，付録\ref{code:file2}に掲載．
+
+  \item コマンド
+    \begin{lstlisting}
+      $ awk '$1 == "r" && $3 == 2 && $4 == 3 && $5 == "cbr"' out.tr
+    \end{lstlisting}
+
+  \item 出力結果 
+
+    極端に長いため，付録\ref{code:file3}に掲載．
+
+  \item コマンド
+    \begin{lstlisting}
+      $ awk '$1 == "r" && $3 == 2 && $4 == 3 && $5 == "tcp"' out.tr
+    \end{lstlisting}
+
+  \item 出力結果 
+  
+    極端に長いため，付録\ref{code:file4}に掲載．
+
+  \item コマンド
+    \begin{lstlisting}
+      $ awk '$1 == "d" && $5 == "cbr"' out.tr
+    \end{lstlisting}
+
+  \item 出力結果 
+    \begin{lstlisting}
+      d 1.70306 2 3 cbr 210 ------- 0 0.0 3.0 186 234
+      d 1.72181 2 3 cbr 210 ------- 0 0.0 3.0 191 248
+      d 1.72931 2 3 cbr 210 ------- 0 0.0 3.0 193 253
+      d 1.73681 2 3 cbr 210 ------- 0 0.0 3.0 195 257
+      d 1.74806 2 3 cbr 210 ------- 0 0.0 3.0 198 263
+      d 1.75556 2 3 cbr 210 ------- 0 0.0 3.0 200 268
+      d 1.76306 2 3 cbr 210 ------- 0 0.0 3.0 202 272
+      d 1.79681 2 3 cbr 210 ------- 0 0.0 3.0 211 291
+      d 1.80431 2 3 cbr 210 ------- 0 0.0 3.0 213 295
+      d 2.23556 2 3 cbr 210 ------- 0 0.0 3.0 328 509
+      d 2.31806 2 3 cbr 210 ------- 0 0.0 3.0 350 554
+      d 2.94056 2 3 cbr 210 ------- 0 0.0 3.0 516 867
+    \end{lstlisting}
+
+  \item コマンド
+    \begin{lstlisting}
+       $ awk '$1 == "d" && $5 == "tcp"' out.tr
+     \end{lstlisting}
+
+  \item 出力結果 
+    \begin{lstlisting}
+      d 1.70342 2 3 tcp 1040 ------- 1 1.0 3.1 30 231
+      d 1.714567 2 3 tcp 1040 ------- 1 1.0 3.1 32 238
+      d 1.71734 2 3 tcp 1040 ------- 1 1.0 3.1 33 242
+      d 1.724007 2 3 tcp 1040 ------- 1 1.0 3.1 35 246
+      d 1.730673 2 3 tcp 1040 ------- 1 1.0 3.1 37 251
+      d 1.73734 2 3 tcp 1040 ------- 1 1.0 3.1 39 256
+      d 1.770673 2 3 tcp 1040 ------- 1 1.0 3.1 44 275
+      d 1.789553 2 3 tcp 1040 ------- 1 1.0 3.1 47 286
+      d 2.26933 2 3 tcp 1040 ------- 1 1.0 3.1 85 527
+      d 2.31717 2 3 tcp 1040 ------- 1 1.0 3.1 91 553
+      d 2.974573 2 3 tcp 1040 ------- 1 1.0 3.1 168 885
+    \end{lstlisting}
+
+  \item コマンド
+    \begin{lstlisting}
+      $ awk '($5 == "tcp" || $5 == "ack") && $11 == 100' out.tc | wc -l
+    \end{lstlisting}
+
+  \item 出力結果 
+    \begin{lstlisting}
+      12
+    \end{lstlisting}
+
+  \item コマンド
+    \begin{lstlisting}
+      $ awk '$1 == "+" && $3 == 0 && $4 == 2 && $5 == "cbr"' out.tr | wc -l
+    \end{lstlisting}
+
+  \item 出力結果 
+    \begin{lstlisting}
+      667
+    \end{lstlisting}
+
+  \item コマンド
+    \begin{lstlisting}
+      $ awk '$1 == "+" && $3 == 1 && $4 == 2 && $5 == "tcp"' out.tr | wc -l
+    \end{lstlisting}
+
+  \item 出力結果 
+    \begin{lstlisting}
+      196
+    \end{lstlisting}
+
+  \item コマンド
+    \begin{lstlisting}
+      $ awk '$1 == "r" && $3 == 2 && $4 == 3 && $5 == "cbr"' out.tr | wc -l
+    \end{lstlisting}
+
+  \item 出力結果 
+    \begin{lstlisting}
+      665
+    \end{lstlisting}
+  \item コマンド
+    \begin{lstlisting}
+      $ awk '$1 == "r" && $3 == 2 && $4 == 3 && $5 == "tcp"' out.tr | wc -l
+    \end{lstlisting}
+
+  \item 出力結果 
+    \begin{lstlisting}
+      185
+    \end{lstlisting}
+
+  \item コマンド
+    \begin{lstlisting}
+      $ awk '$1 == "d" && $5 == "cbr"' out.tr | wc -l
+    \end{lstlisting}
+
+  \item 出力結果 
+    \begin{lstlisting}
+      12
+    \end{lstlisting}
+
+  \item コマンド
+    \begin{lstlisting}
+       $ awk '$1 == "d" && $5 == "tcp"' out.tr | wc -l
+     \end{lstlisting}
+
+  \item 出力結果 
+    \begin{lstlisting}
+      11
+    \end{lstlisting}
+
+\end{itemize}
+
+\subsection{スループット・パケット損失率}
+\label{throw_and_loss}
+\begin{itemize}
+  \item \texttt{node 0 to 2}
+    \[
+      \frac{140070 \times 8 \text{[bits]}}{2.49750 \text{[sec]} \times 1000000} \simeq 0.448672
+    \]
+    よってスループットは約$0.4$[Mdps]である．
+
+    \[
+      \frac{0}{667} \times 100
+    \]
+    よってパケット損失率は$0 \%$である．
+
+  \item \texttt{node 1 to 2}
+    \[
+      \frac{202840 \times 8 \text{[bits]}}{1.578480 \text{[sec]} \times 1000000} \simeq 1.028026
+    \]
+
+    よってスループットは約$1.0$[Mdps]である．
+
+    \[
+      \frac{0}{196} \times 100 = 0
+    \]
+    よってパケット損失率は$0 \%$である．
+  \item \texttt{node 2 to 3}
+    \[
+      \frac{328950 \times 8 \text{[bits]}}{2.49737 \text{[sec]} \times 1000000} \simeq 1.053748
+    \]
+    よってスループットは約$1.1$[Mdps]である．
+    \[
+      \frac{23}{840} \times 100 \simeq 2.7
+    \]
+    よって損失率は$2.7 \%$である．
+\end{itemize}
+
+\section{実験と考察}
+以下の仮説に基づき実験を行う.
+\begin{itemize}
+  \item ウィンドウ制御が存在する.
+  \item \texttt{TCP}は\texttt{CBR}よりも損失率が大きい.
+  \item それぞれの区間について，損失率に差がある．
+\end{itemize}
+
+\subsection{ウィンドウ制御}
+それを確かめるために以下のコマンドを実行する．
+\begin{lstlisting}
+  $ awk '$3 == 1 && $4 == 2 && $5 == "tcp"' out.tr
+\end{lstlisting}
+
+ある区間のパケットについてバッファの格納と到達を調べる．その結果を付録\ref{code:file5}に示す．これからわかるようにバッファの格納と到達は常に順序的ではない．バッファから幾回か排出された後にその回数だけバッファに到達している．
+
+\subsection{TCPとCBRの損失率}
+\texttt{TCP}と\texttt{CBR}についてすべての経路のデータから考える．
+そのために，以下のコマンドからデータを算出する．
+
+\begin{itemize}
+  \item \texttt{CBR}の排出されたパケットの総数
+    \begin{lstlisting}
+      $ awk '$5 == "cbr" && $1 == "-"' out.tr | wc -l
+    \end{lstlisting}
+
+  \item \texttt{CBR}の損失したパケットの総数
+    \begin{lstlisting}
+      $ awk '$5 == "cbr" && $1 == "d"' out.tr | wc -l
+    \end{lstlisting}
+
+  \item \texttt{TCP}の排出されたパケットの総数
+    \begin{lstlisting}
+      $ awk '$5 == "tcp" && $1 == "-"' out.tr | wc -l
+    \end{lstlisting}
+
+  \item \texttt{TCP}の損失したパケットの総数
+    \begin{lstlisting}
+      $ awk '$5 == "tcp" && $1 == "d"' out.tr | wc -l
+    \end{lstlisting}
+\end{itemize}
+
+\[
+  \text{\texttt{CBR}の損失率} = \frac{12}{1322} \times 100 \simeq 0.9 \text{$\%$}
+\]
+
+\[
+  \text{\texttt{TCP}の損失率} = \frac{11}{381} \times 100 \simeq 2.9 \text{$\%$}
+\]
+
+\subsection{考察}
+以上のデータから，ウィンドウ制御の複数のパケットを\texttt{ACK}を待たずに送信するという特性を持つため．ウィンドウ制御は\texttt{Network Simulator}には存在すると考えられる．
+
+また，\texttt{CBR}と\texttt{TCP}の損失率について考えた時，約$2 \%$の差があることがわかる．よって\texttt{TCP}の方が損失率が大きいという仮説は正しいことがわかる．これは，\texttt{TCP}パケットの方が\texttt{CBR}パケットよりもデータ量が大きいパケットが多いことが理由として考えられる． 
+
+それぞれの経路について，損失率に差があるという仮説については節\ref{throw_and_loss}から考える．\texttt{node 2 to 3}以外の経路はすべて損失率が$0 \%$であることからそれぞれの経路について損失率に差があることがわかる．理由は\texttt{node 2 to 3}以外は単一のプロトコルが占有しているのに比べて，\texttt{node 2 to 3}は\texttt{CBR}と\texttt{TCP}の$2$つのプロトコルが同一の経路を使用しているからであると考えられる．
+\appendix
+\section{解析に使用したファイル内容} \label{app:files}
+本解析に使用したトレースログの抽出結果を以下に示す。
+
+\subsection{送信パケットログ (Node 0 to 2)}
+\lstinputlisting[caption=file1, label=code:file1]{file1}
+
+\subsection{送信パケットログ (Node 1 to 2)}
+\lstinputlisting[caption=file2, label=code:file2]{file2}
+
+\subsection{受信パケットログ (Node 2 to 3, CBR)}
+\lstinputlisting[caption=file3, label=code:file3]{file3}
+
+\subsection{受信パケットログ (Node 2 to 3, TCP)}
+\lstinputlisting[caption=file4, label=code:file4]{file4}
+
+\subsection{受信パケットログ (Node 1 to 2)}
+\lstinputlisting[caption=file5, label=code:file5]{file5}
 
 \end{document}

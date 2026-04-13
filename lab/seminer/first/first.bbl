@@ -1,0 +1,33 @@
+\begin{thebibliography}{1}
+
+\bibitem{chen2023space}
+Jiming Chen, Han Zhang, and Zhe Xie.
+\newblock Space-air-ground integrated network (sagin): A survey.
+\newblock {\em arXiv preprint arXiv:2307.14697}, 2023.
+
+\bibitem{han2024endogenous}
+Chen Han, Kang An, Zhi Lin, Symeon Chatzinotas, and Jiangzhou Wang.
+\newblock Endogenous anti-jamming communications for sagin: A network
+  perspective.
+\newblock {\em IEEE Network}, 38(4):171--178, 2024.
+
+\bibitem{liu2018space}
+Jiajia Liu, Yongpeng Shi, Zubair~Md. Fadlullah, and Nei Kato.
+\newblock Space-air-ground integrated network: A survey.
+\newblock {\em IEEE Communications Surveys \& Tutorials}, 20(4):2714--2741,
+  2018.
+
+\bibitem{tang2022blockchain}
+Fengxiao Tang, Cong Wen, Linfeng Luo, Ming Zhao, and Nei Kato.
+\newblock Blockchain-based trusted traffic offloading in space-air-ground
+  integrated networks (sagin): A federated reinforcement learning approach.
+\newblock {\em IEEE Journal on Selected Areas in Communications},
+  40(12):3501--3516, 2022.
+
+\bibitem{wu2024towards}
+Chenyu Wu, Xi~Wang, Yi~Hu, Shuai Han, Weixiao Meng, and Dusit Niyato.
+\newblock Towards intelligent sagin: Leveraging big ai models and sdn for
+  end-to-end automation.
+\newblock {\em IEEE Network}, 38(1):196--203, 2024.
+
+\end{thebibliography}

@@ -1,16 +1,59 @@
-\documentclass{beamer} % スライド用のレイアウト
+\documentclass[11pt]{beamer}
 
-\usepackage{luatexja} % Beamer単体では日本語を出力できないのでこれを使う
-\renewcommand{\kanjifamilydefault}{\gtdefault} % 漢字をゴシック体に指定
-\usetheme{metropolis} % usepackageじゃなくてusethemeだから注意
+% LuaLaTeXで日本語を使うための必須パッケージ
+\usepackage{luatexja}
 
+% テーマとカラーテーマの設定（お好みで変更してください）
+\usetheme{Madrid}
+\usecolortheme{orchid}
+
+% --- タイトル情報 ---
 \title{}
-\author{情報学群(infomatics) \\ 1年(first grade) 学籍番号(Student ID): 1280391}
+\subtitle{}
+\author{学籍番号(Student ID): 1280391 \\ 氏名(Name): 細川夏風}
+\institute{高知工科大学(Kochi Univ of Tech)}
 \date{\today}
 
 \begin{document}
-\begin{frame}
-    \maketitle
-\end{frame}
-\end{document}
 
+\nocite{*}
+% 1. タイトルスライド
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% 2. 目次スライド
+\begin{frame}{目次}
+    \tableofcontents
+\end{frame}
+
+\section{はじめに(Intro)}
+
+% 3. 通常のスライド
+\begin{frame}{はじめに(Intro)}
+  \texttt{SAGIN}とは，宇宙・航空・地上統合ネットワーク(\texttt{Space-Air-Ground Integrated Network)}のことであり，最新ネットワークを活用し，あらゆるネットワークセグメントを活用する方法である．しかし，従来のネットワークとは異なり\texttt{SAGIN}はトラフィックの分散，周波数帯域の割り当て，負荷分散，モビリティ管理，電力制御，経路スケジューリング，エンドツーエンド(\texttt{E2E})，\texttt{QoS}要件などの観点からすべてのセグメントにおいて同時に制約を受ける．さらにこれらに加えて実用的なネットワークリソースを考慮したうえで最適な\texttt{E2E}のデータ伝送を実現することが重要である$_{\text{文献\cite{liu2018space}\cite{chen2023space}}}$．
+\end{frame}
+
+\section{SAGINにおける近年の研究(Research)}
+
+\begin{frame}{研究(Research)}
+近年では，様々な切り口から研究されている．文献\cite{wu2024towards}のような\texttt{AI}から，このネットワークを構築する研究者や文献\cite{tang2022blockchain}のようにブロックチェーン技術を活用する研究者や文献\cite{han2024endogenous}のような妨害についてなどの研究がある．
+\end{frame}
+
+\section{妨害について(Jamming)}
+
+\begin{frame}{妨害(Jamming)}
+  これまでは，通信の妨害については妨害自体の対策ではなく仮に妨害されてもその通信内容を外部に漏らさないという手法を用いることによって通信妨害の脅威を抑えてきた．しかし，近年の研究では外部からの妨害そのものの対策のための研究が取られている．
+\end{frame}
+
+% 4. ブロックを使ったスライド
+\begin{frame}{まとめ}
+  
+\end{frame}
+
+\begin{frame}[allowframebreaks]{参考文献}
+  \bibliographystyle{plain} % 日本語の場合。環境に合わせて変更
+  \bibliography{ref_file_name} % 拡張子抜きのファイル名
+\end{frame}
+
+\end{document}

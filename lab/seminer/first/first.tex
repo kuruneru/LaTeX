@@ -8,7 +8,7 @@
 \usecolortheme{orchid}
 
 % --- タイトル情報 ---
-\title{ゼミ資料}
+\title{SAGINと妨害}
 \subtitle{}
 \author[細川 夏風]{氏名(Name): 細川夏風}
 \institute[KUT 1280391]{高知工科大学(Kochi Univ of Tech) 学籍番号(Student ID): 1280391}
@@ -60,7 +60,7 @@
 \end{frame}
 
 \begin{frame}{物理鍵生成(generate key)}
-  現代の暗号鍵問題は鍵配布の困難さと数学的複雑性への過度な依存のため\texttt{SAGIN}には適していないと言える．従来のメカニズムとは異なり，物理鍵生成は物理層に着目し無作為性エントロピーを利用し物理層で伝送猿データ情報を保護している．
+  現代の暗号鍵問題は鍵配布の困難さと数学的複雑性への過度な依存のため\texttt{SAGIN}には適していないと言える．従来のメカニズムとは異なり，物理鍵生成は物理層に着目し無作為性エントロピーを利用し物理層で伝送されるデータ情報を保護している．
 \end{frame}
 
 \begin{frame}{物理符号化(phisical encoding)}
@@ -78,12 +78,78 @@
 \end{frame}
 
 \begin{frame}{対妨害(Anti jamming)}
-  対妨害問題は有用な信号が妨害と重複するのを可能な限り回避することである．様々なネットワーク技術が複雑化し，妨害技術が発展し，対妨害技術がそれより優位な立場にあり続けることは非常に難しいものとなった．これに対していくつかの手法を組み合わせることによって利点を損なわない効率的な手法が提案された．また，さらなる発展として\texttt{AI}技術に対してのゲーム理論や強化学習などを組み合わせた．号外の緩和策も提案されている$_{\text{文献}\cite{yang2025communications}}$．
+  対妨害問題は有用な信号が妨害と重複するのを可能な限り回避することである．様々なネットワーク技術が複雑化し，妨害技術が発展し，対妨害技術がそれより優位な立場にあり続けることは非常に難しいものとなった．これに対していくつかの手法を組み合わせることによって利点を損なわない効率的な手法が提案された．また，さらなる発展として\texttt{AI}技術に対してのゲーム理論や強化学習などを組み合わせた．これ以外の緩和策も提案されている$_{\text{文献}\cite{yang2025communications}}$．
 \end{frame}
 
 % 4. ブロックを使ったスライド
 \begin{frame}{まとめ}
   宇宙・航空・地上統合ネットワークである\texttt{SAGIN}は従来のネットワークに比べより複雑化したものについて考える．その時，妨害やセキュリティについて考えなければならない．その対策として，ステルス通信や物理層のセキュリティである物理鍵生成や物理符号化，物理認証など，いくつかの対妨害の手法を理解する必要がある．
+\end{frame}
+
+% ==============================================
+% 英語スライドセクション (English Translation)
+% ==============================================
+
+\begin{frame}{Table of Contents (English)}
+    \tableofcontents
+\end{frame}
+
+\section{Introduction}
+
+\begin{frame}{Introduction}
+  \texttt{SAGIN} stands for Space-Air-Ground Integrated Network. It is a method that utilizes modern networks and leverages all network segments. However, unlike traditional networks, \texttt{SAGIN} is simultaneously constrained across all segments in terms of traffic distribution, frequency allocation, load balancing, mobility management, power control, routing scheduling, end-to-end (\texttt{E2E}), and \texttt{QoS} requirements. Furthermore, it is crucial to achieve optimal \texttt{E2E} data transmission while considering practical network resources$_{\text{Ref\cite{liu2018space}\cite{chen2023space}}}$ .
+\end{frame}
+
+\section{Recent Research in SAGIN}
+
+\begin{frame}{Recent Research in SAGIN}
+  In recent years, research has been conducted from various perspectives. There are studies focusing on \texttt{AI} such as Ref\cite{wu2024towards}, researchers utilizing blockchain technology to build this network like Ref\cite{tang2022blockchain}, and research concerning jamming such as Ref\cite{han2024endogenous}.
+\end{frame}
+
+\section{Jamming and Security}
+
+\begin{frame}{About Jamming}
+  Previously, communication threats were mitigated not by countermeasures against jamming itself, but by using methods that ensure communication contents are not leaked externally even if jamming occurs. However, recent research has focused on countermeasures against external jamming itself. The reason is that while jamming does not affect reliability and confidentiality, it significantly impacts availability. In other words, it can completely disable communication. In environments like \texttt{SAGIN}, losing control due to jamming, even without data leakage, can lead to fatal system failures and accidents. Therefore, countermeasures against jamming are necessary.
+\end{frame}
+
+\begin{frame}{Stealth Communication}
+  Stealth communication is also known as Low Probability of Detection (LPD) communication. It utilizes the uncertainty of wireless communication to conceal the transmission process, aiming to reduce the probability of detection by third parties. Stealth communication techniques include a classic method called Direct Sequence Spread Spectrum (\texttt{DSSS}). This efficiently reduces susceptibility to interception, allowing for signal concealment and protection. There are also reports indicating that transmission speeds were improved by using noise (artificial noise) to achieve stealth communication. Furthermore, examples have been reported where stealth communication is enabled by detecting transmissions from known jammers$_{\text{Ref}\cite{yang2025communications}}$ .
+\end{frame}
+
+\begin{frame}{Physical Layer Security}
+  Physical layer security is a method that ensures the safe transmission of information by exploiting the characteristics and vulnerabilities of the propagation medium. Unlike stealth communication, its goal is not to hide from the community, but to minimize data security risks from eavesdroppers, aiming for low complexity and resource conservation. Physical layer security can be mainly classified into $3$ categories:
+  \begin{itemize}
+    \item Physical key generation
+    \item Physical encoding
+    \item Physical authentication
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Physical Key Generation}
+  Modern cryptographic key issues are considered unsuitable for \texttt{SAGIN} due to the difficulty of key distribution and excessive reliance on mathematical complexity. Unlike conventional mechanisms, physical key generation focuses on the physical layer, utilizing randomness entropy to protect the transmitted data information at the physical layer.
+\end{frame}
+
+\begin{frame}{Physical Encoding}
+  As many have already learned, physical encoding is used with the objective of maximizing transmission efficiency and transmission speed of data sent and received between users. Improvements in this technology are considered helpful in reducing attacks on data integrity, such as unauthorized modifications that occur during message transmission. Currently, Low-Density Parity-Check (LDPC) codes are utilized, demonstrating excellent performance in terms of physical layer security.
+\end{frame}
+
+\begin{frame}{Physical Authentication}
+  This technology is one of the core technologies for ensuring the security of wireless communication. The basic principle is to authenticate the combination of the spatial-temporal characteristics of the signal transmitted over the physical communication link and the physical channel characteristics of the sender, enabling authentication at the physical layer. It has advantages such as high authentication speed, low complexity, and compatibility. It can be mainly classified into $3$ categories of investigated authentication technologies:
+  \begin{itemize}
+    \item Radio Frequency (RF) fingerprint authentication
+    \item Physical layer signal watermark authentication
+    \item Physical layer wireless channel authentication
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Anti-jamming}
+  The anti-jamming problem involves avoiding the overlap of useful signals with jamming as much as possible. As various network technologies become more complex and jamming technologies develop, it has become extremely difficult for anti-jamming technologies to maintain a dominant position. In response to this, efficient methods that do not compromise advantages have been proposed by combining several techniques. Furthermore, as further development, jamming mitigation measures combining game theory and reinforcement learning for \texttt{AI} technology have also been proposed$_{\text{Ref}\cite{yang2025communications}}$ .
+\end{frame}
+
+\section{Conclusion}
+
+\begin{frame}{Conclusion}
+  We consider \texttt{SAGIN}, a space-air-ground integrated network, which has become more complex than traditional networks. In this context, jamming and security must be addressed. As countermeasures, it is necessary to understand several anti-jamming methods, such as stealth communication and physical layer security, including physical key generation, physical encoding, and physical authentication.
 \end{frame}
 
 \begin{frame}[allowframebreaks]{参考文献}

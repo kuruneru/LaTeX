@@ -1,3 +1,7 @@
 \beamer@sectionintoc {1}{はじめに(Intro)}{3}{0}{1}
 \beamer@sectionintoc {2}{SAGINにおける近年の研究(Research)}{4}{0}{2}
 \beamer@sectionintoc {3}{妨害について(Jamming)}{5}{0}{3}
+\beamer@sectionintoc {4}{Introduction}{14}{0}{4}
+\beamer@sectionintoc {5}{Recent Research in SAGIN}{15}{0}{5}
+\beamer@sectionintoc {6}{Jamming and Security}{16}{0}{6}
+\beamer@sectionintoc {7}{Conclusion}{23}{0}{7}

@@ -1,0 +1,278 @@
+\documentclass[paper=a4, fontsize=10pt]{jlreq}
+
+\usepackage{amsmath, amssymb}
+\usepackage{enumerate}
+\usepackage{tikz}
+\usepackage{listings, xcolor}
+\usepackage{float}
+
+\lstset{
+  basicstyle = {\ttfamily},
+  frame = {tbrl},
+  breaklines = true,
+  numbers = left,
+  showspaces = false,
+  showstringspaces = false,
+  showtabs = false,
+  keywordstyle = \color{blue},
+  commentstyle = {\color[HTML]{1AB91A}},
+  identifierstyle = \color{black},
+  stringstyle = \color{brown},
+  captionpos = t
+}
+
+\title{情報学群実験第3 最終レポート}
+\author{学籍番号 1280391 \\ 細川 夏風}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\section{背景と目的}
+近年，情報通信分野が発展している．中でも多くのデバイスがインターネットに接続されている．ネットワーク(以下:\texttt{NW})は現在の情報通信分野の基盤を支えている．これから先，多くのエンジニアが\texttt{NW}の設計に携わるか，それに近い業務を行うことになると予想される．そして，設計には\texttt{NW}の理解が必要である．しかし，\texttt{NW}について深く理解することは非常に難解なことである．そのため，今回は\texttt{Network Simulator2}(以下:\texttt{NS2})というソフトを用いて実際の\texttt{NW}の動作，主に\texttt{TCP/IP}というネットワークアーキテクチャのトランスポート層プロトコルの動作とパケットの挙動ついて考察と議論を行う．
+
+\section{実験方法}
+今回，私は$GID = 1$である．また，パケット損失率，スループットは以下の定義から算出される．
+\begin{align*}
+  T := \text{スループット}, D :&= \text{送信データ量}, t := \text{時間} \\
+  T &= \frac{D}{t}
+\end{align*}
+
+\begin{align*}
+  W := \text{ウィンドウサイズ}&, RTT := \text{往復遅延時間} \\
+  T &= \frac{W}{RTT}
+\end{align*}
+ここは参照を入れる．
+
+\begin{align*}
+  L := \text{パケット損失率}, N_{drop} := &\text{ドロップしたパケット数}, N_{sent} := \text{送信したパケット数} \\
+  L = &\frac{N_{drop}}{N_{sent}} \times 100
+\end{align*}
+
+\subsection{問題1}
+
+ボトルネックリンクの帯域幅 \texttt{BW} を $1\ \mathrm{Mbps}$ から $10\ \mathrm{Mbps}$ まで変化させ，スループットおよびパケット損失率を測定した．
+
+また，パケット損失率が $1.1\%$ を初めて超える帯域幅を \texttt{Efficiency Threshold} とした．
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[>=latex]
+
+\node[draw,circle] (n0) at (0,2) {$n_0$};
+\node[draw,circle] (n1) at (0,-2) {$n_1$};
+
+\node[draw,circle] (n2) at (4,0) {$n_2$};
+\node[draw,circle] (n3) at (8,0) {$n_3$};
+
+\node[draw,circle] (n4) at (12,2) {$n_4$};
+\node[draw,circle] (n5) at (12,-2) {$n_5$};
+
+% 左上
+\draw (n0) -- (n2);
+\node at (2,2.8) {$40\ \mathrm{Mbps}$};
+\node at (2,1.6) {$6\ \mathrm{ms}$};
+
+% 左下
+\draw (n1) -- (n2);
+\node at (2,-2.8) {$40\ \mathrm{Mbps}$};
+\node at (2,-1.6) {$6\ \mathrm{ms}$};
+
+% ボトルネック
+\draw[very thick] (n2) -- (n3);
+\node at (6,0.7) {\texttt{BW}};
+
+% 右上
+\draw (n3) -- (n4);
+\node at (10,2.8) {$40\ \mathrm{Mbps}$};
+\node at (10,1.6) {$6\ \mathrm{ms}$};
+
+% 右下
+\draw (n3) -- (n5);
+\node at (10,-2.8) {$40\ \mathrm{Mbps}$};
+\node at (10,-1.6) {$6\ \mathrm{ms}$};
+
+\node at (-1.5,2) {\texttt{UDP}};
+\node at (-2.0,-2) {\texttt{TCP}};
+
+\node at (14.0,2) {\texttt{Null}};
+\node at (14.0,-2) {\texttt{Sink}};
+
+\end{tikzpicture}
+\caption{問題1のネットワーク構成}
+\end{figure}
+
+\newpage
+
+\subsection{問題2}
+
+ルータのバッファサイズ \texttt{B} を $1\ \mathrm{kbytes}$ から $10\ \mathrm{kbytes}$ まで変化させ，パケット損失率およびキューイング遅延を測定した．
+
+さらに，バッファサイズ増加時におけるパケット損失率の変化について解析を行った．
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[>=latex]
+
+\node[draw,circle] (n0) at (0,2) {$n_0$};
+\node[draw,circle] (n1) at (0,-2) {$n_1$};
+
+\node[draw,circle] (n2) at (4,0) {$n_2$};
+\node[draw,circle] (n3) at (8,0) {$n_3$};
+
+\node[draw,circle] (n4) at (12,2) {$n_4$};
+\node[draw,circle] (n5) at (12,-2) {$n_5$};
+
+% 左上
+\draw (n0) -- (n2);
+\node at (2,2.8) {$40\ \mathrm{Mbps}$};
+\node at (2,1.6) {$6\ \mathrm{ms}$};
+
+% 左下
+\draw (n1) -- (n2);
+\node at (2,-2.8) {$40\ \mathrm{Mbps}$};
+\node at (2,-1.6) {$6\ \mathrm{ms}$};
+
+% ボトルネック
+\draw[very thick] (n2) -- (n3);
+\node at (6,0.7) {\texttt{BW}$=3$\texttt{Mdps}};
+\node at (6, -0.7) {$20ms$};
+
+
+% 右上
+\draw (n3) -- (n4);
+\node at (10,2.8) {$40\ \mathrm{Mbps}$};
+\node at (10,1.6) {$6\ \mathrm{ms}$};
+
+% 右下
+\draw (n3) -- (n5);
+\node at (10,-2.8) {$40\ \mathrm{Mbps}$};
+\node at (10,-1.6) {$6\ \mathrm{ms}$};
+
+\node at (-1.5,2) {\texttt{UDP}};
+\node at (-2.0,-2) {\texttt{TCP}};
+
+\node at (14.0,2) {\texttt{Null}};
+\node at (14.0,-2) {\texttt{Sink}};
+
+\end{tikzpicture}
+\caption{問題2のネットワーク構成}
+\end{figure}
+
+\newpage
+
+\subsection{問題3}
+
+\texttt{TCP Tahoe} を用いて通信を行い，\texttt{cwnd} および \texttt{ssthresh} の時間変化を観測した．
+
+また，最大ウィンドウサイズおよび送信スループットを算出した．
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[>=latex]
+
+\node[draw,circle] (n0) at (0,2) {$n_0$};
+\node[draw,circle] (n1) at (0,-2) {$n_1$};
+
+\node[draw,circle] (n2) at (4,0) {$n_2$};
+\node[draw,circle] (n3) at (8,0) {$n_3$};
+
+\node[draw,circle] (n4) at (12,2) {$n_4$};
+\node[draw,circle] (n5) at (12,-2) {$n_5$};
+
+% 左上
+\draw (n0) -- (n2);
+\node at (2,2.8) {$25\ \mathrm{Mbps}$};
+\node at (2,1.6) {$5\ \mathrm{ms}$};
+
+% 左下
+\draw (n1) -- (n2);
+\node at (2,-2.8) {$25\ \mathrm{Mbps}$};
+\node at (2,-1.6) {$5\ \mathrm{ms}$};
+
+% ボトルネック
+\draw[very thick] (n2) -- (n3);
+\node at (6,0.7) {\texttt{BW}$=2$};
+\node at (6, -0.7) {\texttt{B}};
+
+% 右上
+\draw (n3) -- (n4);
+\node at (10,2.8) {$25\ \mathrm{Mbps}$};
+\node at (10,1.6) {$5\ \mathrm{ms}$};
+
+% 右下
+\draw (n3) -- (n5);
+\node at (10,-2.8) {$25\ \mathrm{Mbps}$};
+\node at (10,-1.6) {$5\ \mathrm{ms}$};
+
+\node at (-2.0,2) {\texttt{TCP}};
+\node at (-2.0,-2) {\texttt{TCP}};
+
+\node at (14.0,2) {\texttt{Sink}};
+\node at (14.0,-2) {\texttt{Sink}};
+
+\end{tikzpicture}
+\caption{問題3のネットワーク構成}
+\end{figure}
+
+\newpage
+
+\subsection{問題4}
+
+\texttt{TCP Reno} を用いて通信を行い，\texttt{cwnd} および \texttt{ssthresh} の変化を \texttt{TCP Tahoe} と比較した．
+
+また，輻輳によるパケット損失数およびシーケンス番号を確認した．
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[>=latex]
+
+\node[draw,circle] (n0) at (0,2) {$n_0$};
+\node[draw,circle] (n1) at (0,-2) {$n_1$};
+
+\node[draw,circle] (n2) at (4,0) {$n_2$};
+\node[draw,circle] (n3) at (8,0) {$n_3$};
+
+\node[draw,circle] (n4) at (12,2) {$n_4$};
+\node[draw,circle] (n5) at (12,-2) {$n_5$};
+
+% 左上
+\draw (n0) -- (n2);
+\node at (2,2.8) {$25\ \mathrm{Mbps}$};
+\node at (2,1.6) {$5\ \mathrm{ms}$};
+
+% 左下
+\draw (n1) -- (n2);
+\node at (2,-2.8) {$25\ \mathrm{Mbps}$};
+\node at (2,-1.6) {$5\ \mathrm{ms}$};
+
+% ボトルネック
+\draw[very thick] (n2) -- (n3);
+\node at (6,0.7) {\texttt{BW}$=2$};
+\node at (6, -0.7) {\texttt{B}};
+
+% 右上
+\draw (n3) -- (n4);
+\node at (10,2.8) {$25\ \mathrm{Mbps}$};
+\node at (10,1.6) {$5\ \mathrm{ms}$};
+
+% 右下
+\draw (n3) -- (n5);
+\node at (10,-2.8) {$25\ \mathrm{Mbps}$};
+\node at (10,-1.6) {$5\ \mathrm{ms}$};
+
+\node at (-2.0,2) {\texttt{TCP}};
+\node at (-2.0,-2) {\texttt{TCP}};
+
+\node at (14.0,2) {\texttt{Sink}};
+\node at (14.0,-2) {\texttt{Sink}};
+
+\end{tikzpicture}
+\caption{問題4のネットワーク構成}
+\end{figure}
+
+\begin{thebibliography}{99}
+  \bibitem{}
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,6 @@
+3) データの機密性とプライバシー (\texttt{Data Confidentiality and Privacy})
+\texttt{SAGIN} を流れる膨大なデータには、軍事情報、個人の位置情報、インフラの稼働状況などの機密情報が含まれる。
+
+プライバシー保護コンピューティング: 航空プラットフォーム（\texttt{HAPs/LAPs}）や衛星が分散型データセンターとして機能する場合、他者のデータを処理する過程で情報が漏洩するリスクがある。これに対し、秘密計算（\texttt{Multi-party Computation}）や準同型暗号（\texttt{Homomorphic Encryption}）を \texttt{SAGIN} に適用するための研究が進められている。
+
+位置プライバシー: 特に \texttt{UAV} や低軌道衛星（\texttt{LEO}）を介した通信において、ユーザーの正確な地理的位置が攻撃者に特定されないよう、匿名化技術や差分プライバシー（\texttt{Differential Privacy}）の導入が求められている。

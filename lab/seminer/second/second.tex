@@ -5,6 +5,7 @@
 
 % 便利な追加パッケージ
 \usepackage{tikz}
+\usetikzlibrary{shapes.symbols}
 \usetikzlibrary{positioning, calc, shapes.geometric} % shapes.geometric を追加
 \usepackage{booktabs}   % 表の罫線
 \usepackage{tikz}       % 図形描画
@@ -56,7 +57,9 @@
 % ここから本文
 % ==========================================
 
-\section{はじめに/Intro}
+\section{はじめに / Intro}
+
+\subsection{SAGINについて / About SAGIN}
 
 \begin{frame}{SAGINについて}
   \begin{columns}[c]
@@ -136,7 +139,9 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}{なぜSAGINが必要なのか/Why we need SAGIN}
+\subsection{なぜSAGINが必要なのか / Why we need SAGIN}
+
+\begin{frame}{なぜSAGINが必要なのか / Why we need SAGIN}
   より広域により低遅延で通信を実現しようとした場合，現行の通信方式ではアクセスの柔軟性も低いうえに遅延が大きいという課題がある．
 
   そのため，\texttt{SAGIN}を導入し，シームレスに様々な領域を超えた統合ネットワークを構築する必要がある．
@@ -148,7 +153,7 @@
   Therefore, it is necessary to introduce \texttt{SAGIN} and build an integrated network that seamlessly transcends various domains.
 \end{frame}
 
-\section{アーキテクチャ/Architecture}
+\section{アーキテクチャ / Architecture}
 
 \begin{frame}{宇宙ネットワーク}
   \begin{columns}[c]
@@ -161,8 +166,8 @@
     \end{column}
     \begin{column}{0.5\textwidth}
       \begin{center}
-        % 0.65 * 1.07 = 約0.70 に拡大
-        \resizebox{!}{0.70\textheight}{
+        % 0.65 * 1.07 = 約0 に拡大
+        \resizebox{!}{\textheight}{
         \begin{tikzpicture}[
             node distance=0.5cm and 0.8cm,
             sat/.style={circle, draw, minimum size=0.6cm, align=center, font=\tiny, ultra thick},
@@ -213,7 +218,7 @@
   \end{columns}
 \end{frame}
 
-\subsection{宇宙ネットワーク/Space Network}
+\subsection{宇宙ネットワーク / Space Network}
 
 \begin{frame}{Space Network}
   \begin{columns}[c]
@@ -229,7 +234,7 @@
     \end{column}
     \begin{column}{0.5\textwidth}
       \begin{center}
-        \resizebox{!}{0.70\textheight}{
+        \resizebox{!}{\textheight}{
         \begin{tikzpicture}[
             node distance=0.5cm and 0.8cm,
             sat/.style={circle, draw, minimum size=0.6cm, align=center, font=\tiny, ultra thick},
@@ -311,10 +316,10 @@
   \begin{columns}[c]
     \begin{column}{0.5\textwidth}
       \small
-      高度が 2000km ～ 20000km の位置し，地球面積の 12\% ～ 38\% 程をカバーし，10 機以上で全体をカバー可能．高帯域幅，低コスト低遅延を実現可能に設定されている．システムの容量が最大 15Gbps になる．文献 \cite{chen2023sagin} では，遅延は 110ms とされている．
+      高度が 2000km ～ 20000km の位置し，地球面積の 12\% ～ 38\% 程をカバーし，10 機以上で全体をカバー可能．高帯域幅，低コスト低遅延を実現可能に設定されている．システムの容量が最大 15Gbps になる．文献 \cite{chen2023space} では，遅延は 110ms とされている．
 
       \vspace{1em}
-      \textit{Located at altitudes of 2,000km to 20,000km, MEO satellites cover about 12\% to 38\% of the Earth's area and can cover the entire globe with 10 or more satellites. They are designed to achieve high bandwidth, low cost, and low latency. The system capacity reaches up to 15Gbps. In literature \cite{chen2023sagin}, the latency is stated as 110ms.}
+      \textit{Located at altitudes of 2,000km to 20,000km, MEO satellites cover about 12\% to 38\% of the Earth's area and can cover the entire globe with 10 or more satellites. They are designed to achieve high bandwidth, low cost, and low latency. The system capacity reaches up to 15Gbps. In literature \cite{chen2023space}, the latency is stated as 110ms.}
     \end{column}
 
     \begin{column}{0.5\textwidth}
@@ -362,7 +367,7 @@
   \end{columns}
 \end{frame}
 
-\subsection{航空ネットワーク/Air Network}
+\subsection{航空ネットワーク / Air Network}
 
 \begin{frame}[c]{航空ネットワーク}
   \begin{columns}[c]
@@ -578,7 +583,7 @@
   \end{columns}
 \end{frame}
 
-\subsection{地上ネットワーク/Ground Network}
+\subsection{地上ネットワーク / Ground Network}
 
 \begin{frame}[c]{地上ネットワーク}
   \begin{columns}[c]
@@ -595,7 +600,7 @@
 
     \begin{column}{0.35\textwidth}
       \begin{center}
-        % 幅を0.7倍に縮小
+        % 幅を倍に縮小
         \resizebox{0.7\linewidth}{!}{
         \begin{tikzpicture}[
             bs/.style={rectangle, fill=orange!10, draw=orange!60!black, ultra thick, minimum width=0.6cm, minimum height=1cm, align=center, font=\tiny\ttfamily},
@@ -637,7 +642,7 @@
 
     \begin{column}{0.35\textwidth}
       \begin{center}
-        % 幅を0.7倍に縮小
+        % 幅を倍に縮小
         \resizebox{0.7\linewidth}{!}{
         \begin{tikzpicture}[
             bs/.style={rectangle, fill=orange!10, draw=orange!60!black, ultra thick, minimum width=0.6cm, minimum height=1cm, align=center, font=\tiny\ttfamily},
@@ -665,6 +670,553 @@
   \end{columns}
 \end{frame}
 
-\section{}
+\section{課題/Issues}
+
+\begin{frame}{SAGINの課題/SAGIN's issues}
+  \texttt{SAGIN}には様々な課題が存在する．主に以下のような問題である．
+  \begin{itemize}
+    \item トポロジー課題
+    \item 資源管理
+    \item セキュリティ
+  \end{itemize}
+  There are various challenges in \texttt{SAGIN}. The following are the main issues:
+  \begin{itemize}
+    \item Node and Topology Issues
+    \item Resource Management
+    \item Security
+  \end{itemize}
+\end{frame}
+
+\subsection{トポロジー課題 / Topology}
+
+\begin{frame}[c]{トポロジー課題}
+  \begin{columns}[c]
+    \begin{column}{0.6\textwidth}
+      \texttt{SAGIN} における非地上の移動体機器は地上の基地局と比べても遥かに高い移動性能を持ってる．高速移動中にはネットワークトポロジが頻繁に変化する．
+
+      \vspace{0.5em}
+      それは，移動体のみの通信状態を考慮するだけでは通信を継続的に行うということは難しい．
+
+      \vspace{0.5em}
+      付近の建物の情報や天候状態，移動先の基地局の位置情報等を考えたうえでトポロジーを再編する必要がある．これらをできる限り短い時間で行わなければならない．
+    \end{column}
+
+    \begin{column}{0.35\textwidth}
+      \begin{center}
+        \resizebox{\linewidth}{!}{
+        \begin{tikzpicture}[
+            bs/.style={rectangle, fill=orange!10, draw=orange!60!black, ultra thick, minimum width=0.6cm, minimum height=0.8cm, font=\tiny\ttfamily},
+            % 機体：少し傾けてスピード感を出す
+            uav/.style={ellipse, fill=cyan!10, draw=cyan!60!black, ultra thick, minimum width=1.2cm, minimum height=0.5cm, rotate=-10},
+            obs/.style={rectangle, fill=gray!30, draw=gray!60, thick, minimum width=0.5cm, minimum height=1.2cm},
+            weather/.style={ellipse, draw, fill=blue!5, minimum width=1.2cm, minimum height=0.8cm, font=\tiny, dashed},
+            link/.style={<->, thick, >=stealth, gray!70},
+            active/.style={link, blue, ultra thick},
+            future/.style={link, dashed, red!60},
+            motion/.style={->, ultra thick, orange!80!black, >=stealth}
+        ]
+            % --- 飛行軌道（軌跡） ---
+            \draw[dashed, gray!40, thick] (-2,3.8) -- (2,3.2);
+
+            % --- ノード配置 ---
+            \node[uav] (m) at (0,3.5) {};
+            \node[font=\tiny\bfseries] at (0,3.5) {Mobile};
+
+            % スピードライン（残像）
+            \draw[orange, thick] (m.west) ++(0.1,0.1) -- ++(-0.6,0.1);
+            \draw[orange, thick] (m.west) ++(0,0) -- ++(-0.8,0);
+            \draw[orange, thick] (m.west) ++(0.1,-0.1) -- ++(-0.6,-0.1);
+
+            \node[bs] (bs1) at (-1.5,0.5) {BS 1};
+            \node[bs] (bs2) at (1.5,0.5) {BS 2};
+            \node[obs] (bldg) at (0,) {Building};
+            \node[weather] (rain) at (1.8,2.2) {Weather};
+
+            % --- 動きのベクトル ---
+            \draw[motion] (m.east) -- ++(1, -0.3) node[right, black, font=\tiny] {High Speed};
+
+            % --- リンク ---
+            \draw[active] (m.south) -- (bs1.north);
+            \draw[future] (m.south) -- (bs2.north);
+
+            % --- 遮蔽 ---
+            \draw[red, ultra thick] (0.2,1.8) -- (-0.2,2.2) node[above, font=\tiny] {Blocking};
+            \draw[red, ultra thick] (-0.2,1.8) -- (0.2,2.2);
+
+            \node[font=\tiny, gray, align=center] at (0,-0.5) {Real-time \\ Reconfiguration};
+        \end{tikzpicture}
+        }
+      \end{center}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[c]{Topology Challenges}
+  \begin{columns}[c]
+    \begin{column}{0.6\textwidth}
+      Non-terrestrial mobile equipment in \texttt{SAGIN} has significantly higher mobility compared to ground base stations. During high-speed movement, the network topology changes frequently.
+
+      \vspace{0.5em}
+      It is difficult to maintain continuous communication by considering only the status of the mobile devices themselves.
+
+      \vspace{0.5em}
+      The topology must be reconfigured by taking into account factors such as nearby buildings, weather conditions, and the location of destination base stations. These tasks must be performed in as short a time as possible.
+    \end{column}
+
+    \begin{column}{0.35\textwidth}
+      \begin{center}
+        \resizebox{\linewidth}{!}{
+        \begin{tikzpicture}[
+            bs/.style={rectangle, fill=orange!10, draw=orange!60!black, ultra thick, minimum width=0.6cm, minimum height=0.8cm, font=\tiny\ttfamily},
+            uav/.style={ellipse, fill=cyan!10, draw=cyan!60!black, ultra thick, minimum width=1.2cm, minimum height=0.5cm, rotate=-10},
+            obs/.style={rectangle, fill=gray!30, draw=gray!60, thick, minimum width=0.5cm, minimum height=1.2cm},
+            weather/.style={ellipse, draw, fill=blue!5, minimum width=1.2cm, minimum height=0.8cm, font=\tiny, dashed},
+            link/.style={<->, thick, >=stealth, gray!70},
+            active/.style={link, blue, ultra thick},
+            future/.style={link, dashed, red!60},
+            motion/.style={->, ultra thick, orange!80!black, >=stealth}
+        ]
+            % Trajectory
+            \draw[dashed, gray!40, thick] (-2,3.8) -- (2,3.2);
+
+            % Mobile Node
+            \node[uav] (m) at (0,3.5) {};
+            \node[font=\tiny\bfseries] at (0,3.5) {Mobile};
+
+            % Speed Lines
+            \draw[orange, thick] (m.west) ++(0.1,0.1) -- ++(-0.6,0.1);
+            \draw[orange, thick] (m.west) ++(0,0) -- ++(-0.8,0);
+            \draw[orange, thick] (m.west) ++(0.1,-0.1) -- ++(-0.6,-0.1);
+
+            \node[bs] (bs1) at (-1.5,0.5) {BS 1};
+            \node[bs] (bs2) at (1.5,0.5) {BS 2};
+            \node[obs] (bldg) at (0,0.7) {Building};
+            \node[weather] (rain) at (1.8,2.2) {Weather};
+
+            % Motion Vector
+            \draw[motion] (m.east) -- ++(1, -0.3) node[right, black, font=\tiny] {High Speed};
+
+            % Links
+            \draw[active] (m.south) -- (bs1.north);
+            \draw[future] (m.south) -- (bs2.north);
+
+            % Blocking
+            \draw[red, ultra thick] (0.2,1.8) -- (-0.2,2.2) node[above, font=\tiny] {Blocking};
+            \draw[red, ultra thick] (-0.2,1.8) -- (0.2,2.2);
+
+            \node[font=\tiny, gray, align=center] at (0,-0.5) {Real-time \\ Reconfiguration};
+        \end{tikzpicture}
+        }
+      \end{center}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\subsection{資源管理 / Resource Management}
+
+\begin{frame}[c]{資源管理 / Resource Management}
+  \begin{columns}[t]
+    % --- 左側：日本語 ---
+    \begin{column}{0.48\textwidth}
+      \texttt{SAGIN} では，通信資源と計算資源を同時に管理する必要がある．衛星や \texttt{UAV} は，電力や計算能力が限られている．ノードが移動するため，通信経路が動的に変化する．
+
+      \vspace{1em}
+      主な最適化対象
+      \begin{itemize}
+        \item タスクオフロード
+        \item 電力制御
+        \item 帯域割当
+        \item 通信経路選択
+      \end{itemize}
+    \end{column}
+
+    % 中央に余白を確保
+    \hfill
+    \vrule
+    \hfill
+
+    % --- 右側：英語 ---
+    \begin{column}{0.48\textwidth}
+      In \texttt{SAGIN}, it is necessary to manage communication and computational resources simultaneously. Satellites and \texttt{UAV}s have limited power and computing capabilities.
+
+      \vspace{1em}
+      Optimization Targets
+      \begin{itemize}
+        \item Task Offloading
+        \item Power Control
+        \item Bandwidth Allocation
+        \item Routing Selection
+      \end{itemize}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\subsection{セキュリティ/Security}
+
+\begin{frame}[c]{セキュリティ}
+  \begin{columns}[c]
+    \begin{column}{0.6\textwidth}
+      \texttt{SAGIN} は開放的な通信環境や，動的なトポロジーなどからセキュリティは深刻なものである．
+
+      \vspace{0.5em}
+      様々な通信機器と通信を行うことから攻撃されるリスクや問題が波及することも考えられる．
+
+      \vspace{0.5em}
+      以下のセキュリティを備えている必要がある．
+      \begin{itemize}
+        \item 物理層セキュリティ
+        \item 認証技術
+        \item データの機密性とプライバシー
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.35\textwidth}
+      \begin{center}
+        \resizebox{\linewidth}{!}{
+        \begin{tikzpicture}[
+            node/.style={rectangle, draw=gray!60, fill=white, ultra thick, minimum width=1.5cm, minimum height=0.8cm, font=\tiny\ttfamily},
+            attack/.style={draw=red, ultra thick, ->, >=stealth},
+            % 波及（プロパゲーション）用の赤い点線矢印
+            prop/.style={draw=red, thick, dashed, ->, >=stealth},
+            shield/.style={draw=blue!60!black, fill=blue!5, opacity=0.3, rounded corners=10pt},
+            link/.style={thick, gray!60}
+        ]
+            % --- ノード配置 ---
+            \node[node] (sat) at (0,3) {Space};
+            \node[node, draw=red, fill=red!5] (uav) at (0,1.5) {Air}; % 攻撃を受けた中心
+            \node[node] (gnd) at (0,0) {Ground};
+
+            % --- 基本リンク ---
+            \draw[link] (sat) -- (uav);
+            \draw[link] (uav) -- (gnd);
+
+            % --- 攻撃者 ---
+            \node[red, font=\tiny\bfseries, draw=red, thick] (attacker) at (2.2,1.5) {Attacker};
+            \draw[attack] (attacker.west) -- (uav.east) node[midway, above, font=\tiny, black] {Attack!};
+
+            % --- 問題の波及 (Propagation) ---
+            % AirからSpaceへ
+            \draw[prop] (uav.north west) to[bend left=45] (sat.south west);
+            % AirからGroundへ
+            \draw[prop] (uav.south west) to[bend right=45] (gnd.north west);
+
+            \node[red, font=\tiny\bfseries, rotate=90] at (-1.1,1.5) {Propagation};
+
+            % --- 防護層 ---
+            \draw[shield] (-1.5,-0.5) rectangle (1.2,3.5);
+
+            \node[font=\tiny, gray, align=center] at (0,-1) {Impact Spreading Model};
+        \end{tikzpicture}
+        }
+      \end{center}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[c]{Security}
+  \begin{columns}[c]
+    \begin{column}{0.6\textwidth}
+      Security is a critical issue for \texttt{SAGIN} due to its open communication environment and dynamic topology.
+
+      \vspace{0.5em}
+      Since it communicates with various devices, there is a risk of attacks and the spreading of issues throughout the network.
+
+      \vspace{0.5em}
+      It is necessary to implement the following security measures:
+      \begin{itemize}
+        \item Physical Layer Security
+        \item Authentication Technology
+        \item Data Confidentiality and Privacy
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.35\textwidth}
+      \begin{center}
+        \resizebox{\linewidth}{!}{
+        \begin{tikzpicture}[
+            node/.style={rectangle, draw=gray!60, fill=white, ultra thick, minimum width=1.5cm, minimum height=0.8cm, font=\tiny\ttfamily},
+            attack/.style={draw=red, ultra thick, ->, >=stealth},
+            prop/.style={draw=red, thick, dashed, ->, >=stealth},
+            shield/.style={draw=blue!60!black, fill=blue!5, opacity=0.3, rounded corners=10pt},
+            link/.style={thick, gray!60}
+        ]
+            % --- Nodes ---
+            \node[node] (sat) at (0,3) {Space};
+            \node[node, draw=red, fill=red!5] (uav) at (0,1.5) {Air};
+            \node[node] (gnd) at (0,0) {Ground};
+
+            % --- Links ---
+            \draw[link] (sat) -- (uav);
+            \draw[link] (uav) -- (gnd);
+
+            % --- Attacker ---
+            \node[red, font=\tiny\bfseries, draw=red, thick] (attacker) at (2.2,1.5) {Attacker};
+            \draw[attack] (attacker.west) -- (uav.east) node[midway, above, font=\tiny, black] {Attack!};
+
+            % --- Propagation of Impact ---
+            \draw[prop] (uav.north west) to[bend left=45] (sat.south west);
+            \draw[prop] (uav.south west) to[bend right=45] (gnd.north west);
+
+            \node[red, font=\tiny\bfseries, rotate=90] at (-1.1,1.5) {Propagation};
+
+            % --- Shield ---
+            \draw[shield] (-1.5,-0.5) rectangle (1.2,3.5);
+
+            \node[font=\tiny, gray, align=center] at (0,-1) {Impact Spreading Model};
+        \end{tikzpicture}
+        }
+      \end{center}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[c]{物理層セキュリティ}
+  \begin{columns}[c]
+    \begin{column}{0.55\textwidth}
+      宇宙・航空ネットワークでは，地上のような物理的な保護が困難なため，盗聴やジャミングに脆弱である．
+
+      \begin{itemize}
+        \item ジャミング攻撃 \\
+          強力な干渉信号により正規リンクを遮断する．リソース制限により回避が困難．
+        \item 物理層セキュリティ技術 \\
+          複雑な暗号に頼らず，物理的特性で秘匿性を保証する．例：人工ノイズの付加．
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.42\textwidth}
+      \begin{center}
+        % カラム幅の0.7倍を維持
+        \resizebox{\linewidth}{!}{
+        \begin{tikzpicture}[
+            node/.style={circle, draw=gray!60, fill=white, thick, minimum size=1.1cm, font=\tiny\ttfamily},
+            bad/.style={circle, draw=red, fill=red!5, thick, minimum size=1.1cm, font=\tiny\ttfamily},
+            link/.style={->, >=stealth, ultra thick, blue!60},
+            % ジャミング矢印を細く修正 (ultra thick -> thick)
+            jam/.style={->, >=stealth, thick, red, dashed},
+            noise/.style={draw=green!60!black, thick, dashed}
+        ]
+            % --- ノード ---
+            \node[node] (alice) at (0,4.5) {Source};
+            \node[node] (bob) at (0,-0.5) {Dest};
+            \node[bad] (jammer) at (2.8,2) {Jammer};
+            \node[bad] (eve) at (-2.8,2) {Eve};
+
+            % --- 正規通信 ---
+            \draw[link] (alice) -- (bob);
+            
+            % 人工ノイズ（緑色文字が矢印の下でも読めるように）
+            \draw[noise, green!60!black] (-0.4,3.8) -- (-0.4,0.2);
+            \draw[noise, green!60!black] (0.4,3.8) -- (0.4,0.2);
+            \node[green!60!black, font=\tiny, rotate=90] at (0.7,2) {Artificial Noise};
+
+            % --- 攻撃 ---
+            \draw[jam] (jammer) -- (0.5,2); % スタイル jam が細くなっている
+            % ジャミングラベルの位置を左に修正 (at (1.5) -> at (1.1))
+            \node[red, font=\tiny, anchor=west] at (1.1,2.3) {Jamming};
+            
+            % 盗聴
+            \draw[->, >=stealth, thick, red!60, dotted] (-0.3,2) -- (eve);
+            \node[red!60, font=\tiny, anchor=east] at (-1.2,2.3) {Eavesdropping};
+
+            % キャプション
+            \node[font=\tiny, gray, align=center] at (0,-1.5) {Physical Layer \\ Security Concept};
+        \end{tikzpicture}
+        }
+      \end{center}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[c]{Physical Layer Security}
+  \begin{columns}[c]
+    \begin{column}{0.55\textwidth}
+      Space and aerial networks are vulnerable to eavesdropping and jamming attacks because physical protection is difficult.
+
+      \begin{itemize}
+        \item Jamming Attack \\
+          Malicious nodes block legitimate links with strong interference. It is hard to avoid due to resource constraints.
+        \item Security Technology \\
+          Ensures confidentiality using physical characteristics instead of complex crypto. Example: Artificial Noise (AN).
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.42\textwidth}
+      \begin{center}
+        \resizebox{\linewidth}{!}{
+        \begin{tikzpicture}[
+            node/.style={circle, draw=gray!60, fill=white, thick, minimum size=1.1cm, font=\tiny\ttfamily},
+            bad/.style={circle, draw=red, fill=red!5, thick, minimum size=1.1cm, font=\tiny\ttfamily},
+            link/.style={->, >=stealth, ultra thick, blue!60},
+            % Thin jamming arrow
+            jam/.style={->, >=stealth, thick, red, dashed},
+            noise/.style={draw=green!60!black, thick, dashed}
+        ]
+            % --- Nodes ---
+            \node[node] (alice) at (0,4.5) {Source};
+            \node[node] (bob) at (0,-0.5) {Dest};
+            \node[bad] (jammer) at (2.8,2) {Jammer};
+            \node[bad] (eve) at (-2.8,2) {Eve};
+
+            % --- Legitimate Link ---
+            \draw[link] (alice) -- (bob);
+
+            % Artificial Noise (green text is readable beneath the thin arrow)
+            \draw[noise, green!60!black] (-0.4,3.8) -- (-0.4,0.2);
+            \draw[noise, green!60!black] (0.4,3.8) -- (0.4,0.2);
+            \node[green!60!black, font=\tiny, rotate=90] at (0.7,2) {Artificial Noise};
+
+            % --- Attacks ---
+            \draw[jam] (jammer) -- (0.5,2);
+            % Shifted Jamming label left (at (1.5) -> at (1.1))
+            \node[red, font=\tiny, anchor=west] at (1.1,2.3) {Jamming};
+
+            \draw[->, >=stealth, thick, red!60, dotted] (-0.3,2) -- (eve);
+            \node[red!60, font=\tiny, anchor=east] at (-1.2,2.3) {Eavesdropping};
+
+            \node[font=\tiny, gray, align=center] at (0,-1.5) {Physical Layer \\ Security Concept};
+        \end{tikzpicture}
+        }
+      \end{center}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[c]{認証技術}
+  \begin{columns}[c]
+    \begin{column}{0.6\textwidth}
+      \texttt{SAGIN} では，通信が航空，宇宙などの異なるレイヤや基地局，プラットフォーム間を頻繁に移動するため高速かつ安全な認証メカニズムが必要である．
+      
+      \begin{itemize}
+        \item クロスレイヤ認証 \\
+          異なる通信レイヤ間を移動する際に再認証の遅延を最小限に抑える必要がある．従来の方法では宇宙ネットワークのような長い遅延下では効率が低下する．
+        \item 分散型認証 \\
+          中央サーバに依存しない形での認証プロトコルが必要である．そのためにブロックチェーンや分散型台帳技術を利用した方法などによって信頼性向上などが考えられている．
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.35\textwidth}
+      \begin{center}
+        % 再度 0.7倍に縮小してバランスを調整
+        \resizebox{0.7\linewidth}{!}{
+        \begin{tikzpicture}[
+            node/.style={rectangle, draw=gray!60, fill=white, ultra thick, minimum width=2.5cm, minimum height=0.8cm, font=\tiny\ttfamily},
+            auth/.style={circle, draw=orange, fill=orange!10, thick, minimum size=0.9cm, font=\tiny, align=center},
+            link/.style={->, >=stealth, orange, ultra thick, dashed}
+        ]
+            % --- 各レイヤ ---
+            \node[node] (space) at (0,4.2) {Space Layer};
+            \node[node] (air) at (0,2.1) {Air Layer};
+            \node[node] (gnd) at (0,0) {Ground Layer};
+
+            % --- 移動と認証のトリガー ---
+            \draw[link] (0,0.5) -- (0,1.4);
+            \node[auth] (check1) at (0,1.05) {Auth};
+
+            \draw[link] (0,2.8) -- (0,3.7);
+            \node[auth] (check2) at (0,3.25) {Auth};
+
+            % 移動体の簡略表示
+            \node[draw, cyan, fill=cyan!5, thick, minimum width=0.8cm] at (0,-0.7) {\tiny Mobile};
+
+            % 右側のラベルをコンパクトに
+            \node[red, font=\tiny, align=left] at (2.0,1.05) {Triggered\\by Move};
+            \node[red, font=\tiny, align=left] at (2.0,3.25) {Frequent\\Handover};
+
+            \node[font=\tiny, gray, align=center] at (0,-1.4) {Authentication \\ Workflow};
+        \end{tikzpicture}
+        }
+      \end{center}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[c]{Authentication Technology}
+  \begin{columns}[c]
+    \begin{column}{0.6\textwidth}
+      In \texttt{SAGIN}, a fast and secure authentication mechanism is required as communication frequently moves between different layers, base stations, and platforms such as aerial and space.
+
+      \begin{itemize}
+        \item Cross-layer Authentication \\
+          It is necessary to minimize re-authentication delay when moving between different communication layers. Conventional methods decrease in efficiency under long delays like space networks.
+        \item Distributed Authentication \\
+          Authentication protocols that do not rely on a central server are required. To achieve this, methods using blockchain or distributed ledger technology are being considered to improve reliability.
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.35\textwidth}
+      \begin{center}
+        \resizebox{0.7\linewidth}{!}{
+        \begin{tikzpicture}[
+            node/.style={rectangle, draw=gray!60, fill=white, ultra thick, minimum width=2.5cm, minimum height=0.8cm, font=\tiny\ttfamily},
+            auth/.style={circle, draw=orange, fill=orange!10, thick, minimum size=0.9cm, font=\tiny, align=center},
+            link/.style={->, >=stealth, orange, ultra thick, dashed}
+        ]
+            % --- Layers ---
+            \node[node] (space) at (0,4.2) {Space Layer};
+            \node[node] (air) at (0,2.1) {Air Layer};
+            \node[node] (gnd) at (0,0) {Ground Layer};
+
+            % --- Mobility & Auth Triggers ---
+            \draw[link] (0,0.5) -- (0,1.4);
+            \node[auth] (check1) at (0,1.05) {Auth};
+
+            \draw[link] (0,2.8) -- (0,3.7);
+            \node[auth] (check2) at (0,3.25) {Auth};
+
+            \node[draw, cyan, fill=cyan!5, thick, minimum width=0.8cm] at (0,-0.7) {\tiny Mobile};
+
+            \node[red, font=\tiny, align=left] at (2.0,1.05) {Triggered\\by Move};
+            \node[red, font=\tiny, align=left] at (2.0,3.25) {Frequent\\Handover};
+
+            \node[font=\tiny, gray, align=center] at (0,-1.4) {Authentication \\ Workflow};
+        \end{tikzpicture}
+        }
+      \end{center}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[c]{データの機密性とプライバシー}
+  \texttt{SAGIN} を流れるデータには，軍事情報や個人の位置情報などの機密情報が含まれるため，高度な保護が必要である．
+
+  \vspace{1.5em}
+
+  \begin{itemize}
+    \item プライバシー保護コンピューティング \\
+      衛星や航空機をデータセンターとして利用する際，データを隠したまま処理する秘密計算や準同型暗号の適用が研究されている．
+      
+    \vspace{1em}
+    
+    \item 位置プライバシー \\
+      特に \texttt{UAV} や \texttt{LEO} 衛星を介した通信では，ユーザーの地理的位置が特定されないよう，匿名化や差分プライバシーの導入が求められる．
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[c]{Data Confidentiality and Privacy}
+  Data transmitted over \texttt{SAGIN} includes sensitive information such as military data and individual location info, requiring high-level protection.
+
+  \vspace{1.5em}
+
+  \begin{itemize}
+    \item Privacy-Preserving Computing \\
+      When using satellites or aircraft as data centers, research is being conducted on secret computing and homomorphic encryption to process data while keeping it hidden.
+
+    \vspace{1em}
+
+    \item Location Privacy \\
+      Especially in communications via \texttt{UAV} or \texttt{LEO} satellites, anonymization and differential privacy are required to prevent the user's geographic location from being identified.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[c]{参考文献 / References}
+  \begin{thebibliography}{9}
+    % \bibitem{ラベル} の形式で定義します
+    \bibitem{chen2023space}
+      N. Chen, B. Yang, Y. Zhang, and X. Guan,
+      "Space-Air-Ground Integrated Network (SAGIN): A Survey,"
+      arXiv preprint arXiv:2307.14697, 2023. \\
+      \texttt{https://arxiv.org/abs/2307.14697}
+  \end{thebibliography}
+\end{frame}
 
 \end{document}

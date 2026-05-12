@@ -1,0 +1,5 @@
+\beamer@sectionintoc {1}{はじめに/Intro}{3}{0}{1}
+\beamer@sectionintoc {2}{アーキテクチャ/Architecture}{7}{0}{2}
+\beamer@subsectionintoc {2}{1}{宇宙ネットワーク/Space Network}{9}{0}{2}
+\beamer@subsectionintoc {2}{2}{航空ネットワーク/Air Network}{13}{0}{2}
+\beamer@subsectionintoc {2}{3}{地上ネットワーク/Ground Network}{17}{0}{2}

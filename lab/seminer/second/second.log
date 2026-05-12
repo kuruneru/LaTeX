@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2026.4.8)  13 MAY 2026 03:35
+This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2026.4.8)  13 MAY 2026 03:40
  restricted system commands enabled.
 **second.tex
 (./second.tex
@@ -1479,10 +1479,6 @@ LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <6> not available
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
 (Font)              scaled to size 5.77332pt on input line 219.
 
-Overfull \vbox (41.42484pt too high) detected at line 219
- []
-
-
 Overfull \hbox (159.8355pt too wide) has occurred while \output is active
  [][]  \TU/lmss/m/n/6 ([])  
  []
@@ -1490,10 +1486,6 @@ Overfull \hbox (159.8355pt too wide) has occurred while \output is active
 [8
 
 ]
-Overfull \vbox (41.42484pt too high) detected at line 285
- []
-
-
 Overfull \hbox (159.8355pt too wide) has occurred while \output is active
  [][]  \TU/lmss/m/n/6 ([])  
  []
@@ -1725,7 +1717,7 @@ exlive/texmf-dist/fonts/opentype/public/lm/lmsans12-regular.otf></usr/share/texl
 ive/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></usr
 /share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/t
 exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb>
-Output written on second.pdf (32 pages, 270333 bytes).
+Output written on second.pdf (32 pages, 270334 bytes).
 
 PDF statistics: 1084 PDF objects out of 1200 (max. 8388607)
  977 compressed objects within 10 object streams

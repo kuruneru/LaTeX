@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2026.4.8)  10 MAY 2026 21:03
+This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2026.4.8)  20 MAY 2026 18:52
  restricted system commands enabled.
 **1280391_final.tex
 (./1280391_final.tex
@@ -952,31 +952,31 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 ) (./1280391_final.aux)
 \openout1 = 1280391_final.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 28.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 29.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 2
-8.
+9.
 (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for JY3/mc/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for JT3/mc/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for JY3/mc/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for JT3/mc/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -1003,175 +1003,280 @@ e
 \c@lstlisting=\count333
 (load cache: extra_lmroman17-regular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 17.0pt on input line 30.
+(Font)              scaled to size 17.0pt on input line 31.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 17.0pt on input line 30.
+(Font)              scaled to size 17.0pt on input line 31.
 (load cache: extra_lmroman12-regular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 12.0pt on input line 30.
+(Font)              scaled to size 12.0pt on input line 31.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 12.0pt on input line 30.
+(Font)              scaled to size 12.0pt on input line 31.
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 3
-0.
+1.
 
 (/usr/share/texlive/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 3
-0.
+1.
 
 (/usr/share/texlive/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-30.
+31.
 
 (/usr/share/texlive/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-30.
+31.
 
 (/usr/share/texlive/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 30.
+(Font)              <12> on input line 31.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 30.
+(Font)              <8> on input line 31.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 30.
+(Font)              <6> on input line 31.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 8.0pt on input line 30.
+(Font)              scaled to size 8.0pt on input line 31.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 6.0pt on input line 30.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 30.
+(Font)              scaled to size 6.0pt on input line 31.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 31.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 30.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 31.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 14.0pt on input line 32.
+(Font)              scaled to size 14.0pt on input line 33.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 14.0pt on input line 32.
+(Font)              scaled to size 14.0pt on input line 33.
 (load cache: extra_lmsans12-regular.luc)
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 14.0pt on input line 32.
+(Font)              scaled to size 14.0pt on input line 33.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 14.0pt on input line 32.
+(Font)              scaled to size 14.0pt on input line 33.
 (load cache: extra_haranoajigothic-medium.luc)(load cache: extra_lmsans10-bold.l
 uc)
 LaTeX Font Info:    Font shape `JT3/gt/b/n' in size <14> not available
-(Font)              Font shape `JT3/gt/m/n' tried instead on input line 32.
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 33.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 14.0pt on input line 32.
+(Font)              scaled to size 14.0pt on input line 33.
 LaTeX Font Info:    Font shape `JY3/gt/b/n' in size <14> not available
-(Font)              Font shape `JY3/gt/m/n' tried instead on input line 32.
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 33.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 14.0pt on input line 32.
+(Font)              scaled to size 14.0pt on input line 33.
 (load cache: extra_lmmono10-regular.luc)
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 35.
+(Font)              <10> on input line 36.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 35.
+(Font)              <7> on input line 36.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 35.
+(Font)              <5> on input line 36.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 7.0pt on input line 35.
+(Font)              scaled to size 7.0pt on input line 36.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 5.0pt on input line 35.
+(Font)              scaled to size 5.0pt on input line 36.
 (load cache: extra_lmroman7-regular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 7.0pt on input line 39.
+(Font)              scaled to size 7.0pt on input line 40.
 (load cache: extra_lmroman5-regular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 5.0pt on input line 39.
+(Font)              scaled to size 5.0pt on input line 40.
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}](load cache: extra_lmroman10
+-bold.luc)
+LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <10> not available
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 56.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 12.0pt on input line 53.
+(Font)              scaled to size 10.0pt on input line 56.
+LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <10> not available
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 56.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 12.0pt on input line 53.
+(Font)              scaled to size 10.0pt on input line 56.
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 56.
+(load cache: extra_lmmonolt10-bold.luc)
+Removing  `ltj.process_input_buffer' from `process_input_buffer'.
+Inserting `ltj.listings_unicode' in `process_input_buffer'.
+Inserting `ltj.process_input_buffer' in `process_input_buffer'.
+Removing  `ltj.listings_unicode' from `process_input_buffer'.
+Removing  `ltj.process_input_buffer' from `process_input_buffer'.
+Inserting `ltj.listings_unicode' in `process_input_buffer'.
+Inserting `ltj.process_input_buffer' in `process_input_buffer'.
+Removing  `ltj.listings_unicode' from `process_input_buffer'.
+LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
+(Font)              scaled to size 12.0pt on input line 72.
+LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
+(Font)              scaled to size 12.0pt on input line 72.
 LaTeX Font Info:    Font shape `JT3/gt/b/n' in size <12> not available
-(Font)              Font shape `JT3/gt/m/n' tried instead on input line 53.
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 72.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 12.0pt on input line 53.
+(Font)              scaled to size 12.0pt on input line 72.
 LaTeX Font Info:    Font shape `JY3/gt/b/n' in size <12> not available
-(Font)              Font shape `JY3/gt/m/n' tried instead on input line 53.
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 72.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 12.0pt on input line 53.
+(Font)              scaled to size 12.0pt on input line 72.
 
-Overfull \hbox (40.28474pt too wide) in paragraph at lines 101--102
+Overfull \hbox (40.28474pt too wide) in paragraph at lines 120--121
  [][] 
  []
 
 (load cache: extra_lmsans9-regular.luc)
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 102.
+(Font)              scaled to size 8.99994pt on input line 121.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 102.
+(Font)              scaled to size 8.99994pt on input line 121.
 LaTeX Font Info:    Font shape `JT3/gt/b/n' in size <8.99994> not available
-(Font)              Font shape `JT3/gt/m/n' tried instead on input line 102.
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 121.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 102.
+(Font)              scaled to size 8.99994pt on input line 121.
 LaTeX Font Info:    Font shape `JY3/gt/b/n' in size <8.99994> not available
-(Font)              Font shape `JY3/gt/m/n' tried instead on input line 102.
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 121.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 102.
+(Font)              scaled to size 8.99994pt on input line 121.
 [2]
-Overfull \hbox (40.28474pt too wide) in paragraph at lines 158--159
+Overfull \hbox (40.28474pt too wide) in paragraph at lines 177--178
+ [][] 
+ []
+
+
+Overfull \hbox (40.28474pt too wide) in paragraph at lines 231--232
  [][] 
  []
 
 [3]
-Overfull \hbox (40.28474pt too wide) in paragraph at lines 214--215
+Overfull \hbox (40.28474pt too wide) in paragraph at lines 285--286
  [][] 
  []
 
-[4]
-Overfull \hbox (40.28474pt too wide) in paragraph at lines 270--271
- [][] 
+<kadai1_throughput.pdf, id=29, 361.35pt x 216.81pt>
+File: kadai1_throughput.pdf Graphic file (type pdf)
+<use kadai1_throughput.pdf>
+Package luatex.def Info: kadai1_throughput.pdf  used on input line 298.
+(luatex.def)             Requested size: 352.00142pt x 211.20197pt.
+<kadai1_droprate.pdf, id=30, 361.35pt x 216.81pt>
+File: kadai1_droprate.pdf Graphic file (type pdf)
+<use kadai1_droprate.pdf>
+Package luatex.def Info: kadai1_droprate.pdf  used on input line 305.
+(luatex.def)             Requested size: 352.00142pt x 211.20197pt.
+[4<./kadai1_throughput.pdf>] [5<./kadai1_droprate.pdf>]
+<kadai2_droprate.pdf, id=49, 361.35pt x 216.81pt>
+File: kadai2_droprate.pdf Graphic file (type pdf)
+<use kadai2_droprate.pdf>
+Package luatex.def Info: kadai2_droprate.pdf  used on input line 350.
+(luatex.def)             Requested size: 352.00142pt x 211.20197pt.
+ [6<./kadai2_droprate.pdf>]
+<kadai2_nonlinear.pdf, id=66, 361.35pt x 216.81pt>
+File: kadai2_nonlinear.pdf Graphic file (type pdf)
+<use kadai2_nonlinear.pdf>
+Package luatex.def Info: kadai2_nonlinear.pdf  used on input line 367.
+(luatex.def)             Requested size: 352.00142pt x 211.20197pt.
+<kadai3_tahoe.pdf, id=67, 361.35pt x 216.81pt>
+File: kadai3_tahoe.pdf Graphic file (type pdf)
+<use kadai3_tahoe.pdf>
+Package luatex.def Info: kadai3_tahoe.pdf  used on input line 378.
+(luatex.def)             Requested size: 352.00142pt x 211.20197pt.
+ [7<./kadai2_nonlinear.pdf><./kadai3_tahoe.pdf>]
+<kadai4_reno.pdf, id=90, 361.35pt x 216.81pt>
+File: kadai4_reno.pdf Graphic file (type pdf)
+<use kadai4_reno.pdf>
+Package luatex.def Info: kadai4_reno.pdf  used on input line 397.
+(luatex.def)             Requested size: 352.00142pt x 211.20197pt.
+
+Overfull \hbox (30.6936pt too wide) in paragraph at lines 410--413
+[]$\OML/lmm/m/it/10 L \OT1/lmr/m/n/10 = \OMS/lmsy/m/n/10 f\OT1/lmr/m/n/10 76\OM
+L/lmm/m/it/10 ; \OT1/lmr/m/n/10 78\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 80\OML/lmm
+/m/it/10 ; \OT1/lmr/m/n/10 82\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 84\OML/lmm/m/it
+/10 ; \OT1/lmr/m/n/10 86\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 88\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 90\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 92\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 94\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 96\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 98\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 100\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 102\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 104\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 106\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 108\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 110\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 112\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 114\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 116\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 118\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 120\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 122\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 124\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 126\OML/lmm/m/it/10 ; [] 
  []
 
-[5] (./1280391_final.aux))
+[8<./kadai4_reno.pdf>] [9]
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2023/02/27 1.9 listings language file
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2023/02/27 1.9 listings language file
+)
+Removing  `ltj.process_input_buffer' from `process_input_buffer'.
+Inserting `ltj.listings_unicode' in `process_input_buffer'.
+Inserting `ltj.process_input_buffer' in `process_input_buffer'. (./kadai1-1.sh)
+Removing  `ltj.listings_unicode' from `process_input_buffer'.
+Removing  `ltj.process_input_buffer' from `process_input_buffer'.
+Inserting `ltj.listings_unicode' in `process_input_buffer'.
+Inserting `ltj.process_input_buffer' in `process_input_buffer'. (./kadai2-1.sh 
+[10])
+Removing  `ltj.listings_unicode' from `process_input_buffer'.
+Removing  `ltj.process_input_buffer' from `process_input_buffer'.
+Inserting `ltj.listings_unicode' in `process_input_buffer'.
+Inserting `ltj.process_input_buffer' in `process_input_buffer'. (./kadai2-2.sh)
+Removing  `ltj.listings_unicode' from `process_input_buffer'.
+Removing  `ltj.process_input_buffer' from `process_input_buffer'.
+Inserting `ltj.listings_unicode' in `process_input_buffer'.
+Inserting `ltj.process_input_buffer' in `process_input_buffer'. (./kadai2-3.sh 
+[11])
+Removing  `ltj.listings_unicode' from `process_input_buffer'.
+Removing  `ltj.process_input_buffer' from `process_input_buffer'.
+Inserting `ltj.listings_unicode' in `process_input_buffer'.
+Inserting `ltj.process_input_buffer' in `process_input_buffer'. (./kadai3-2.sh)
+Removing  `ltj.listings_unicode' from `process_input_buffer'.
+Removing  `ltj.process_input_buffer' from `process_input_buffer'.
+Inserting `ltj.listings_unicode' in `process_input_buffer'.
+Inserting `ltj.process_input_buffer' in `process_input_buffer'.
+(./kadai4-2.sh [12])
+Removing  `ltj.listings_unicode' from `process_input_buffer'.
+Removing  `ltj.process_input_buffer' from `process_input_buffer'.
+Inserting `ltj.listings_unicode' in `process_input_buffer'.
+Inserting `ltj.process_input_buffer' in `process_input_buffer'. (./kadai4-3.sh)
+Removing  `ltj.listings_unicode' from `process_input_buffer'. [13] (./1280391_f
+inal.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+)
 
 Here is how much of LuaTeX's memory you used:
- 19979 strings out of 478285
- 125244,1977958 words of node,token memory allocated
+ 20430 strings out of 478285
+ 746604,1977958 words of node,token memory allocated
  1154 words of node memory still in use:
    12 hlist, 2 vlist, 6 rule, 2 glue, 4 kern, 2 glyph, 238 attribute, 50 glue_sp
 ec, 34 attribute_list, 2 write, 15 user_defined nodes
-   avail lists: 1:9,2:23180,3:597,4:374,5:157,6:24,7:2207,8:20,9:1055,10:39
- 39323 multiletter control sequences out of 65536+600000
- 75 fonts using 57701271 bytes
- 110i,10n,102p,1738b,785s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texlive/
-texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texlive/texmf-dist/fonts
-/enc/dvips/lm/lm-mathit.enc}</usr/share/texlive/texmf-dist/fonts/opentype/public
-/lm/lmroman9-regular.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/lm
-/lmmono10-regular.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lm
-roman10-regular.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/haranoa
-ji/HaranoAjiGothic-Medium.otf></usr/share/texlive/texmf-dist/fonts/opentype/publ
-ic/lm/lmsans10-bold.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/lm/
-lmroman12-regular.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lm
-roman17-regular.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/haranoa
-ji/HaranoAjiMincho-Regular.otf></usr/share/texlive/texmf-dist/fonts/type1/public
-/lm/lmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/lm/lmsy10.pfb>
-Output written on 1280391_final.pdf (5 pages, 136032 bytes).
+   avail lists: 1:41,2:99069,3:1166,4:17096,5:12386,6:80,7:9382,8:131,9:23174,10
+:45,11:764
+ 39669 multiletter control sequences out of 65536+600000
+ 79 fonts using 61868887 bytes
+ 110i,10n,108p,1738b,1015s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}</usr/share/texlive/
+texmf-dist/fonts/opentype/public/lm/lmmonolt10-bold.otf></usr/share/texlive/texm
+f-dist/fonts/opentype/public/lm/lmroman9-regular.otf>{/usr/share/texlive/texmf-d
+ist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dv
+ips/lm/lm-mathit.enc}</usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmm
+ono10-regular.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroma
+n10-regular.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/haranoaji/H
+aranoAjiGothic-Medium.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/l
+m/lmsans10-bold.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmro
+man12-regular.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroma
+n17-regular.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/haranoaji/H
+aranoAjiMincho-Regular.otf></usr/share/texlive/texmf-dist/fonts/type1/public/lm/
+lmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/lm/lmr7.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/lm/lmsy10.pfb>
+Output written on 1280391_final.pdf (13 pages, 326755 bytes).
 
-PDF statistics: 102 PDF objects out of 1000 (max. 8388607)
- 65 compressed objects within 1 object stream
+PDF statistics: 192 PDF objects out of 1000 (max. 8388607)
+ 121 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 131072)
  16 words of extra memory for PDF output out of 10000 (max. 100000000)
 

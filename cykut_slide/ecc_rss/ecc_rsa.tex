@@ -1,0 +1,117 @@
+\documentclass[11pt, aspectratio=169]{beamer}
+
+% LuaLaTeXで日本語を使うための必須パッケージ
+\usepackage{luatexja}
+
+% 便利な追加パッケージ
+\usepackage{booktabs}   % 表の罫線
+\usepackage{tikz}       % 図形描画
+\usepackage{listings}   % ソースコード挿入
+\lstset{
+  basicstyle=\ttfamily\scriptsize,
+  frame=single,
+  breaklines=true,
+  numbers=left,
+  numberstyle=\tiny
+}
+
+% テーマとカラーテーマの設定
+\usetheme{Madrid}
+\usecolortheme{orchid}
+
+% ==========================================
+% 【改良】セクション・サブセクションの可視化設定
+% ==========================================
+
+% 1. セクション開始時の自動表紙（大きな扉絵）
+\AtBeginSection[]{
+  \begin{frame}
+    \vfill
+    \centering
+    \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+      \usebeamerfont{title}\insertsectionhead\par%
+    \end{beamercolorbox}
+    \vfill
+  \end{frame}
+}
+
+% 2. サブセクション開始時に「現在のセクション内の目次」を自動挿入
+% 今いるサブセクション以外を半透明（shaded）にすることで、現在地が強調されます
+\AtBeginSubsection[]{
+  \begin{frame}{\insertsectionhead}
+    \tableofcontents[currentsection, currentsubsection, subsectionstyle=show/shaded/hide]
+  \end{frame}
+}
+
+% タイトル情報
+\title{RSA暗号と楕円曲線暗号}
+\subtitle{巨大素数の危険性と楕円曲線暗号}
+\author{学籍番号(Student ID): 1280391 \\ 氏名(Name): 細川夏風(Hosokawa Natsuka)}
+\institute{高知工科大学(Kochi Univ of Tech)}
+\date{\today}
+
+\begin{document}
+
+% タイトルスライド
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% 全体目次スライド
+\begin{frame}{目次}
+    \tableofcontents
+\end{frame}
+
+% ==========================================
+% ここから本文
+% ==========================================
+
+\section{RSA暗号}
+\subsection{RSA暗号の仕組み}
+
+\begin{frame}{RSA暗号の仕組み(1)}
+  % ここに内容を記述
+  \texttt{RSA}暗号は公開鍵暗号方式という暗号と復号に異なる鍵を用いる方法をとる暗号化方式である．仕組みは以下のようになる．
+
+  \vspace{1em}
+
+  まず，$2$つの素数$p, q$をとる．ただしこのとき，$n = pq$は暗号化したい数字の最大値より大きなものとする．例えば$1Byte$を暗号化するとき，$n > 255$となるような$n$をとるということだ．
+\end{frame}
+
+\begin{frame}{RSA暗号の仕組み(2)}
+  任意の自然数$r$をとり，$r(p-1)(q-1) + 1 = de$となるような整数$d,e$を求める．ただし，$d, e > 1$とする．
+
+  \vspace{1em}
+
+  公開鍵$(n, e)$を全世界に公開し，送信者はこれを用いて暗号化を行う．受信者は秘密鍵$d$を用いてメッセージを復号する．
+
+  \begin{block}{暗号化}
+    平文$m$の$e$乗，$m^e$を$n$で割った余りを$c$とし，$c$を暗号文とする．
+  \end{block}
+
+  \begin{block}{復号化}
+    暗号文$c$の$d$乗，$c^d$を$n$で割った余りを求める．そうすると$m$に戻る．
+  \end{block}
+
+\end{frame}
+
+\subsection{巨大素数の危険性}
+
+\begin{frame}{巨大素数の危険性}
+  % ここに内容を記述
+  \begin{alertblock}{巨大素数 $\neq$ 安全}
+    実は，この$p,q$に巨大素数を用いれば安全というのは必ずしも成り立つわけではない．
+  \end{alertblock}
+
+  \vspace{1em}
+
+  安全でない場合がいくつかあるがその中の$2$つの場合を紹介．
+  \begin{enumerate}
+    \item 素数同士の値が近すぎる場合
+    \item 秘密鍵の値が小さすぎる場合
+  \end{enumerate}
+\end{frame}
+
+\section{楕円曲線暗号}
+
+\end{document}

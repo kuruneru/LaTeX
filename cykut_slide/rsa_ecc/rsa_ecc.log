@@ -1,7 +1,7 @@
-This is LuaHBTeX, Version 1.24.0 (TeX Live 2026)  (format=lualatex 2026.5.27)  11 JUN 2026 08:43
+This is LuaHBTeX, Version 1.24.0 (TeX Live 2026)  (format=lualatex 2026.5.27)  11 JUN 2026 11:01
  restricted system commands enabled.
-**ecc_rsa.tex
-(./ecc_rsa.tex
+**rsa_ecc.tex
+(./rsa_ecc.tex
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-03-20>
 Lua module: luaotfload 2024-12-03 v3.29 Lua based OpenType font support
@@ -1484,8 +1484,8 @@ File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\\' on input line 49.
 
-(./ecc_rsa.aux)
-\openout1 = ecc_rsa.aux
+(./rsa_ecc.aux)
+\openout1 = rsa_ecc.aux
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 53.
 LaTeX Font Info:    ... okay on input line 53.
@@ -1574,10 +1574,10 @@ e
 ))
 Package hyperref Info: Link coloring OFF on input line 53.
 
-(./ecc_rsa.out) (./ecc_rsa.out)
+(./rsa_ecc.out) (./rsa_ecc.out)
 \@outlinefile=\write6
 
-\openout6 = ecc_rsa.out
+\openout6 = rsa_ecc.out
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 53.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
@@ -1646,7 +1646,7 @@ ry-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 )
 \c@lstlisting=\count396
- (./ecc_rsa.nav)(load cache: extra_lmsans8-regular.luc)
+ (./rsa_ecc.nav)(load cache: extra_lmsans8-regular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
 (Font)              scaled to size 5.77332pt on input line 53.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
@@ -1686,7 +1686,7 @@ Overfull \hbox (159.8355pt too wide) in paragraph at lines 63--63
  [][]  \TU/lmss/m/n/6 ([])  
  []
 
-(./ecc_rsa.toc)
+(./rsa_ecc.toc)
 Overfull \hbox (159.8355pt too wide) has occurred while \output is active
  [][]  \TU/lmss/m/n/6 ([])  
  []
@@ -1710,7 +1710,7 @@ Overfull \hbox (159.8355pt too wide) in paragraph at lines 70--70
  [][]  \TU/lmss/m/n/6 ([])  
  []
 
-(./ecc_rsa.toc)
+(./rsa_ecc.toc)
 Overfull \hbox (159.8355pt too wide) has occurred while \output is active
  [][]  \TU/lmss/m/n/6 ([])  
  []
@@ -1718,30 +1718,30 @@ Overfull \hbox (159.8355pt too wide) has occurred while \output is active
 [4
 
 ]
-Overfull \hbox (159.8355pt too wide) in paragraph at lines 79--79
+Overfull \hbox (159.8355pt too wide) in paragraph at lines 81--81
  [][]  \TU/lmss/m/n/6 ([])  
  []
 
 (load cache: extra_lmmono10-regular.luc)
-LaTeX Font Info:    Trying to load font information for U+msa on input line 79.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 81.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 79.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 81.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <10.95> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 79.
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 81.
 (load cache: extra_lmsans10-oblique.luc)
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <8> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 79.
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 81.
 (load cache: extra_lmsans8-oblique.luc)
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <6> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 79.
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 81.
 
 Overfull \hbox (159.8355pt too wide) has occurred while \output is active
  [][]  \TU/lmss/m/n/6 ([])  
@@ -1750,14 +1750,14 @@ Overfull \hbox (159.8355pt too wide) has occurred while \output is active
 [5
 
 ]
-Overfull \hbox (159.8355pt too wide) in paragraph at lines 96--96
+Overfull \hbox (159.8355pt too wide) in paragraph at lines 98--98
  [][]  \TU/lmss/m/n/6 ([])  
  []
 
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 11.54663pt on input line 96.
+(Font)              scaled to size 11.54663pt on input line 98.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 11.54663pt on input line 96.
+(Font)              scaled to size 11.54663pt on input line 98.
 
 Overfull \hbox (159.8355pt too wide) has occurred while \output is active
  [][]  \TU/lmss/m/n/6 ([])  
@@ -1766,11 +1766,11 @@ Overfull \hbox (159.8355pt too wide) has occurred while \output is active
 [6
 
 ]
-Overfull \hbox (159.8355pt too wide) in paragraph at lines 98--98
+Overfull \hbox (159.8355pt too wide) in paragraph at lines 100--100
  [][]  \TU/lmss/m/n/6 ([])  
  []
 
-(./ecc_rsa.toc)
+(./rsa_ecc.toc)
 Overfull \hbox (159.8355pt too wide) has occurred while \output is active
  [][]  \TU/lmss/m/n/6 ([])  
  []
@@ -1778,12 +1778,12 @@ Overfull \hbox (159.8355pt too wide) has occurred while \output is active
 [7
 
 ]
-Overfull \hbox (159.8355pt too wide) in paragraph at lines 113--113
+Overfull \hbox (159.8355pt too wide) in paragraph at lines 115--115
  [][]  \TU/lmss/m/n/6 ([])  
  []
 
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <12> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 113.
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 115.
 (load cache: extra_lmsans12-oblique.luc)
 Overfull \hbox (159.8355pt too wide) has occurred while \output is active
  [][]  \TU/lmss/m/n/6 ([])  
@@ -1792,7 +1792,28 @@ Overfull \hbox (159.8355pt too wide) has occurred while \output is active
 [8
 
 ]
-Overfull \hbox (159.8355pt too wide) in paragraph at lines 115--115
+Overfull \hbox (159.8355pt too wide) in paragraph at lines 132--132
+ [][]  \TU/lmss/m/n/6 ([])  
+ []
+
+(load cache: extra_lmsans10-bold.luc)
+LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <10.95> not available
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 132.
+LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
+(Font)              scaled to size 10.53629pt on input line 132.
+LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <10.95> not available
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 132.
+LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
+(Font)              scaled to size 10.53629pt on input line 132.
+(load cache: extra_haranoajigothic-medium.luc)
+Overfull \hbox (159.8355pt too wide) has occurred while \output is active
+ [][]  \TU/lmss/m/n/6 ([])  
+ []
+
+[9
+
+]
+Overfull \hbox (159.8355pt too wide) in paragraph at lines 134--134
  [][]  \TU/lmss/m/n/6 ([])  
  []
 
@@ -1801,55 +1822,56 @@ Overfull \hbox (159.8355pt too wide) has occurred while \output is active
  [][]  \TU/lmss/m/n/6 ([])  
  []
 
-[9
+[10
 
 ]
 \tf@nav=\write7
 
-\openout7 = ecc_rsa.nav
+\openout7 = rsa_ecc.nav
 \tf@toc=\write8
 
-\openout8 = ecc_rsa.toc
+\openout8 = rsa_ecc.toc
 \tf@snm=\write9
 
-\openout9 = ecc_rsa.snm
- (./ecc_rsa.aux)
+\openout9 = rsa_ecc.snm
+ (./rsa_ecc.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-03-20>
  ***********
-Package rerunfilecheck Info: File `ecc_rsa.out' has not changed.
+Package rerunfilecheck Info: File `rsa_ecc.out' has not changed.
 (rerunfilecheck)             Checksum: 21118EBF09C1DA82369EF670A54A9BCA;406.
 )
 
 Here is how much of LuaTeX's memory you used:
- 28737 strings out of 475900
+ 28773 strings out of 475900
  125244,953878 words of node,token memory allocated
- 8681 words of node memory still in use:
-   59 hlist, 9 vlist, 16 rule, 1 local_par, 75 glue, 4 kern, 9 penalty, 7 glyph,
- 2862 attribute, 61 glue_spec, 316 attribute_list, 4 write, 67 user_defined, 75 
+ 8724 words of node memory still in use:
+   60 hlist, 9 vlist, 16 rule, 1 local_par, 75 glue, 4 kern, 9 penalty, 7 glyph,
+ 2875 attribute, 61 glue_spec, 318 attribute_list, 4 write, 68 user_defined, 75 
 pdf_literal, 1 pdf_start_link, 1 pdf_end_link, 1 pdf_action, 12 pdf_colorstack n
 odes
-   avail lists: 1:4,2:16970,3:606,4:760,5:191,6:64,7:2143,8:16,9:1010,10:42,11:1
+   avail lists: 1:4,2:16967,3:606,4:759,5:235,6:64,7:2157,8:19,9:1073,10:42,11:1
 4
- 50415 multiletter control sequences out of 65536+600000
- 59 fonts using 30396231 bytes
+ 50448 multiletter control sequences out of 65536+600000
+ 61 fonts using 34311767 bytes
  128i,15n,116p,2010b,824s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmsans8-oblique.otf></us
-r/share/texlive/texmf-dist/fonts/opentype/public/lm/lmsans10-oblique.otf></usr/s
-hare/texlive/texmf-dist/fonts/opentype/public/lm/lmmono10-regular.otf></usr/shar
-e/texlive/texmf-dist/fonts/opentype/public/lm/lmsans8-regular.otf></usr/share/te
-xlive/texmf-dist/fonts/opentype/public/lm/lmsans10-regular.otf></usr/share/texli
-ve/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></usr/
-share/texlive/texmf-dist/fonts/opentype/public/lm/lmsans12-regular.otf></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on ecc_rsa.pdf (9 pages, 110519 bytes).
+</usr/share/texlive/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-M
+edium.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmsans8-obliqu
+e.otf></usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmsans10-oblique.o
+tf></usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmmono10-regular.otf>
+</usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmsans8-regular.otf></us
+r/share/texlive/texmf-dist/fonts/opentype/public/lm/lmsans10-regular.otf></usr/s
+hare/texlive/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.
+otf></usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmsans12-regular.otf
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on rsa_ecc.pdf (10 pages, 124732 bytes).
 
-PDF statistics: 453 PDF objects out of 1000 (max. 8388607)
- 356 compressed objects within 4 object streams
- 23 named destinations out of 1000 (max. 1048576)
- 458 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 502 PDF objects out of 1000 (max. 8388607)
+ 394 compressed objects within 4 object streams
+ 26 named destinations out of 1000 (max. 1048576)
+ 518 words of extra memory for PDF output out of 10000 (max. 100000000)
 

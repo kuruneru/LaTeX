@@ -21,13 +21,15 @@
 \headcommand {\beamer@framepages {7}{7}}
 \headcommand {\slideentry {1}{2}{2}{8/8}{巨大素数の危険性}{0}}
 \headcommand {\beamer@framepages {8}{8}}
-\headcommand {\beamer@sectionpages {3}{8}}
-\headcommand {\beamer@subsectionpages {7}{8}}
-\headcommand {\sectionentry {2}{楕円曲線暗号}{9}{楕円曲線暗号}{0}}
-\headcommand {\slideentry {2}{0}{1}{9/9}{}{0}}
+\headcommand {\slideentry {1}{2}{3}{9/9}{巨大素数の危険性}{0}}
 \headcommand {\beamer@framepages {9}{9}}
-\headcommand {\beamer@partpages {1}{9}}
-\headcommand {\beamer@subsectionpages {9}{9}}
-\headcommand {\beamer@sectionpages {9}{9}}
-\headcommand {\beamer@documentpages {9}}
-\headcommand {\gdef \inserttotalframenumber {9}}
+\headcommand {\beamer@sectionpages {3}{9}}
+\headcommand {\beamer@subsectionpages {7}{9}}
+\headcommand {\sectionentry {2}{楕円曲線暗号}{10}{楕円曲線暗号}{0}}
+\headcommand {\slideentry {2}{0}{1}{10/10}{}{0}}
+\headcommand {\beamer@framepages {10}{10}}
+\headcommand {\beamer@partpages {1}{10}}
+\headcommand {\beamer@subsectionpages {10}{10}}
+\headcommand {\beamer@sectionpages {10}{10}}
+\headcommand {\beamer@documentpages {10}}
+\headcommand {\gdef \inserttotalframenumber {10}}

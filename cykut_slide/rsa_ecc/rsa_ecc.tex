@@ -75,6 +75,8 @@
 
   \vspace{1em}
 
+  \label{mecanism}
+
   まず，$2$つの素数$p, q$をとる．ただしこのとき，$n = pq$は暗号化したい数字の最大値より大きなものとする．例えば$1Byte$を暗号化するとき，$n > 255$となるような$n$をとるということだ．
 \end{frame}
 
@@ -110,6 +112,23 @@
     \item 素数同士の値が近すぎる場合
     \item 秘密鍵の値が小さすぎる場合
   \end{enumerate}
+\end{frame}
+
+\begin{frame}{素数同士の値が近すぎる場合}
+  \begin{itemize}
+    \item \textbf{フェルマー法}
+  
+    \texttt{RSA}暗号の公開鍵の一部である$n$は$p$と$q$の積で構成されていることは，節\ref{mecanism}で示した．このとき，$p$と$q$の平均値を$x$，その差分の$\frac{1}{2}$を$y$とおく．
+    \begin{align*}
+      x = \frac{p + q}{2} , y = \frac{p - q}{2}
+    \end{align*}
+    この変形を$N = (x - y)(x + y) = x^2 - y^2$と表せる．これを$y^2$について解くと，$y^2 = x^2 - N$とな
+    る．
+
+    \begin{block}{引き起こる問題}
+      もし，$p$と$q$が非常に近い値であった場合，$p - q$は非常に小さな値となるため$y$も極端に小さな値となる．
+    \end{block}
+  \end{itemize}
 \end{frame}
 
 \section{楕円曲線暗号}

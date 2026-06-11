@@ -1,4 +1,4 @@
 \beamer@sectionintoc {1}{RSA暗号}{3}{0}{1}
 \beamer@subsectionintoc {1}{1}{RSA暗号の仕組み}{4}{0}{1}
 \beamer@subsectionintoc {1}{2}{巨大素数の危険性}{7}{0}{1}
-\beamer@sectionintoc {2}{楕円曲線暗号}{10}{0}{2}
+\beamer@sectionintoc {2}{楕円曲線暗号}{14}{0}{2}

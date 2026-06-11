@@ -122,7 +122,7 @@
     \begin{align*}
       x = \frac{p + q}{2} , y = \frac{p - q}{2}
     \end{align*}
-    この変形を$N = (x - y)(x + y) = x^2 - y^2$と表せる．これを$y^2$について解くと，$y^2 = x^2 - N$とな
+    この変形を$n = (x - y)(x + y) = x^2 - y^2$と表せる．これを$y^2$について解くと，$y^2 = x^2 - n$とな
     る．
 
     \begin{block}{引き起こる問題}
@@ -130,6 +130,50 @@
     \end{block}
   \end{itemize}
 \end{frame}
+
+\begin{frame}{攻撃方法}
+  攻撃者は秘密鍵である$p$も$q$も分からないが，公開されている$n$以下の手順で値を割り出す．
+  \begin{enumerate}
+    \item $x$の初期値を$x = \lceil \sqrt{n} \rceil$とする．
+    \item $x^2 - n$を計算し，その数がある整数の平方($y^2$)となるかを確かめる．
+    \item もしならないのであれば，$x$に$1$を足して再度確かめる．
+  \end{enumerate}
+  \begin{alertblock}{計算にかかる時間}
+    これは，$p$と$q$が近い場合，通常の計算機でも現実的な時間で$y$を割り出すことができる．
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{秘密鍵が小さすぎる場合(1)}
+  復号処理の負荷軽減のために，意図的に$d$の値を小さなものに選択する事がある．しかし，これは問題である．
+
+  \begin{block}{公開鍵$e$と秘密鍵$d$の関係}
+    \begin{align*}
+      \lambda(n) = lcm(p-1)(q-1) \ lcm = \text{最小公倍数} \\
+      e \cdot d \equiv 1 (mod \lambda(n))
+    \end{align*}
+  \end{block}
+\end{frame}
+
+\begin{frame}{秘密鍵が小さすぎる場合(2)}
+  前述の関係式について，ある整数$k$を用いて
+  \begin{align*}
+    e \cdot d - k \cdot \lambda(n) = 1
+  \end{align*}
+  と表せる．この式について，$d \cdot \lambda(n)$で割ると，以下の近似式が得られる．
+  \begin{align*}
+    \frac{e}{\lambda(n)} - \frac{k}{d} = \frac{1}{d \cdot \lambda(n)}
+  \end{align*}
+  ここで，$n$は非常に大きく$\lambda(n) \approx n$であるため，$\frac{e}{n} \approx \frac{k}{d}$とみなすことができる．
+\end{frame}
+
+\begin{frame}{秘密鍵が小さすぎる場合(3)}
+  この時，もし秘密鍵$d$が$d < \frac{1}{3}n^{\frac{1}{4}}$を満たすならば$\frac{e}{n}$を連分数展開すなわち，
+  \begin{align*}
+    \frac{e}{n} = q_0 + \cfrac{1}{q_1 + \cfrac{1}{q_2 + \cfrac{1}{q_3 + \dots}}}
+  \end{align*}
+  とすることで，未知の分数$\frac{k}{d}$(秘密鍵$d$)を多項式時間で特定できると証明した．
+\end{frame}
+    
 
 \section{楕円曲線暗号}
 

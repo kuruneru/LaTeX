@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2026.4.8)  11 JUN 2026 12:33
+This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2026.4.8)  12 JUN 2026 09:52
  restricted system commands enabled.
 **rsa_ecc.tex
 (./rsa_ecc.tex
@@ -1175,44 +1175,44 @@ File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerouterthemeinfolines.sty))
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\\' on input line 49.
+(hyperref)                removing `\\' on input line 52.
 
 (./rsa_ecc.aux)
 \openout1 = rsa_ecc.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 53.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 56.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 5
-3.
+6.
  (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for JY3/mc/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for JT3/mc/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for JY3/mc/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for JT3/mc/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 10.53629pt on input line 53.
+(Font)              scaled to size 10.53629pt on input line 56.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 10.53629pt on input line 53.
+(Font)              scaled to size 10.53629pt on input line 56.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: luatex
@@ -1270,54 +1270,54 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 53.
+Package hyperref Info: Link coloring OFF on input line 56.
 
 (./rsa_ecc.out) (./rsa_ecc.out)
 \@outlinefile=\write6
 
 \openout6 = rsa_ecc.out
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 53.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 56.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 53.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 56.
 \symnumbers=\mathgroup7
 \sympureletters=\mathgroup8
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmr/m/n on input line 53.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 53.
+(Font)                  OT1/cmss/m/n --> TU/lmr/m/n on input line 56.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 56.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/lmss/b/n on input line 53.
+(Font)                  OT1/cmr/bx/n --> TU/lmss/b/n on input line 56.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/lmss/b/n on input line 53.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 53.
+(Font)                  OT1/cmr/bx/n --> TU/lmss/b/n on input line 56.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 56.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 53.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 56.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/m/n on input line 53.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 53.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/m/n on input line 56.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 56.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> TU/lmss/m/it on input line 53.
+(Font)                  OT1/cmr/m/it --> TU/lmss/m/it on input line 56.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> TU/lmss/m/it on input line 53.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 53.
+(Font)                  OT1/cmr/bx/it --> TU/lmss/m/it on input line 56.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 56.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 53.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 56.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 53.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 56.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  TU/lmss/m/n --> TU/lmss/b/n on input line 53.
+(Font)                  TU/lmss/m/n --> TU/lmss/b/n on input line 56.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  TU/lmss/m/it --> TU/lmss/b/it on input line 53.
+(Font)                  TU/lmss/m/it --> TU/lmss/b/it on input line 56.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/b/n --> TU/lmr/b/n on input line 53.
+(Font)                  OT1/cmss/b/n --> TU/lmr/b/n on input line 56.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  TU/lmss/b/n --> TU/lmss/b/n on input line 53.
+(Font)                  TU/lmss/b/n --> TU/lmss/b/n on input line 56.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  TU/lmss/m/n --> TU/lmss/b/n on input line 53.
+(Font)                  TU/lmss/m/n --> TU/lmss/b/n on input line 56.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  TU/lmss/m/it --> TU/lmss/b/it on input line 53.
+(Font)                  TU/lmss/m/it --> TU/lmss/b/it on input line 56.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  TU/lmtt/m/n --> TU/lmtt/b/n on input line 53.
+(Font)                  TU/lmtt/m/n --> TU/lmtt/b/n on input line 56.
 
 (/usr/share/texlive/texmf-dist/tex/latex/translator/translator-basic-dictionary
 -English.dict
@@ -1346,27 +1346,27 @@ Dictionary: translator-theorem-dictionary, Language: English
 \c@lstlisting=\count372
  (./rsa_ecc.nav)(load cache: extra_lmsans8-regular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 5.77332pt on input line 53.
+(Font)              scaled to size 5.77332pt on input line 56.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 5.77332pt on input line 53.
+(Font)              scaled to size 5.77332pt on input line 56.
 
-Overfull \hbox (159.8355pt too wide) in paragraph at lines 53--53
+Overfull \hbox (159.8355pt too wide) in paragraph at lines 56--56
  [][]  \TU/lmss/m/n/6 ([])  
  []
 
 (load cache: extra_lmsans12-regular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 13.85594pt on input line 58.
+(Font)              scaled to size 13.85594pt on input line 61.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 13.85594pt on input line 58.
+(Font)              scaled to size 13.85594pt on input line 61.
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 7.69775pt on input line 58.
+(Font)              scaled to size 7.69775pt on input line 61.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 7.69775pt on input line 58.
+(Font)              scaled to size 7.69775pt on input line 61.
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 3.84888pt on input line 58.
+(Font)              scaled to size 3.84888pt on input line 61.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 3.84888pt on input line 58.
+(Font)              scaled to size 3.84888pt on input line 61.
 
 Overfull \hbox (159.8355pt too wide) has occurred while \output is active
  [][]  \TU/lmss/m/n/6 ([])  
@@ -1396,25 +1396,25 @@ Overfull \hbox (159.8355pt too wide) has occurred while \output is active
 [4
 
 ](load cache: extra_lmmono10-regular.luc)
-LaTeX Font Info:    Trying to load font information for U+msa on input line 81.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 84.
 
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 81.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 84.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <10.95> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 81.
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 84.
 (load cache: extra_lmsans10-oblique.luc)
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <8> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 81.
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 84.
 (load cache: extra_lmsans8-oblique.luc)
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <6> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 81.
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 84.
 
 Overfull \hbox (159.8355pt too wide) has occurred while \output is active
  [][]  \TU/lmss/m/n/6 ([])  
@@ -1424,9 +1424,9 @@ Overfull \hbox (159.8355pt too wide) has occurred while \output is active
 
 ]
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 11.54663pt on input line 98.
+(Font)              scaled to size 11.54663pt on input line 101.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 11.54663pt on input line 98.
+(Font)              scaled to size 11.54663pt on input line 101.
 
 Overfull \hbox (159.8355pt too wide) has occurred while \output is active
  [][]  \TU/lmss/m/n/6 ([])  
@@ -1443,7 +1443,7 @@ Overfull \hbox (159.8355pt too wide) has occurred while \output is active
 
 ]
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <12> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 115.
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 118.
 (load cache: extra_lmsans12-oblique.luc)
 Overfull \hbox (159.8355pt too wide) has occurred while \output is active
  [][]  \TU/lmss/m/n/6 ([])  
@@ -1453,13 +1453,13 @@ Overfull \hbox (159.8355pt too wide) has occurred while \output is active
 
 ](load cache: extra_lmsans10-bold.luc)
 LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <10.95> not available
-(Font)              Font shape `JT3/gt/m/n' tried instead on input line 132.
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 135.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 10.53629pt on input line 132.
+(Font)              scaled to size 10.53629pt on input line 135.
 LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <10.95> not available
-(Font)              Font shape `JY3/gt/m/n' tried instead on input line 132.
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 135.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 10.53629pt on input line 132.
+(Font)              scaled to size 10.53629pt on input line 135.
 (load cache: extra_haranoajigothic-medium.luc)
 Overfull \hbox (159.8355pt too wide) has occurred while \output is active
  [][]  \TU/lmss/m/n/6 ([])  
@@ -1503,6 +1503,43 @@ Overfull \hbox (159.8355pt too wide) has occurred while \output is active
 [14
 
 ]
+<elliptic_curve.pdf, id=564, 361.35pt x 289.08pt>
+File: elliptic_curve.pdf Graphic file (type pdf)
+<use elliptic_curve.pdf>
+Package luatex.def Info: elliptic_curve.pdf  used on input line 191.
+(luatex.def)             Requested size: 217.62204pt x 174.09775pt.
+
+Overfull \vbox (28.22748pt too high) detected at line 191
+ []
+
+
+Overfull \hbox (159.8355pt too wide) has occurred while \output is active
+ [][]  \TU/lmss/m/n/6 ([])  
+ []
+
+[15
+
+<./elliptic_curve.pdf>]
+<ecc_addition.pdf, id=598, 361.35pt x 289.08pt>
+File: ecc_addition.pdf Graphic file (type pdf)
+<use ecc_addition.pdf>
+Package luatex.def Info: ecc_addition.pdf  used on input line 198.
+(luatex.def)             Requested size: 217.62204pt x 174.09775pt.
+
+Overfull \hbox (159.8355pt too wide) has occurred while \output is active
+ [][]  \TU/lmss/m/n/6 ([])  
+ []
+
+[16
+
+<./ecc_addition.pdf>]
+Overfull \hbox (159.8355pt too wide) has occurred while \output is active
+ [][]  \TU/lmss/m/n/6 ([])  
+ []
+
+[17
+
+]
 \tf@nav=\write7
 
 \openout7 = rsa_ecc.nav
@@ -1518,16 +1555,15 @@ Package rerunfilecheck Info: File `rsa_ecc.out' has not changed.
 )
 
 Here is how much of LuaTeX's memory you used:
- 29716 strings out of 478285
+ 29775 strings out of 478285
  125244,1977958 words of node,token memory allocated
- 8697 words of node memory still in use:
-   60 hlist, 9 vlist, 16 rule, 1 local_par, 75 glue, 4 kern, 9 penalty, 7 glyph,
- 2864 attribute, 61 glue_spec, 317 attribute_list, 4 write, 68 user_defined, 74 
-pdf_literal, 1 pdf_start_link, 1 pdf_end_link, 1 pdf_action, 12 pdf_colorstack n
-odes
-   avail lists: 1:13,2:19619,3:601,4:756,5:234,6:64,7:2155,8:36,9:1080,10:42,11:
-14
- 48379 multiletter control sequences out of 65536+600000
+ 20171 words of node memory still in use:
+   92 hlist, 12 vlist, 86 rule, 5 local_par, 9 math, 202 glue, 12 kern, 24 penal
+ty, 89 glyph, 6838 attribute, 61 glue_spec, 696 attribute_list, 4 write, 91 user
+_defined, 96 pdf_literal, 24 pdf_colorstack nodes
+   avail lists: 1:13,2:15266,3:565,4:721,5:226,6:61,7:1937,8:36,9:976,10:42,11:1
+4
+ 48424 multiletter control sequences out of 65536+600000
  63 fonts using 34573223 bytes
  128i,18n,115p,1724b,820s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmsans12-oblique.otf></u
@@ -1543,10 +1579,10 @@ usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texl
 ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on rsa_ecc.pdf (14 pages, 154936 bytes).
+Output written on rsa_ecc.pdf (17 pages, 333194 bytes).
 
-PDF statistics: 637 PDF objects out of 1000 (max. 8388607)
- 518 compressed objects within 6 object streams
- 34 named destinations out of 1000 (max. 131072)
- 638 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 745 PDF objects out of 1000 (max. 8388607)
+ 610 compressed objects within 7 object streams
+ 40 named destinations out of 1000 (max. 131072)
+ 698 words of extra memory for PDF output out of 10000 (max. 100000000)
 

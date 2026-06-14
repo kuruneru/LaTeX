@@ -1,0 +1,11 @@
+\beamer@sectionintoc {1}{はじめに / Intro}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{SAGINについて / About SAGIN}{4}{0}{1}
+\beamer@subsectionintoc {1}{2}{なぜSAGINが必要なのか / Why we need SAGIN}{6}{0}{1}
+\beamer@sectionintoc {2}{アーキテクチャ / Architecture}{7}{0}{2}
+\beamer@subsectionintoc {2}{1}{宇宙ネットワーク / Space Network}{9}{0}{2}
+\beamer@subsectionintoc {2}{2}{航空ネットワーク / Air Network}{13}{0}{2}
+\beamer@subsectionintoc {2}{3}{地上ネットワーク / Ground Network}{17}{0}{2}
+\beamer@sectionintoc {3}{課題/Issues}{19}{0}{3}
+\beamer@subsectionintoc {3}{1}{トポロジー課題 / Topology}{21}{0}{3}
+\beamer@subsectionintoc {3}{2}{資源管理 / Resource Management}{23}{0}{3}
+\beamer@subsectionintoc {3}{3}{セキュリティ/Security}{24}{0}{3}

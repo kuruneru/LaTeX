@@ -1,0 +1,4 @@
+https://zenn.dev/anko/articles/ctf-crypto-rsa
+https://zenn.dev/atusi/articles/aca8cd04c31a0a
+https://jfs.or.jp/jfs-cs/crypt-rsa01/
+https://kobayashi.hub.hit-u.ac.jp/topics/rsa.pdf

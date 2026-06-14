@@ -1,0 +1,141 @@
+\documentclass[11pt,a4paper]{ltjsarticle}
+
+% 数式用パッケージ
+\usepackage{amsmath, amssymb}
+% URLを綺麗に表示・リンク化するためのパッケージ（dvipdfmxオプションは削除）
+\usepackage{hyperref}
+\usepackage{url}
+
+% 定理環境などの定義
+\newtheorem{theorem}{定理}
+\newtheorem{proof}{証明}
+\renewcommand{\theproof}{} % 証明の番号を消す
+
+\begin{document}
+
+\title{RSA暗号および楕円曲線暗号の正当性に関する数学的証明}
+\author{細川 夏風}
+\date{\today}
+
+\maketitle
+
+\section{RSA暗号の復号の正当性証明}
+
+RSA暗号において、暗号化されたデータが復号処理によって必ず元の平文に戻ることの数学的証明を以下に示す。
+
+\begin{theorem}
+平文 $m$ ($0 \le m < n$) に対し、暗号文を $c \equiv m^e \pmod{n}$ としたとき、復号処理 $c^d \pmod{n}$ は元の平文 $m$ に一致する。すなわち、次式が成立する。
+\[ m^{ed} \equiv m \pmod{n} \]
+\end{theorem}
+
+\textbf{【前提条件】}
+\begin{itemize}
+  \item $p, q$ は相異なる素数とし、$n = pq$ とする。
+  \item 秘密鍵 $d$ と公開鍵 $e$ は、$ed \equiv 1 \pmod{\lambda(n)}$ を満たすように選ばれる。ここで $\lambda(n) = \mathrm{lcm}(p-1, q-1)$ である。
+  \item 合同式の定義より、ある整数 $k$ を用いて $ed = k \lambda(n) + 1$ と表すことができる。
+\end{itemize}
+
+\begin{proof}
+$n=pq$ を法とする合同式 $m^{ed} \equiv m \pmod{pq}$ を直接証明する代わりに、中国剰余定理 (Chinese Remainder Theorem) を利用する。$p$ と $q$ は異なる素数であり互いに素であるため、以下の2つの合同式が両方とも証明できれば、法 $pq$ においても合同であることが保証される。
+\begin{align}
+  m^{ed} &\equiv m \pmod{p} \\
+  m^{ed} &\equiv m \pmod{q}
+\end{align}
+
+以下、法 $p$ について証明を行う（法 $q$ についても文字を入れ替えるだけで全く同様の論証となる）。法 $p$ における平文 $m$ の状態は、以下の2つのケースに分けられる。
+
+\vspace{1em}
+\noindent\textbf{ケース1：$m$ が $p$ の倍数である場合 ($m \equiv 0 \pmod{p}$)} \\
+このとき、$m$ の任意の正整数の累乗も法 $p$ で $0$ となる。
+\[ m^{ed} \equiv 0^{ed} \equiv 0 \equiv m \pmod{p} \]
+したがって、このケースでは等式が成立する。
+
+\vspace{1em}
+\noindent\textbf{ケース2：$m$ が $p$ の倍数でない場合 ($m \not\equiv 0 \pmod{p}$)} \\
+$m$ と $p$ は互いに素となるため、フェルマーの小定理より以下が成り立つ。
+\[ m^{p-1} \equiv 1 \pmod{p} \]
+
+一方、$\lambda(n) = \mathrm{lcm}(p-1, q-1)$ は最小公倍数なので、$p-1$ の倍数である。すなわち、ある整数 $h$ を用いて $\lambda(n) = h(p-1)$ と書ける。これを鍵の条件式に代入する。
+\[ ed = k \cdot h(p-1) + 1 \]
+
+これを用いて $m^{ed} \pmod{p}$ を展開する。
+\begin{align*}
+  m^{ed} &\equiv m^{kh(p-1) + 1} \pmod{p} \\
+         &\equiv m \cdot (m^{p-1})^{kh} \pmod{p} \\
+         &\equiv m \cdot (1)^{kh} \pmod{p} \quad \text{(フェルマーの小定理より)} \\
+         &\equiv m \pmod{p}
+\end{align*}
+よって成立する。ケース1およびケース2より、法 $p, q$ の両方において成り立つため、中国剰余定理により $m^{ed} \equiv m \pmod{n}$ が示された。\hfill $\blacksquare$
+\end{proof}
+
+
+\section{楕円曲線暗号（ECDH鍵共有）の正当性証明}
+
+楕円曲線ディフィー・ヘルマン鍵共有プロトコル（ECDH）において、通信経路上に秘密鍵を流すことなく、両者が同一の共有座標に到達できることの証明を以下に示す。
+
+\begin{theorem}
+アリスの秘密鍵を $d_A$、ボブの秘密鍵を $d_B$、公開ベースポイントを $G$ としたとき、両者が別々に計算した共有座標 $S_A$ と $S_B$ は全く同一の点 $S$ となる。すなわち、$S_A = S_B$ が成り立つ。
+\end{theorem}
+
+\textbf{【前提条件】}
+\begin{itemize}
+  \item 楕円曲線上の点の集合は、無限遠点 $\mathcal{O}$ を単位元とするアーベル群（可換群）をなす。
+  \item 群の加法を $+$ としたとき、点 $P$ を $k$ 回足し合わせるスカラー倍算 $kP$ が定義される。
+  \item スカラー倍算は、結合法則 $a(bP) = (ab)P$ および、整数の積の交換法則 $(ab)P = (ba)P$ を満たす。
+\end{itemize}
+
+\begin{proof}
+アリスとボブは、それぞれ自身の秘密鍵を用いて公開鍵を計算し、通信経路で交換する。
+\begin{itemize}
+  \item アリスの公開鍵：$P_A = d_A G$
+  \item ボブの公開鍵：$P_B = d_B G$
+\end{itemize}
+
+公開鍵を受け取った後、各自が自身の秘密鍵を掛けて共有座標を計算する。
+\begin{itemize}
+  \item アリスの計算：$S_A = d_A P_B$
+  \item ボブの計算：$S_B = d_B P_A$
+\end{itemize}
+
+それぞれに公開鍵の定義式を代入する。
+\begin{align*}
+  S_A &= d_A (d_B G) \\
+  S_B &= d_B (d_A G)
+\end{align*}
+
+ここで、アーベル群におけるスカラー倍算の結合法則を適用する。
+\begin{align*}
+  S_A &= (d_A \cdot d_B) G \\
+  S_B &= (d_B \cdot d_A) G
+\end{align*}
+
+整数の乗算においては交換法則 $d_A \cdot d_B = d_B \cdot d_A$ が成り立つため、以下が導かれる。
+\[ (d_A \cdot d_B) G = (d_B \cdot d_A) G \]
+
+したがって、$S_A = S_B$ となる。以上より、アリスとボブは通信経路上に秘密情報を一切露出させることなく、数学的必然として全く同一の座標 $S$ を共有できることが証明された。\hfill $\blacksquare$
+\end{proof}
+
+
+\begin{thebibliography}{99}
+  \bibitem{miyaji2019}
+  大阪大学 大学院 宮地研究室. \\
+  \newblock ``2.公開鍵暗号'' (情報セキュリティ基礎論 講義資料). \\
+  \newblock \url{https://cy2sec.comm.eng.osaka-u.ac.jp/miyaji-lab/files/LectureNote/security-kisoron/security-kisoron2_20190708.pdf}
+
+  \bibitem{kyushu_ecc}
+  九州大学 数理学研究院. \\
+  \newblock ``暗号理論と楕円曲線'' (第2章 楕円曲線上の群構造). \\
+  \newblock \url{http://www2.math.kyushu-u.ac.jp/~tsuji/kougi/angou/ell.pdf}
+
+  \bibitem{wiener_attack}
+  E. Verheul, H. van Tilborg. \\
+  \newblock ``Cryptanalysis of 'less short' RSA Secret Exponents'' (Radboud University). \\
+  \newblock \url{https://www.cs.ru.nl/E.Verheul/papers/AiE1997/AiE1997.pdf}
+
+  \bibitem{gnuplot_manual}
+  新潟工科大学 竹野研究室. \\
+  \newblock ``gnuplot 日本語マニュアル''. \\
+  \newblock \url{http://takeno.iee.niit.ac.jp/~foo/gp-jman/}
+\end{thebibliography}
+
+\end{document}

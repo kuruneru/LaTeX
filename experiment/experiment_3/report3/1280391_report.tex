@@ -1,0 +1,455 @@
+\documentclass{jlreq}
+
+\usepackage{amsmath, amssymb}
+\usepackage{enumerate}
+\usepackage{tikz}
+\usetikzlibrary{positioning, shapes.geometric}
+\usepackage{listings, xcolor}
+
+\lstset{
+  basicstyle = {\ttfamily}, % 基本的なフォントスタイル 
+  frame = {tbrl}, % 枠線の枠線．t: top, b: bottom, r: right, l: left
+  breaklines = true, % 長い行の改行
+  numbers = left, % 行番号の表示．left, right, none
+  showspaces = false, % スペースの表示
+  showstringspaces = false, % 文字列中のスペースの表示
+  showtabs = false, %　タブの表示
+  keywordstyle = \color{blue}, % キーワードのスタイル．intやwhileなど
+  commentstyle = {\color[HTML]{1AB91A}}, % コメントのスタイル
+  identifierstyle = \color{black}, % 識別子のスタイル　関数名や変数名
+  stringstyle = \color{brown}, % 文字列のスタイル
+  captionpos = t % キャプションの位置 t: 上，b: 下
+}
+
+\title{情報学群実験第3 ベアメタルプログラミング}
+\author{細川 夏風}
+\date{\today}
+
+\begin{document}
+
+  \maketitle
+
+  \section{目的}
+  プログラミングは計算機の中で行われることは，言うまでもない．しかし，計算機だけでは単純にプログラムを行うことは非常に難解である．プログラムはそれを実行する環境などの土台が必要である．今実験ではプログラムを実行する環境，またそのために計算機自体を制御する方法をC言語で簡易的なストップウォッチのプログラムを作成する事によって明らかにする．
+
+  \section{方法}
+  前提として，付録に定数やデバイスの制御に用いるプログラムとベアメタル環境においてC言語を動作させるためのアセンブリプログラムを掲載している．
+
+  \vspace{1em}
+
+  また，班員と共同制作したストップウォッチのプログラム本体も付録に掲載している．
+
+  \section{実験環境}
+  本実験におけるハードウェア環境およびソフトウェアツールの詳細を以下に示す．
+
+  \begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[
+        % スタイルの定義
+        led/.style={circle, draw, thick, fill=red!10, minimum size=0.35cm},
+        singleled/.style={circle, draw, thick, fill=red!40, minimum size=0.6cm},
+        switch/.style={rectangle, draw, thick, fill=gray!20, minimum width=0.8cm, minimum height=0.8cm, rounded corners=1pt}
+    ]
+
+    % --- 8x8 ドットマトリクスLED ---
+    \node[align=center, font=\sffamily\bfseries] at (1.75, 5.2) {8$\times$8 ドットマトリクスLED};
+
+    % 行(ROW)のラベル
+    \foreach \y in {1,...,8} {
+        \node[font=\sffamily\scriptsize, right] at (-1.5, 4.5 - \y*0.5) {ROW \y};
+    }
+    % 列(COL)のラベル
+    \foreach \x in {1,...,8} {
+        \node[font=\sffamily\scriptsize] at (\x*0.5 - 0.5, 4.6) {C\x};
+    }
+
+    % 8x8のLEDグリッドを描画
+    \foreach \x in {1,...,8} {
+        \foreach \y in {1,...,8} {
+            \node[led] (m-\x-\y) at (\x*0.5 - 0.5, 4.5 - \y*0.5) {};
+        }
+    }
+    % マトリクスLEDの外枠
+    \draw[thick, rounded corners] (-0.3, 0.2) rectangle (3.8, 4.3);
+
+
+    % --- 単体LED ---
+    \node[singleled] (sled) at (6.5, 3.5) {};
+    \node[align=center, font=\sffamily\bfseries] at (6.5, 4.2) {単体LED};
+    \node[align=center, font=\sffamily\scriptsize] at (6.5, 2.9) {GPIO 10};
+
+
+    % --- 押しボタンスイッチ ---
+    \node[switch] (sw1) at (5.5, 1.0) {};
+    \node[align=center, font=\sffamily\bfseries] at (5.5, 1.7) {SW1};
+    \node[align=center, font=\sffamily\scriptsize] at (5.5, 0.3) {GPIO 13};
+
+    \node[switch] (sw2) at (7.5, 1.0) {};
+    \node[align=center, font=\sffamily\bfseries] at (7.5, 1.7) {SW2};
+    \node[align=center, font=\sffamily\scriptsize] at (7.5, 0.3) {GPIO 26};
+
+    % ボード全体を囲む仮想的な枠線（オプション）
+    \draw[thick, dashed, draw=gray] (-2.0, -0.2) rectangle (8.8, 5.8);
+    \node[font=\sffamily\scriptsize, text=gray, anchor=south east] at (8.8, -0.2) {実験用I/Oボード};
+
+    \end{tikzpicture}
+    \caption{実験用I/Oボード上のLEDおよびスイッチの論理配置図}
+    \label{fig:io_board_leds}
+  \end{figure}  
+
+  \subsection{ハードウェア仕様およびレジスタの配置}
+  \begin{itemize}
+      \item \textbf{Raspberry PiおよびSoCアーキテクチャ} \\
+      本実験では，Broadcom社のSoCであるBCM2835の仕様をベースとする．ただし，実際のハードウェア（Raspberry Pi 3など）に搭載されているSoC（BCM2837等）のメモリマップに準拠して制御を行う．公式ドキュメント上のベースアドレスは \texttt{0x20000000} であるが，本実験の環境では \texttt{0x3F000000} に配置されている．
+      
+      \item \textbf{GPIOレジスタ（\texttt{0x3F200000}）} \\
+      ベースアドレスからオフセット \texttt{0x00200000} に配置されている．本実験では，\texttt{GPFSEL0} $\sim$ \texttt{2}（機能選択），\texttt{GPSET0}（出力High），\texttt{GPCLR0}（出力Low），\texttt{GPLEV0}（入力読み取り）などのレジスタを介して外部装置の制御を行う．
+      
+      \item \textbf{システムタイマー（\texttt{0x3F003000}）} \\
+      ベースアドレスからオフセット \texttt{0x00003000} に配置されているフリーランニングカウンタ（\texttt{TMCLO}）を使用する．動作周波数は $1\,\text{MHz}$ であり，カウンタ値が $1$ 増加することで $1\,\mu\text{s}$ の経過を表す．
+  \end{itemize}
+
+  \section{開発・ソフトウェア環境}
+  本実験におけるプログラムの開発，コンパイル，およびビルドには，以下のクロスツールチェーンを使用する．
+
+  \begin{itemize}
+      \item \textbf{クロスコンパイル環境（ARMツールチェーン）} \\
+      開発用のPC上で，ターゲットとなるARMアーキテクチャ（Raspberry Pi）用の実行ファイルを生成するために，以下の \texttt{arm-none-eabi-} 系のツールを使用する．
+      \begin{itemize}
+          \item \texttt{arm-none-eabi-gcc} \\
+          C言語で記述されたソースコードを，ARM用のオブジェクトコードに翻訳するCコンパイラ．
+          \item \texttt{arm-none-eabi-as} \\
+          アセンブリ言語で記述されたコードを，ARM用のオブジェクトコードに翻訳するアセンブラ．
+          \item \texttt{arm-none-eabi-ld} \\
+          コンパイラやアセンブラが生成した複数のオブジェクトファイルを結合（リンク）し，一つの実行ファイル（ELF形式など）を生成するリンカ．
+          \item \texttt{arm-none-eabi-objcopy} \\
+          生成された実行ファイルを，Raspberry Pi上で直接実行可能な形式（ベタバイナリの \texttt{.img} ファイルなど）に変換するためのファイル形式変換ツール．
+      \end{itemize}
+  \end{itemize}
+
+  \section{実験用I/Oボードの仕様}
+  本実験で使用するI/Oボードに接続された各装置の回路仕様，および制御方法を以下に示す．
+
+  \subsection{ドットマトリクスLEDの制御仕様}
+  8$\times$8ドットマトリクスLEDの表示は，行を高速に切り替える方式（ダイナミック点灯方式）で制御を行う．
+
+  \subsubsection{表示制御のアルゴリズム}
+  マトリクスの行（\texttt{ROW1} $\sim$ \texttt{ROW8}）を順に1行だけ表示させる操作を高速に繰り返す．具体的な手順は以下の通りである．
+  \begin{enumerate}
+      \item まず，すべての行（\texttt{ROW}）に \texttt{1} を出力しておく．
+      \item 行 $r$ を表示させるには，点灯させる列（\texttt{COL}）には \texttt{1} を，消灯させる列には \texttt{0} を出力する．
+      \item そのうえで，対象の行 \texttt{ROW}$r$ に \texttt{0} を出力する．
+  \end{enumerate}
+
+  \subsection{スイッチの回路仕様}
+  I/Oボード上の押しボタンスイッチの回路構成は以下の通りである．
+  \begin{itemize}
+      \item $10\,\text{k}\Omega$ の抵抗でプルダウンされている．
+      \item 誤電流防止およびポート保護のため，$1\,\text{k}\Omega$ の保護抵抗が直列に挿入されている．
+  \end{itemize}
+
+  \subsection{実験用I/Oボードのピン割り当て}
+  \texttt{Raspberry Pi}の\texttt{GPIO}ピンに接続されている実験用ボード上の装置（\texttt{LED}，スイッチ，ドットマトリクスLED）の対応関係を表\ref{tab:pin_assign}に示す．
+
+  \begin{table}[htbp]
+      \centering
+      \caption{実験用I/OボードのGPIOピン割り当て}
+      \label{tab:pin_assign}
+      \begin{tabular}{lc|lc|lc}
+          \hline
+          装置名 & GPIO番号 & マトリクス列(COL) & GPIO番号 & マトリクス行(ROW) & GPIO番号 \\ \hline
+          単体LED & 10 & COL1 & 27 & ROW1 & 14 \\
+          SW1     & 13 & COL2 & 8  & ROW2 & 15 \\
+          SW2     & 26 & COL3 & 25 & ROW3 & 21 \\
+                  &    & COL4 & 23 & ROW4 & 18 \\
+                  &    & COL5 & 24 & ROW5 & 12 \\
+                  &    & COL6 & 22 & ROW6 & 20 \\
+                  &    & COL7 & 17 & ROW7 & 7  \\
+                  &    & COL8 & 4  & ROW8 & 16 \\ \hline
+      \end{tabular}
+  \end{table}
+
+  \subsection{プログラムのビルドおよびデプロイ手順}
+  ソースコード（アセンブリおよびC言語）から実行可能なバイナリイメージを生成し，Raspberry Piへ書き込むまでの具体的なコマンド実行手順を以下に示す．
+
+  \begin{verbatim}
+  $ arm-none-eabi-as init.s -o init.o
+  $ arm-none-eabi-gcc -c $x.c -o $x.o
+  $ arm-none-eabi-ld -m armelf init.o $x.o -o $x.elf
+  $ arm-none-eabi-objcopy $x.elf -O binary $x.img
+  $ cp $x.img /bootボリュームのパス名/kernel7.img
+  \end{verbatim}
+
+  各コマンドの具体的な役割と処理内容は以下の通りである．
+
+  \begin{itemize}
+      \item \textbf{アセンブル (\texttt{arm-none-eabi-as})} \\
+      スタートアップルーチンが記述されたアセンブリファイル（\texttt{init.s}）をアセンブルし，オブジェクトファイル（\texttt{init.o}）を生成する．
+      
+      \item \textbf{コンパイル (\texttt{arm-none-eabi-gcc})} \\
+      C言語のソースコード（\texttt{light.c}）をコンパイルし，オブジェクトファイル（\texttt{light.o}）を生成する．ここで \texttt{-c} オプションを指定することで，リンク処理を行わずにコンパイルのみ（オブジェクトファイルの生成）で処理を停止させている．
+      
+      \item \textbf{リンク (\texttt{arm-none-eabi-ld})} \\
+      生成された2つのオブジェクトファイル（\texttt{init.o} と \texttt{light.o}）を結合し，一つのELF形式の実行ファイル（\texttt{light.elf}）を生成する．\texttt{-m armelf} は，ARMアーキテクチャ向けのELF形式であることを指定するオプションである．
+      
+      \item \textbf{フォーマット変換 (\texttt{arm-none-eabi-objcopy})} \\
+      ELF形式の実行ファイルからOS向けの不要なヘッダ情報等を除去し，Raspberry Pi（ベアメタル環境）上で直接実行可能なベタバイナリ形式（\texttt{light.img}）へ変換する（\texttt{-O binary} オプション）．
+      
+      \item \textbf{デプロイ (\texttt{cp})} \\
+      完成したバイナリイメージを，SDカードのブートパーティションへコピーする．Raspberry Pi 2や3のGPUファームウェアは，起動時に \texttt{kernel7.img} という名前のカーネルイメージを自動的に読み込んで実行を開始する仕様となっているため，このファイル名に変更して保存している．
+  \end{itemize}
+
+  \section{実行結果}
+  演習4.3の仕様に基づき実装したストップウォッチプログラム（\texttt{stopwatch.c}）を実験用I/Oボード上で実行し，以下の正常動作を確認した（または，以下の動作が期待される）．
+
+  \begin{itemize}
+      \item \textbf{初期状態} \\
+      プログラムの実行開始直後，ドットマトリクスLEDには「00」が表示される．また，ストップウォッチのカウント状態には一切依存せず，単体LEDが常時1秒周期（0.5秒点灯，0.5秒消灯）で点滅を開始し，継続する．
+      
+      \item \textbf{動作開始（スイッチ1押下時）} \\
+      スイッチ1（\texttt{SW1}）を押下すると，ドットマトリクスLEDの数値が「00」から開始し，0.1秒（100ミリ秒）経過するごとに「01」，「02」とカウントアップしていく．数値が「99」に達した次の0.1秒後には「00」に戻り，ループしてカウントアップを継続する．
+      
+      \item \textbf{動作停止（スイッチ2押下時）} \\
+      カウントアップ中にスイッチ2（\texttt{SW2}）を押下すると，その瞬間の数値を保持したままドットマトリクスLEDのカウント動作が停止する．なお，カウント停止中であっても，単体LEDの1秒周期の点滅処理は影響を受けずに独立して継続する．
+      
+      \item \textbf{動作再開（再びスイッチ1押下時）} \\
+      停止状態から再度スイッチ1（\texttt{SW1}）を押下すると，停止時に保持されていた数値からストップウォッチのカウントアップが直ちに再開される．
+  \end{itemize}
+
+  \section{考察}
+  本実験の演習4.3における実装結果に基づき，OSが存在しないベアメタル環境における多重処理（マルチタスク）の実現手法，およびメモリ初期化がシステムの安定動作に与える影響について考察する．
+
+  \subsection{ベアメタル環境における並行処理（マルチタスク）の手法}
+  本演習では，タスクスケジューラやスレッド管理を行うOSが存在しない環境において，以下の4つの処理を並行して実行する必要があった．
+  \begin{enumerate}
+      \item 8$\times$8ドットマトリクスLEDの高速な行切り替え
+      \item 1秒周期の単体LED点滅処理
+      \item 0.1秒周期のストップウォッチのカウントアップ処理
+      \item スイッチ1（SW1）およびスイッチ2（SW2）の入力状態の監視
+  \end{enumerate}
+
+  これらを同時に破綻なく実行するためには，実行を完全に停止させてしまう単一の長い\texttt{for}文における遅延ループを一切排除し，ハードウェアシステムタイマー（\texttt{TMCLO}）の値を監視する時分割処理および状態遷移の設計が不可欠である．
+
+  具体的には，メインループ内で常にドットマトリクスLEDの各行を1行ずつ高速にスキャンしつつ，単体LEDやカウントアップの処理に対しては前回の実行時刻からの経過時間をタイマーで都度判定する．設定された時間（0.5秒や0.1秒）に達した瞬間のみ対応する状態の更新を行い，それ以外の時間は直ちにスキャン処理やスイッチ監視へ制御を戻す．このように，処理を細切れにしてCPUを巡回させることで，単一コアであってもすべての処理が擬似的に並行して動くマルチタスク動作が可能となる．
+
+  \subsection{フレームバッファ初期化の重要性と未初期化時の挙動}
+  ドットマトリクスLEDの点灯パターンを保持する配列(フレームバッファ)の初期化は，プログラム起動時の正常な挙動を保証するために極めて重要である．
+
+  C言語において，関数外で宣言された初期値のないグローバル変数はBSSセクションに配置され，関数内で宣言されたローカル変数はスタック領域に配置される．一般的なOS環境では，プログラム実行時にOSがこれらの領域を自動的に\texttt{0}で初期化する．しかし，本実験のようなベアメタル環境では，スタートアップルーチンで明示的にメモリ領域をクリアする処理を入れていない場合，またはC言語のプログラムの冒頭で配列に初期値を代入しない場合，割り当てられたメモリの内容は起動直後のランダムなゴミデータとなる．
+
+  もしフレームバッファの初期化を行わずにダイナミック点灯処理を開始した場合，配列内の不定値がそのまま「点灯」の判定条件として評価されてしまう．その結果，ストップウォッチが動作を始める前の初期状態において，意図しない位置のLEDが不規則に点灯したり，画面全体にノイズが表示されたりするバグが発生する．このことから，組み込みシステム開発においては，使用するすべてのメモリを明示的に初期化するコードを記述することが，システムの予測可能性と信頼性を担保する上で必須の作法であると言える．
+
+  \appendix
+  \section{ヘッダファイル \texttt{const.h}}
+  本付録では，GPIOおよびタイマー操作用に定義された各種ベースアドレスとポート番号の設定ファイル \texttt{const.h} を示します．
+
+  \begin{lstlisting}[language=C, caption={const.hのソースコード}]
+  // GPIOを操作するための番地
+  #define GPIO_BASE       (volatile int *)0x3f200000
+  #define GPFSEL0         (GPIO_BASE + 0)  // GPIO #0〜9の機能選択
+  #define GPFSEL1         (GPIO_BASE + 1)  // GPIO #10〜19の機能選択
+  #define GPFSEL2         (GPIO_BASE + 2)  // GPIO #20〜29の機能選択
+  #define GPSET0          (GPIO_BASE + 7)  // 出力値を1にする
+  #define GPCLR0          (GPIO_BASE + 10) // 出力値を0にする
+  #define GPLEV0          (GPIO_BASE + 13) // 入力値を読み出す
+
+  // GPFSELxに設定する値
+  // 前回分
+  // #define GPFSEL_VEC1     1   // GPFSEL1用 (#10のみ出力)
+
+  // 今回分
+  #define GPFSEL_VEC0     0x01201000  // GPFSEL0用 (#4, #7, #8 が出力)
+  #define GPFSEL_VEC1     0x01249041  // GPFSEL1用 (#10, #12, #14〜18 が出力)
+  #define GPFSEL_VEC2     0x00209249  // GPFSEL2用 (#20〜25, #27 が出力)
+
+  // 各装置が接続されているGPIO番号
+  #define LED_PORT        10  // LED
+  #define SW1_PORT        13  //PORT OF SWITCH1 
+  #define SW2_PORT        26  //PORT OF SWITCH2 
+                            
+  #define COL1_PORT       27
+  #define COL2_PORT       8
+  #define COL3_PORT       25
+  #define COL4_PORT       23
+  #define COL5_PORT       24
+  #define COL6_PORT       22
+  #define COL7_PORT       17
+  #define COL8_PORT       4
+
+  #define ROW1_PORT       14
+  #define ROW2_PORT       15
+  #define ROW3_PORT       21
+  #define ROW4_PORT       18
+  #define ROW5_PORT       12
+  #define ROW6_PORT       20
+  #define ROW7_PORT       7
+  #define ROW8_PORT       16
+
+  #define TIMER_BASE (volatile unsigned int *)0x3f003000
+
+  #define TMCLO (TIMER_BASE + 1)
+  #define TIMER_HZ    (1000 * 1000)    /* タイマの周波数 (= 1秒を表すカウンタ値) */
+  \end{lstlisting}
+
+  \section{ストップウォッチプログラム本体}
+  班員と共同作成したストップウォッチのプログラムの本体をここに掲載する．
+  \begin{lstlisting}[language=C, caption={stopwatch.cのソースコード}]
+    // スイッチが押されているかどうか if (sw & (1 << SW1_PORT))
+
+
+    #include "const.h"      // 定数の定義を読み込む
+
+    // Frame バッファを使うプログラム
+
+    char frame_buffer[10][8] = {
+      { 0x0, 0xe, 0xa, 0xa, 0xa, 0xe, 0x0, 0x0 }, // 0
+      { 0x0, 0x4, 0xc, 0x4, 0x4, 0xe, 0x0, 0x0 }, // 1
+      { 0x0, 0xe, 0x2, 0xe, 0x8, 0xe, 0x0, 0x0 }, // 2
+      { 0x0, 0xe, 0x2, 0xe, 0x2, 0xe, 0x0, 0x0 }, // 3
+      { 0x0, 0xa, 0xa, 0xe, 0x2, 0x2, 0x0, 0x0 }, // 4
+      { 0x0, 0xe, 0x8, 0xe, 0x2, 0xe, 0x0, 0x0 }, // 5
+      { 0x0, 0xe, 0x8, 0xe, 0xa, 0xe, 0x0, 0x0 }, // 6
+      { 0x0, 0xe, 0x2, 0x2, 0x2, 0x2, 0x0, 0x0 }, // 7
+      { 0x0, 0xe, 0xa, 0xe, 0xa, 0xe, 0x0, 0x0 }, // 8
+      { 0x0, 0xe, 0xa, 0xe, 0x2, 0xe, 0x0, 0x0 }  // 9
+    };
+
+    int main()
+    {
+      // GPIOの機能設定
+      *GPFSEL0 = GPFSEL_VEC0;  // #0〜#9の設定
+      *GPFSEL1 = GPFSEL_VEC1;  // #10〜#19の設定
+      *GPFSEL2 = GPFSEL_VEC2;  // #20〜#29の設定
+      
+      //  GPLEV0の値 (GPIO #0〜#31それぞれが読み取った値) をswに代入
+      int sw;
+      int move; //ストップウォッチを動作させるか停止させるか
+      move = 0; //最初は停止させている
+      
+      char colx_port[] = {
+        COL1_PORT, 
+        COL2_PORT, 
+        COL3_PORT, 
+        COL4_PORT, 
+        COL5_PORT, 
+        COL6_PORT, 
+        COL7_PORT, 
+        COL8_PORT
+      };
+
+      char rowx_port[] = {
+        ROW1_PORT, 
+        ROW2_PORT, 
+        ROW3_PORT, 
+        ROW4_PORT, 
+        ROW5_PORT, 
+        ROW6_PORT, 
+        ROW7_PORT, 
+        ROW8_PORT
+      };
+
+      int row, i, x, k, j, x_up, x_down;
+
+      // タスクの時間設定
+      unsigned int time, target, target_display_row, number_timer, targetLED_on, targetLED_off;
+
+      // 時間表示は1秒ごと
+      number_timer = *TMCLO + TIMER_HZ;
+      // 画面表示は0.001秒ごと
+      target_display_row = *TMCLO + 1000;
+      // LEDのON・OFFは0.5秒周期
+      targetLED_on = *TMCLO + TIMER_HZ / 2;
+      targetLED_off = targetLED_on + TIMER_HZ / 2;
+
+      // x は表示する数
+      x = 0;
+      row = 0;
+
+      // 表示する数を格納したもの
+      char new_frame[8];
+
+      // 最初の1秒間（1秒タスクが動くまで）に表示するための「初期データ(0)」を作っておく
+      x_up = x / 10;
+      x_down = x % 10;
+      for (k = 0; k < 8; k++) {
+        new_frame[k] = (frame_buffer[x_up][k] << 4) + frame_buffer[x_down][k];
+      }
+      while(1){
+
+        // GPLEV0の値 (GPIO #0〜#31それぞれが読み取った値) をswに代入 現在の状態を読み取る
+        sw = *GPLEV0;
+        // 現在時刻をtimeに代入
+        time = *TMCLO;
+
+        //スイッチ1を押すと動作を開始，再開する
+        if (sw & (1 << SW1_PORT)) {
+          move = 1;
+        }
+        //スイッチ2を押すと動作を停止する
+        if (sw & (1 << SW2_PORT)) {
+          move = 0;
+        }
+        //以降のタスクでmove &&　をとる
+
+        // 消灯と点灯のタスク
+        if (time >= target_display_row) {
+          // 前の行の消灯
+          *GPSET0 = 1 << rowx_port[row];
+          row = (row + 1) % 8;
+
+          int column;
+          // 表示配列の1数字ずつ読む
+          for (column = 0; column < 8; column++) {
+            // 1のときは点灯の配置0のときは消灯の配置
+            if ((new_frame[row] >> (7 - column)) & 1) {
+              *GPSET0 = 1 << colx_port[column];
+            } else {
+              *GPCLR0 = 1 << colx_port[column];
+            }
+          }
+          
+          // 次の行の点灯
+          *GPCLR0 = 1 << rowx_port[row];
+          target_display_row += 1000;
+        }
+        
+        // バッファにしたがって1~8出力を変更
+        // バッファ変更のタスク
+        if (move && (time >= number_timer)) {
+          x = (x + 1) % 100;
+          // 10進数の1と10の桁
+          x_up = x / 10;
+          x_down = x % 10;
+          // 初期フレームバッファの4bitシフトしたもの(10の桁)と通常(1の桁)を足した値を生成する
+          for (k = 0; k < 8; k++) new_frame[k] = (frame_buffer[x_up][k] << 4) + frame_buffer[x_down][k];
+          // 次の時間は0.1秒先
+          number_timer += 100000;
+        }
+
+        // 0.5秒点灯
+        if (time >= targetLED_on) {
+          *GPSET0 = 1 << LED_PORT;  //LEDを点灯する;
+          targetLED_on += TIMER_HZ;  // 1秒足す
+        }
+        if (time >= targetLED_off) {
+          *GPCLR0 = 1 << LED_PORT;  //LEDを消灯する
+          targetLED_off += TIMER_HZ;  // 1秒足す
+        }
+      }
+      return 0;  // init.sに戻る
+    }
+  \end{lstlisting}
+
+  \section{最小のスタートアップルーチン}
+  \texttt{OS}が存在しない環境において，C言語の\texttt{main}関数を呼び出すための最小のスタートアップルーチンとして以下のアセンブリプログラムを掲載する．
+  \begin{lstlisting}[caption=最小のスタートアップルーチン]
+    @ 最小限のスタートアップルーチン
+    .section .init
+    .global _start
+  _start:
+    ldr     sp, =0x8000     @ スタックポインタ初期化
+    bl      main            @ main関数呼び出し
+    b       .               @ その場で無限ループ (停止)
+  \end{lstlisting}
+
+\end{document}

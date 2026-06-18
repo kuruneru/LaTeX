@@ -1,0 +1,87 @@
+\documentclass[11pt, aspectratio=169]{beamer}
+
+% LuaLaTeXで日本語を使うための必須パッケージ
+\usepackage{luatexja}
+
+% 便利な追加パッケージ
+\usepackage{booktabs}   % 表の罫線
+\usepackage{tikz}       % 図形描画
+\usepackage{graphicx}   % 画像挿入
+\usepackage{listings}   % ソースコード挿入
+\lstset{
+  basicstyle=\ttfamily\scriptsize,
+  frame=single,
+  breaklines=true,
+  numbers=left,
+  numberstyle=\tiny
+}
+
+% テーマとカラーテーマの設定
+\usetheme{Madrid}
+\usecolortheme{orchid}
+
+% セクション開始時の自動表紙（扉絵）設定
+\AtBeginSection[]{
+  \begin{frame}
+    \vfill
+    \centering
+    \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+      \usebeamerfont{title}\insertsectionhead\par%
+    \end{beamercolorbox}
+    \vfill
+  \end{frame}
+}
+
+% タイトル情報
+\title{考える趣味と思考}
+\subtitle{Cykutの箸休め}
+\author{学籍番号(Student ID): 1280391 \\ 氏名(Name): 細川夏風(Hosokawa Natsuka)}
+\institute{高知工科大学(Kochi Univ of Tech)}
+\date{\today}
+
+\begin{document}
+
+% タイトルスライド
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% 目次スライド
+\begin{frame}{目次}
+  \tableofcontents
+\end{frame}
+
+% ==========================================
+% ここから本文
+% ==========================================
+
+\section{自己紹介}
+
+\begin{frame}{自己紹介}
+  % ここに内容を記述
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \textbf{情報学群3年 Shikhar研究室 細川夏風}
+
+      \vspace{1em}
+
+      \begin{itemize}
+        \item 映画鑑賞
+        \item 読書
+        \item Jazz
+        \item 筋トレ
+        \item 旅行
+        \item ものづくり
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \includegraphics[width=\linewidth]{myself.jpg}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{私の趣味: 映画鑑賞}
+
+\end{frame}
+
+\end{document}

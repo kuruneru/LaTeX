@@ -1,1 +1,3 @@
 \beamer@sectionintoc {1}{自己紹介}{3}{0}{1}
+\beamer@sectionintoc {2}{プロジェクト: MIDIデバイスのハッキング}{7}{0}{2}
+\beamer@sectionintoc {3}{情報学群生が身につけてほしい感性}{10}{0}{3}

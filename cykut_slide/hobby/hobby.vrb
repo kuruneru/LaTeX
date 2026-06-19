@@ -1,0 +1,17 @@
+\frametitle{システムアーキテクチャと実装}
+\textbf{Go言語によるクロスプラットフォーム・バックエンド}
+  Windows/Linux両対応の常駐デーモンをGo言語で開発し、OSのAPIを直接叩いて入力を横取りする設計。
+
+  \vspace{1em}
+  \begin{lstlisting}[language=Go, caption=MIDI信号の傍受とOSコマンド実行のコアロジック]
+// NoteOn（パッド押下）信号の検知
+if msg.GetNoteOn(&channel, &key, &velocity) {
+    fmt.Printf("ノート番号: %d が押されました\n", key)
+
+    // 特定のノート番号でアクションを分岐
+    if key == 36 {
+        // OSのコマンドを直接キックする (例: OBSの操作等)
+        exec.Command("xdg-open", "https://github.com").Start()
+    }
+}
+  \end{lstlisting}

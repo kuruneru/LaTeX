@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2026.4.8)  18 JUN 2026 12:50
+This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2026.4.8)  19 JUN 2026 11:59
  restricted system commands enabled.
 **hobby.tex
 (./hobby.tex
@@ -1390,38 +1390,53 @@ Overfull \hbox (159.8355pt too wide) has occurred while \output is active
 
 ](load cache: extra_lmsans10-bold.luc)
 LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <10.95> not available
-(Font)              Font shape `JT3/gt/m/n' tried instead on input line 81.
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 98.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 10.53629pt on input line 81.
+(Font)              scaled to size 10.53629pt on input line 98.
 LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <10.95> not available
-(Font)              Font shape `JY3/gt/m/n' tried instead on input line 81.
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 98.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 10.53629pt on input line 81.
+(Font)              scaled to size 10.53629pt on input line 98.
 (load cache: extra_haranoajigothic-medium.luc)
-LaTeX Font Info:    Trying to load font information for U+msa on input line 81.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 98.
 
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 81.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 98.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <10.95> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 81.
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 98.
 (load cache: extra_lmsans10-oblique.luc)
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <8> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 81.
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 98.
 (load cache: extra_lmsans8-oblique.luc)
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <6> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 81.
-<myself.jpg, id=135, 1572.87625pt x 1048.91875pt>
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 98.
+<myself.jpg, id=149, 1572.87625pt x 1048.91875pt>
 File: myself.jpg Graphic file (type jpg)
 <use myself.jpg>
-Package luatex.def Info: myself.jpg  used on input line 81.
-(luatex.def)             Requested size: 217.62204pt x 145.11906pt.
+Package luatex.def Info: myself.jpg  used on input line 98.
+(luatex.def)             Requested size: 117.51628pt x 78.3614pt.
+<jazz.jpg, id=150, 1049.9225pt x 1570.86874pt>
+File: jazz.jpg Graphic file (type jpg)
+<use jazz.jpg>
+Package luatex.def Info: jazz.jpg  used on input line 98.
+(luatex.def)             Requested size: 62.67522pt x 93.76866pt.
+<travel.jpg, id=151, 2890.8pt x 2168.1pt>
+File: travel.jpg Graphic file (type jpg)
+<use travel.jpg>
+Package luatex.def Info: travel.jpg  used on input line 98.
+(luatex.def)             Requested size: 125.35043pt x 93.98738pt.
+
+Overfull \hbox (62.67522pt too wide) in paragraph at lines 98--98
+ [][] 
+ []
+
 
 Overfull \hbox (159.8355pt too wide) has occurred while \output is active
  [][]  \TU/lmss/m/n/6 ([])  
@@ -1429,12 +1444,238 @@ Overfull \hbox (159.8355pt too wide) has occurred while \output is active
 
 [4
 
-<./myself.jpg>]
+<./myself.jpg><./jazz.jpg><./travel.jpg>]
+<session.jpg, id=181, 501.875pt x 501.875pt>
+File: session.jpg Graphic file (type jpg)
+<use session.jpg>
+Package luatex.def Info: session.jpg  used on input line 151.
+(luatex.def)             Requested size: 104.45764pt x 104.45493pt.
+<oppenhaimer.jpg, id=182, 587.19376pt x 524.96124pt>
+File: oppenhaimer.jpg Graphic file (type jpg)
+<use oppenhaimer.jpg>
+Package luatex.def Info: oppenhaimer.jpg  used on input line 151.
+(luatex.def)             Requested size: 104.45764pt x 93.38353pt.
+<salinger.jpg, id=183, 67.6929pt x 97.5645pt>
+File: salinger.jpg Graphic file (type jpg)
+<use salinger.jpg>
+Package luatex.def Info: salinger.jpg  used on input line 151.
+(luatex.def)             Requested size: 73.12003pt x 105.39337pt.
+<prince.jpg, id=184, 355.3275pt x 566.115pt>
+File: prince.jpg Graphic file (type jpg)
+<use prince.jpg>
+Package luatex.def Info: prince.jpg  used on input line 151.
+(luatex.def)             Requested size: 73.12003pt x 116.49487pt.
+
+Overfull \vbox (27.38014pt too high) detected at line 151
+ []
+
+
 Overfull \hbox (159.8355pt too wide) has occurred while \output is active
  [][]  \TU/lmss/m/n/6 ([])  
  []
 
 [5
+
+<./session.jpg><./oppenhaimer.jpg><./salinger.jpg><./prince.jpg>](load cache: ex
+tra_lmmono10-regular.luc)
+<MIDI_controler.jpg, id=212, 489.83pt x 410.53375pt>
+File: MIDI_controler.jpg Graphic file (type jpg)
+<use MIDI_controler.jpg>
+Package luatex.def Info: MIDI_controler.jpg  used on input line 174.
+(luatex.def)             Requested size: 174.09828pt x 145.91277pt.
+
+Overfull \hbox (159.8355pt too wide) has occurred while \output is active
+ [][]  \TU/lmss/m/n/6 ([])  
+ []
+
+[6
+
+<./MIDI_controler.jpg>]
+Overfull \hbox (159.8355pt too wide) has occurred while \output is active
+ [][]  \TU/lmss/m/n/6 ([])  
+ []
+
+[7
+
+]
+<mpd18.jpg, id=279, 567.11874pt x 354.32375pt>
+File: mpd18.jpg Graphic file (type jpg)
+<use mpd18.jpg>
+Package luatex.def Info: mpd18.jpg  used on input line 203.
+(luatex.def)             Requested size: 174.09828pt x 108.77412pt.
+(load cache: extra_lmsans9-regular.luc)
+LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
+(Font)              scaled to size 8.65997pt on input line 203.
+LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
+(Font)              scaled to size 8.65997pt on input line 203.
+
+Overfull \hbox (159.8355pt too wide) has occurred while \output is active
+ [][]  \TU/lmss/m/n/6 ([])  
+ []
+
+[8
+
+<./mpd18.jpg>]
+\openout4 = hobby.vrb
+ (./hobby.vrb
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2023/02/27 1.9 listings language file
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang2.sty
+File: lstlang2.sty 2023/02/27 1.9 listings language file
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang3.sty
+File: lstlang3.sty 2023/02/27 1.9 listings language file
+)(load cache: extra_lmmono8-regular.luc)
+Removing  `ltj.process_input_buffer' from `process_input_buffer'.
+Inserting `ltj.listings_unicode' in `process_input_buffer'.
+Inserting `ltj.process_input_buffer' in `process_input_buffer'.(load cache: extr
+a_lmmono10-italic.luc)
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 7.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 7.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 7.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 7.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 7.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 7.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 7.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 7.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 7.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 7.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 7.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 7.
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <8> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 8.
+(load cache: extra_lmmonolt10-bold.luc)
+LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <8> not available
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 8.
+LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
+(Font)              scaled to size 7.69775pt on input line 8.
+LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <8> not available
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 8.
+LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
+(Font)              scaled to size 7.69775pt on input line 8.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 11.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 11.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 11.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 11.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 11.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 11.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 11.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 11.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 11.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 11.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 11.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 11.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 11.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 11.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 11.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 11.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 11.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 11.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 13.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 13.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 13.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 13.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 13.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 13.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 13.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 13.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 13.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 13.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 13.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 13.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 13.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 13.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 13.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 13.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 13.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 13.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 13.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 13.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 13.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 13.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 13.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 13.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 13.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 13.
+LaTeX Font Info:    Kanji font shape `JY3/mc/m/it' undefined
+(Font)              No change on input line 13.
+Removing  `ltj.listings_unicode' from `process_input_buffer'.)
+Overfull \hbox (159.8355pt too wide) has occurred while \output is active
+ [][]  \TU/lmss/m/n/6 ([])  
+ []
+
+[9
+
+]
+Overfull \hbox (159.8355pt too wide) has occurred while \output is active
+ [][]  \TU/lmss/m/n/6 ([])  
+ []
+
+[10
+
+]
+Overfull \hbox (159.8355pt too wide) has occurred while \output is active
+ [][]  \TU/lmss/m/n/6 ([])  
+ []
+
+[11
 
 ]
 \tf@nav=\write7
@@ -1448,32 +1689,37 @@ Overfull \hbox (159.8355pt too wide) has occurred while \output is active
 \openout9 = hobby.snm
  (./hobby.aux)
 Package rerunfilecheck Info: File `hobby.out' has not changed.
-(rerunfilecheck)             Checksum: 278FD766ACEA2E07C40DCC24FAC1104A;75.
+(rerunfilecheck)             Checksum: 0E4CF347D1A703BE1F5850E1B15EDA2A;450.
 )
 
 Here is how much of LuaTeX's memory you used:
- 29494 strings out of 478285
- 125244,1977958 words of node,token memory allocated
- 4223 words of node memory still in use:
-   25 hlist, 9 vlist, 15 rule, 2 local_par, 40 glue, 6 kern, 13 penalty, 10 glyp
-h, 1250 attribute, 61 glue_spec, 140 attribute_list, 4 write, 31 user_defined, 1
-6 pdf_colorstack nodes
-   avail lists: 1:14,2:11575,3:506,4:789,5:180,6:64,7:1635,8:1,9:791,10:13,11:14
+ 29787 strings out of 478285
+ 382255,1977958 words of node,token memory allocated
+ 31104 words of node memory still in use:
+   113 hlist, 9 vlist, 198 rule, 6 local_par, 317 glue, 10 kern, 45 penalty, 191
+ glyph, 10595 attribute, 61 glue_spec, 1048 attribute_list, 4 write, 106 user_de
+fined, 78 pdf_literal, 30 pdf_colorstack nodes
+   avail lists: 1:26,2:38847,3:653,4:8785,5:6603,6:81,7:5469,8:4,9:12900,10:42,1
+1:406
+ 48404 multiletter control sequences out of 65536+600000
+ 60 fonts using 38162079 bytes
+ 128i,15n,115p,1722b,1098s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmmono8-regular.otf></us
+r/share/texlive/texmf-dist/fonts/opentype/public/lm/lmmonolt10-bold.otf></usr/sh
+are/texlive/texmf-dist/fonts/opentype/public/lm/lmmono10-italic.otf></usr/share/
+texlive/texmf-dist/fonts/opentype/public/lm/lmsans9-regular.otf></usr/share/texl
+ive/texmf-dist/fonts/opentype/public/lm/lmmono10-regular.otf></usr/share/texlive
+/texmf-dist/fonts/opentype/public/lm/lmsans12-regular.otf></usr/share/texlive/te
+xmf-dist/fonts/opentype/public/lm/lmsans10-bold.otf></usr/share/texlive/texmf-di
+st/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></usr/share/texliv
+e/texmf-dist/fonts/opentype/public/lm/lmsans8-regular.otf></usr/share/texlive/te
+xmf-dist/fonts/opentype/public/lm/lmsans10-regular.otf></usr/share/texlive/texmf
+-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
+Output written on hobby.pdf (11 pages, 810196 bytes).
 
- 48189 multiletter control sequences out of 65536+600000
- 52 fonts using 29896999 bytes
- 128i,15n,115p,1722b,964s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmsans12-regular.otf></u
-sr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.otf></usr/sha
-re/texlive/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf
-></usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmsans8-regular.otf></u
-sr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmsans10-regular.otf></usr/
-share/texlive/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular
-.otf>
-Output written on hobby.pdf (5 pages, 184284 bytes).
-
-PDF statistics: 233 PDF objects out of 1000 (max. 8388607)
- 184 compressed objects within 2 object streams
- 12 named destinations out of 1000 (max. 131072)
- 164 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 476 PDF objects out of 1000 (max. 8388607)
+ 385 compressed objects within 4 object streams
+ 26 named destinations out of 1000 (max. 131072)
+ 280 words of extra memory for PDF output out of 10000 (max. 100000000)
 

@@ -75,13 +75,164 @@
       \end{itemize}
     \end{column}
     \begin{column}{0.5\textwidth}
-      \includegraphics[width=\linewidth]{myself.jpg}
+      \begin{minipage}[c]{0.6\textwidth}
+        \centering
+        % --- 1. 上の画像 ---
+        \includegraphics[width=0.9\textwidth]{myself.jpg}\\[1ex] % \\[1ex] で少し縦の隙間を空けて改行
+        
+        % --- 2. 下の2枚の画像 ---
+        % 下の左側
+        \begin{minipage}[t]{0.48\textwidth}
+          \centering
+          \includegraphics[width=\textwidth]{jazz.jpg}
+        \end{minipage}
+        \hfill % 下の2枚の画像の間の余白
+        % 下の右側
+        \begin{minipage}[t]{0.48\textwidth}
+          \centering
+          \includegraphics[width=2\textwidth]{travel.jpg}
+        \end{minipage}
+      \end{minipage}
     \end{column}
   \end{columns}
 \end{frame}
 
-\begin{frame}{私の趣味: 映画鑑賞}
+\begin{frame}{私の趣味: 映画鑑賞・読書}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \textbf{映画鑑賞}
 
+      \vspace{1em}
+      \begin{enumerate}
+        \item セッション
+        \item オッペンハイマー
+        \item タイタニック
+      \end{enumerate}
+
+      \vspace{2em}
+
+      \textbf{読書}
+
+      \vspace{1em}
+      \begin{enumerate}
+        \item ライ麦畑でつかまえて
+        \item 星の王子さま
+        \item 無もなき毒
+      \end{enumerate}  
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \centering
+      
+      % --- 上段の2枚（映画） ---
+      \begin{minipage}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{session.jpg}
+      \end{minipage}
+      \hfill
+      \begin{minipage}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{oppenhaimer.jpg}
+      \end{minipage}
+
+      \vspace{1.5em} % 上段と下段の間の隙間
+
+      % --- 下段の2枚（読書） ---
+      \begin{minipage}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=0.7\textwidth]{salinger.jpg}
+      \end{minipage}
+      \hfill
+      \begin{minipage}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=0.7\textwidth]{prince.jpg}
+      \end{minipage}      
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{ものづくり}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \textbf{ものづくり}
+
+      \vspace{1em}
+      \begin{itemize}
+        \item アプリ開発( 観光地投稿アプリ)
+        \item \texttt{MIDI}コントローラーを使用したストームデック改造
+        \item 現在，食堂に対するアプリを開発中
+      \end{itemize}  
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \centering
+      % --- ものづくり関連の画像 ---
+      \begin{figure}
+        \centering
+        \includegraphics[width=0.8\textwidth]{MIDI_controler.jpg}
+      \end{figure}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\section{プロジェクト: MIDIデバイスのハッキング}
+
+\begin{frame}{なぜMIDIコントローラーなのか？}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \textbf{ストリームデック化への最適解}
+
+      \vspace{1em}
+      テンキーなどの標準HIDデバイスではなく、あえて中古のMIDI機材(AKAI MPD18等)を採用した理由。
+
+      \vspace{1em}
+      \begin{itemize}
+        \item \textbf{誤入力の防止:} 通常の文字入力と信号が完全に独立している（エディタに「1」と入力されない）。
+        \item \textbf{アナログ制御:} フェーダーを用いた0〜127の連続値（CC）による直感的なシステム音量操作。
+        \item \textbf{Linux親和性:} Fedora等においてALSAドライバで即座に認識可能。
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \centering
+      \begin{minipage}[t]{0.8\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{mpd18.jpg} % 実際のデバイス写真に差し替え
+        \vspace{0.5em}
+        {\footnotesize AKAI MPD18 (ハードオフで発掘)}
+      \end{minipage}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{システムアーキテクチャと実装}
+  \textbf{Go言語によるクロスプラットフォーム・バックエンド}
+  
+  Windows/Linux両対応の常駐デーモンをGo言語で開発し、OSのAPIを直接叩いて入力を横取りする設計。
+
+  \vspace{1em}
+  \begin{lstlisting}[language=Go, caption=MIDI信号の傍受とOSコマンド実行のコアロジック]
+// NoteOn（パッド押下）信号の検知
+if msg.GetNoteOn(&channel, &key, &velocity) {
+    fmt.Printf("ノート番号: %d が押されました\n", key)
+    
+    // 特定のノート番号でアクションを分岐
+    if key == 36 {
+        // OSのコマンドを直接キックする (例: OBSの操作等)
+        exec.Command("xdg-open", "https://github.com").Start()
+    }
+}
+  \end{lstlisting}
+\end{frame}
+
+\section{情報学群生が身につけてほしい感性}
+
+\begin{frame}{情報学群生の心得}
+  私の考える情報学群生，大学生が身につけてほしい感性．
+
+  \begin{itemize}
+    \item \textbf{なければ作る精神}
+    \item \textbf{それを皆に分け与える精神}
+  \end{itemize}
+
+  私たち大学生はいろいろなものに助けられている．それでこそ，オープンソースソフトウェアや公開されている論文，データセット．それらを使っているのは皆がより良くしようという精神の現れだと思っている．それを使っている以上，世襲のように我々もその精神を継いでいくべきだと考えている．
 \end{frame}
 
 \end{document}

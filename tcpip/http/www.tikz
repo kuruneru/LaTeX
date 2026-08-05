@@ -1,0 +1,14 @@
+\begin{tikzpicture}[node distance=3.5cm and 2cm]
+    % ノードの配置
+    \node [client] (browser) {クライアント\\(Webブラウザ)};
+    \node [internet] (net) [right=of browser] {インターネット};
+    \node [server] (webserver) [right=of net] {Webサーバ};
+
+    % HTTPリクエスト（上向きの矢印）
+    \draw [arrow] (browser.40) -- node[above, font=\footnotesize] {HTTPリクエスト} (net.150);
+    \draw [arrow] (net.30) -- node[above, font=\footnotesize] {HTTPリクエスト} (webserver.140);
+
+    % HTTPレスポンス（下向きの矢印）
+    \draw [arrow] (webserver.220) -- node[below, font=\footnotesize] {HTTPレスポンス} (net.330);
+    \draw [arrow] (net.210) -- node[below, font=\footnotesize] {HTTPレスポンス\\(HTML, 画像等)} (browser.320);
+\end{tikzpicture}

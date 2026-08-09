@@ -1,0 +1,77 @@
+\documentclass[paper=a4, fontsize=10pt]{jlreq}
+
+\usepackage{amsmath, amssymb}
+\usepackage{enumerate}
+\usepackage{tikz}
+\usepackage{listings, xcolor}
+
+\lstset{
+  basicstyle = {\ttfamily},
+  frame = {tbrl},
+  breaklines = true,
+  numbers = left,
+  showspaces = false,
+  showstringspaces = false,
+  showtabs = false,
+  keywordstyle = \color{blue},
+  commentstyle = {\color[HTML]{1AB91A}},
+  identifierstyle = \color{black},
+  stringstyle = \color{brown},
+  captionpos = t
+}
+
+\title{情報学群実験第4 \\ 音の信号と画像解析}
+\author{学籍番号 1280391 \\ 細川 夏風}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{はじめに}
+物理現象の解析には音と画像は必要不可欠な要素と言って過言ではない．理由は様々な状況において視覚と聴覚は得られた情報を後日になってから解析が可能になるからである．また，音と画像はフーリエ解析という方法により明確な解析が可能である．今実験では，フーリエ変換と通じて音や画像の持つ周波数的特性とそこから得られる情報を議論してく．
+
+\section{音の信号の解析}
+
+\subsection{方法}
+
+本実験では，MATLABを用いて音の工学的特徴について学習し，複数の信号生成および処理を実施した．各課題の具体的な手法を以下に示す．
+
+\subsubsection{周波数の異なる純音の生成（課題1）}
+サンプリング周波数 $F_s = 16000$ Hz，提示時間1秒間として，周波数が440 Hzおよび660 Hzの純音（正弦波）を生成した．正弦波の生成には以下の式を用いた．
+$$y(t)=\sin(2\pi ft)$$
+生成した信号は \texttt{sound} 関数を用いて再生し，波形が確認できるようにグラフに描画した．
+
+\subsubsection{振幅・位相の確認（課題2）}
+課題1で作成した440 Hzの純音を基準とし，振幅および初期位相を変更した信号を生成した．振幅は0.5倍および0.25倍の2種類，初期位相は90度（$\frac{\pi}{2}$ ラジアン）および180度（$\pi$ ラジアン）の2種類作成した．信号の式は以下のように表される．
+$$y(t)=\sin(2\pi ft+\phi)$$
+各条件における波形の違いを比較するため，グラフをプロットした．
+
+\subsubsection{うなり（課題3）}
+サンプリング周波数 $F_s = 16000$ Hz，提示時間4秒間とし，周波数が440 Hzと441 Hzの2つの純音を加算合成した．周波数の差によって生じるうなりの現象を確認するため，合成波形を描画および再生した．
+
+\subsubsection{フーリエ級数展開（課題4）}
+代表的な波形が三角関数の加算合成により再現できることを確認するため，矩形波の生成を行った．加算する高調波の数 $N$ を1，5，25と変化させ，以下の式を用いて合成した．
+$$f(t)=\sum_{k=1}^{N}\frac{1}{2k-1}\sin(2\pi(2k-1)ft)$$
+$N$ を増やすことで波形が次第に矩形波へ収束していく過程をグラフによって確認した．
+
+\subsubsection{白色ガウス雑音の生成（課題5）}
+サンプリング周波数 $F_s = 16000$ Hz，提示時間1秒間として，平均0，標準偏差0.2の白色ガウス雑音を生成した．MATLABの \texttt{randn} 関数を用いて擬似乱数を生成し，その信号波形を描画した．さらに，生成した信号の振幅分布を確認するため，50ビンに分割したヒストグラムを作成した．
+
+\subsubsection{発展課題}
+上記の基本課題に加えて，以下の発展的な検証を実施した．
+\begin{itemize}
+    \item 課題1で生成した440 Hzの純音データに対し，サンプリング周波数を15000 Hzに変更して再生し，再生音の変化を確認した．
+    \item サンプリング周波数8000 Hzにおいて，0.5秒間で瞬時周波数が440 Hzから880 Hzへと線形に増大するチャープ波を生成し，その波形と音の変化を確認した．
+    \item 課題3の差周波数を2 Hz，-2 Hz，および10 Hzにそれぞれ変更し，結果の波形や再生音の違いを比較した．
+    \item 課題4のフーリエ級数展開の手法を応用し，三角波およびノコギリ波の加算合成を行った．
+\end{itemize}
+
+\subsection{フーリエ解析}
+
+
+\begin{thebibliography}{99}
+  \bibitem{}
+\end{thebibliography}
+
+\end{document}

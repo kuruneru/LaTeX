@@ -4,6 +4,7 @@
 \usepackage{enumerate}
 \usepackage{tikz}
 \usepackage{listings, xcolor}
+\usepackage{graphics}
 
 \lstset{
   basicstyle = {\ttfamily},
@@ -33,29 +34,30 @@
 
 \section{音の信号の解析}
 
-\subsection{方法}
+\subsection*{方法}
 
-本実験では，MATLABを用いて音の工学的特徴について学習し，複数の信号生成および処理を実施した．各課題の具体的な手法を以下に示す．
+本実験では，MATLABを用いて音の工学的特徴について学習し，複数の信号生成および処理を実施した．各課題の具体的な手法を以下に示す．なお，本節の課題を実装したMATLABプログラムについては，付録\ref{sec:appendix_class1}に示す．
 
-\subsubsection{周波数の異なる純音の生成（課題1）}
-サンプリング周波数 $F_s = 16000$ Hz，提示時間1秒間として，周波数が440 Hzおよび660 Hzの純音（正弦波）を生成した．正弦波の生成には以下の式を用いた．
+\subsection{音の信号}
+\subsubsection{周波数の異なる純音の生成(課題1)}
+サンプリング周波数 $F_s = 16000$ Hz，提示時間1秒間として，周波数が440 Hzおよび660 Hzの純音(正弦波)を生成した．正弦波の生成には以下の式を用いた．
 $$y(t)=\sin(2\pi ft)$$
 生成した信号は \texttt{sound} 関数を用いて再生し，波形が確認できるようにグラフに描画した．
 
-\subsubsection{振幅・位相の確認（課題2）}
-課題1で作成した440 Hzの純音を基準とし，振幅および初期位相を変更した信号を生成した．振幅は0.5倍および0.25倍の2種類，初期位相は90度（$\frac{\pi}{2}$ ラジアン）および180度（$\pi$ ラジアン）の2種類作成した．信号の式は以下のように表される．
+\subsubsection{振幅・位相の確認(課題2)}
+課題1で作成した440 Hzの純音を基準とし，振幅および初期位相を変更した信号を生成した．振幅は0.5倍および0.25倍の2種類，初期位相は90度($\frac{\pi}{2}$ ラジアン)および180度($\pi$ ラジアン)の2種類作成した．信号の式は以下のように表される．
 $$y(t)=\sin(2\pi ft+\phi)$$
 各条件における波形の違いを比較するため，グラフをプロットした．
 
-\subsubsection{うなり（課題3）}
+\subsubsection{うなり(課題3)}
 サンプリング周波数 $F_s = 16000$ Hz，提示時間4秒間とし，周波数が440 Hzと441 Hzの2つの純音を加算合成した．周波数の差によって生じるうなりの現象を確認するため，合成波形を描画および再生した．
 
-\subsubsection{フーリエ級数展開（課題4）}
+\subsubsection{フーリエ級数展開(課題4)}
 代表的な波形が三角関数の加算合成により再現できることを確認するため，矩形波の生成を行った．加算する高調波の数 $N$ を1，5，25と変化させ，以下の式を用いて合成した．
 $$f(t)=\sum_{k=1}^{N}\frac{1}{2k-1}\sin(2\pi(2k-1)ft)$$
 $N$ を増やすことで波形が次第に矩形波へ収束していく過程をグラフによって確認した．
 
-\subsubsection{白色ガウス雑音の生成（課題5）}
+\subsubsection{白色ガウス雑音の生成(課題5)}
 サンプリング周波数 $F_s = 16000$ Hz，提示時間1秒間として，平均0，標準偏差0.2の白色ガウス雑音を生成した．MATLABの \texttt{randn} 関数を用いて擬似乱数を生成し，その信号波形を描画した．さらに，生成した信号の振幅分布を確認するため，50ビンに分割したヒストグラムを作成した．
 
 \subsubsection{発展課題}
@@ -67,11 +69,113 @@ $N$ を増やすことで波形が次第に矩形波へ収束していく過程�
     \item 課題4のフーリエ級数展開の手法を応用し，三角波およびノコギリ波の加算合成を行った．
 \end{itemize}
 
-\subsection{フーリエ解析}
+\subsection{音のフーリエ解析}
 
+本節における課題1および課題2の周波数解析およびフィルタリング処理を実装したMATLABプログラムについては，付録\ref{sec:appendix_class2}に示す．
+
+\subsubsection{課題1：正弦波と矩形波の周波数解析}
+サンプリング周波数 $F_s = 8192$ Hzにおいて，正弦波および矩形波を生成し，高速フーリエ変換(FFT)を用いて周波数解析を行った．正弦波は周波数440 Hz，提示時間1秒間として生成した．矩形波は，128点の0と128点の1を4回繰り返す合計1024点のデータとして生成した．それぞれの信号に対して \texttt{fft} 関数によりフーリエ変換を適用し，\texttt{fftshift} 関数を用いて負の周波数から正の周波数の順に並び替えた．その後，データの全時間長から算出した周波数軸を用いて，振幅スペクトルを描画した．
+
+\subsubsection{課題2：メロディの生成と高域通過フィルタの適用}
+サンプリング周波数 $F_s = 8192$ Hzにおいて，C(ド)からhi\_C(高いド)までの8音を，それぞれ0.25秒間ずつ生成した．これら8つの音の配列を時間方向に連結して1つのメロディ波形を作成し，FFTおよび \texttt{fftshift} を用いて周波数領域のデータへ変換した．
+次に，高域通過フィルタ(HPF)を適用するため，カットオフ周波数を357 Hzに設定した．周波数軸の配列を参照し，357 Hz未満となる要素の周波数成分を0に書き換えることで低域成分を遮断した．最後に，フィルタ適用後のデータに対し \texttt{ifftshift} を行った後，\texttt{ifft} 関数を用いて逆フーリエ変換を適用し，時間領域の波形へ復元して結果を描画した．
+
+\subsection*{結果}
+\label{result}
+
+\subsection{音の信号の解析}
+
+\subsubsection{周波数の異なる純音の生成（課題1）}
+\begin{center}
+    \includegraphics[width=12cm]{class1/sin_440_660.pdf}
+\end{center}
+
+\subsubsection{振幅・位相の確認（課題2）}
+\begin{center}
+    \includegraphics[width=12cm]{class1/0,5sin_0,25sin.pdf}
+\end{center}
+
+\subsubsection{うなり（課題3）}
+\begin{center}
+    \includegraphics[width=12cm]{class1/dif_sig.pdf}
+\end{center}
+
+\subsubsection{フーリエ級数展開（課題4）}
+\begin{center}
+    \includegraphics[width=12cm]{class1/sigma_equ.pdf}
+\end{center}
+
+\subsubsection{白色ガウス雑音の生成（課題5）}
+\begin{center}
+    \includegraphics[width=12cm]{class1/noise.pdf}
+\end{center}
+
+\subsubsection{発展課題}
+\begin{center}
+    \includegraphics[width=12cm]{class1/diff_Hz.pdf}
+    \vspace{1em}
+
+    \includegraphics[width=12cm]{class1/440to880.pdf}
+    \vspace{1em}
+
+    \includegraphics[width=12cm]{class1/diff_sig.pdf}
+    \vspace{1em}
+
+    \includegraphics[width=12cm]{class1/nokogiri.pdf}
+\end{center}
+
+\subsection{音のフーリエ解析}
+
+\subsubsection{課題1：正弦波と矩形波の周波数解析}
+\begin{center}
+    \includegraphics[width=12cm]{class2/2sig.pdf}
+\end{center}
+
+\subsubsection{課題2：メロディの生成と高域通過フィルタの適用}
+\begin{center}
+    \includegraphics[width=12cm]{class2/filter_sig.pdf}
+\end{center}
+
+\newpage
+
+\subsection*{考察}
+\subsection{信号生成と解析}
+節\ref{result}から，音の信号において周波数は周期の細かさといえる．その理由として図から$440$Hzと$660$Hzを比べた時，$660$Hzの方が周期が細かい事がわかる．また，それだけでなく信号に対しての積は振幅に影響することもわかる．これは信号，つまり周期函数が取る値に対しての積と同じ動作をしているからと言える．つまり下記の式と同様の操作を行っているといえる．
+\begin{align*}
+  f(t) &= \sin(2\pi ft) \\
+  g(t) &= 0.5 \times \sin(2\pi ft) \\
+  g(t) &= 0.5 \times f(t)
+\end{align*}
+違う周期を持つ周期函数の和はその差についてズレの周期が異なるため，正負の取る値の順序が異なる．したがって打ち消し合うx座標と助長し合うx座標によって値の変動が起こっている事がわかる．この周期の差が$0$でなくかつ$0$に近い程，打ち消しや助長が少ない．周期の差が大きい場合はその逆であることがわかる．フーリエ級数展開とは周期函数，$\sin , \cos$の函数で概形を近似することであり．この項が無限の場合は函数が同値になる．この函数の項の増加に伴い函数の概形が正確になることがわかる．白色ガウス雑音について，平均を$0$，標準偏差を$0.2$の乱数によりノイズを生成している．この``白色''についてはすべての周波数の音が均等に含まれている白色の周波数の性質からである．このときの周波数からなる色の名前を用いてピンクガウス雑音などがある．サンプリング周波数が変化すると音の高さが多少低くなっている事がわかる．これはコンピュータが出たを読み出してアナログ信号に変換する速度が遅くなったためである．この結果から，デジタル音声の再生には，録音時と再生時に用いるサンプリング周波数は同値である必要がある\cite{mathworks}．さらに，周波数が時間とともに440 Hzから880 Hzへ線形に変化するチャープ波を生成した結果から，純音のような定常信号とは異なり，非定常信号では時間経過に伴って周波数成分が連続的に遷移する特性が確認できる．また，うなりの差周波数を2 Hz，-2 Hz，10 Hzと変化させた検証からは，波形の物理的な周波数差と人間の聴覚特性の関係が考察できる．差が2 Hzと-2 Hzの場合，うなりの周期を決定する包絡線の変動は合成波の数式における周波数差の絶対値 $\vert{}f_1 - f_2\vert{}$ に依存するため，符号に関わらずどちらも1秒間に2回の周期で同一のうなりとして観測される．一方，差を10 Hzに広げると，振幅の変動が速くなりすぎ，人間の耳には周期的なうなりというよりも濁った粗い音として知覚されるようになる．これは，人間の聴覚が持つ時間的な振幅変動の分解能の限界を示す結果である．加えて，三角波やノコギリ波を正弦波の加算合成によって生成した結果から，波形の形状とそこに含まれる高調波成分の構成との直接的な関係性が明らかになった．ノコギリ波はすべての整数倍の高調波成分を含み振幅が $1/k$ で減衰するのに対し，三角波は奇数倍の高調波のみを含み振幅が $1/k^2$ でより急激に減衰する．このように，構成される高調波の周波数と振幅の減衰率が変化することで，時間領域での波形の形状が変化すると同時に，聴覚上で知覚される音色が明確に異なることが確認できる．
+
+\section{画像のフーリエ解析}
 
 \begin{thebibliography}{99}
-  \bibitem{}
+  \bibitem{mathworks} MathWorks，``sound -オーディオとして再生する''，\texttt{https://jp.mathworks.com/help/matlab/ref/sound.html}（参照 2026-08-09）．
 \end{thebibliography}
+
+% --- ここから付録 ---
+\appendix
+\section{MATLABプログラムコード}
+
+\subsection{音の信号生成と解析に関する実装}
+\label{sec:appendix_class1}
+\lstinputlisting[language=Matlab, caption={\texttt{class1/exp4\_3\_1.m}}]{class1/exp4_3_1.m}
+
+\subsection{音のフーリエ解析とフィルタ処理に関する実装}
+\label{sec:appendix_class2}
+\lstinputlisting[language=Matlab, caption={\texttt{class2/exp4\_3\_2.m}}]{class2/exp4_3_2.m}
+
+\subsection{画像と色調}
+\label{sec:appendix_class3}
+\lstinputlisting[language=Matlab, caption={\texttt{class3/exp4\_3\_3.m}}]{class3/exp4_3_3.m}
+
+\subsection{画像とフィルタ}
+\label{sec:appendix_class4}
+\lstinputlisting[language=Matlab, caption={\texttt{class4/exp4\_3\_4.m}}]{class4/exp4_3_4.m}
+
+\subsection{画像のフーリエ解析}
+\label{sec:appendix_class5}
+\lstinputlisting[language=Matlab, caption={\texttt{class5/exp4\_3\_4.m}}]{class5/exp4_3_4.m}
 
 \end{document}

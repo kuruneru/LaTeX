@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2026.4.8)  18 SEP 2026 16:59
+This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2026.4.8)  18 SEP 2026 17:04
  restricted system commands enabled.
 **slide.tex
 (./slide.tex
@@ -1468,32 +1468,32 @@ LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
 
 ](load cache: extra_lmroman8-regular.luc)(load cache: extra_lmroman6-regular.luc
 )
-LaTeX Font Info:    Trying loading font information for U+msa on input line 104
+LaTeX Font Info:    Trying loading font information for U+msa on input line 102
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying loading font information for U+msb on input line 104
+LaTeX Font Info:    Trying loading font information for U+msb on input line 102
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 7.69775pt on input line 104.
+(Font)              scaled to size 7.69775pt on input line 102.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 5.77332pt on input line 104.
+(Font)              scaled to size 5.77332pt on input line 102.
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <10.95> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 104.
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 102.
 (load cache: extra_lmsans10-oblique.luc)
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <8> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 104.
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 102.
 (load cache: extra_lmsans8-oblique.luc)
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <6> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 104.
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 102.
 
-Overfull \hbox (7.22075pt too wide) in paragraph at lines 104--104
+Overfull \hbox (7.22075pt too wide) in paragraph at lines 102--102
  [] 
  []
 
@@ -1505,13 +1505,13 @@ Overfull \hbox (7.22075pt too wide) in paragraph at lines 104--104
 
 ]
 LaTeX Font Info:    Font shape `JT3/gt/b/n' in size <10.95> not available
-(Font)              Font shape `JT3/gt/m/n' tried instead on input line 163.
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 161.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 10.53629pt on input line 163.
+(Font)              scaled to size 10.53629pt on input line 161.
 LaTeX Font Info:    Font shape `JY3/gt/b/n' in size <10.95> not available
-(Font)              Font shape `JY3/gt/m/n' tried instead on input line 163.
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 161.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 10.53629pt on input line 163.
+(Font)              scaled to size 10.53629pt on input line 161.
  [8
 
 ] [9
@@ -1528,7 +1528,7 @@ LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
 
 ]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 225.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 223.
 (load cache: extra_lmmonolt10-bold.luc) [15
 
 ] [16
@@ -1581,7 +1581,7 @@ ist/fonts/opentype/public/lm/lmsans12-regular.otf></usr/share/texlive/texmf-dist
 /fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></usr/share/texlive/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on slide.pdf (21 pages, 146305 bytes).
+Output written on slide.pdf (21 pages, 145992 bytes).
 
 PDF statistics: 263 PDF objects out of 1000 (max. 8388607)
  199 compressed objects within 2 object streams

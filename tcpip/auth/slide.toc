@@ -4,3 +4,4 @@
 \beamer@sectionintoc {2}{主体認証}{9}{0}{2}
 \beamer@subsectionintoc {2}{1}{主体認証の概要}{10}{0}{2}
 \beamer@subsectionintoc {2}{2}{主体の知識による認証}{12}{0}{2}
+\beamer@sectionintoc {3}{Web認証 API認証について}{20}{0}{3}

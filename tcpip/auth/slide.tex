@@ -1,156 +1,316 @@
 \documentclass[11pt, aspectratio=169]{beamer}
 
-% ==========================================
-%  LuaLaTeX & 日本語環境設定
-% ==========================================
 \usepackage{luatexja}
 \usepackage{luatexja-fontspec}
+\usepackage{tikz}
 \renewcommand{\kanjifamilydefault}{\gtdefault}
 
-% ==========================================
-%  主要パッケージの読み込み
-% ==========================================
 \usepackage{amsmath, amssymb}
-\usepackage{booktabs}
-\usepackage{tikz}
-\usepackage{graphicx}
-\usepackage{listings}
-\usepackage{xcolor}
+\usepackage{listings, xcolor}
+
+\usetheme{default}
+\usecolortheme{whale}
+\usecolortheme{orchid} % ← これを追加（ブロックに背景色がつく）
+\setbeamertemplate{blocks}[rounded] % ← これを追加（ブロックの枠を表示し角を丸くする）
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+
+\setbeamertemplate{section in toc}[ball]
+\setbeamertemplate{subsection in toc}[ball]
 
 \lstset{
   basicstyle=\ttfamily\scriptsize,
   frame=single,
-  backgroundcolor=\color{gray!5},
-  frameround=tttt,
-  framesep=4pt,
-  rulecolor=\color{blue!20},
-  breaklines=true,
-  numbers=left,
-  numberstyle=\tiny\color{gray}
+  breaklines=true
 }
 
-% ==========================================
-%  モダンなカスタムテーマ設定
-% ==========================================
-\usetheme{default}
-\usecolortheme{whale}
-
-\definecolor{BrandDark}{HTML}{1E293B}
-\definecolor{BrandMain}{HTML}{0F172A}
-\definecolor{BrandAccent}{HTML}{0284C7}
-\definecolor{BgLight}{HTML}{F8FAFC}
-
-\setbeamercolor{normal text}{fg=BrandMain, bg=BgLight}
-\setbeamercolor{structure}{fg=BrandAccent}
-\setbeamercolor{frametitle}{fg=white, bg=BrandDark}
-\setbeamercolor{title}{fg=white, bg=BrandDark}
-\setbeamercolor{block title}{fg=white, bg=BrandAccent}
-\setbeamercolor{block body}{fg=BrandMain, bg=gray!10}
-
-\setbeamerfont{title}{size=\Large, series=\bfseries}
-\setbeamerfont{frametitle}{size=\large, series=\bfseries}
-\setbeamertemplate{navigation symbols}{}
-
-% ==========================================
-%  ロゴ配置＆ヘッダー・フッター
-% ==========================================
-
-% 通常スライドの右上には「研究室ロゴのみ」を配置
-\setbeamertemplate{frametitle}{
-  \nointerlineskip
-  \begin{beamercolorbox}[wd=\paperwidth, htabsets, dp=1.2ex, ht=2.8ex, leftskip=15pt, rightskip=15pt]{frametitle}
-    \usebeamerfont{frametitle}\insertframetitle
-    \hfill
-    % コピーされた通常の画像ファイルを参照する
-    \vbox to 0pt{\vss\hbox{
-      \includegraphics[height=14pt]{lab_logo.png}
-    }\vss}
-  \end{beamercolorbox}
-}
-
-\setbeamertemplate{footline}{
-  \begin{beamercolorbox}[wd=\paperwidth, ht=2.5ex, dp=1.1ex, leftskip=15pt, rightskip=15pt]{}
-    \color{gray}\scriptsize
-    \insertshorttitle \quad | \quad \insertsectionhead
-    \hfill
-    \insertframenumber{} / \inserttotalframenumber
-  \end{beamercolorbox}
-}
-
-% ==========================================
-%  セクション自動挿入
-% ==========================================
+% --- セクションごとの題目ページ ---
 \AtBeginSection[]{
   \begin{frame}[plain]
     \vfill
-    \centering
-    \begin{beamercolorbox}[sep=12pt, center, rounded=true, shadow=false]{title}
-      \usebeamerfont{title}\small SECTION\par\vspace{0.5em}
-      \usebeamerfont{title}\Large\insertsectionhead
+    \begin{beamercolorbox}[sep=8pt, center, rounded=true]{title}
+      \usebeamerfont{title}\insertsectionhead\par
     \end{beamercolorbox}
     \vfill
   \end{frame}
 }
 
+% --- サブセクションごとの題目ページ ---
 \AtBeginSubsection[]{
-  \begin{frame}{\insertsectionhead \ -- 現在地}
-    \tableofcontents[currentsection, currentsubsection, subsectionstyle=show/shaded/hide]
+  \begin{frame}[plain]
+    \vfill
+    \begin{beamercolorbox}[sep=8pt, center, rounded=true]{title}
+      \usebeamerfont{title}\insertsectionhead\par
+      \vspace{0.5em}
+      \large\insertsubsectionhead\par
+    \end{beamercolorbox}
+    \vfill
   \end{frame}
 }
 
-% ==========================================
-%  タイトル情報
-% ==========================================
-\title[略称タイトル]{メインタイトル}
-\subtitle{サブタイトル}
-\author[氏名]{学籍番号: 1280391 \\ 氏名: 細川夏風 (Hosokawa Natsuka)}
-\institute[高知工科大学]{高知工科大学 (Kochi Univ of Tech)}
+\title{マスタリングTCP/IP 情報セキュリティ編}
+\subtitle{認証技術の基礎と主体認証}
+\author{学籍番号: 1280391 \\ 細川夏風}
+\institute{高知工科大学}
 \date{\today}
 
 \begin{document}
 
-% タイトルスライド
 \begin{frame}[plain]
-  \vfill
-  \begin{center}
-    
-    % タイトルページ上部に大学ロゴと研究室ロゴを配置
-    \begin{center}
-      \includegraphics[height=35pt]{kut_logo.png}
-      \hspace{20pt}
-      \includegraphics[height=35pt]{lab_logo.png}
-    \end{center}
-    \vspace{1em}
-
-    \begin{beamercolorbox}[wd=0.95\paperwidth, sep=15pt, center, rounded=true]{title}
-      {\usebeamerfont{title}\inserttitle}\par
-      \ifx\insertsubtitle\@empty\else
-        \vspace{0.5em}{\small\insertsubtitle}\par
-      \fi
-    \end{beamercolorbox}
-    
-    \vspace{1.5em}
-    {\small \insertinstitute}\par
-    \vspace{0.5em}
-    {\large \insertauthor}\par
-    \vspace{1em}
-    {\footnotesize \insertdate}\par
-    
-  \end{center}
-  \vfill
+  \titlepage
 \end{frame}
 
 \begin{frame}{目次}
   \tableofcontents
 \end{frame}
 
-% --- ここからスライド本文 ---
-\section{セクション1}
+\section{認証技術の基礎}
+\subsection{認証の概念}
+\begin{frame}{確認と認証}
+\begin{columns}[c]
+  % 左側の文章ブロック
+  \begin{column}{0.55\textwidth}
+    セキュリティではどのユーザをどのリソースにどういうふうにアクセスさせるか（が）重要．
 
-\begin{frame}{スライドタイトル}
+    あらかじめ登録されたものに対して，身元の確認をすることを，``主体認証''，``認証''という．認証には主に2つの工程がある．
+    \begin{itemize}
+      \item 身元確認: 何かしらの証明書で登録の際にユーザの情報を確かめる．
+      \item 主体認証: 利用する際に以前の情報から認証を行う．
+    \end{itemize}
+        例として，銀行が挙げられる．
+  \end{column}
+
+    % 右側の図解ブロック
+  \begin{column}{0.41\textwidth}
+    \begin{figure}
+      \centering
+      \begin{tikzpicture}[
+      box/.style={draw, rounded corners, minimum width=1.5cm, minimum height=0.8cm},
+      arrow/.style={->, thick}
+    ]
+    % ユーザと銀行のノードを縦に配置
+    \node[box] (user) at (0, 0) {ユーザ};
+    \node[box] (bank) at (0, -2.5) {銀行};
+
+    % ① 身元確認の矢印（左側を湾曲）
+    \draw[arrow] (user.west) to[bend right=45] node[left, align=right, font=\scriptsize] {① 身元確認\\(免許証等)} (bank.west);
+
+    % ② 主体認証の矢印（右側を湾曲）
+    \draw[arrow] (user.east) to[bend left=45] node[right, align=left, font=\scriptsize] {② 主体認証\\(暗証番号)} (bank.east);
+    \end{tikzpicture}
+    \end{figure}
+  \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{認証に関する用語}
+  \begin{columns}[c]
+  % 左側の文章ブロック
+    \begin{column}{0.55\textwidth}
+      \begin{itemize}
+        \item 登録: IDをシステムに新規登録した状態．
+        \item 活性: 認証が許可され，IDが利用可能な状態．
+        \item 更新: 異動などに伴い，権限や属性を変更する．
+        \item 休止: 長期休暇などで一時的に利用を停止する．
+        \item 抹消: 退職などに伴い，IDをシステムから削除する．
+      \end{itemize}
+    \end{column}
+
+  % 右側の図解ブロック
+    \begin{column}{0.41\textwidth}
+      \begin{figure}
+        \centering
+        \begin{tikzpicture}[
+          box/.style={draw, thick, rounded corners, minimum width=1.6cm, minimum height=0.6cm, align=center, fill=blue!10, font=\scriptsize},
+          arrow/.style={->, thick}
+        ]
+        % ノードの配置
+        \node[box] (register) at (0, 0) {登録};
+        \node[box] (active)   at (0, -1.2) {活性};
+        \node[box] (update)   at (2.0, -1.2) {更新};
+        \node[box] (suspend)  at (0, -2.4) {休止};
+        \node[box] (delete)   at (0, -3.6) {抹消};
+
+        % 状態遷移の矢印
+        \draw[arrow] (register) -- (active);
+        \draw[arrow] (active) to[bend left=15] (update);
+        \draw[arrow] (update) to[bend left=15] (active);
+        \draw[arrow] (active) to[bend left=15] (suspend);
+        \draw[arrow] (suspend) to[bend left=15] (active);
+        \draw[arrow] (suspend) -- (delete);
+        % 活性から直接抹消への矢印（左側を迂回）
+        \draw[arrow] (active.west) to[bend right=40] (delete.west);
+        \end{tikzpicture}
+      \end{figure}
+    \end{column}
+  \end{columns}
+
+  この用な\texttt{ID}のライフサイクルの管理を\texttt{IdM: Identity Management}という.
+\end{frame}
+
+\subsection{アクセス制御}
+
+\begin{frame}{アクセス制御}
+  特定のユーザ(\texttt{ID})に対して権限を付与することによってユーザの動作を制御することができる．これを``アクセス制御''という．これを一覧表にしたものを\textbf{アクセス制御リスト}(\texttt{ACL: Access Control List})という．
+  \begin{block}{アクセス制御の例}
+    \begin{itemize}
+      \item 任意アクセス制御(\texttt{DAC}: \texttt{Discretionary Access Control})は，所有者が，誰に読ませるか誰に書き込ませるかを自由に決められる仕組み．
+
+       \item 強制アクセス制御(\texttt{MAC}: \texttt{Mandatory Access Control})は，システム管理者が決めたルールに従って，システムが強制的にアクセスを制限する仕組み．
+       \item ロールベースアクセス制御(\texttt{RBAC: Role-Base Access Control})は，直接権限を付与するのではなく役割を通して権限を付与する方式．
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\section{主体認証}
+\subsection{主体認証の概要}
+
+\begin{frame}{主体認証の概要}
+  \begin{block}{主体認証の種類}
+    \begin{itemize}
+      \item 主体の知識による認証
+      \item 主体の所持するものによる認証
+      \item 主体の身体的な特性による認証
+    \end{itemize}
+  \end{block}
+  下の$2$つは人を対象にした認証方式である．
+  \vspace{1em}
+
+  これらの要素を併用して用いられる際には``多要素認証''と呼ばれるが厳密な定義は不明．さらに近年では，``多段階認証''が導入されているケースが多い．これは$1$度の認証が完了するとさらに次に違う方式の認証で$2$度目の認証を行う方式である．
+\end{frame}
+
+\subsection{主体の知識による認証}
+
+\begin{frame}{主体の知識による認証}
+  現在認証に使われている認証技術に主に以下の$3$つがある．
   \begin{itemize}
-    \item ここに内容を記述
+    \item パスワード認証
+    \item パスフレーズ認証
+    \item \texttt{PIN: Personal Indetification Number}
+  \end{itemize}
+  基本的にはパスワード，パスフレーズのセキュリティ強度は「長さ」，「使われている文字の種類」，「ランダム性」に大きく依存する．しかし，書籍にはパスワードとパスフレーズのセキュリティ強度は大きく差がないとされている．
+  \begin{alertblock}{パスワードとパスフレーズの違い}
+    パスワードは$1$単語低度であるのに対し，パスフレーズは$20$文字以上を及ぶ文字列であることが必要．
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{パスワードに関する事}
+  \begin{block}{\texttt{NIST}ガイドライン}
+    \begin{itemize}
+      \item \texttt{SHALL / SHALL NOT}: しなければならない，してはならないの従うべき項目．
+      \item \texttt{SHOULD / SHOULD NOT}: すべきである，すべきでないの推奨，非推奨の項目．
+      \item \texttt{MAY / NEED NOT}: してもよい，しなくてもよいの許容行動の項目．
+    \end{itemize}
+  \end{block}
+  これらのガイドラインを用いて，パスワード自体の構成要件やパスワードの前処理要件，保存に関する要件が\texttt{NIST}のガイドラインで定められている．興味ある方は是非．> \texttt{https://openid-foundation-japan.github.io/800-63-3-final/sp800-63b.ja.html}
+  
+  \vspace{1em}
+
+  認証に使うパスワードは平文で保存しないこと．ハッシュ関数などの一方向函数を使用して暗号文で保存することが強く推奨されている．
+\end{frame}
+
+\begin{frame}{書籍に対して}
+   \texttt{NTLM}認証は現在幾つかの脆弱性で\texttt{windows}側が用いていない可能性がある．
+
+  \texttt{NTLM}認証の脆弱性を狙った代表的な攻撃手法として，以下の3つが挙げられる．
+
+  \begin{itemize}
+    \item \textbf{パス・ザ・ハッシュ攻撃 (\texttt{Pass-the-Hash: PtH})}\
+    端末のメモリ等から盗み出したパスワードの「ハッシュ値」を，そのまま別のサーバーへの認証に使い回す手法．
+    \item \textbf{NTLMリレー攻撃 (\texttt{NTLM Relay Attack)}}\
+    被害者からの認証要求（通信）を途中で横取りし，別の標的サーバーへそのまま中継することで，不正にアクセス権を奪う手法．
+    \item \textbf{オフライン・クラッキング}\
+    ネットワーク上の認証トラフィックを盗聴・保存し，手元の環境で解析ツールを用いて元のパスワードを復元する手法．
   \end{itemize}
 \end{frame}
 
+\begin{frame}{現在の主流な\texttt{Windows}認証方式}
+  \texttt{NTLM}の脆弱性を克服するため，現在ではより安全な以下の認証方式が主に利用されている．
+
+  \begin{itemize}
+    \item \textbf{\texttt{Kerberos}(ケルベロス)認証}\
+    \texttt{Windows} $2000$以降の\texttt{Active Directory}環境でデフォルトとなっている方式．チケットと呼ばれる仕組みを利用して安全に認証を行う．
+    \item \textbf{モダン認証(\texttt{Microsoft Entra ID}など)}\
+    クラウド環境の普及に伴い主流となった，\texttt{SAML}や\texttt{OpenID Connect}を利用する方式．多要素認証(\texttt{MFA})を前提とした強固なセキュリティを持つ．
+    \item \textbf{パスワードレス認証(\texttt{FIDO}$2$など)}\
+    \texttt{Windows Hello for Business}に代表される，生体認証(顔や指紋)や\texttt{PIN}を利用し，パスワード自体をネットワーク上に一切流さない仕組み．
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{ワンタイムパスワード}
+ワンタイムパスワード(\texttt{OTP})認証の際に$1$度だけのパスワードを用いて認証を行う方式のことである．実現方法は以下の$2$つ存在する．
+
+\vspace{1em}
+
+一つが最初にシード値を一方向函数に入れ，その出力を何度も一方向函数に入れることによってそれぞれの値を組として利用者に渡す．認証の際にはその出力結果の値の組を作成の時の逆の順序で利用していく．これにより，セキュリティ被害を一時的なものにする．
+
+もう一つが一定時間ごとにワンタイムパスワードを生成する方式である．
+\end{frame}
+
+\begin{frame}{主体の所持するものによる認証}
+  \begin{columns}[c]
+    % 左側の文章ブロック
+    \begin{column}{0.54\textwidth}
+      \texttt{IC}カードやハードウェアトークンなどの実際に利用者が所持しているものを用いて認証を行う．パスワード等より強固な認証を行うことが可能である．
+
+      \vspace{1em}
+      これにも問題があり，紛失や盗難などで勝手に利用されるケースが存在するので，さらに\texttt{PIN}などを用いて対策する必要がある．
+    \end{column}
+
+    % 右側の図解ブロック
+    \begin{column}{0.44\textwidth}
+      \begin{figure}
+        \centering
+        \begin{tikzpicture}[
+          box/.style={draw, thick, rounded corners, minimum width=2.0cm, minimum height=0.8cm, align=center, fill=blue!10, font=\scriptsize},
+          alert/.style={draw, thick, rounded corners, minimum width=2.0cm, minimum height=0.5cm, align=center, fill=red!10, font=\tiny, text=red!80!black},
+          arrow/.style={->, thick}
+        ]
+        % ノードの配置
+        \node[box] (possession) at (0, 1.2) {所持情報\\(\texttt{IC}カード等)};
+        \node[box] (knowledge)  at (0, -1.2) {記憶情報\\(\texttt{PIN}等)};
+        \node[box, fill=green!10] (auth) at (2.4, 0) {強固な認証\\(二要素)};
+
+        % 矢印
+        \draw[arrow] (possession.east) to[bend left=20] (auth.west);
+        \draw[arrow] (knowledge.east) to[bend right=20] (auth.west);
+
+        % リスクの警告
+        \node[alert] (risk) at (0, 2.5) {紛失・盗難リスク};
+        \draw[->, thick, dashed, red] (risk) -- (possession);
+        \end{tikzpicture}
+      \end{figure}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+
+\begin{frame}{身体的特徴による認証(生体認証)}
+  主体の身体的特徴を用いて認証を行う方式を「生体認証(\texttt{Biometric Authentication})」という．パスワード等の記憶や持ち物を必要とせず，主に以下の$4$種類が広く実用化されている．
+
+  \begin{block}{主な身体的特徴と認証の仕組み}
+    \begin{itemize}
+      \item \textbf{指紋(\texttt{Fingerprint})認証}\
+      指先の紋様(隆線の分岐点や端点など)のパターンをセンサで読み取る方式．
+      \item \textbf{顔(\texttt{Face})認証}\
+      目，鼻，口の配置や骨格の立体的な形状をカメラや赤外線センサで解析する方式．
+      \item \textbf{静脈(\texttt{Vein})認証}\
+      近赤外線を照射し，指や手のひらの皮下にある血管パターンを読み取る方式．体内情報のため偽造が極めて困難である．
+      \item \textbf{虹彩(\texttt{Iris})認証}\
+      眼球の瞳孔の周囲にある虹彩(しわの複雑な模様)を解析する方式．経年変化がほぼなく，双子でも異なるため非常に精度が高い．
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}{API認証について}
+  今回\texttt{Web}技術で用いられる認証として\texttt{API}認証がある．これは\texttt{API}を誰でも叩ける状態にしないためのものだ，幾つかの
+  \begin{block}{主なAPI認証の種類}
+    \begin{itemize}
+      \item \texttt{API}キー: サービス側が発行した文字列をヘッダや\texttt{URL}パラメータに貼り付ける方法．
+      \item \texttt{Basic}認証: ユーザ\texttt{ID}とパスワードを\texttt{Base64}でエンコードしてヘッダに貼り付ける方法．
+      \item \texttt{OAuth}: 認証サーバからのアクセストークンで通信を行う仕組み．\texttt{Google}や\texttt{GitHub}など著名なものが用いれることが多い．
+      \item \texttt{JWT(Json Web Token)}: \texttt{Json}形式で誰のトークンがいつまで有効かを定めたものをヘッダや\texttt{Cookie}などで管理する方式．
+    \end{itemize}
+  \end{block}
+\end{frame}
 \end{document}

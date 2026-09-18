@@ -1,0 +1,156 @@
+\documentclass[11pt, aspectratio=169]{beamer}
+
+% ==========================================
+%  LuaLaTeX & 日本語環境設定
+% ==========================================
+\usepackage{luatexja}
+\usepackage{luatexja-fontspec}
+\renewcommand{\kanjifamilydefault}{\gtdefault}
+
+% ==========================================
+%  主要パッケージの読み込み
+% ==========================================
+\usepackage{amsmath, amssymb}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstset{
+  basicstyle=\ttfamily\scriptsize,
+  frame=single,
+  backgroundcolor=\color{gray!5},
+  frameround=tttt,
+  framesep=4pt,
+  rulecolor=\color{blue!20},
+  breaklines=true,
+  numbers=left,
+  numberstyle=\tiny\color{gray}
+}
+
+% ==========================================
+%  モダンなカスタムテーマ設定
+% ==========================================
+\usetheme{default}
+\usecolortheme{whale}
+
+\definecolor{BrandDark}{HTML}{1E293B}
+\definecolor{BrandMain}{HTML}{0F172A}
+\definecolor{BrandAccent}{HTML}{0284C7}
+\definecolor{BgLight}{HTML}{F8FAFC}
+
+\setbeamercolor{normal text}{fg=BrandMain, bg=BgLight}
+\setbeamercolor{structure}{fg=BrandAccent}
+\setbeamercolor{frametitle}{fg=white, bg=BrandDark}
+\setbeamercolor{title}{fg=white, bg=BrandDark}
+\setbeamercolor{block title}{fg=white, bg=BrandAccent}
+\setbeamercolor{block body}{fg=BrandMain, bg=gray!10}
+
+\setbeamerfont{title}{size=\Large, series=\bfseries}
+\setbeamerfont{frametitle}{size=\large, series=\bfseries}
+\setbeamertemplate{navigation symbols}{}
+
+% ==========================================
+%  ロゴ配置＆ヘッダー・フッター
+% ==========================================
+
+% 通常スライドの右上には「研究室ロゴのみ」を配置
+\setbeamertemplate{frametitle}{
+  \nointerlineskip
+  \begin{beamercolorbox}[wd=\paperwidth, htabsets, dp=1.2ex, ht=2.8ex, leftskip=15pt, rightskip=15pt]{frametitle}
+    \usebeamerfont{frametitle}\insertframetitle
+    \hfill
+    % コピーされた通常の画像ファイルを参照する
+    \vbox to 0pt{\vss\hbox{
+      \includegraphics[height=14pt]{lab_logo.png}
+    }\vss}
+  \end{beamercolorbox}
+}
+
+\setbeamertemplate{footline}{
+  \begin{beamercolorbox}[wd=\paperwidth, ht=2.5ex, dp=1.1ex, leftskip=15pt, rightskip=15pt]{}
+    \color{gray}\scriptsize
+    \insertshorttitle \quad | \quad \insertsectionhead
+    \hfill
+    \insertframenumber{} / \inserttotalframenumber
+  \end{beamercolorbox}
+}
+
+% ==========================================
+%  セクション自動挿入
+% ==========================================
+\AtBeginSection[]{
+  \begin{frame}[plain]
+    \vfill
+    \centering
+    \begin{beamercolorbox}[sep=12pt, center, rounded=true, shadow=false]{title}
+      \usebeamerfont{title}\small SECTION\par\vspace{0.5em}
+      \usebeamerfont{title}\Large\insertsectionhead
+    \end{beamercolorbox}
+    \vfill
+  \end{frame}
+}
+
+\AtBeginSubsection[]{
+  \begin{frame}{\insertsectionhead \ -- 現在地}
+    \tableofcontents[currentsection, currentsubsection, subsectionstyle=show/shaded/hide]
+  \end{frame}
+}
+
+% ==========================================
+%  タイトル情報
+% ==========================================
+\title[略称タイトル]{メインタイトル}
+\subtitle{サブタイトル}
+\author[氏名]{学籍番号: 1280391 \\ 氏名: 細川夏風 (Hosokawa Natsuka)}
+\institute[高知工科大学]{高知工科大学 (Kochi Univ of Tech)}
+\date{\today}
+
+\begin{document}
+
+% タイトルスライド
+\begin{frame}[plain]
+  \vfill
+  \begin{center}
+    
+    % タイトルページ上部に大学ロゴと研究室ロゴを配置
+    \begin{center}
+      \includegraphics[height=35pt]{kut_logo.png}
+      \hspace{20pt}
+      \includegraphics[height=35pt]{lab_logo.png}
+    \end{center}
+    \vspace{1em}
+
+    \begin{beamercolorbox}[wd=0.95\paperwidth, sep=15pt, center, rounded=true]{title}
+      {\usebeamerfont{title}\inserttitle}\par
+      \ifx\insertsubtitle\@empty\else
+        \vspace{0.5em}{\small\insertsubtitle}\par
+      \fi
+    \end{beamercolorbox}
+    
+    \vspace{1.5em}
+    {\small \insertinstitute}\par
+    \vspace{0.5em}
+    {\large \insertauthor}\par
+    \vspace{1em}
+    {\footnotesize \insertdate}\par
+    
+  \end{center}
+  \vfill
+\end{frame}
+
+\begin{frame}{目次}
+  \tableofcontents
+\end{frame}
+
+% --- ここからスライド本文 ---
+\section{セクション1}
+
+\begin{frame}{スライドタイトル}
+  \begin{itemize}
+    \item ここに内容を記述
+  \end{itemize}
+\end{frame}
+
+\end{document}

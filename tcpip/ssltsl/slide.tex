@@ -1,0 +1,165 @@
+\documentclass[11pt, aspectratio=169]{beamer}
+
+% LuaLaTeXで日本語を使うための必須パッケージ
+\usepackage{luatexja}
+
+% 便利な追加パッケージ
+\usepackage{booktabs}   % 表の罫線
+\usepackage{tikz}       % 図形描画
+\usepackage{graphicx}
+\usepackage{hhline}
+\usetikzlibrary{shapes.symbols, shapes.geometric, arrows.meta, positioning}
+\usepackage{listings}   % ソースコード挿入
+\lstset{
+  basicstyle=\ttfamily\scriptsize,
+  frame=single,
+  breaklines=true,
+  numbers=left,
+  numberstyle=\tiny
+}
+
+% テーマとカラーテーマの設定
+\usetheme{Madrid}
+\usecolortheme{orchid}
+
+% ==========================================
+% セクション・サブセクションの可視化設定
+% ==========================================
+
+% 1. セクション開始時の自動表紙（扉絵）
+\AtBeginSection[]{
+  \begin{frame}
+    \vfill
+    \centering
+    \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+      \usebeamerfont{title}\insertsectionhead\par%
+    \end{beamercolorbox}
+    \vfill
+  \end{frame}
+}
+
+% 2. サブセクション開始時に「現在のセクション内の目次」を自動挿入
+\AtBeginSubsection[]{
+  \begin{frame}{\insertsectionhead}
+    \tableofcontents[currentsection, currentsubsection, subsectionstyle=show/shaded/hide]
+  \end{frame}
+}
+
+% タイトル情報（hyperrefの警告対策としてオプション引数を追加）
+\title{セキュリティプロトコル}
+\subtitle{SSL/TSL}
+\author[学籍番号: 1280391 / 氏名: 細川夏風]{学籍番号(Student ID): 1280391 \\ 氏名(Name): 細川夏風(Hosokawa Natsuka)}
+\institute{高知工科大学(Kochi Univ of Tech)}
+\date{\today}
+
+\begin{document}
+
+% TikZスタイル定義
+\tikzstyle{client} = [rectangle, rounded corners, draw=blue!60, fill=blue!10, very thick, minimum width=2.5cm, minimum height=1.5cm, align=center]
+\tikzstyle{server} = [rectangle, rounded corners, draw=green!60!black, fill=green!10, very thick, minimum width=2.5cm, minimum height=1.5cm, align=center]
+\tikzstyle{internet} = [cloud, cloud puffs=12, cloud puff arc=120, aspect=2, draw=gray, fill=gray!10, very thick, minimum width=3.5cm, minimum height=2cm, align=center]
+\tikzstyle{arrow} = [-{Stealth[scale=1.2]}, thick, draw=black!80]
+
+% タイトルスライド
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% 目次スライド
+\begin{frame}{目次}
+    \tableofcontents
+\end{frame}
+
+% ==========================================
+% ここから本文
+% ==========================================
+\section{自己紹介}
+\begin{frame}{自己紹介}
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      高知工科大学 情報学群 学士$3$年 \\
+      所属研究室: シカール研究室
+
+      \vspace{1.5em}
+
+      \begin{description}[研究:]
+        \item[研究:] \texttt{SAGIN}という新構想ネットワークの無線妨害の緩和手法
+        \item[趣味:] 家で作ったネットワーク環境をいじってアプリ開発とかハニーポッド作って遊んだり，音楽で\texttt{Jazz}をやったりもしてます．映画とかも好きで一番好きな映画は「インターステラー」です！
+      \end{description}
+    
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{figure}
+        \includegraphics[width=0.55\linewidth]{Myself.jpg}
+        \caption{好きな画家の絵を買えてニコニコの僕}
+      \end{figure}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\section{セキュリティプロトコル}
+
+\subsection{セキュリティプロトコルについて}
+\begin{frame}{セキュリティプロトコルについて}
+    % ここに内容を記述
+  \begin{columns}
+    \begin{column}{0.48\textwidth}
+      \begin{alertblock}{通信の脅威}
+        \begin{itemize}
+          \item 盗聴
+          \item 改竄
+          \item ハイジャック
+          \item なりすまし
+          \item 捏造
+          \item 再送
+        \end{itemize}
+      \end{alertblock}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{block}{通信を安全に行うための技術}
+        \begin{itemize}
+          \vspace{0.8em}
+          \item 公開鍵暗号方式
+          \item 共通鍵暗号方式
+          \item 鍵交換方式
+          \item メッセージの改竄検知
+          \item 認証プロトコル
+          \vspace{0.8em}
+        \end{itemize}
+      \end{block}
+    \end{column}
+  \end{columns}
+  \vspace{0.5em}
+  セキュリティプロトコルはこれらの脅威に対して，右の技術を適切に組み合わせ用いる事によって\texttt{CIA}の確保を目指している．
+\end{frame}
+
+\begin{frame}{利用場面とプロトコルの種類}
+  \begin{table}[htbp]
+    \centering
+    \caption{セキュリティプロトコルの利用場面と種類}
+    \begin{tabular}{|c|c|c|} \hline
+      \texttt{OSI}層 & 名称 & 概要 \\ \hhline{|=|=|=|}
+      アプリケーション層 & \texttt{S/MIME} & 電子メールの暗号化とディジタル署名のプロトコル \\ \hline
+      アプリケーション層 & \texttt{SSH} & 遠隔ログインのプロトコル \\ \hline
+      トランスポート層 & \texttt{SSL/TLS} & \texttt{Web}通信などの様々な暗号化で利用されるプロトコル \\ \hline
+      ネットワーク層 & \texttt{IPsec} & \texttt{IP}パケット自体を保護対象とするプロトコル \\ \hline
+      データリンク層 & \texttt{L2TP} & 暗号器機能がないので\texttt{IPsec}などと併用される \\ \hline
+    \end{tabular}
+  \end{table}
+\end{frame}
+
+\subsection{よりセキュアな通信}
+\begin{frame}{よりセキュアな通信}
+  \begin{itemize}
+    \item \texttt{\textbf{E2EE(End-to-End Encryption)}} \\
+      \texttt{E2EE}はメッセージアプリケーションなどにおいて，通信の当事者同士のみが閲覧可能である2点間の暗号方式のこと．
+    \item \textbf{前方秘匿性} \\
+      前方秘匿性は，もし仮に暗号が危殆化してしまった場合にそれまでに行われた通信の安全性を保証する性質のこと．
+    \item \texttt{\textbf{PCS(Post-Conpromise Security)}} \\
+      \texttt{PCS}は暗号方式が危殆化してもその後，ある程度は安全性を保証する概念のこと．ラチェット機構と呼ばれる仕組みで使用している鍵を変化させて通信を行うため，暗号が危殆化してもある程度の安全性は保証される．
+  \end{itemize}
+\end{frame}
+
+
+\end{document}
+

@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2026.5.10)  14 OCT 2026 18:17
+This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2026.5.10)  14 OCT 2026 19:41
  restricted system commands enabled.
 **slide.tex
 (./slide.tex
@@ -1649,13 +1649,17 @@ Overfull \hbox (46.38889pt too wide) has occurred while \output is active
 
 ]
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 6.73553pt on input line 346.
+(Font)              scaled to size 6.73553pt on input line 352.
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <14.4> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 346.
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 352.
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <10> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 346.
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 352.
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <7> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 346.
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 352.
+
+Overfull \vbox (2.65173pt too high) detected at line 352
+ []
+
 
 Overfull \hbox (46.38889pt too wide) has occurred while \output is active
  [][]  \TU/lmss/m/n/6 ([])  
@@ -1722,7 +1726,7 @@ exlive/texmf-dist/fonts/opentype/public/lm/lmmono10-regular.otf></usr/share/texl
 ive/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></usr
 /share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/
 texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb>
-Output written on slide.pdf (27 pages, 3513089 bytes).
+Output written on slide.pdf (27 pages, 3514699 bytes).
 
 PDF statistics: 1097 PDF objects out of 1200 (max. 8388607)
  943 compressed objects within 10 object streams

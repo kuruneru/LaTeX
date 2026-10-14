@@ -28,8 +28,59 @@
 \headcommand {\beamer@framepages {9}{9}}
 \headcommand {\slideentry {2}{2}{2}{10/10}{よりセキュアな通信}{0}}
 \headcommand {\beamer@framepages {10}{10}}
-\headcommand {\beamer@partpages {1}{10}}
-\headcommand {\beamer@subsectionpages {9}{10}}
 \headcommand {\beamer@sectionpages {5}{10}}
-\headcommand {\beamer@documentpages {10}}
-\headcommand {\gdef \inserttotalframenumber {10}}
+\headcommand {\beamer@subsectionpages {9}{10}}
+\headcommand {\sectionentry {3}{\texttt {SSL/TLS}の概要}{11}{\texttt {SSL/TLS}の概要}{0}}
+\headcommand {\slideentry {3}{0}{1}{11/11}{}{0}}
+\headcommand {\beamer@framepages {11}{11}}
+\headcommand {\slideentry {3}{0}{2}{12/12}{}{0}}
+\headcommand {\beamer@framepages {12}{12}}
+\headcommand {\slideentry {3}{0}{3}{13/13}{}{0}}
+\headcommand {\beamer@framepages {13}{13}}
+\headcommand {\beamer@sectionpages {11}{13}}
+\headcommand {\beamer@subsectionpages {11}{13}}
+\headcommand {\sectionentry {4}{\texttt {SSL/TLS}のプロトコル詳細}{14}{\texttt {SSL/TLS}のプロトコル詳細}{0}}
+\headcommand {\slideentry {4}{0}{1}{14/14}{}{0}}
+\headcommand {\beamer@framepages {14}{14}}
+\headcommand {\beamer@subsectionpages {14}{14}}
+\headcommand {\beamer@subsectionentry {0}{4}{1}{15}{\texttt {Record}プロトコル}}
+\headcommand {\slideentry {4}{1}{1}{15/15}{\texttt {Record}プロトコル}{0}}
+\headcommand {\beamer@framepages {15}{15}}
+\headcommand {\slideentry {4}{1}{2}{16/16}{\texttt {Record}プロトコル}{0}}
+\headcommand {\beamer@framepages {16}{16}}
+\headcommand {\slideentry {4}{1}{3}{17/17}{\texttt {Record}プロトコル}{0}}
+\headcommand {\beamer@framepages {17}{17}}
+\headcommand {\beamer@subsectionpages {15}{17}}
+\headcommand {\beamer@subsectionentry {0}{4}{2}{18}{\texttt {Handshake}プロトコル}}
+\headcommand {\slideentry {4}{2}{1}{18/18}{\texttt {Handshake}プロトコル}{0}}
+\headcommand {\beamer@framepages {18}{18}}
+\headcommand {\slideentry {4}{2}{2}{19/19}{\texttt {Handshake}プロトコル}{0}}
+\headcommand {\beamer@framepages {19}{19}}
+\headcommand {\slideentry {4}{2}{3}{20/20}{\texttt {Handshake}プロトコル}{0}}
+\headcommand {\beamer@framepages {20}{20}}
+\headcommand {\slideentry {4}{2}{4}{21/21}{\texttt {Handshake}プロトコル}{0}}
+\headcommand {\beamer@framepages {21}{21}}
+\headcommand {\beamer@sectionpages {14}{21}}
+\headcommand {\beamer@subsectionpages {18}{21}}
+\headcommand {\sectionentry {5}{\texttt {TLS}}{22}{\texttt {TLS}}{0}}
+\headcommand {\slideentry {5}{0}{1}{22/22}{}{0}}
+\headcommand {\beamer@framepages {22}{22}}
+\headcommand {\beamer@subsectionpages {22}{22}}
+\headcommand {\beamer@subsectionentry {0}{5}{1}{23}{\texttt {TLS}$1.3$}}
+\headcommand {\slideentry {5}{1}{1}{23/23}{\texttt {TLS}$1.3$}{0}}
+\headcommand {\beamer@framepages {23}{23}}
+\headcommand {\slideentry {5}{1}{2}{24/24}{\texttt {TLS}$1.3$}{0}}
+\headcommand {\beamer@framepages {24}{24}}
+\headcommand {\beamer@subsectionpages {23}{24}}
+\headcommand {\beamer@subsectionentry {0}{5}{2}{25}{\texttt {DTLS}}}
+\headcommand {\slideentry {5}{2}{1}{25/25}{\texttt {DTLS}}{0}}
+\headcommand {\beamer@framepages {25}{25}}
+\headcommand {\slideentry {5}{2}{2}{26/26}{\texttt {DTLS}}{0}}
+\headcommand {\beamer@framepages {26}{26}}
+\headcommand {\slideentry {5}{2}{3}{27/27}{\texttt {DTLS}}{0}}
+\headcommand {\beamer@framepages {27}{27}}
+\headcommand {\beamer@partpages {1}{27}}
+\headcommand {\beamer@subsectionpages {25}{27}}
+\headcommand {\beamer@sectionpages {22}{27}}
+\headcommand {\beamer@documentpages {27}}
+\headcommand {\gdef \inserttotalframenumber {27}}
